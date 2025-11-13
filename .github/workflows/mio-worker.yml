@@ -1,0 +1,42 @@
+name: MIO Worker
+
+on:
+  schedule:
+    - cron: "*/1 * * * *"   # ogni minuto
+  workflow_dispatch:
+  push:
+    paths:
+      - "tasks/tasks-todo.json"
+      - "vercel/vercel-commands.json"
+
+jobs:
+  mio_worker:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18"
+
+      - name: Install dependencies
+        run: |
+          mkdir -p tools
+          echo "No deps"
+
+      - name: Run MIO Worker
+        run: |
+          node tools/mio-worker.js || echo "Worker error (non-blocking)"
+
+      - name: Commit and push results
+        run: |
+          git config user.name "MIO Worker"
+          git config user.email "actions@github.com"
+          git add -A || true
+          git commit -m "MIO Worker update" || true
+          git push || true
