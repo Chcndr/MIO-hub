@@ -1,0 +1,9 @@
+{
+  "agent": "MIO",
+  "version": "1.0.0",
+  "description": "Config base per MIO: progetti, task, deploy, integrazione MCP.",
+  "projectsRoot": "projects",
+  "tasksRoot": "tasks",
+  "deployRoot": "vercel",
+  "logsRoot": "logs"
+}
