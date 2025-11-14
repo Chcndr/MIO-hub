@@ -1,0 +1,32 @@
+{
+  "name": "dms-gis-grosseto",
+  "repo": "Chcndr/dms-gis-grosseto",
+  "description": "Visualizzatore mappe statico per patrimoni dati GIS del Comune di Grosseto. Basato su Leaflet con interazioni JS personalizzate.",
+  "stack": {
+    "frontend": "HTML + CSS + Leaflet",
+    "backend": "none",
+    "language": "JavaScript",
+    "database": "GeoJSON",
+    "toolchain": ["Leaflet", "vanilla JS"],
+    "deploy": "GitHub Pages"
+  },
+  "paths": {
+    "source": ".",
+    "public": ".",
+    "scripts": ".",
+    "docs": null,
+    "html_root": "."
+  },
+  "deployment": {
+    "platform": "github_pages",
+    "vercel": false,
+    "github_pages": true,
+    "heroku": false
+  },
+  "status": {
+    "active": true,
+    "completed": false,
+    "deprecated": false
+  },
+  "last_updated": "2025-11-14"
+}
