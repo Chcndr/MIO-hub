@@ -1,0 +1,32 @@
+{
+  "name": "dms-gemello-news",
+  "repo": "Chcndr/dms-gemello-news",
+  "description": "Modulo del Gemello Digitale per la gestione di feed news, interfacce utente e componenti dinamici.",
+  "stack": {
+    "frontend": "React (presunto)",
+    "backend": "unknown",
+    "language": "JavaScript",
+    "database": "unknown",
+    "toolchain": ["Node.js"],
+    "deploy": "manuale"
+  },
+  "paths": {
+    "source": "src/",
+    "public": "public/",
+    "scripts": null,
+    "docs": null,
+    "html_root": null
+  },
+  "deployment": {
+    "platform": "unknown",
+    "vercel": false,
+    "github_pages": false,
+    "heroku": false
+  },
+  "status": {
+    "active": true,
+    "completed": false,
+    "deprecated": false
+  },
+  "last_updated": "2025-11-14"
+}
