@@ -1,1 +1,9 @@
-[]
+[
+  {
+    "id": "zapier-test-20251114-143101",
+    "type": "zapier-test",
+    "description": "Test di scrittura da script Python con PAT",
+    "timestamp": "2025-11-14T14:31:01.694134",
+    "status": "pending"
+  }
+]
