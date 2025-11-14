@@ -1,0 +1,32 @@
+{
+  "name": "dms-email-security",
+  "repo": "Chcnwk/dms-email-security",
+  "description": "Sistema per la gestione sicura di email e gateway, include validazione mittenti, log, API di invio e interfccia HTML.",
+  "stack": {
+    "frontend": "HTML statico",
+    "backend": "Python (Flask-like)",
+    "language": "Python + JS",
+    "database": "SQLite",
+    "toolchain": ["Python", "Bash"],
+    "deploy": "Heroku (Procfile), manuale"
+  },
+  "paths": {
+    "source": "src/",
+    "public": ".",
+    "scripts": ".",
+    "docs": null,
+    "html_root": "."
+  },
+  "deployment": {
+    "platform": "heroku",
+    "vercel": false,
+    "github_pages": false,
+    "heroku": true
+  },
+  "status": {
+    "active": true,
+    "completed": false,
+    "deprecated": false
+  },
+  "last_updated": "2025-11-14"
+}
