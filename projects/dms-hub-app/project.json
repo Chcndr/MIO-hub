@@ -1,0 +1,32 @@
+{
+  "name": "dms-hub-app",
+  "repo": "Chcndr/dms-hub-app",
+  "description": "Applicazione hub centrale per orchestrazione dei dati e strumenti DMS. Contiene scripts, sorgenti e moduli di documentazione per logiche GIS e gestione dati.",
+  "stack": {
+    "frontend": "React (presunto da struttura src/)",
+    "backend": "Custom Node.js",
+    "language": "TypeScript",
+    "database": "non definito (presenza di migrations/ suggerisce ORM)",
+    "toolchain": ["Node.js", "TypeScript"],
+    "deploy": "manuale"
+  },
+  "paths": {
+    "source": "src/",
+    "public": "public/",
+    "scripts": "scripts/",
+    "docs": "docs/",
+    "migrations": "migrations/"
+  },
+  "deployment": {
+    "platform": null,
+    "vercel": false,
+    "github_pages": false,
+    "heroku": false
+  },
+  "status": {
+    "active": true,
+    "completed": false,
+    "deprecated": false
+  },
+  "last_updated": "2025-11-14"
+}
