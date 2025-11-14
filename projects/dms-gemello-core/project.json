@@ -1,0 +1,32 @@
+{
+  "name": "dms-gemello-core",
+  "repo": "Chcndr/dms-gemello-core",
+  "description": "Motore principale per il Gemello Digitale, con componenti di parsing, overlay map, GIS editore ei tool di supporto.",
+  "stack": {
+    "frontend": "HTML statico",
+    "backend": "Python (script)",
+    "language": "Python",
+    "database": "File system, raster, vettoriale",
+    "toolchain": ["Python"],
+    "deploy": "manuale, host interni / Docker"
+  },
+  "paths": {
+    "source": "tools/",
+    "public": null,
+    "scripts": "tools/",
+    "docs": null,
+    "html_root": "."
+  },
+  "deployment": {
+    "platform": "internal",
+    "vercel": false,
+    "github_pages": false,
+    "heroku": false
+  },
+  "status": {
+    "active": true,
+    "completed": false,
+    "deprecated": false
+  },
+  "last_updated": "2025-11-14"
+}
