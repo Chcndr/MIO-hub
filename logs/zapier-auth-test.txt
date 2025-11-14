@@ -1,4 +1,0 @@
-Test autenticazione GitHub PAT
-Timestamp: 2025-11-14T14:30:00Z
-Obiettivo: Verificare permessi di lettura/scrittura del PAT su Chcndr/MIO-hub
-Status: File creato con successo
