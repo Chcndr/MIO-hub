@@ -1,0 +1,1 @@
+Scrittura di test per verificare funzionamento MIO Worker.
