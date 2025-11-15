@@ -1,0 +1,8 @@
+{
+  "test": "zione-trigger-zapier",
+  "data": {
+    "message": "Test automatico Zione Zapier - messaggio dalla chat",
+    "origin": "MIO\nClient: Utente, lancia manuale, abacus, zone, chat utente",
+    "code": "001"
+  }
+}
