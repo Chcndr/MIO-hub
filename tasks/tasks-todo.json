@@ -1,11 +1,3 @@
 {
-  "pending": [
-    {
-      "id": "test-automatica-worker-001",
-      "title": "Test esegusione automatica MiO worker",
-      "description": "Iniziare un task reale ecove da macchina. Renamed in tasks-todo.json a processamento.",
-      "project": "demoprojet",
-      "status": "new",
-      "date": "2025-11-15T23:00:00Z"}
-  ]
+  "pending": []
 }

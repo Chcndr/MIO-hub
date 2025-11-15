@@ -1,3 +1,13 @@
 {
-  "done": []
+  "done": [
+    {
+      "id": "test-automatica-worker-001",
+      "title": "Test esegusione automatica MiO worker",
+      "description": "Iniziare un task reale ecove da macchina. Renamed in tasks-todo.json a processamento.",
+      "project": "demoprojet",
+      "status": "completed",
+      "date": "2025-11-15T23:00:00Z",
+      "completed_at": "2025-11-15T18:07:05.752Z"
+    }
+  ]
 }
