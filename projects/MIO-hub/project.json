@@ -1,0 +1,32 @@
+{
+  "name": "MIO-hub",
+  "repo": "Chcndr/MIO-hub",
+  "description": "Repository centrale di orchestrazione per tutti progetti MIO/DMS. Contiene configurazioni, automazioni, task manager, worker, log, strumenti e project metadata.",
+  "stack": {
+    "frontend": "none",
+    "backend": "Node.js (worker)",
+    "language": "JS/TS + JSON",
+    "database": "file system",
+    "toolchain": ["GitHub Actions", "Zapier", "Node.js"],
+    "deploy": "nonesso diretto"
+  },
+  "paths": {
+    "source": "tools/",
+    "public": null,
+    "scripts": "tools/",
+    "docs": null,
+    "html_root": null
+  },
+  "deployment": {
+    "platform": "internal",
+    "vercel": false,
+    "github_pages": false,
+    "heroku": false
+  },
+  "status": {
+    "active": true,
+    "completed": false,
+    "deprecated": false
+  },
+  "last_updated": "2025-11-14"
+}
