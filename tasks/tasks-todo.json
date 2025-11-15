@@ -1,3 +1,12 @@
 {
-  "pending": []
+  "pending": [
+    {
+      "type": "log",
+      "title": "Test di scrittura",
+      "description": "Scrivi un file log per verificare il corretto funzionamento del worker.",
+      "path": "logs/worker-test-log.txt",
+      "content": "😈A Worker MIO attivo e funzionante.",
+      "commit_message": "test: verifica operatività MIO Worker"
+    }
+  ]
 }
