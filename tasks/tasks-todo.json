@@ -8,5 +8,6 @@
       "file": "logs/mio-worker-log.txt",
       "payload": "Test automatico dal worker eseguito con flag --once",
       "status": "pending"
-    ]
+    }
+  ]
 }
