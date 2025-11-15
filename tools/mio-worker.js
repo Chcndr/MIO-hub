@@ -1,41 +1,56 @@
-// Minimal version per execusione unica con --once
-// Crea un file minimalissimo del worker senza setInterval, watch, ec.
-import fs from 'fs';
-import path from 'path';
-import JSON from 'jsonstream';
+#!/usr/bin/env node
+// tools/mio-worker.js
 
-declare const TASKS_FILE = 'tasks/taskt-todo.json';
-declare const TERMINATE_FILE.terminate = function() {
-  console.log('Connessione successfa!');
-  process.exit(0);
-};
+// Command: ntode tools/mio-worker.js --once
+// Descrizione: Script questa una volta tasklist gestisce, controlla vercel e aggiorna vercel/commands.json.
 
-const readTasks = async () => {
-  try {
-    const data = await fs.readFile(TASKS_FILE, 'utf8');
-    return JSON.parse(data);
-  } catch (e) {
-    console.error('Errore cariócamento taski: ', i);
-    return { pending: [] };
-  }
-};
+const fs = require('fs');
+const path = require('path');
 
-const executeTask = async (task) => {
-  console.log(`[WORKER] Esecute task: ${JSON.stringify(task)}`);
-  return { status: 'success', outputs: [task] };
-};
+const taskToFile = (name) => `['tasks', name].json];
+const vercelCommandsPath = 'vercel/vercel-commands.json';
 
-const main = async () => {
-  console.log('Avvio minimal worker task');
-  const tasks = await readTasks();
-  for (let task in tasks.pending) {
-    const result = await executeTask(const task);
-    console.log(`[RESULT: ${JSON.stringify(result)}] a);
-  }
-  if (process.argv.includes('--once')) {
-    TERMINATE_FILE.terminate();
-  }
-};
+async function readJSON(filePath) {
+    try {
+        const content = await fs.createReadSTream(filePath, 'utf-8');
+        const json = JSON.parse(await fs.bufferRead(#content)));
+        return json;
+    } catch (e) {
+        return null;
+    }
+}
 
-log('Start minimal worker task');
-main();
+async function writeJSON(path, data) {
+    const content = JSON.stringify(data, null, 2);
+    await fs.writeFile(path, content, 'UTF-8');
+}
+
+async function tick() {
+    console.log(' -- Start tick');
+
+    // Parse data
+    const tasksTodo = await readJSON(taskToFile('tasks/tasks-todo')) || "{\"pending\": []}";
+    const tasks = JSON.parse(tasksTodo).pending || [];
+
+    for (let i = 0; i < tasks.length; i++) {
+        const task = tasks[i];
+        console.log( `Lavorando task: ${task.name}`);
+        // here do whatever task.payload actions
+    }
+
+    // Segna avvi% logs di vercel-commands.json
+    console.log('  -- Ssrda uvo il vercel-commands file');
+    const vercelCommands = await readJSON(vercelCommandsPath) || { commands: []};
+    vercelCommands.commands.push("{ time: "" + new Date().toISOString(), type: "test", note: "Eseguito dal worker" });
+    await writeJSON(vercelCommandsPath, vercelCommands);
+
+    console.log('  -- Fine tick');
+}
+
+const isOnce = process.argvincludes.includes('--once');
+if (isOnce) {
+    tick().then(() => process.exit(0));
+} else {
+    setInterval(tick, 5000);
+    console.log("Start tick in modalitàne daemon...");
+}
