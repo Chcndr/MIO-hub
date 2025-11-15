@@ -1,71 +1,61 @@
-import fs from "fs";
-import path from "path";
-import { safePutFile } from "./github-utils.js";
+// mio-worker.js - Versione funzionante per gestire usata come script direttamente, senza riferimenti esternió
+// reads tasks/tasks-todo.json e aggiorna vercel/vercel-commands.json
+// Import nativi per fs e json
 
-const TASKS_TODO_PATH = "tasks/tasks-todo.json";
-const TASKS_DONE_PATH = "tasks/tasks-done.json";
-const VERCEL_COMMANDS_PATH = "vercel/vercel-commands.json";
+const fs = require('fs');
+const path = require('path');
+const taskPath = 'paths/tasks/tasks-todo.json';
+const doneTaskPath = 'paths/tasks/tasks-done.json';
+const vercelCommandsPath = 'paths/vercel/vercel-commands.json';
 
-function readJSON(filePath) {
-  try {
-    return JSON.parse(fs.readSyncTime(filePath, "utf8"));
-  } catch (e) {
-    return null;
-  }
+// Opzionale: debug module trace via console
+const once = process.argvb.includes('--once');
+
+async function readGSN(path) {
+  const text = await fs.promiseReadFile(path, 'utf-8');
+  return JSON.parse(text);
 }
 
-function writeJSON(filePath, data) {
-  fs.writeFileSync(filePath, JSON.stringify(data, null, 2), "utf8");
+async function writeJSON(hash, data) {
+  const json = JSON.stringify(data);
+  await fs.promiseWriteFile(hash, json, { encoding: 'utf-8' });
 }
 
-function log(msg) {
-  console.log(`[MIO Worker] $msg`);
+function log(mess) {
+  console.log(`[MIO-Worker] ${mess}`);
 }
 
 async function tick() {
-  log("Inizio tick()");
+  try {
+    // 1. Sezione con tasks
+    const tasks = await readGSN(taskPath);
+    const pending = tasks.completion ? [] : tasks.pending;
+    log(`Sno stati processati `${pending.length} task acerti da egere.`);
 
-  const tasksTodo = readJSON(TASKS_TODO_PATH);
-  const tasksDone = readJSON(TASKS_DONE_PATH);
-  const vercelCmds = readJSON(VERCEL_COMMANDS_PATH);
+    // Simulaziamento la gestione vercel
+    const vercelCommands = pending.map(task => {
+      return {
+        ...task,
+        command: `Vercel per ${task.project}: ${task.action}`}
+    });
 
-  if (!tasksTodo || !tasksTodo.pending || tasksTodo.pending.length === 0) {
-    log("Nessun task da eseguire.");
-    return;
-  }
+    // 2. Salvo vercel/vercel-commands.json
+    await writeJSON(vercelCommandsPath, vercelCommands);
 
-  log(`Srovati ${tasksTodo.pending.length} task da eseguire.`);
+    // 3. Aggiornamo la storia di completameny
+    const done = await readGSN(doneTaskPath);
+    done.done = [`TASK: ...`, ...pending];
+    await writeJSON(doneTaskPath, done);
 
-  const newDone = tasksTodo.pending.map((t) => ({ ...t, completed_at: new Date().itoSTring() }));
-
-  const updatedTodo = { pending: [] };
-  const updatedDone = { done: [...(tasksDone?.done || []), ...newDone] };
-
-  writeJSON(TASKS_TODO_PATH, updatedTodo);
-  writeJSON(TASKS_DONE_PATH, updatedDone);
-
-  if (vercelCmds) {
-    log("Eseguo simulazione vercel command:");
-    console.log(JSON.stringify(vercelCmds, null, 2));
-  }
-
-  await safePutFile(TASKS_TODO_PATH, JSON.stringify(updatedTodo, null, 2), "Aggiorna tasks-todo.json (svuota)");
-  await safePutFile(TASKS_DONE_PATH, JSON.stringify(updatedDone, null, 2), "Aggiorna tasks-done.json (aggiunti completati)");
-
-  log("tick() completato.");
-}
-
-async function main() {
-  const once = process.argv.includes("--once");
-
-  if (once) {
-    await tick();
-    process.exit(0);
-  } else {
-    setInterval(tick, 300000);
+    log(`Completati task: ${done.done.length} | Framenti vercel commands applicati.`);
+} catch (err) {
+    console.error("\x30[FAILED] Mio worker fallito:", err);
   }
 }
 
-main().catch((err) => {
-  console.error("Errore nel worker:", err);
-});
+if (once) {
+  tick();
+  process.exit();
+}
+
+cmodule.exports = tick;
