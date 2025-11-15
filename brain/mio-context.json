@@ -1,0 +1,19 @@
+{
+  "last_updated": "2025-11-15T12:50:32Z",
+  "modules_attivi": [
+    "GitHub Ultra",
+    "Task Engine",
+    "MIO Worker",
+    "Vercel Commands System",
+    "MIO-OS Vision",
+    "Manus / Abolus Interface"
+  ],
+  "agents_connessi": {
+    "Abacus": true,
+    "Manus": true
+  },
+  "workflows": {
+    "mio-worker.yml": "attivo",
+    "test_last_run": "2025-11-15T12:50:32Z"
+  }
+}
