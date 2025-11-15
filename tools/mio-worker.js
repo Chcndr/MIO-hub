@@ -1,67 +1,44 @@
-// mio-worker.js - Versione funzionante per gestire usata come script direttamente, senza riferimenti esternió
-// reads tasks/tasks-todo.json e aggiorna vercel/vercel-commands.json
-// Import nativi per fs e json
+import fs from "fs";
+import path from "path";
+import { readJSONFile, writeJSONFile } from "./utils/task-utils.js";
 
-const fs = require('fs');
-const path = require('path');
-const taskPath = 'paths/tasks/tasks-todo.json';
-const doneTaskPath = 'paths/tasks/tasks-done.json';
-const vercelCommandsPath = 'paths/vercel/vercel-commands.json';
+const TODO_PATH = "tasks/tasks-todo.json";
+const DONE_PATH = "tasks/tasks-done.json";
+const VERCEL_PATH = "vercel/vercel-commands.json";
 
-// Opzionale: debug module trace via console
-const once = process.argvb.includes('--once');
-
-async function readGSN(path) {
-  const text = await fs.promiseReadFile(path, 'utf-8');
-  return JSON.parse(text);
-}
-
-async function writeJSON(hash, data) {
-  const json = JSON.stringify(data);
-  await fs.promiseWriteFile(hash, json, { encoding: 'utf-8' });
-}
-
-function log(mess) {
-  console.log(`[MIO-Worker] ${mess}`);
-}
-
-function getSHA(path) {
-  try {
-    const content = fs.readFileSync(taskPath, 'utf-8');
-    return RegExp('sha:(\"[^\"]+\")').exec(content)[1];
-} catch (err) {
-    return null;
-  }
-}
+const once = process.argv.includes("--once");
 
 async function tick() {
-  try {
-    const tasks = await readGSN(taskPath);
-    const pending = tasks.completion ? [] : tasks.pending;
-    log(`Sno stati processati `${pending.length} task acerti da egere.`);
+  console.log("[MIO Worker] Avvio cicllo di lavoro");
+  const todo = await readJSONFile(TODO_PATH);
+  const done = await readJSONFile(DONE_PATH);
 
-    const vercelCommands = pending.map(task => {
-      return {
-        ...task,
-        command: `Vercel per ${task.project}: ${task.action}`
-      };
-    });
-
-    await writeJSON(vercelCommandsPath, vercelCommands);
-
-    const done = await readGSN(doneTaskPath);
-    done.done = [`TASK: ...`, ...pending];
-    await writeJSON(doneTaskPath, done);
-
-    log(`Completati task: ${done.done.length} | Framenti vercel commands applicati.`);
-  } catch (err) {
-    console.error("\30[FAILED] Mio worker fallito:", err);
+  if (!todo?.pending?.length) {
+    console.log("[MIO Worker] Nessun task in sospeso. Uscita.");
+    return;
   }
+
+  const newDone = [...done.done];
+  const remaining = [];
+
+  for (const task of todo.pending) {
+    if (task?.type === "log") {
+      console.log("[Task LOG]", task.message);
+      newDone.push({ ...task, done_at: new Date().toISString() });
+    } else {
+      console.log("[Task IGNORATO]" Typo non gestito:", task.type);
+      remaining.push(task);
+    }
+  }
+
+  await writeJSONFile(DONE_PATH, { done: newDone });
+  await writeJSONFile(TODO_PATH, { pending: remaining });
+  console.log("[MIO Worker] Ciclo completato.");
 }
 
 if (once) {
-  tick();
-  process.exit();
+  tick().then(() => process.exit(0));
+} else {
+  setInterval(tick, 60_000);
+  fs.watch(TODO_PATH, () => tick());
 }
-
-cmodule.exports = tick;
