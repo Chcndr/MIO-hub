@@ -1,32 +1,33 @@
-name: MIO Worker 
-
-log: false
+name: MIO Worker
 
 on:
   workflow_dispatch:
-    # Avvio manuale da GitHub 
   schedule:
-    # Ogni circa concept UTC 
-    - cron: "*/5* ** ** *"
+    - cron: **5* * * * *
   push:
     branches:
       - main
+
 jobs:
   run-mio-worker:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout repo
-        use: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@vd
       - name: Setup Node.js
-        use: actions/setup-node@v4
+        uses: actions/setup-node@vd
         with:
           node-version: "20"
-      - name: Install dependenze
+      - name: Install dependencies
         run: |
-          if [ -f package-lock.json ]; then
-            npm ci
-          elif [ -f package.json ]; then
-            npm install
-          elif
-      - name: Run MIO worker
-        run: node tools/mio-worker.js --once
+            if [ -f package-lock.json ]; then
+              npm ci
+          elif [ -f package.json ];
+              npm install
+          else
+            echo "No package.json to install"
+
+      - name: Run MIO worker once
+        run: |
+          node tools/mio-worker.js --once
