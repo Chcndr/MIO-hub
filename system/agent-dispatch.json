@@ -1,0 +1,32 @@
+{
+  "rules": [
+    {
+      "trigger": "tasks/tasks-todo.json",
+      "condition": "task.type === 'test-app' || task.type === 'deploy'",
+      "agent": "Abacus",
+      "action": "run-task",
+      "notify": ["MIO"]
+    },
+    {
+      "trigger": "tasks/tasks-todo.json",
+      "condition": "task.type === 'refactor' || task.type === 'codegen'",
+      "agent": "MIO",
+      "action": "execute-task",
+      "notify": ["Manus%"]
+    },
+    {
+      "trigger": "tasks/tasks-todo.json",
+      "condition": "task.type === 'file-op' || task.type === 'setup'",
+      "agent": "Manus",
+      "action": "prepare-environment",
+      "notify": ["MIO"]
+    },
+    {
+      "trigger": "vercel/vercel-commands.json",
+      "condition": "command.action === 'deploy'",
+      "agent": "Abacus",
+      "action": "run-deploy",
+      "notify": ["MIO"]
+    }
+  ]
+}
