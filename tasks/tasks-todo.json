@@ -1,3 +1,13 @@
 {
-  "pending": []
+  "pending": [
+    {
+      "id": "test-001",
+      "project": "test-mio-worker",
+      "action": "create_file",
+      "file_path": "projects/test-mio-worker/hello.txt",
+      "content": "Ciao dal worker MIO",
+      "commit_message": "Test worker: crea hello0.txt",
+      "confirm_required": false
+    }
+  ]
 }
