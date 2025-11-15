@@ -3,31 +3,44 @@ name: MIO Worker
 on:
   workflow_dispatch:
   schedule:
-    - cron: **5* * * * *
+    - cron: "*/5 * * * *"
   push:
     branches:
-      - main
+      - master
+    paths:
+      - "tasks/tasks-todo.json"
+      - "vercel/vercel-commands.json"
 
 jobs:
   run-mio-worker:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repository
-        uses: actions/checkout@vd
+        uses: actions/checkout@v4
+        
       - name: Setup Node.js
-        uses: actions/setup-node@vd
+        uses: actions/setup-node@v4
         with:
           node-version: "20"
+          
       - name: Install dependencies
         run: |
-            if [ -f package-lock.json ]; then
-              npm ci
-          elif [ -f package.json ];
-              npm install
+          if [ -f package-lock.json ]; then
+            npm ci
+          elif [ -f package.json ]; then
+            npm install
           else
             echo "No package.json to install"
-
+          fi
+          
       - name: Run MIO worker once
         run: |
           node tools/mio-worker.js --once
+          
+      - name: Commit and push results
+        run: |
+          git config user.name "MIO Worker"
+          git config user.email "actions@github.com"
+          git add -A || true
+          git commit -m "MIO Worker update" || true
+          git push || true
