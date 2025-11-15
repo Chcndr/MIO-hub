@@ -1,3 +1,16 @@
 {
-  "todo": []
+  "todo": [
+    {
+      "type": "generate",
+      "target": "projects/mappa-dms/scheda.json",
+      "from": "projects/mappa-dms/",
+      "template": "default-project-scheda",
+      "meta": {
+        "titolo": "Strategia DMS",
+        "descrizione": "Nodo centrale per il riliancio digitale e urbano dei mercati italiani",
+        "categoria": "Gemello Digitale",
+        "priorità": "Alta"
+      }
+    }
+  ]
 }
