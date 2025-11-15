@@ -1,0 +1,32 @@
+{
+  "name": "dms-sicurezza-mail-test",
+  "repo": "Chcndr/dms-sicurezza-mail-test",
+  "description": "Prototipo statico HTML per la validazione visiva e la presentazione di meccanismi di sichurezza delle email (SPF, DE,`DKIM\, DMARC).",
+  "stack": {
+    "frontend": "static HTML",
+    "backend": "none",
+    "language": "HTML",
+    "database": "none",
+    "toolchain": ["manual"],
+    "deploy": "GitHub Pages"
+  },
+  "paths": {
+    "source": ".",
+    "public": ".",
+    "scripts": null,
+    "docs": "docs/",
+    "html_root": "."
+  },
+  "deployment": {
+    "platform": "github_pages",
+    "vercel": false,
+    "github_pages": true,
+    "heroku": false
+  },
+  "status": {
+    "active": true,
+    "completed": false,
+    "deprecated": false
+  },
+  "last_updated": "2025-11-14"
+}
