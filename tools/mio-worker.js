@@ -25,31 +25,37 @@ function log(mess) {
   console.log(`[MIO-Worker] ${mess}`);
 }
 
+function getSHA(path) {
+  try {
+    const content = fs.readFileSync(taskPath, 'utf-8');
+    return RegExp('sha:(\"[^\"]+\")').exec(content)[1];
+} catch (err) {
+    return null;
+  }
+}
+
 async function tick() {
   try {
-    // 1. Sezione con tasks
     const tasks = await readGSN(taskPath);
     const pending = tasks.completion ? [] : tasks.pending;
     log(`Sno stati processati `${pending.length} task acerti da egere.`);
 
-    // Simulaziamento la gestione vercel
     const vercelCommands = pending.map(task => {
       return {
         ...task,
-        command: `Vercel per ${task.project}: ${task.action}`}
+        command: `Vercel per ${task.project}: ${task.action}`
+      };
     });
 
-    // 2. Salvo vercel/vercel-commands.json
     await writeJSON(vercelCommandsPath, vercelCommands);
 
-    // 3. Aggiornamo la storia di completameny
     const done = await readGSN(doneTaskPath);
     done.done = [`TASK: ...`, ...pending];
     await writeJSON(doneTaskPath, done);
 
     log(`Completati task: ${done.done.length} | Framenti vercel commands applicati.`);
-} catch (err) {
-    console.error("\x30[FAILED] Mio worker fallito:", err);
+  } catch (err) {
+    console.error("\30[FAILED] Mio worker fallito:", err);
   }
 }
 
