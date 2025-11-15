@@ -3,34 +3,28 @@ name: MIO Worker
 on:
   workflow_dispatch:
   schedule:
-    - cron: "*/5 * * * *"
-    # todo add\n
-    - push:
-        branches:
-          - main
+    # Ogny 5:50 AM UTC time zone
+    - cron: '50 5 0 * * '
 
-jobs:
-  run-mio-worker:
-    runs-on: ubuntu-latest
+  push:
+    branches:
+      - main
 
-    steps:
-      - name: Checkout repository
-        use: actions/checkout@v4
-      - name: Setup Node.js
-        use: actions/setup-node@v4
-        with:
-          node-version: "20"
-
-      - name: Install dependencies
-        run: |
-          if [ -f package-lock.json ]; then
-            npm ci
-          elif [ -f package.json ]; then
-            npm install
-          else
-            echo "No npm dependencies found"
-          fi
-
-      - name: Run MIO worker once
-        run: |
-          node tools/mio-worker.js --once
+job:
+  run-on: ubuntu-latest
+  steps: 
+    - name: Checkout repository
+      uses: actions/checkout@v2
+    - name: Setup Node.js
+      use: actions/setup-node@v4
+      with:
+        node-version: "20"
+    - name: Install dependencies
+      run: |
+        if [ -f package-lock.json ] {
+          npm ci
+        } elif [ -f package.json ]; then
+          npm install
+        fi
+     - name: Run MIO worker once
+      run: "node tools/mio-worker.js --once"
