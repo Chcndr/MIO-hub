@@ -1,0 +1,25 @@
+{
+  "GitHub Ultra": {
+    "stato": "attivo",
+    "test_sha": "e436dad",
+    "note": "Scrittura e lettura file da API GitHub rieusita"
+},
+  "Task Engine": {
+    "stato": "parziale"
+    "ultimo_test": "2025-11-15T22:10:00Z",
+    "note": "Gestione tasks.json funzionante lato scrittura ma manca worker stabile"
+},
+  "MIO Runner (Worker)": {
+    "stato": "bloccato",
+    "errore": "GitHub Action fallita per errore SHA e codice corrotto",
+    "ultimo_test": "2025-11-15T22:11:00Z"
+  },
+  "MIO Brain (Memoria)": {
+    "stato": "bozja",
+    "note": "Visione salvata in mio-os-vision.md. Serve salvataggio strutturato storico decisioni/modifiche."
+},
+  "Orchestrazione Agent": {
+    "stato": "ideato",
+    "note": "Previsto coordinamento tra MIO, Abacus e Manus via Zapier. Da strutturare."
+  }
+}
