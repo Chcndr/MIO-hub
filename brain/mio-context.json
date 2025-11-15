@@ -1,19 +1,18 @@
 {
-  "last_updated": "2025-11-15T12:50:32Z",
-  "modules_attivi": [
-    "GitHub Ultra",
-    "Task Engine",
-    "MIO Worker",
-    "Vercel Commands System",
-    "MIO-OS Vision",
-    "Manus / Abolus Interface"
-  ],
-  "agents_connessi": {
-    "Abacus": true,
-    "Manus": true
+  "last_updated": "2025-11-15T22:45:00Z",
+  "autoupdate": true,
+  "modules": {
+    "github_ultra_base": "active",
+    "github_ultra_advanced": "partial",
+    "task_engine": "enabled",
+    "mio_runner": "partially_active",
+    "vercel_deploy": "planned",
+    "mio_brain": "active",
+    "mio_dashboard": "planned",
+    "autopilot": "inactive"
   },
-  "workflows": {
-    "mio-worker.yml": "attivo",
-    "test_last_run": "2025-11-15T12:50:32Z"
-  }
+  "agents": ["MIO", "ABACUS", "MANUS"],
+  "last_task_run": "test-cycle-complete",
+  "worker_status": "running",
+  "error_log": []
 }
