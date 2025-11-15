@@ -1,5 +1,3 @@
 {
-  "pending": [{"project": "dms-gemello
-                   -news", "action": "build"}],
-  "executed": [{"project": "dms-hub-app", "action": "deploy"}]
+  "commands": []
 }

@@ -1,1 +1,3 @@
-[{"title": "Test automatico su tasks-done.json", "description": "Completamento del test sulla file del worker", "date": "2025-11-15T22:00:00Z"}, {"title": "Seconda prova da scriveri", "description": "Mini-task di conferma per test in tasks-done.json", "date": "2025-11-15T22:50:50Z"}]
+{
+  "done": []
+}

@@ -1,8 +1,3 @@
 {
-  "pending": [
-    {
-      "type": "log",
-      "message": "Esempio di test: minicio tasking eseguito da MIO Worker."
-    }
-  ]
+  "pending": []
 }

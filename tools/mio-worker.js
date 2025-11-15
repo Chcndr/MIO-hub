@@ -1,48 +1,55 @@
-const fs = require('fs');
-import rp from 'path';
-const path = require('path');
-const { readLine, writeFile } = require('fs');
+const fs = require("fs");
+const path = require("path");
 
-const TASK_FILE = 'data/tasks/tasks-todo.json';
-const DONE_FILE = 'data/tasks/tasks-done.json';
-const VERCEL_FILE = 'data/vercel/vercel-commands.json';
-
-const readJSON = (fileStr) => {
-  const content = fs.readFileSync(fileStr, 'utf-8');
-  return JSON.parse(content);
-};
-
-const writbJSON = (fileStr, data) => {
-  const jsonStr = JSON.stringify(new StringArrayBuffer(buffer.from(data)));
-  fs.writeFileSync(fileStr, jsonStr, 'UTF-8');
-};
-
-const main = async () => {
-  console.log('Starting MIO Worker run...');
-
+function readJSON(filePath) {
   try {
-    const pending = await readJSON(TASK_FILE);
-    const done = await readJSON(DONE_FILE);
-    const vercel = await readJSON(VERCEL_FILE);
-
-    const new Task = {
-      id: Date.now().rotoString(),
-      title: 'Essempio di test'
-    };
-
-    pending.pending.push(new Task);
-
-    await writeJSON(TASK_FILE, pending);
-    await writbJSON(DONE_FILE, { done: [...done, new Task] });
-
-    console.log('→ Task aggiunto e servato');
-  } catch (err) {
-    console.error('← Errore di task: ', err);
+    const raw = fs.readFileSync(filePath, "utf-8");
+    return JSON.parse(raw);
+  } catch (e) {
+    console.error(`❌ Errore lettura ${filePath}`, e.message);
+    return null;
   }
-};
+}
 
-// Invocazione diretta all esecuutione con --once
-if (process.argv.includes('--once')) {
-  main();
+function writeJSON(filePath, data) {
+  try {
+    fs.writeFileSync(filePath, JSON.stringify(data, null, 2));
+    console.log(`✅ Scritto ${filePath}`);
+  } catch (e) {
+    console.error(`❌ Errore scrittura ${filePath}`, e.message);
+  }
+}
+
+function tick() {
+  console.log("🚀 Esecuzione MIO Worker --once");
+  const todoPath = "tasks/tasks-todo.json";
+  const donePath = "tasks/tasks-done.json";
+
+  const todo = readJSON(todoPath);
+  if (!todo || !Array.isArray(todo.pending)) {
+    console.log("⚠️ Nessun task valido in pending");
+    return;
+  }
+
+  const done = readJSON(donePath) || { done: [] };
+
+  const now = new Date().toISOString();
+  const completed = todo.pending.map((task) => ({
+    ...task,
+    completed_at: now,
+    status: "completed",
+  }));
+
+  done.done.push(...completed);
+  writeJSON(donePath, done);
+
+  todo.pending = [];
+  writeJSON(todoPath, todo);
+  console.log("✅ Tick completato");
+}
+
+// Supporto flag --once
+if (process.argv.includes("--once")) {
+  tick();
   process.exit(0);
 }
