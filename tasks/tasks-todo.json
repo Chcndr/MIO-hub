@@ -10,6 +10,13 @@
 
 Sistema operativo modulare avviato correttamente con orchestrazione automatica.
 "
+    },
+    {
+      "id": "build-project-index",
+      "description": "Genera il file projects/index.json elencando tutti project.json esistenti nei projetti.",
+      "project": "MIO-hub",
+      "action": "build_index",
+      "target": "projects/index.json"
     }
   ]
 }
