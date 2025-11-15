@@ -1,13 +1,21 @@
 {
   "pending": [
     {
-      "id": "test-001",
-      "project": "test-mio-worker",
-      "action": "create_file",
-      "file_path": "projects/test-mio-worker/hello.txt",
-      "content": "Ciao dal worker MIO",
-      "commit_message": "Test worker: crea hello0.txt",
-      "confirm_required": false
+      "id": "task-000-test",
+      "project": "mio-hub",
+      "title": "Test ciclo completo task – worker – log ⌐イ゠⌓",
+      "description": "Testa la pipeline dalla scrittura al completamento automatico di un task dummy.",
+      "type": "test",
+      "priority": "bassa",
+      "assigned_to": "MIO",
+      "status": "pending",
+      "input": {
+        "message": "Questo è un test."
+      },
+      "output": null,
+      "logs": [],
+      "created_at": "2025-11-15T21:10-00Z",
+      "updated_at": "2025-11-15T21:10-00Z"
     }
   ]
 }
