@@ -1,0 +1,32 @@
+{
+  "name": "dms-site",
+  "repo": "Chcndr/dms-site",
+  "description": "Sito statico vetrina per il sistema DMS. Contiene pagine HTML, contenuti contenti di, asset visivi e struttura multipagina.",
+  "stack": {
+    "frontend": "static HTML",
+    "backend": "none",
+    "language": "HTML + JS",
+    "database": "none",
+    "toolchain": ["manual"],
+    "deploy": "GitHub Pages"
+  },
+  "paths": {
+    "source": ".",
+    "public": ".",
+    "scripts": "js/",
+    "docs": "docs/",
+    "html_root": "."
+  },
+  "deployment": {
+    "platform": "github_pages",
+    "vercel": false,
+    "github_pages": true,
+    "heroku": false
+  },
+  "status": {
+    "active": true,
+    "completed": false,
+    "deprecated": false
+  },
+  "last_updated": "2025-11-14"
+}
