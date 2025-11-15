@@ -1,3 +1,13 @@
 {
-  "pending": []
+  "pending": [
+    {
+      "id": "test-write-001",
+      "project": "dms-hub-app",
+      "type": "log",
+      "title": "Scrittura file log di test da MIO",
+      "command": "write-log",
+      "status": "pending",
+      "created_at": "2025-11-15T22:00:00Z"
+    }
+  ]
 }
