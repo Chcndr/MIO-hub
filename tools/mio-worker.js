@@ -1,56 +1,277 @@
-#!/usr/bin/env node
-// tools/mio-worker.js
+import fs from 'fs';
+import fsp from 'fs/promises';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
-// Command: ntode tools/mio-worker.js --once
-// Descrizione: Script questa una volta tasklist gestisce, controlla vercel e aggiorna vercel/commands.json.
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
-const fs = require('fs');
-const path = require('path');
+// Config
+const REPO_ROOT = path.resolve(__dirname, '..'); // adatta se necessario
+const TASKS_DIR = path.join(REPO_ROOT, 'tasks');
+const TASKS_TODO = path.join(TASKS_DIR, 'tasks-todo.json');
+const TASKS_DONE = path.join(TASKS_DIR, 'tasks-done.json');
+const VERCEL_DIR = path.join(REPO_ROOT, 'vercel');
+const VERCEL_CMDS = path.join(VERCEL_DIR, 'vercel-commands.json');
+const LOGS_DIR = path.join(REPO_ROOT, 'logs');
 
-const taskToFile = (name) => `['tasks', name].json];
-const vercelCommandsPath = 'vercel/vercel-commands.json';
+const POLL_MS = Number(process.env.MIO_POLL_MS || 3000);
+let isRunning = false;
 
-async function readJSON(filePath) {
-    try {
-        const content = await fs.createReadSTream(filePath, 'utf-8');
-        const json = JSON.parse(await fs.bufferRead(#content)));
-        return json;
-    } catch (e) {
-        return null;
-    }
+function nowISO() {
+  return new Date().toISOString();
 }
 
-async function writeJSON(path, data) {
-    const content = JSON.stringify(data, null, 2);
-    await fs.writeFile(path, content, 'UTF-8');
+async function ensureFileJSON(fp, defaultValue) {
+  try {
+    await fsp.access(fp, fs.constants.F_OK);
+  } catch {
+    await fsp.mkdir(path.dirname(fp), { recursive: true });
+    await fsp.writeFile(fp, JSON.stringify(defaultValue, null, 2));
+  }
+}
+
+async function readJSON(fp, fallback = null) {
+  try {
+    const data = await fsp.readFile(fp, 'utf-8');
+    return JSON.parse(data);
+  } catch (e) {
+    console.warn(`[WARN] Impossibile leggere ${fp}:`, e.message);
+    return fallback;
+  }
+}
+
+async function writeJSON(fp, obj) {
+  const tmp = fp + '.tmp';
+  await fsp.mkdir(path.dirname(fp), { recursive: true });
+  await fsp.writeFile(tmp, JSON.stringify(obj, null, 2));
+  await fsp.rename(tmp, fp);
+}
+
+const taskHandlers = {
+  async build(task) {
+    const outDir = path.join(REPO_ROOT, 'build-outputs');
+    await fsp.mkdir(outDir, { recursive: true });
+    const outFile = path.join(outDir, `build-${task.id || Date.now()}.txt`);
+    await fsp.writeFile(outFile, `Build eseguita alle ${nowISO()}\nPayload:\n${JSON.stringify(task, null, 2)}\n`);
+    return { status: 'success', outputs: [outFile] };
+  },
+
+  async media(task) {
+    const mediaDir = path.join(REPO_ROOT, 'media-outputs');
+    await fsp.mkdir(mediaDir, { recursive: true });
+    const outFile = path.join(mediaDir, `media-${task.id || Date.now()}.txt`);
+    await fsp.writeFile(outFile, `Media job completato: ${nowISO()}\n${JSON.stringify(task, null, 2)}\n`);
+    return { status: 'success', outputs: [outFile] };
+  },
+
+  async optimize(task) {
+    const outDir = path.join(REPO_ROOT, 'opt-outputs');
+    await fsp.mkdir(outDir, { recursive: true });
+    const outFile = path.join(outDir, `opt-${task.id || Date.now()}.txt`);
+    await fsp.writeFile(outFile, `Ottimizzazione completata: ${nowISO()}\n${JSON.stringify(task, null, 2)}\n`);
+    return { status: 'success', outputs: [outFile] };
+  },
+
+  async codegen(task) {
+    const genDir = path.join(REPO_ROOT, 'generated');
+    await fsp.mkdir(genDir, { recursive: true });
+    const filename = task.outputFile || `code-${task.id || Date.now()}.txt`;
+    const content = task.content || '// TODO: contenuto generato';
+    const outFile = path.join(genDir, filename);
+    await fsp.writeFile(outFile, content);
+    return { status: 'success', outputs: [outFile] };
+  },
+
+  async log(task) {
+    await fsp.mkdir(LOGS_DIR, { recursive: true });
+    const logFile = path.join(LOGS_DIR, task.file || 'mio-worker-log.txt');
+    const content = `[${nowISO()}] ${task.payload || 'Log entry'}\n`;
+    
+    if (task.action === 'append') {
+      await fsp.appendFile(logFile, content);
+    } else {
+      await fsp.writeFile(logFile, content);
+    }
+    
+    return { status: 'success', outputs: [logFile] };
+  },
+};
+
+const vercelCommandHandlers = {
+  async 'vercel:build'(cmd) {
+    const outDir = path.join(REPO_ROOT, 'vercel', 'logs');
+    await fsp.mkdir(outDir, { recursive: true });
+    const log = path.join(outDir, `build-${cmd.id || Date.now()}.log`);
+    await fsp.writeFile(log, `Vercel build simulata ${nowISO()}\n${JSON.stringify(cmd, null, 2)}\n`);
+    return { status: 'success', outputs: [log] };
+  },
+
+  async 'vercel:deploy'(cmd) {
+    const outDir = path.join(REPO_ROOT, 'vercel', 'logs');
+    await fsp.mkdir(outDir, { recursive: true });
+    const log = path.join(outDir, `deploy-${cmd.id || Date.now()}.log`);
+    await fsp.writeFile(log, `Vercel deploy simulato ${nowISO()}\n${JSON.stringify(cmd, null, 2)}\n`);
+    return { status: 'success', outputs: [log] };
+  },
+};
+
+async function executeTask(task) {
+  const type = task.type || task.kind;
+  const handler = taskHandlers[type];
+  if (!handler) {
+    return { status: 'skipped', error: `Tipo task non supportato: ${type}` };
+  }
+  try {
+    const res = await handler(task);
+    return { status: res.status || 'success', outputs: res.outputs || [] };
+  } catch (e) {
+    return { status: 'error', error: e.message || String(e) };
+  }
+}
+
+async function processTasks() {
+  await ensureFileJSON(TASKS_TODO, { pending: [] });
+  await ensureFileJSON(TASKS_DONE, { done: [] });
+
+  const todo = await readJSON(TASKS_TODO, { pending: [] });
+  const done = await readJSON(TASKS_DONE, { done: [] });
+
+  const pending = Array.isArray(todo?.pending) ? todo.pending : [];
+  if (pending.length === 0) {
+    console.log('[INFO] Nessun task pending da processare');
+    return;
+  }
+
+  console.log(`[INFO] Processando ${pending.length} task...`);
+
+  const remaining = [];
+  for (const task of pending) {
+    console.log(`[INFO] Esecuzione task: ${task.id} (tipo: ${task.type})`);
+    const startedAt = nowISO();
+    const result = await executeTask(task);
+    const finishedAt = nowISO();
+
+    if (result.status === 'success' || result.status === 'skipped' || result.status === 'error') {
+      done.done = done.done || [];
+      done.done.push({
+        id: task.id || null,
+        type: task.type || task.kind || null,
+        payload: task,
+        result,
+        startedAt,
+        finishedAt,
+      });
+      console.log(`[INFO] Task ${task.id} completato con status: ${result.status}`);
+      if (result.status === 'error' && task.retry === true) {
+        remaining.push({ ...task, retries: (task.retries || 0) + 1 });
+      }
+    } else {
+      remaining.push(task);
+    }
+  }
+
+  await writeJSON(TASKS_DONE, done);
+  await writeJSON(TASKS_TODO, { pending: remaining });
+  console.log(`[INFO] Task processati. Remaining: ${remaining.length}`);
+}
+
+async function executeVercelCommand(cmd) {
+  const type = cmd.type || cmd.command;
+  const handler = vercelCommandHandlers[type];
+  if (!handler) {
+    return { status: 'skipped', error: `Comando Vercel non supportato: ${type}` };
+  }
+  try {
+    const res = await handler(cmd);
+    return { status: res.status || 'success', outputs: res.outputs || [] };
+  } catch (e) {
+    return { status: 'error', error: e.message || String(e) };
+  }
+}
+
+async function processVercelCommands() {
+  await ensureFileJSON(VERCEL_CMDS, { pending: [], executed: [] });
+  const data = await readJSON(VERCEL_CMDS, { pending: [], executed: [] });
+
+  const pending = Array.isArray(data?.pending) ? data.pending : [];
+  if (pending.length === 0) return;
+
+  const executed = Array.isArray(data?.executed) ? data.executed : [];
+  const stillPending = [];
+
+  for (const cmd of pending) {
+    const startedAt = nowISO();
+    const result = await executeVercelCommand(cmd);
+    const finishedAt = nowISO();
+
+    if (result.status === 'success' || result.status === 'skipped' || result.status === 'error') {
+      executed.push({
+        id: cmd.id || null,
+        type: cmd.type || cmd.command || null,
+        payload: cmd,
+        result,
+        startedAt,
+        finishedAt,
+      });
+      if (result.status === 'error' && cmd.retry === true) {
+        stillPending.push({ ...cmd, retries: (cmd.retries || 0) + 1 });
+      }
+    } else {
+      stillPending.push(cmd);
+    }
+  }
+
+  await writeJSON(VERCEL_CMDS, { pending: stillPending, executed });
 }
 
 async function tick() {
-    console.log(' -- Start tick');
-
-    // Parse data
-    const tasksTodo = await readJSON(taskToFile('tasks/tasks-todo')) || "{\"pending\": []}";
-    const tasks = JSON.parse(tasksTodo).pending || [];
-
-    for (let i = 0; i < tasks.length; i++) {
-        const task = tasks[i];
-        console.log( `Lavorando task: ${task.name}`);
-        // here do whatever task.payload actions
-    }
-
-    // Segna avvi% logs di vercel-commands.json
-    console.log('  -- Ssrda uvo il vercel-commands file');
-    const vercelCommands = await readJSON(vercelCommandsPath) || { commands: []};
-    vercelCommands.commands.push("{ time: "" + new Date().toISOString(), type: "test", note: "Eseguito dal worker" });
-    await writeJSON(vercelCommandsPath, vercelCommands);
-
-    console.log('  -- Fine tick');
+  if (isRunning) return;
+  isRunning = true;
+  try {
+    await processTasks();
+    await processVercelCommands();
+  } catch (e) {
+    console.error('[ERROR] Tick:', e);
+  } finally {
+    isRunning = false;
+  }
 }
 
-const isOnce = process.argvincludes.includes('--once');
-if (isOnce) {
-    tick().then(() => process.exit(0));
-} else {
-    setInterval(tick, 5000);
-    console.log("Start tick in modalitàne daemon...");
+async function main() {
+  console.log(`[MIO Worker] Avviato. Repo: ${REPO_ROOT}`);
+  
+  // Check for --once flag
+  const runOnce = process.argv.includes('--once');
+  
+  if (runOnce) {
+    console.log('[MIO Worker] Modalità --once: esecuzione singola');
+    await ensureFileJSON(TASKS_TODO, { pending: [] });
+    await ensureFileJSON(TASKS_DONE, { done: [] });
+    await ensureFileJSON(VERCEL_CMDS, { pending: [], executed: [] });
+    await tick();
+    console.log('[MIO Worker] Esecuzione completata. Uscita.');
+    process.exit(0);
+  }
+  
+  // Continuous mode
+  console.log(`[MIO Worker] Poll interval: ${POLL_MS}ms`);
+  await ensureFileJSON(TASKS_TODO, { pending: [] });
+  await ensureFileJSON(TASKS_DONE, { done: [] });
+  await ensureFileJSON(VERCEL_CMDS, { pending: [], executed: [] });
+
+  await tick();
+  setInterval(tick, POLL_MS);
+
+  try {
+    fs.watch(TASKS_DIR, { persistent: true }, () => tick());
+  } catch {}
+  try {
+    fs.watch(VERCEL_DIR, { persistent: true }, () => tick());
+  } catch {}
 }
+
+main().catch((e) => {
+  console.error('[FATAL] Worker crash:', e);
+  process.exit(1);
+});

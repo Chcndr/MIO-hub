@@ -1,0 +1,11 @@
+{
+  "name": "mio-hub",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "MIO Hub - Repository gestito dall'agente MIO",
+  "main": "tools/mio-worker.js",
+  "scripts": {
+    "worker": "node tools/mio-worker.js",
+    "worker:once": "node tools/mio-worker.js --once"
+  }
+}
