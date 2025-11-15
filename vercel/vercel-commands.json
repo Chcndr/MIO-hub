@@ -1,4 +1,6 @@
 {
-  "pending": [],
+  "pending": [
+    {"project": "dms-hub-app", "action": "build"}
+  ],
   "executed": []
 }
