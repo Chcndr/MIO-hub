@@ -8,6 +8,20 @@
       "status": "completed",
       "date": "2025-11-15T23:00:00Z",
       "completed_at": "2025-11-15T18:07:05.752Z"
+    },
+    {
+      "id": "test-readme-edit",
+      "type": "readme_update",
+      "status": "completed",
+      "file": "README.md",
+      "date": "2025-11-15T21:00:00Z"
+    },
+    {
+      "id": "build-project-index",
+      "type": "build_index",
+      "status": "completed",
+      "target": "projects/index.json",
+      "date": "2025-11-15T21:00:00Z"
     }
   ]
 }
