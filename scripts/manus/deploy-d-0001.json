@@ -1,0 +1,21 @@
+{
+  "task": "Esegui deploy D-0001 per dns-hub-app",
+  "steps": [
+    {
+      "type": "git.clone",
+      "repo": "https://github.com/Chcndr/dms-hub-app.git",
+      "target": "dms-hub-app"
+    },
+    {
+      "type": "shell.run",
+      "cwd": "dms-hub-app",
+      "command": "vercel --prod"
+    },
+    {
+      "type": "file.create",
+      "path": "ci.log",
+      "from": "command-output"
+    }
+  ],
+  "report": "Verifica su commando vercel --prod sia rifriarmato, il file ci.log contiene l'output del deploy."
+}
