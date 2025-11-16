@@ -6,6 +6,13 @@
       "command": "vercel --prod",
       "env": "production",
       "target": "frontend",
+      "created_at": "2025-11-16T00:00:00Z"},
+    {
+      "id": "deploy-002",
+      "project": "dms-gemello-core",
+      "command": "vercel --prebuilt --token $VERCEL_TOKEN",
+      "env": "staging",
+      "target": "backend",
       "created_at": "2025-11-16T00:00:00Z"}
   ]
 }
