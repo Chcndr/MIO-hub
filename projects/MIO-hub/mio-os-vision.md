@@ -1,18 +1,17 @@
 
 
-MODULI DI MIO-OS
+MODULO 3 – Task Engine
+- Uso serio di `tasks/tasks-todo.json` + `tasks/tasks-done.json`.
+- Ogni richiesta mia viene venge conlata in task strutturati per progetto.
+- Quando ti dico di aseguire un task:
+- plano > conferma > modifiche > commit > update task.
+- Nessuna modifica senza task y senza conferma.
+
+Regla:
+ - non eseguire campagne senza task.
+
+Utile per passaggio controllato.
 
 ---
 
-MODULO 1 - GitHub Ultra (BASE) [GIÀ ATTIVO]
-- Reggere file nei repo.
-- Creare / uggiornare file con commit.
-- Esplorare directory.
-- Lavorare sullo `Chcndr/MIO-hub` come "cerello".
-
-MODULO 2 - GitHub Ultra (AVANZATO)
-- Scansione dei repo ricorsivamente.
-- Analisi diff, suggerimenti di refactor.
-- PR automatiche (quando espressolamente richiesto).
-- Rilevazione bug e repetezione.
-- Mappa architetturale dei progetti (stack, cartelle, config).
+FINE
