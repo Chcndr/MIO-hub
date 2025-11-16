@@ -1,66 +1,36 @@
-const fs = require("fs");
-`const path = require("path");
-const https = require("https");
+// mio-worker.js - versione 0
+// Simplice orchestratore per task: codegen con RouteLLM Abacus
 
-function readJSON(filePath) {
-  try {
-    const raw = fs.readFileSync(filePath, "utf-8");
-    return JSON.parse(raw);
-  } catch (e) {
-    console.error(`Errore reging il file ${filePath}: ${e.message}`);
-    return null;
+// Requires node.fetch or axios
+const fetch = require('node-fetch');
+const fs = require('fs');
+
+const ROUTE_LMM_KEY = '{{XYOUR_KEY_HERE}}';
+
+// Funsione per task codegen chamata a RouteLLM Abacus
+async function runTask(filePath) {
+  const content = JSON.parse(fs.readSync(filePath, 'utf8'));
+  const taskType = content.type;
+
+  if (taskType === 'codegen') {
+    const resp = await fetch('https://abacus.ai/app/route-llm-plus', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${ROUTE_LMM_KEY}`
+      },
+      body: JSON.stringify({
+        task: content.task,
+        mode: 'codegen'
+      })
+    });
+
+    const output = await resp.json();
+    const logPath = `/logs/deploy-${content.id}.txt`;
+    fs.writeSync(logPath, output, 'utf8');
+
+    console.log(`Codegen task ${filePath} completo e output salvato in log`);
   }
 }
 
-function writeJSON(filePath, data) {
-  try {
-    fs.writeFileSync(filePath, JSON.stringify(data, null, 2));
-    console.log(`Scritto su {filePath}`);
-  } catch (e) {
-    console.error(`Errore scriptura {filePath}: ${e.message}`);
-  }
-}
-
-async function tick() {
-  console.log("- MIO worker avvio, ececute tasks -");
-
-  const todoPath = 'tasks/tasks-todo.json';
-  const donePath = 'tasks/tasks-done.json';
-
-  const todo = readJSON(todoPath);
-  if (!todo || !Array.isArray(todo.pending)) {
-    console.log("Nessun task pending valido.");
-    return;
-  }
-
-  const done = readJSON(donePath) || { done: [] };
-  const now = new Date().toISString();
-  const completed = [];
-
-  for ( const task of todo.pending) {
-    if (task.type === "zapier-call") {
-      try {
-        const resp = await https.post(task.payload.url, JSON.stringify(task.payload), {
-          headers: { "Content-Type": "application/json" }
-        });
-        completed.push({ ...task, status: "completed", response: resp.status, completed_at: now });
-      } catch (e) {
-        completed.push({ ...task, status: "failed", error: e.message, completed_at: now });
-      }
-    } else {
-      completed.push({ ...task, status: "not-processed" });
-    }
-  }
-
-  done.done.push(...completed);
-  writeJSON(donePath, done);
-
-  todo.pending = todo.pending.filter(t => t.type !== "zapier-call");
-  writeJSON(todoPath, todo);
-
-  console.log(`Task completati: ${completed.length}`);
-}
-
-if (require.main.includes("--once")) {
-  tick();
-}
+module.exports = runTask;
