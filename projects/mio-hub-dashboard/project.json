@@ -1,0 +1,32 @@
+{
+  "name": "MIO-Hub Dashboard",
+  "repo": "Chcndr/mio-hub-dashboard",
+  "description": "Web app per visualizare info degli progetti DMS con stati da file MIO-hub",
+  "stack": {
+    "frontend": "Next.js + Tailwind",
+    "backend": "file-system",
+    "language": "JavaScript",
+    "database": null,
+    "toolchain": ["Next.js", "Tailwind", "GitHub"],
+    "deploy": "Vercel"
+  },
+  "paths": {
+    "source": "src/",
+    "public": "public/",
+    "scripts": "scripts/",
+    "docs": "docs/",
+    "html_root": "/
+  },
+  "deployment": {
+    "platform": "Vercel",
+    "vercel": true,
+    "github_pages": false,
+    "heroku": false
+  },
+  "status": {
+    "active": true,
+    "completed": false,
+    "deprecated": false
+  },
+  "last_updated": "2025-11-16"
+}
