@@ -1,3 +1,11 @@
 {
-  "commands": []
+  "commands": [
+    {
+      "id": "deploy-001",
+      "project": "dms-hub-app",
+      "command": "vercel --prod",
+      "env": "production",
+      "target": "frontend",
+      "created_at": "2025-11-16T00:00:00Z"}
+  ]
 }
