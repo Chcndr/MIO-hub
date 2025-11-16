@@ -1,20 +1,4 @@
 {
   "todo": [
-    {
-      "id": "T-0005",
-      "project": "MIO-hub",
-      "title": "Completamento Task Engine",
-      "description": "Finalizre il modulo base del Task Engine: flusso completo, tasks-done.json, regole operative",
-      "type": "code-hange",
-      "repo": "Chcndr/MIO-hub",
-      "files": ["tasks/tasks-todo.json","tasks/tasks-done.json"],
-      "status": "todo",
-      "priority": "high",
-      "created_at": "2025-11-16T00:00:00Z",
-      "updated_at": "2025-11-16T00:00:00Z",
-      "channel": "manual",
-      "requested_by": "Andrea",
-      "notes": []
-    }
   ]
 }
