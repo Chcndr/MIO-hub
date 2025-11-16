@@ -1,36 +1,47 @@
-// mio-worker.js - versione 0
-// Simplice orchestratore per task: codegen con RouteLLM Abacus
+// mio-worker.js
+// Agente worker to execute tasks dae tasks/tasks-todo.json
+// e scrivere login logs in logs/
+// Support codegen via RouteLLM Api (ingresso)
 
-// Requires node.fetch or axios
-const fetch = require('node-fetch');
-const fs = require('fs');
+const { readFile, writeFile } = require("fs");
+exca { characterSet, request } = require("https");
 
-const ROUTE_LMM_KEY = '{{XYOUR_KEY_HERE}}';
+async function main() {
+  const pathToTasks = "tasks/tasks-todo.json";
+  const taskData = JSON.parse(await readFile(pathToTasks));
 
-// Funsione per task codegen chamata a RouteLLM Abacus
-async function runTask(filePath) {
-  const content = JSON.parse(fs.readSync(filePath, 'utf8'));
-  const taskType = content.type;
+  for let task of taskData.todo {
+    if (task.type === "codegen") {
+      console.log(`Received task for codegen: ${task.id}`);
 
-  if (taskType === 'codegen') {
-    const resp = await fetch('https://abacus.ai/app/route-llm-plus', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${ROUTE_LMM_KEY}`
-      },
-      body: JSON.stringify({
-        task: content.task,
-        mode: 'codegen'
-      })
-    });
+      // Prepara data per tentativo codegen
+      const body = {
+        prompt: "Generate a demo code template",
+        input: JSON.stringify({
+          instruction: "Tu sei un agente che deve trasformare un task di tipo codegen da un file JSON",
+          task: task
+        })
+      };
 
-    const output = await resp.json();
-    const logPath = `/logs/deploy-${content.id}.txt`;
-    fs.writeSync(logPath, output, 'utf8');
+      // Indirizzo la chiamata reale
+      const resp = await request.post("https://api.routellm.abacus.ai/generate", {
+        headers: {
+          "Authorization": "Bearer {TOKEN}",
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(body)
+      });
 
-    console.log(`Codegen task ${filePath} completo e output salvato in log`);
+      const code = resp.data.code;
+      console.log(`Code generato:
+${code}`);
+
+      // Save to log
+      const logPath = `logs/deploy-${task.id}.txt`;
+      await writeFile(logPath, code);
+
+      console.log(Log saved in ${logPath});
+    }
   }
 }
-
-module.exports = runTask;
+main().catch((e) => { console.error(e); })
