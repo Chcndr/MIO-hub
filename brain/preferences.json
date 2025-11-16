@@ -1,0 +1,8 @@
+{
+  "frontend_preference": "Next.js",
+  "backend_preference": "Node.js",
+  "database": "MongoDB",
+  "linguages": ["JavaScript", "TypeScript", "P.Y"],
+  "style_nomi": "kebab-camel",
+  "priorita_task": "high"
+}
