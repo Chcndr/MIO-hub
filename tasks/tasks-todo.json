@@ -15,6 +15,22 @@
       "channel": "manual",
       "requested_by": "Andrea",
       "notes": []
+    },
+    {
+      "id": "T-0013",
+      "project": "MIOO-OS",
+      "title": "Sistema notifiche automatiche in chat",
+      "description": "Progetta e attiva un sistema qui notifichi quando un task is completato o fallisce, senza che l'utente deva riaprirlo.",
+      "type": "research",
+      "priority": "high",
+      "repo": "Chcndr/MIO-hub",
+      "files": ["scripts/notifiche/*" ],
+      "status": "todo",
+      "channel": "manual",
+      "requested_by": "Andrea",
+      "created_at": "2025-11-16T21:00:00Z",
+      "updated_at": "2025-11-16T21:00:00Z",
+      "notes": []
     }
   ]
 }
