@@ -1,0 +1,25 @@
+TEST DI CONNESSIONE MANUS → MIO-HUB
+=====================================
+
+Timestamp: 2025-11-16T10:30:00Z
+Agent: Manus
+Operation: Test di scrittura e push su repository MIO-hub
+
+✅ Accesso al repository: CONFERMATO
+✅ Lettura job JSON: CONFERMATO
+✅ Scrittura file log: CONFERMATO
+
+Job letti:
+- scripts/manus/deploy-d-0001.json
+- scripts/manus/test-mio-runner.json
+
+Struttura repository verificata:
+- /scripts/manus/ → job JSON per Manus
+- /logs/ → output e log delle operazioni
+- /.github/workflows/ → GitHub Actions
+- /.github/zapier/ → configurazione Zapier
+
+Sistema pronto per ricevere job dall'agente MIO.
+
+---
+Manus Agent v1.0
