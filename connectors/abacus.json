@@ -1,0 +1,11 @@
+{
+  "connettor": "Abacus",
+  "type": "chat",
+  "status": "attivo",
+  "accesso": "Read + Pull Request",
+  "via": "ChatLLM Teams",
+  "limitazioni": ["Senza endpoint automatico GitHub"],
+  "reads": ["mio-config.json", "tasks/tasks-todo.json", "vercel/vercel-commands.json"],
+  "writes": ["tools/mio-worker.js", "logs/*.txt"],
+  "notes": ["Simulazione vie routeLLM API", "Non attivabile direttamente da GitHub"]
+}
