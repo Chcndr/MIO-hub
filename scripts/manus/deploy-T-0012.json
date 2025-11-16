@@ -1,0 +1,15 @@
+{
+  "task_id": "T-0012",
+  "description": "Test completo codegen agenti",
+  "actions": [
+    {
+      "type": "codegen",
+      "files": [
+        "example/codegen-test.ts"
+      ],
+      "prompt": "Render un funzione tipica con signitura \"Hello \""\n- input: nome
+- output: una frase conoma"
+    }
+  ],
+  "log": "logs/deploy-T-0012.txt"
+}
