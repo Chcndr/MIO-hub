@@ -1,0 +1,11 @@
+{
+  "connettor": "GitHub",
+  "type": "api-access",
+  "status": "attivo",
+  "permessi": ["read", "write"],
+  "token_type": "ghp_xxxx",
+  "associated_repos": [
+    "Chcndr/MIO-hub",
+    "Chcndr/mio-runner"
+  ],
+  "notes": ["Token usato per migravazione MANUS"]}
