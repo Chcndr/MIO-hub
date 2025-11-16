@@ -1,0 +1,7 @@
+{
+  "id": "job-001",
+  "type": "lint",
+  "project": "dms-gemello-news",
+  "command": "npm run lint",
+  "env": "staging",
+  "created_at": "2025-11-16T00:00:00Z"}
