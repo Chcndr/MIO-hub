@@ -1,16 +1,52 @@
 {
   "todo": [
     {
-      "type": "generate",
-      "target": "projects/mappa-dms/scheda.json",
-      "from": "projects/mappa-dms/",
-      "template": "default-project-scheda",
-      "meta": {
-        "titolo": "Strategia DMS",
-        "descrizione": "Nodo centrale per il riliancio digitale e urbano dei mercati italiani",
-        "categoria": "Gemello Digitale",
-        "priorità": "Alta"
-      }
+      "id": "T-0001",
+      "project": "MIO-hub",
+      "title": "Salvare visione MIO-OS",
+      "description": "Salvare la visione strategica del sistema operativo MIO in un file markdown consultabile.",
+      "type": "docs",
+      "repo": "Chcndr/MIO-hub",
+      "files": ["projects/MIO-hub/mio-os-vision.md"],
+      "status": "todo",
+      "priority": "high",
+      "created_at": "2025-11-16T00:00:00Z",
+      "updated_at": "2025-11-16T00:00:00Z",
+      "channel": "manual",
+      "requested_by": "Andrea",
+      "notes": []
+    },
+    {
+      "id": "T-0002",
+      "project": "MIO-hub",
+      "title": "Definizione file project.json",
+      "description": "Creare il file project.json per il progetto Agente MIO secondo lo standard DMS.",
+      "type": "code-hange",
+      "repo": "Chcndr/MIO-hub",
+      "files": ["projects/MIO-hub/project.json"],
+      "status": "todo",
+      "priority": "high",
+      "created_at": "2025-11-16T00:00:00Z",
+      "updated_at": "2025-11-16T00:00:00Z",
+      "channel": "manual",
+      "requested_by": "Andrea",
+      "notes": []
+    },
+    {
+      "id": "T-0003",
+      "project": "MIO-hub",
+      "title": "Creazione index.json progetti",
+      "description": "Creare e popolare il file projects/index.json con l’ore dei progetti.",
+      "type": "code-change",
+      "repo": "Chcndr/MIO-hub",
+      "files": ["projects/index.json"],
+      "status": "todo",
+      "priority": "medium",
+      "created_at": "2025-11-16T00:00:00Z",
+      "updated_at": "2025-11-16T00:00:00Z",
+      "channel": "manual",
+      "requested_by": "Andrea",
+      "notes": []
     }
   ]
 }
