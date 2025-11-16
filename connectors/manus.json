@@ -1,0 +1,10 @@
+{
+  "connettor": "Manus",
+  "type": "api-webhook",
+  "status": "pending",
+  "auth_type": "GitHub Token",
+  "permessi": ["read", "write"],
+  "target_repo": "Chcnwk/MIO-hub",
+  "expected_path": "scripts/manus/*.json",
+  "notes": ["Pending endpoint manuale", "Ultimo test con deploy-d-0001.json"]
+}
