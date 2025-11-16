@@ -1,24 +1,24 @@
 {
-  "name": "MIO-hub",
+  "name": "Agente MIO",
   "repo": "Chcndr/MIO-hub",
-  "description": "Repository centrale di orchestrazione per tutti progetti MIO/DMS. Contiene configurazioni, automazioni, task manager, worker, log, strumenti e project metadata.",
+  "description": "Sistema operativo modulare per la gestione tecnica e creativa dj progetti DMS. Coordina codice, task, repo, agenti esterni e memorie operative.",
   "stack": {
-    "frontend": "none",
-    "backend": "Node.js (worker)",
-    "language": "JS/TS + JSON",
-    "database": "file system",
-    "toolchain": ["GitHub Actions", "Zapier", "Node.js"],
-    "deploy": "nonesso diretto"
+    "frontend": null,
+    "backend": null,
+    "language": "TypeScript + JSON",
+    "database": null,
+    "toolchain": ["GitHub API", "Zapier (futuro)", "Runner esterni (Abacus, Manus)"],
+    "deploy": null
   },
   "paths": {
-    "source": "tools/",
+    "source": "projects/MIO-hub/",
     "public": null,
-    "scripts": "tools/",
-    "docs": null,
+    "scripts": null,
+    "docs": "projects/MIO-hub/mio-os-vision.md",
     "html_root": null
   },
   "deployment": {
-    "platform": "internal",
+    "platform": null,
     "vercel": false,
     "github_pages": false,
     "heroku": false
@@ -28,5 +28,5 @@
     "completed": false,
     "deprecated": false
   },
-  "last_updated": "2025-11-14"
+  "last_updated": "2025-11-16"
 }
