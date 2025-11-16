@@ -1,0 +1,45 @@
+{
+  "task": "Esegui task T-0008 da MIO-hub",
+  "steps": [
+    {
+      "type": "git.clone",
+      "repo": "https://github.com/Chcndr/MIO-hub.git",
+      "target": "MIO-hub"
+    },
+    {
+      "type": "git.clone",
+      "repo": "https://github.com/Chcndr/mio-runner.git",
+      "target": "mio-runner"
+    },
+    {
+      "type": "shell.run",
+      "cwd": "mio-runner",
+      "command": "npm install"}
+    , {
+      "type": "shell.run",
+      "cwd": "mio-runner",
+      "command": "npx ts-node scripts/run-task.ts T-0008"
+    },
+    {
+      "type": "file.check",
+      "path": "MIO-hub/logs/T-0008.txt",
+      "must_exist": true
+    },
+    {
+      "type": "shell.run",
+      "cwd": "mio-runner",
+      "command": "npx ts-node scripts/complete-task.ts T-0008"
+    },
+    {
+      "type": "file.contains",
+      "path": "MIO-hub/tasks/tasks-done.json",
+      "must_include": "T-0008"
+    },
+    {
+      "type": "file.not_contains",
+      "path": "MIO-hub/tasks/tasks-todo.json",
+      "must_not_include": "T-0008"
+    }
+  ],
+  "report": "Verifica che il file logs/T-0008.txt esista, e il task 'T-0008' sia speso in tasks-done.json."
+}
