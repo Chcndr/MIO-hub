@@ -1,0 +1,4 @@
+Test automatico del modulo Git Executor e della integrazione nel backend MIO.
+- Creato file di log su locale
+- Commit e automatic push
+con modulo git-executor.js
