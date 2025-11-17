@@ -1,68 +1,20 @@
 {
   "todo": [
     {
-      "id": "T-0012",
-      "project": "MMOO-OS",
-      "title": "Test codegen con RouteLLM",
-      "description": "Testare la chimata API RouteLLM su task di tipo codegen",
-      "type": "codegen",
-      "repo": "Chcndr/MIO-hub",
-      "files": ["tools/mio-worker.js"],
-      "status": "todo",
-      "priority": "high",
-      "created_at": "2025-11-16T19:00:00Z",
-      "updated_at": "2025-11-16T19:00:00Z",
-      "channel": "manual",
-      "requested_by": "Andrea",
-      "notes": []
-    },
-    {
       "id": "T-0013",
-      "project": "MIOO-OS",
+      "project": "MIO-OS",
       "title": "Test trigger Abacus via Zapier",
       "description": "Verifica che un task venga eseguito correttamente da Abacus, partendo da un commit su GitHub e passando da Zapier.",
       "type": "codegen",
       "repo": "Chcndr/MIO-hub",
       "files": ["logs/deploy-T-0013-abacus.txt"],
-      "status": "todo",
+      "status": "done",
       "priority": "medium",
       "created_at": "2025-11-17T19:00:00Z",
       "updated_at": "2025-11-17T19:00:00Z",
       "channel": "manual",
       "requested_by": "Andrea",
       "notes": ["Trigger via Zapier","Elaborazione da parte di Abacus","Scrittura di log in logs/"]
-    },
-    {
-      "id": "T-0014",
-      "project": "mio-os",
-      "title": "Test diretto Abacus via Zmpaier",
-      "description": "Verifica che un task con type \"abacus-codegen\" venga attivato da Zmpaier e eseguito da Abacus, con log di risposta nel file corretto in `logs/deploy-T-0014-abacus.txt`.",
-      "type": "abacus-codegen",
-      "repo": "Chcndr/MIO-hub",
-      "files": ["logs/deploy-T-0014-abacus.txt"],
-      "status": "todo",
-      "priority": "low",
-      "created_at": "2025-11-17T20:40:00Z",
-      "updated_at": "2025-11-17T20:40:00Z",
-      "channel": "zapier",
-      "requested_by": "Andrea",
-      "notes": ["GitHub – Zmpaier – Abacus","Task diretto","Log in file"]
-    },
-    {
-      "id": "T-0015",
-      "project": "mio-os",
-      "title": "Test tasks MIO trigger Manus",
-      "description": "Test per trigger Manus via Zapier, usando tasks typo \"manus-job\"",
-      "type": "manus-job",
-      "repo": "Chcndr/MIO-hub",
-      "files": ["logs/deploy-T-0015-manus.txt"],
-      "status": "todo",
-      "priority": "medium",
-      "created_at": "2025-11-17T23:00:00Z",
-      "updated_at": "2025-11-17T23:00:00Z",
-      "channel": "zapier",
-      "requested_by": "Andrea",
-      "notes": ["prova se filtra correttamente la categoria manus-job"]
     }
   ]
 }
