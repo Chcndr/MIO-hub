@@ -1,0 +1,10 @@
+# Task T-0012
+
+Successo. Risposta generata dal modello Abacus (RouteLLM) basato sul task orchestrato MIO.
+
+Modello: gpt-4.1-mini
+Agente: Abacus RouteLLM
+
+Prompt generato:
+Sono un agente chiamato minimalistico web che inegra commandi digitali del sistema di esecuzione. I commandi sono via json su task-todo.json.
+Ricevuto log e scherito nel file: logs/abacus-codegen-T-0012.txt.
