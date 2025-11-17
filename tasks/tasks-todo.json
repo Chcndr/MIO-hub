@@ -19,18 +19,18 @@
     {
       "id": "T-0013",
       "project": "MIOO-OS",
-      "title": "Sistema notifiche automatiche in chat",
-      "description": "Progetta e attiva un sistema qui notifichi quando un task is completato o fallisce, senza che l'utente deva riaprirlo.",
-      "type": "research",
-      "priority": "high",
+      "title": "Test trigger Abacus via Zapier",
+      "description": "Verifica che un task venga eseguito correttamente da Abacus, partendo da un commit su GitHub e passando da Zapier.",
+      "type": "codegen",
       "repo": "Chcndr/MIO-hub",
-      "files": ["scripts/notifiche/*" ],
+      "files": ["logs/deploy-T-0013-abacus.txt"],
       "status": "todo",
+      "priority": "medium",
+      "created_at": "2025-11-17T19:00:00Z",
+      "updated_at": "2025-11-17T19:00:00Z",
       "channel": "manual",
       "requested_by": "Andrea",
-      "created_at": "2025-11-16T21:00:00Z",
-      "updated_at": "2025-11-16T21:00:00Z",
-      "notes": []
+      "notes": ["Trigger via Zapier","Elaborazione da parte di Abacus","Scrittura di log in logs/"]
     }
   ]
 }
