@@ -1,0 +1,3 @@
+Test automatico log da MIOAgent - 2025-11-17T23:40:00Z
+
+Connession tra fontend --> backend --> GitHub: Successo!
