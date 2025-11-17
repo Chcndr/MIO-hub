@@ -1,0 +1,9 @@
+{
+  "deploy": {
+    "project": "dms-hub-app-new",
+    "branch": "master",
+    "commit": "d14e746",
+    "status": "active",
+    "author": "MIO Agent System",
+    "description": "Versione aggiornata con log automatici"}
+}
