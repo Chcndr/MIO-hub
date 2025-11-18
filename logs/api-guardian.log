@@ -1,0 +1,15 @@
+{"timestamp":"2025-11-18T20:15:32.123Z","agent":"mio","endpoint_id":"mihub.tasks.list","method":"GET","path":"/mihub/tasks","status":"allowed","risk_level":"low","require_confirmation":false}
+{"timestamp":"2025-11-18T20:16:45.456Z","agent":"manus","endpoint_id":"mihub.tasks.create","method":"POST","path":"/mihub/tasks","status":"allowed","risk_level":"medium","require_confirmation":false}
+{"timestamp":"2025-11-18T20:17:12.789Z","agent":"abacus","endpoint_id":"mihub.tasks.list","method":"GET","path":"/mihub/tasks","status":"allowed","risk_level":"low","require_confirmation":false}
+{"timestamp":"2025-11-18T20:18:33.012Z","agent":"zapier","endpoint_id":"mihub.tasks.create","method":"POST","path":"/mihub/tasks","status":"allowed","risk_level":"medium","require_confirmation":true}
+{"timestamp":"2025-11-18T20:19:54.345Z","agent":"mio","endpoint_id":"github.repo.contents","method":"GET","path":"/repos/Chcndr/MIO-hub/contents/README.md","status":"allowed","risk_level":"low","require_confirmation":false}
+{"timestamp":"2025-11-18T20:21:15.678Z","agent":"manus","endpoint_id":"github.repo.file.upsert","method":"PUT","path":"/repos/Chcndr/MIO-hub/contents/test.md","status":"allowed","risk_level":"high","require_confirmation":true}
+{"timestamp":"2025-11-18T20:22:36.901Z","agent":"abacus","endpoint_id":"mihub.deploy.vercel","method":"POST","path":"/mihub/deploy/vercel","status":"denied","reason":"No permission rule found","risk_level":"high"}
+{"timestamp":"2025-11-18T20:23:57.234Z","agent":"zapier","endpoint_id":"github.repo.file.upsert","method":"PUT","path":"/repos/Chcndr/MIO-hub/contents/data.json","status":"denied","reason":"No permission rule found for this endpoint","risk_level":"high"}
+{"timestamp":"2025-11-18T20:25:18.567Z","agent":"mio","endpoint_id":"mihub.deploy.vercel","method":"POST","path":"/mihub/deploy/vercel","status":"allowed","risk_level":"high","require_confirmation":true}
+{"timestamp":"2025-11-18T20:26:39.890Z","agent":"unknown_agent","endpoint_id":"mihub.tasks.list","method":"GET","path":"/mihub/tasks","status":"denied","reason":"Unknown agent"}
+{"timestamp":"2025-11-18T20:28:01.123Z","agent":"manus","endpoint_id":"unknown.endpoint","method":"GET","path":"/unknown/path","status":"denied","reason":"Unknown endpoint"}
+{"timestamp":"2025-11-18T20:29:22.456Z","agent":"abacus","endpoint_id":"github.repo.contents","method":"GET","path":"/repos/Chcndr/MIO-hub/contents/api/index.json","status":"allowed","risk_level":"low","require_confirmation":false}
+{"timestamp":"2025-11-18T20:30:43.789Z","agent":"mio","endpoint_id":"mihub.tasks.create","method":"POST","path":"/mihub/tasks","status":"allowed","risk_level":"medium","require_confirmation":false}
+{"timestamp":"2025-11-18T20:32:05.012Z","agent":"manus","endpoint_id":"github.repo.contents","method":"GET","path":"/repos/Chcndr/dms-hub-app-new/contents/package.json","status":"allowed","risk_level":"medium","require_confirmation":false}
+{"timestamp":"2025-11-18T20:33:26.345Z","agent":"zapier","endpoint_id":"mihub.tasks.create","method":"POST","path":"/mihub/tasks","status":"allowed","risk_level":"medium","require_confirmation":true}
