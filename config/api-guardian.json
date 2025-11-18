@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "risk_levels": ["low", "medium", "high"],
+  "rules": {
+    "always_require_confirmation_for": [
+      "deploy",
+      "github.repo.file.upsert"
+    ],
+    "log_every_call": true,
+    "log_channel": "api-guardian",
+    "write_log_to": {
+      "type": "file",
+      "target": "logs/api-guardian.log"
+    }
+  },
+  "ui": {
+    "show_in_dashboard": true,
+    "sections": {
+      "endpoints": {
+        "source": "api/index.json"
+      },
+      "permissions": {
+        "source": "agents/permissions.json"
+      },
+      "debug": {
+        "enabled": true,
+        "source": "logs/api-guardian.log"
+      }
+    }
+  }
+}

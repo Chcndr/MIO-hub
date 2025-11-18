@@ -1,0 +1,113 @@
+{
+  "version": 1,
+  "agents": [
+    {
+      "id": "mio",
+      "display_name": "MIO",
+      "roles": ["orchestrator"],
+      "rules": [
+        {
+          "endpoint_id": "mihub.tasks.list",
+          "modes": ["read"],
+          "max_risk": "medium",
+          "require_confirmation": false
+        },
+        {
+          "endpoint_id": "mihub.tasks.create",
+          "modes": ["write"],
+          "max_risk": "medium",
+          "require_confirmation": false
+        },
+        {
+          "endpoint_id": "mihub.deploy.vercel",
+          "modes": ["write"],
+          "max_risk": "high",
+          "require_confirmation": true
+        },
+        {
+          "endpoint_id": "github.repo.contents",
+          "modes": ["read"],
+          "max_risk": "low",
+          "require_confirmation": false
+        },
+        {
+          "endpoint_id": "github.repo.file.upsert",
+          "modes": ["write"],
+          "max_risk": "high",
+          "require_confirmation": true
+        }
+      ]
+    },
+    {
+      "id": "manus",
+      "display_name": "Manus",
+      "roles": ["code-generator"],
+      "rules": [
+        {
+          "endpoint_id": "mihub.tasks.list",
+          "modes": ["read"],
+          "max_risk": "medium",
+          "require_confirmation": false
+        },
+        {
+          "endpoint_id": "mihub.tasks.create",
+          "modes": ["write"],
+          "max_risk": "medium",
+          "require_confirmation": false
+        },
+        {
+          "endpoint_id": "github.repo.contents",
+          "modes": ["read"],
+          "max_risk": "medium",
+          "require_confirmation": false
+        },
+        {
+          "endpoint_id": "github.repo.file.upsert",
+          "modes": ["write"],
+          "max_risk": "high",
+          "require_confirmation": true
+        }
+      ]
+    },
+    {
+      "id": "abacus",
+      "display_name": "Abacus",
+      "roles": ["tester", "web-runner"],
+      "rules": [
+        {
+          "endpoint_id": "mihub.tasks.list",
+          "modes": ["read"],
+          "max_risk": "low",
+          "require_confirmation": false
+        },
+        {
+          "endpoint_id": "github.repo.contents",
+          "modes": ["read"],
+          "max_risk": "low",
+          "require_confirmation": false
+        }
+      ]
+    },
+    {
+      "id": "zapier",
+      "display_name": "Zapier",
+      "roles": ["automation"],
+      "rules": [
+        {
+          "endpoint_id": "mihub.tasks.create",
+          "modes": ["write"],
+          "max_risk": "medium",
+          "require_confirmation": true
+        }
+      ]
+    }
+  ],
+  "defaults": {
+    "high_risk": {
+      "require_confirmation": true
+    },
+    "unknown_endpoint": {
+      "allow": false
+    }
+  }
+}

@@ -1,0 +1,112 @@
+{
+  "version": 1,
+  "services": [
+    {
+      "id": "mihub-backend",
+      "display_name": "MIHUB Backend",
+      "base_url": "https://mihub.157-90-29-66.nip.io",
+      "env": "prod",
+      "endpoints": [
+        {
+          "id": "mihub.tasks.list",
+          "method": "GET",
+          "path": "/mihub/tasks",
+          "category": "tasks",
+          "description": "Lista tutti i task MIHUB (filtrabili per progetto).",
+          "risk": "low",
+          "auth": {
+            "required": true,
+            "scopes": ["tasks:read"]
+          },
+          "test": {
+            "enabled": true,
+            "default_params": {},
+            "expected_status": 200
+          }
+        },
+        {
+          "id": "mihub.tasks.create",
+          "method": "POST",
+          "path": "/mihub/tasks",
+          "category": "tasks",
+          "description": "Crea un nuovo task MIHUB.",
+          "risk": "medium",
+          "auth": {
+            "required": true,
+            "scopes": ["tasks:write"]
+          },
+          "test": {
+            "enabled": true,
+            "default_body": {
+              "project": "dms-gemello-news",
+              "title": "Task di test",
+              "type": "code-change"
+            },
+            "expected_status": 201
+          }
+        },
+        {
+          "id": "mihub.deploy.vercel",
+          "method": "POST",
+          "path": "/mihub/deploy/vercel",
+          "category": "deploy",
+          "description": "Crea una richiesta di deploy su Vercel per un progetto.",
+          "risk": "high",
+          "auth": {
+            "required": true,
+            "scopes": ["deploy:write"]
+          },
+          "test": {
+            "enabled": false,
+            "note": "Endpoint ad alto rischio, solo produzione reale."
+          }
+        }
+      ]
+    },
+    {
+      "id": "github-api",
+      "display_name": "GitHub REST API",
+      "base_url": "https://api.github.com",
+      "env": "prod",
+      "endpoints": [
+        {
+          "id": "github.repo.contents",
+          "method": "GET",
+          "path": "/repos/{owner}/{repo}/contents/{path}",
+          "category": "github",
+          "description": "Legge il contenuto di un file in un repository GitHub.",
+          "risk": "low",
+          "auth": {
+            "required": true,
+            "scopes": ["repo:read"]
+          },
+          "test": {
+            "enabled": true,
+            "default_params": {
+              "owner": "Chcndr",
+              "repo": "MIO-hub",
+              "path": "README.md"
+            },
+            "expected_status": 200
+          }
+        },
+        {
+          "id": "github.repo.file.upsert",
+          "method": "PUT",
+          "path": "/repos/{owner}/{repo}/contents/{path}",
+          "category": "github",
+          "description": "Crea o aggiorna un file in un repository GitHub.",
+          "risk": "high",
+          "auth": {
+            "required": true,
+            "scopes": ["repo:write"]
+          },
+          "test": {
+            "enabled": false,
+            "note": "Scrittura su repo: usare solo con conferma."
+          }
+        }
+      ]
+    }
+  ]
+}
