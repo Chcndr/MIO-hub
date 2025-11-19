@@ -1,6 +1,6 @@
 {
-  "version": 2,
-  "last_updated": "2025-11-18T21:30:00Z",
+  "version": 3,
+  "last_updated": "2025-11-19T22:00:00Z",
   "services": [
     {
       "id": "dms-hub",
@@ -21,7 +21,9 @@
           "test": {
             "enabled": false,
             "note": "Richiede JSON completo Slot Editor v3"
-          }
+          },
+          "implemented": "trpc",
+          "implementation_note": "tRPC router exists, REST adapter needed"
         },
         {
           "id": "markets.importAuto",
@@ -35,7 +37,9 @@
           "test": {
             "enabled": false,
             "note": "Richiede JSON grezzo Slot Editor v3"
-          }
+          },
+          "implemented": "trpc",
+          "implementation_note": "tRPC router exists, REST adapter needed"
         },
         {
           "id": "markets.list",
@@ -50,7 +54,9 @@
             "enabled": true,
             "default_params": {},
             "expected_status": 200
-          }
+          },
+          "implemented": "trpc",
+          "implementation_note": "tRPC router exists, REST adapter needed"
         },
         {
           "id": "markets.getById",
@@ -67,7 +73,9 @@
               "id": 1
             },
             "expected_status": 200
-          }
+          },
+          "implemented": "trpc",
+          "implementation_note": "tRPC router exists, REST adapter needed"
         },
         {
           "id": "stalls.listByMarket",
@@ -84,7 +92,9 @@
               "marketId": 1
             },
             "expected_status": 200
-          }
+          },
+          "implemented": "trpc",
+          "implementation_note": "tRPC router exists, REST adapter needed"
         },
         {
           "id": "stalls.updateStatus",
@@ -102,7 +112,9 @@
               "status": "occupied"
             },
             "expected_status": 200
-          }
+          },
+          "implemented": "trpc",
+          "implementation_note": "tRPC router exists, REST adapter needed"
         },
         {
           "id": "stalls.getStatuses",
@@ -119,7 +131,9 @@
               "marketId": 1
             },
             "expected_status": 200
-          }
+          },
+          "implemented": "trpc",
+          "implementation_note": "tRPC router exists, REST adapter needed"
         },
         {
           "id": "vendors.list",
@@ -134,7 +148,9 @@
             "enabled": true,
             "default_params": {},
             "expected_status": 200
-          }
+          },
+          "implemented": "trpc",
+          "implementation_note": "tRPC router exists, REST adapter needed"
         },
         {
           "id": "vendors.create",
@@ -148,7 +164,9 @@
           "test": {
             "enabled": false,
             "note": "Richiede dati completi operatore"
-          }
+          },
+          "implemented": "trpc",
+          "implementation_note": "tRPC router exists, REST adapter needed"
         },
         {
           "id": "vendors.update",
@@ -162,7 +180,9 @@
           "test": {
             "enabled": false,
             "note": "Richiede ID e dati aggiornati"
-          }
+          },
+          "implemented": "trpc",
+          "implementation_note": "tRPC router exists, REST adapter needed"
         },
         {
           "id": "vendors.getFullDetails",
@@ -179,7 +199,9 @@
               "vendorId": 1
             },
             "expected_status": 200
-          }
+          },
+          "implemented": "trpc",
+          "implementation_note": "tRPC router exists, REST adapter needed"
         },
         {
           "id": "bookings.create",
@@ -193,7 +215,9 @@
           "test": {
             "enabled": false,
             "note": "Richiede vendorId, stallId, date"
-          }
+          },
+          "implemented": "trpc",
+          "implementation_note": "tRPC router exists, REST adapter needed"
         },
         {
           "id": "bookings.listActive",
@@ -208,7 +232,9 @@
             "enabled": true,
             "default_params": {},
             "expected_status": 200
-          }
+          },
+          "implemented": "trpc",
+          "implementation_note": "tRPC router exists, REST adapter needed"
         },
         {
           "id": "bookings.confirmCheckin",
@@ -222,7 +248,9 @@
           "test": {
             "enabled": false,
             "note": "Richiede bookingId"
-          }
+          },
+          "implemented": "trpc",
+          "implementation_note": "tRPC router exists, REST adapter needed"
         },
         {
           "id": "bookings.cancel",
@@ -236,7 +264,9 @@
           "test": {
             "enabled": false,
             "note": "Richiede bookingId"
-          }
+          },
+          "implemented": "trpc",
+          "implementation_note": "tRPC router exists, REST adapter needed"
         },
         {
           "id": "presences.checkout",
@@ -250,7 +280,9 @@
           "test": {
             "enabled": false,
             "note": "Richiede presenceId"
-          }
+          },
+          "implemented": "trpc",
+          "implementation_note": "tRPC router exists, REST adapter needed"
         },
         {
           "id": "presences.getTodayByMarket",
@@ -267,7 +299,9 @@
               "marketId": 1
             },
             "expected_status": 200
-          }
+          },
+          "implemented": "trpc",
+          "implementation_note": "tRPC router exists, REST adapter needed"
         },
         {
           "id": "inspections.create",
@@ -281,7 +315,9 @@
           "test": {
             "enabled": false,
             "note": "Richiede dati controllo completi"
-          }
+          },
+          "implemented": "trpc",
+          "implementation_note": "tRPC router exists, REST adapter needed"
         },
         {
           "id": "inspections.list",
@@ -296,7 +332,9 @@
             "enabled": true,
             "default_params": {},
             "expected_status": 200
-          }
+          },
+          "implemented": "trpc",
+          "implementation_note": "tRPC router exists, REST adapter needed"
         },
         {
           "id": "violations.create",
@@ -310,7 +348,9 @@
           "test": {
             "enabled": false,
             "note": "Richiede dati verbale completi"
-          }
+          },
+          "implemented": "trpc",
+          "implementation_note": "tRPC router exists, REST adapter needed"
         },
         {
           "id": "violations.list",
@@ -325,7 +365,9 @@
             "enabled": true,
             "default_params": {},
             "expected_status": 200
-          }
+          },
+          "implemented": "trpc",
+          "implementation_note": "tRPC router exists, REST adapter needed"
         }
       ]
     },
@@ -348,7 +390,9 @@
           "test": {
             "enabled": false,
             "note": "Eseguire solo una volta"
-          }
+          },
+          "implemented": "trpc",
+          "implementation_note": "tRPC router exists, REST adapter needed"
         },
         {
           "id": "logs.createLog",
@@ -367,7 +411,9 @@
               "status": "success"
             },
             "expected_status": 201
-          }
+          },
+          "implemented": "trpc",
+          "implementation_note": "tRPC router exists, REST adapter needed"
         },
         {
           "id": "logs.getLogs",
@@ -382,7 +428,9 @@
             "enabled": true,
             "default_params": {},
             "expected_status": 200
-          }
+          },
+          "implemented": "trpc",
+          "implementation_note": "tRPC router exists, REST adapter needed"
         }
       ]
     },
@@ -406,7 +454,9 @@
             "enabled": true,
             "default_params": {},
             "expected_status": 200
-          }
+          },
+          "implemented": "planned",
+          "implementation_note": "tRPC + REST to be implemented"
         },
         {
           "id": "mihub.tasks.create",
@@ -425,7 +475,9 @@
               "type": "code-change"
             },
             "expected_status": 201
-          }
+          },
+          "implemented": "planned",
+          "implementation_note": "tRPC + REST to be implemented"
         },
         {
           "id": "mihub.deploy.vercel",
@@ -439,7 +491,9 @@
           "test": {
             "enabled": false,
             "note": "Endpoint ad alto rischio, solo produzione reale"
-          }
+          },
+          "implemented": "planned",
+          "implementation_note": "tRPC + REST to be implemented"
         }
       ]
     },
@@ -467,7 +521,9 @@
               "path": "README.md"
             },
             "expected_status": 200
-          }
+          },
+          "implemented": "planned",
+          "implementation_note": "REST-only endpoint, no tRPC needed"
         },
         {
           "id": "github.repo.file.upsert",
@@ -481,7 +537,9 @@
           "test": {
             "enabled": false,
             "note": "Scrittura su repo: usare solo con conferma"
-          }
+          },
+          "implemented": "planned",
+          "implementation_note": "REST-only endpoint, no tRPC needed"
         }
       ]
     }
