@@ -444,7 +444,7 @@
         {
           "id": "mihub.tasks.list",
           "method": "GET",
-          "path": "/mihub/tasks",
+          "path": "/api/mihub/tasks",
           "category": "Guardian API",
           "description": "Lista tutti i task MIHUB (filtrabili per progetto)",
           "risk_level": "low",
@@ -461,7 +461,7 @@
         {
           "id": "mihub.tasks.create",
           "method": "POST",
-          "path": "/mihub/tasks",
+          "path": "/api/mihub/tasks",
           "category": "Guardian API",
           "description": "Crea un nuovo task MIHUB",
           "risk_level": "medium",
@@ -482,7 +482,7 @@
         {
           "id": "mihub.deploy.vercel",
           "method": "POST",
-          "path": "/mihub/deploy/vercel",
+          "path": "/api/mihub/deploy/vercel",
           "category": "Guardian API",
           "description": "Crea una richiesta di deploy su Vercel per un progetto",
           "risk_level": "high",
