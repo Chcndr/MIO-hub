@@ -44,6 +44,36 @@
       "roles": ["code-generator"],
       "rules": [
         {
+          "endpoint_id": "markets.*",
+          "modes": ["read", "write"],
+          "max_risk": "high",
+          "require_confirmation": false
+        },
+        {
+          "endpoint_id": "stalls.*",
+          "modes": ["read", "write"],
+          "max_risk": "high",
+          "require_confirmation": false
+        },
+        {
+          "endpoint_id": "vendors.*",
+          "modes": ["read", "write"],
+          "max_risk": "high",
+          "require_confirmation": false
+        },
+        {
+          "endpoint_id": "bookings.*",
+          "modes": ["read", "write"],
+          "max_risk": "high",
+          "require_confirmation": false
+        },
+        {
+          "endpoint_id": "logs.*",
+          "modes": ["read", "write"],
+          "max_risk": "low",
+          "require_confirmation": false
+        },
+        {
           "endpoint_id": "mihub.tasks.list",
           "modes": ["read"],
           "max_risk": "medium",
