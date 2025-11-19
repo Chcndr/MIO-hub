@@ -1,23 +1,407 @@
 {
-  "version": 1,
+  "version": 2,
+  "last_updated": "2025-11-18T21:30:00Z",
   "services": [
+    {
+      "id": "dms-hub",
+      "display_name": "DMS HUB API",
+      "base_url": "https://mihub.157-90-29-66.nip.io",
+      "env": "production",
+      "description": "API centralizzate per gestione completa mercati, posteggi, operatori",
+      "endpoints": [
+        {
+          "id": "markets.importFromSlotEditor",
+          "method": "POST",
+          "path": "/api/dmsHub/markets/importFromSlotEditor",
+          "category": "Mercati",
+          "description": "Import JSON completo da Slot Editor v3 (manuale)",
+          "risk_level": "high",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "note": "Richiede JSON completo Slot Editor v3"
+          }
+        },
+        {
+          "id": "markets.importAuto",
+          "method": "POST",
+          "path": "/api/dmsHub/markets/importAuto",
+          "category": "Mercati",
+          "description": "Import automatico da Slot Editor v3 (senza nome/città)",
+          "risk_level": "high",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "note": "Richiede JSON grezzo Slot Editor v3"
+          }
+        },
+        {
+          "id": "markets.list",
+          "method": "GET",
+          "path": "/api/dmsHub/markets/list",
+          "category": "Mercati",
+          "description": "Lista mercati con statistiche",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "default_params": {},
+            "expected_status": 200
+          }
+        },
+        {
+          "id": "markets.getById",
+          "method": "GET",
+          "path": "/api/dmsHub/markets/getById",
+          "category": "Mercati",
+          "description": "Dettagli mercato completo (geometria, posteggi, marker, aree)",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "default_params": {
+              "id": 1
+            },
+            "expected_status": 200
+          }
+        },
+        {
+          "id": "stalls.listByMarket",
+          "method": "GET",
+          "path": "/api/dmsHub/stalls/listByMarket",
+          "category": "Posteggi",
+          "description": "Lista posteggi per mercato",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "default_params": {
+              "marketId": 1
+            },
+            "expected_status": 200
+          }
+        },
+        {
+          "id": "stalls.updateStatus",
+          "method": "POST",
+          "path": "/api/dmsHub/stalls/updateStatus",
+          "category": "Posteggi",
+          "description": "Aggiorna stato posteggio (free/occupied/reserved/maintenance)",
+          "risk_level": "medium",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "default_body": {
+              "stallId": 1,
+              "status": "occupied"
+            },
+            "expected_status": 200
+          }
+        },
+        {
+          "id": "stalls.getStatuses",
+          "method": "GET",
+          "path": "/api/dmsHub/stalls/getStatuses",
+          "category": "Posteggi",
+          "description": "Stati real-time posteggi mercato",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "default_params": {
+              "marketId": 1
+            },
+            "expected_status": 200
+          }
+        },
+        {
+          "id": "vendors.list",
+          "method": "GET",
+          "path": "/api/dmsHub/vendors/list",
+          "category": "Operatori",
+          "description": "Lista operatori",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "default_params": {},
+            "expected_status": 200
+          }
+        },
+        {
+          "id": "vendors.create",
+          "method": "POST",
+          "path": "/api/dmsHub/vendors/create",
+          "category": "Operatori",
+          "description": "Crea operatore",
+          "risk_level": "medium",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "note": "Richiede dati completi operatore"
+          }
+        },
+        {
+          "id": "vendors.update",
+          "method": "PUT",
+          "path": "/api/dmsHub/vendors/update",
+          "category": "Operatori",
+          "description": "Aggiorna operatore",
+          "risk_level": "medium",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "note": "Richiede ID e dati aggiornati"
+          }
+        },
+        {
+          "id": "vendors.getFullDetails",
+          "method": "GET",
+          "path": "/api/dmsHub/vendors/getFullDetails",
+          "category": "Operatori",
+          "description": "Dettagli completi operatore (posteggi, prenotazioni, presenze)",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "default_params": {
+              "vendorId": 1
+            },
+            "expected_status": 200
+          }
+        },
+        {
+          "id": "bookings.create",
+          "method": "POST",
+          "path": "/api/dmsHub/bookings/create",
+          "category": "Prenotazioni",
+          "description": "Prenota posteggio",
+          "risk_level": "medium",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "note": "Richiede vendorId, stallId, date"
+          }
+        },
+        {
+          "id": "bookings.listActive",
+          "method": "GET",
+          "path": "/api/dmsHub/bookings/listActive",
+          "category": "Prenotazioni",
+          "description": "Prenotazioni attive",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "default_params": {},
+            "expected_status": 200
+          }
+        },
+        {
+          "id": "bookings.confirmCheckin",
+          "method": "POST",
+          "path": "/api/dmsHub/bookings/confirmCheckin",
+          "category": "Prenotazioni",
+          "description": "Conferma check-in",
+          "risk_level": "medium",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "note": "Richiede bookingId"
+          }
+        },
+        {
+          "id": "bookings.cancel",
+          "method": "DELETE",
+          "path": "/api/dmsHub/bookings/cancel",
+          "category": "Prenotazioni",
+          "description": "Cancella prenotazione",
+          "risk_level": "medium",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "note": "Richiede bookingId"
+          }
+        },
+        {
+          "id": "presences.checkout",
+          "method": "POST",
+          "path": "/api/dmsHub/presences/checkout",
+          "category": "Presenze",
+          "description": "Check-out operatore",
+          "risk_level": "medium",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "note": "Richiede presenceId"
+          }
+        },
+        {
+          "id": "presences.getTodayByMarket",
+          "method": "GET",
+          "path": "/api/dmsHub/presences/getTodayByMarket",
+          "category": "Presenze",
+          "description": "Presenze oggi per mercato",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "default_params": {
+              "marketId": 1
+            },
+            "expected_status": 200
+          }
+        },
+        {
+          "id": "inspections.create",
+          "method": "POST",
+          "path": "/api/dmsHub/inspections/create",
+          "category": "Controlli",
+          "description": "Crea controllo Polizia",
+          "risk_level": "high",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "note": "Richiede dati controllo completi"
+          }
+        },
+        {
+          "id": "inspections.list",
+          "method": "GET",
+          "path": "/api/dmsHub/inspections/list",
+          "category": "Controlli",
+          "description": "Lista controlli",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "default_params": {},
+            "expected_status": 200
+          }
+        },
+        {
+          "id": "violations.create",
+          "method": "POST",
+          "path": "/api/dmsHub/violations/create",
+          "category": "Verbali",
+          "description": "Emetti verbale",
+          "risk_level": "high",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "note": "Richiede dati verbale completi"
+          }
+        },
+        {
+          "id": "violations.list",
+          "method": "GET",
+          "path": "/api/dmsHub/violations/list",
+          "category": "Verbali",
+          "description": "Lista verbali",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "default_params": {},
+            "expected_status": 200
+          }
+        }
+      ]
+    },
+    {
+      "id": "mio-agent",
+      "display_name": "MIO Agent Logs",
+      "base_url": "https://mihub.157-90-29-66.nip.io",
+      "env": "production",
+      "description": "API per logging e monitoraggio agenti MIO",
+      "endpoints": [
+        {
+          "id": "logs.initSchema",
+          "method": "POST",
+          "path": "/api/logs/initSchema",
+          "category": "MIO Agent",
+          "description": "Inizializza tabella mio_agent_logs",
+          "risk_level": "high",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "note": "Eseguire solo una volta"
+          }
+        },
+        {
+          "id": "logs.createLog",
+          "method": "POST",
+          "path": "/api/logs/createLog",
+          "category": "MIO Agent",
+          "description": "Crea nuovo log agente",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "default_body": {
+              "agent": "mio",
+              "action": "test",
+              "status": "success"
+            },
+            "expected_status": 201
+          }
+        },
+        {
+          "id": "logs.getLogs",
+          "method": "GET",
+          "path": "/api/logs/getLogs",
+          "category": "MIO Agent",
+          "description": "Recupera log agenti",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "default_params": {},
+            "expected_status": 200
+          }
+        }
+      ]
+    },
     {
       "id": "mihub-backend",
       "display_name": "MIHUB Backend",
       "base_url": "https://mihub.157-90-29-66.nip.io",
-      "env": "prod",
+      "env": "production",
+      "description": "Multi-Agent System (MIO, Manus, Abacus, Zapier)",
       "endpoints": [
         {
           "id": "mihub.tasks.list",
           "method": "GET",
           "path": "/mihub/tasks",
-          "category": "tasks",
-          "description": "Lista tutti i task MIHUB (filtrabili per progetto).",
-          "risk": "low",
-          "auth": {
-            "required": true,
-            "scopes": ["tasks:read"]
-          },
+          "category": "Guardian API",
+          "description": "Lista tutti i task MIHUB (filtrabili per progetto)",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
           "test": {
             "enabled": true,
             "default_params": {},
@@ -28,13 +412,11 @@
           "id": "mihub.tasks.create",
           "method": "POST",
           "path": "/mihub/tasks",
-          "category": "tasks",
-          "description": "Crea un nuovo task MIHUB.",
-          "risk": "medium",
-          "auth": {
-            "required": true,
-            "scopes": ["tasks:write"]
-          },
+          "category": "Guardian API",
+          "description": "Crea un nuovo task MIHUB",
+          "risk_level": "medium",
+          "require_auth": true,
+          "enabled": true,
           "test": {
             "enabled": true,
             "default_body": {
@@ -49,16 +431,14 @@
           "id": "mihub.deploy.vercel",
           "method": "POST",
           "path": "/mihub/deploy/vercel",
-          "category": "deploy",
-          "description": "Crea una richiesta di deploy su Vercel per un progetto.",
-          "risk": "high",
-          "auth": {
-            "required": true,
-            "scopes": ["deploy:write"]
-          },
+          "category": "Guardian API",
+          "description": "Crea una richiesta di deploy su Vercel per un progetto",
+          "risk_level": "high",
+          "require_auth": true,
+          "enabled": true,
           "test": {
             "enabled": false,
-            "note": "Endpoint ad alto rischio, solo produzione reale."
+            "note": "Endpoint ad alto rischio, solo produzione reale"
           }
         }
       ]
@@ -67,19 +447,18 @@
       "id": "github-api",
       "display_name": "GitHub REST API",
       "base_url": "https://api.github.com",
-      "env": "prod",
+      "env": "production",
+      "description": "API GitHub per gestione repository",
       "endpoints": [
         {
           "id": "github.repo.contents",
           "method": "GET",
           "path": "/repos/{owner}/{repo}/contents/{path}",
-          "category": "github",
-          "description": "Legge il contenuto di un file in un repository GitHub.",
-          "risk": "low",
-          "auth": {
-            "required": true,
-            "scopes": ["repo:read"]
-          },
+          "category": "Guardian API",
+          "description": "Legge il contenuto di un file in un repository GitHub",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
           "test": {
             "enabled": true,
             "default_params": {
@@ -94,16 +473,14 @@
           "id": "github.repo.file.upsert",
           "method": "PUT",
           "path": "/repos/{owner}/{repo}/contents/{path}",
-          "category": "github",
-          "description": "Crea o aggiorna un file in un repository GitHub.",
-          "risk": "high",
-          "auth": {
-            "required": true,
-            "scopes": ["repo:write"]
-          },
+          "category": "Guardian API",
+          "description": "Crea o aggiorna un file in un repository GitHub",
+          "risk_level": "high",
+          "require_auth": true,
+          "enabled": true,
           "test": {
             "enabled": false,
-            "note": "Scrittura su repo: usare solo con conferma."
+            "note": "Scrittura su repo: usare solo con conferma"
           }
         }
       ]
