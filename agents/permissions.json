@@ -44,32 +44,32 @@
       "roles": ["code-generator"],
       "rules": [
         {
-          "endpoint_id": "markets.*",
-          "modes": ["read", "write"],
-          "max_risk": "high",
+          "endpoint_id": "markets.list",
+          "modes": ["read"],
+          "max_risk": "low",
           "require_confirmation": false
         },
         {
-          "endpoint_id": "stalls.*",
-          "modes": ["read", "write"],
-          "max_risk": "high",
+          "endpoint_id": "markets.getById",
+          "modes": ["read"],
+          "max_risk": "low",
           "require_confirmation": false
         },
         {
-          "endpoint_id": "vendors.*",
-          "modes": ["read", "write"],
-          "max_risk": "high",
+          "endpoint_id": "stalls.listByMarket",
+          "modes": ["read"],
+          "max_risk": "low",
           "require_confirmation": false
         },
         {
-          "endpoint_id": "bookings.*",
-          "modes": ["read", "write"],
-          "max_risk": "high",
+          "endpoint_id": "logs.getLogs",
+          "modes": ["read"],
+          "max_risk": "low",
           "require_confirmation": false
         },
         {
-          "endpoint_id": "logs.*",
-          "modes": ["read", "write"],
+          "endpoint_id": "logs.createLog",
+          "modes": ["write"],
           "max_risk": "low",
           "require_confirmation": false
         },
