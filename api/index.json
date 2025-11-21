@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "last_updated": "2025-11-19T22:00:00Z",
+  "last_updated": "2025-11-21T18:30:00Z",
   "services": [
     {
       "id": "dms-hub",
@@ -30,7 +30,7 @@
           "method": "POST",
           "path": "/api/dmsHub/markets/importAuto",
           "category": "Mercati",
-          "description": "Import automatico da Slot Editor v3 (senza nome/città)",
+          "description": "Import automatico da Slot Editor v3 (senza nome/citt\u00e0)",
           "risk_level": "high",
           "require_auth": true,
           "enabled": true,
@@ -368,6 +368,40 @@
           },
           "implemented": "trpc",
           "implementation_note": "tRPC router exists, REST adapter needed"
+        },
+        {
+          "id": "gis.health",
+          "method": "GET",
+          "path": "/api/gis/health",
+          "category": "GIS",
+          "description": "Health check modulo GIS",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "default_params": {},
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "Implemented in routes/gis.js"
+        },
+        {
+          "id": "gis.marketMap",
+          "method": "GET",
+          "path": "/api/gis/market-map",
+          "category": "GIS",
+          "description": "Dati mappa mercato da Editor v3 (GeoJSON)",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "default_params": {},
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "Implemented in routes/gis.js - Serves editor-v3-sample.json"
         }
       ]
     },
