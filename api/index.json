@@ -550,6 +550,38 @@
           },
           "implemented": "rest",
           "implementation_note": "Backend REST implementato su mihub-backend-rest"
+        },
+        {
+          "id": "admin.secrets.store",
+          "method": "POST",
+          "path": "/admin/secrets",
+          "category": "secrets",
+          "description": "Salva o aggiorna un secret cifrato (API key, token)",
+          "risk_level": "high",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "note": "Endpoint admin, solo utente umano"
+          },
+          "implemented": "rest",
+          "implementation_note": "Cifratura AES-256-GCM, solo admin"
+        },
+        {
+          "id": "admin.secrets.list",
+          "method": "GET",
+          "path": "/admin/secrets",
+          "category": "secrets",
+          "description": "Lista metadata dei secret (senza valori)",
+          "risk_level": "high",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "note": "Endpoint admin, solo utente umano"
+          },
+          "implemented": "rest",
+          "implementation_note": "Ritorna solo name, scope, last4, updated_at"
         }
       ]
     },

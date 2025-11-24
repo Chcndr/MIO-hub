@@ -11,7 +11,8 @@
     "log_channel": "api-guardian",
     "auto_log_patterns": [
       "mihub.*",
-      "github.*"
+      "github.*",
+      "admin.secrets.*"
     ],
     "write_log_to": {
       "type": "database",
@@ -25,7 +26,8 @@
       "mio": {
         "forbidden_endpoints": [
           "github.repo.file.upsert",
-          "mihub.deploy.vercel"
+          "mihub.deploy.vercel",
+          "admin.secrets.*"
         ],
         "forbidden_actions": [
           "PUT on GitHub repos",
@@ -36,7 +38,8 @@
       "manus_worker": {
         "forbidden_endpoints": [
           "github.repo.file.upsert",
-          "mihub.deploy.vercel"
+          "mihub.deploy.vercel",
+          "admin.secrets.*"
         ],
         "forbidden_actions": [
           "PUT on GitHub repos",

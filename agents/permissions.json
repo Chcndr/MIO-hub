@@ -43,12 +43,19 @@
           "modes": ["read"],
           "max_risk": "low",
           "require_confirmation": false
+        },
+        {
+          "endpoint_id": "admin.secrets.*",
+          "modes": ["deny"],
+          "max_risk": "high",
+          "require_confirmation": false
         }
       ],
       "restrictions": [
         "NO PUT su repository GitHub",
         "NO deploy Vercel",
-        "NO migrazioni database"
+        "NO migrazioni database",
+        "NO accesso a /admin/secrets (solo utente umano)"
       ]
     },
     {
@@ -104,12 +111,21 @@
           "modes": ["read"],
           "max_risk": "low",
           "require_confirmation": false
+        },
+        {
+          "endpoint_id": "admin.secrets.*",
+          "modes": ["deny"],
+          "max_risk": "high",
+          "require_confirmation": false
         }
       ],
       "permissions": [
         "GET/PUT su /repos/{owner}/{repo}/contents/{path} del workspace DMS/MIO-HUB",
         "POST /mihub/deploy/vercel",
         "Chiamate agli endpoint backend MIHUB necessari per sviluppo/test"
+      ],
+      "restrictions": [
+        "NO accesso a /admin/secrets (solo utente umano)"
       ]
     },
     {
@@ -177,13 +193,20 @@
           "modes": ["deny"],
           "max_risk": "high",
           "require_confirmation": true
+        },
+        {
+          "endpoint_id": "admin.secrets.*",
+          "modes": ["deny"],
+          "max_risk": "high",
+          "require_confirmation": false
         }
       ],
       "restrictions": [
         "VIETATO: PUT su repository GitHub",
         "VIETATO: POST /mihub/deploy/vercel",
         "VIETATO: Migrazioni database",
-        "VIETATO: Modifiche al codice sorgente"
+        "VIETATO: Modifiche al codice sorgente",
+        "VIETATO: Accesso a /admin/secrets (solo utente umano)"
       ],
       "permissions": [
         "GET sulle app live (Vercel, Hetzner)",
@@ -216,13 +239,20 @@
           "modes": ["read"],
           "max_risk": "low",
           "require_confirmation": false
+        },
+        {
+          "endpoint_id": "admin.secrets.*",
+          "modes": ["deny"],
+          "max_risk": "high",
+          "require_confirmation": false
         }
       ],
       "restrictions": [
         "SOLO LETTURA su repository",
         "SOLO LETTURA su blueprint",
         "SOLO LETTURA su log",
-        "NESSUNA azione scrivente"
+        "NESSUNA azione scrivente",
+        "VIETATO: Accesso a /admin/secrets (solo utente umano)"
       ],
       "permissions": [
         "Lettura repository (file blueprint, codice)",
