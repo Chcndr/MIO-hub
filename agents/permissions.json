@@ -1,6 +1,6 @@
 {
-  "version": 2,
-  "last_updated": "2025-11-24T00:00:00Z",
+  "version": 3,
+  "last_updated": "2025-11-24T12:00:00Z",
   "agents": [
     {
       "id": "mio",
@@ -21,8 +21,20 @@
           "require_confirmation": false
         },
         {
+          "endpoint_id": "mihub.orchestrator.run",
+          "modes": ["write"],
+          "max_risk": "medium",
+          "require_confirmation": false
+        },
+        {
           "endpoint_id": "logs.getLogs",
           "modes": ["read"],
+          "max_risk": "low",
+          "require_confirmation": false
+        },
+        {
+          "endpoint_id": "logs.createLog",
+          "modes": ["write"],
           "max_risk": "low",
           "require_confirmation": false
         },
@@ -70,6 +82,12 @@
           "require_confirmation": false
         },
         {
+          "endpoint_id": "mihub.orchestrator.run",
+          "modes": ["write"],
+          "max_risk": "medium",
+          "require_confirmation": false
+        },
+        {
           "endpoint_id": "mihub.deploy.vercel",
           "modes": ["write"],
           "max_risk": "high",
@@ -95,10 +113,10 @@
       ]
     },
     {
-      "id": "manus",
-      "display_name": "Manus",
+      "id": "manus_worker",
+      "display_name": "Manus Worker",
       "roles": ["operator", "tester"],
-      "description": "Operativo umano - browser, test manuali, screenshot, verifiche app live",
+      "description": "Operativo umano - browser, test manuali, screenshot, verifiche app live (NESSUN write su GitHub/deploy)",
       "rules": [
         {
           "endpoint_id": "markets.list",
@@ -141,6 +159,24 @@
           "modes": ["read"],
           "max_risk": "low",
           "require_confirmation": false
+        },
+        {
+          "endpoint_id": "guardian.debug.testEndpoint",
+          "modes": ["write"],
+          "max_risk": "low",
+          "require_confirmation": false
+        },
+        {
+          "endpoint_id": "github.repo.file.upsert",
+          "modes": ["deny"],
+          "max_risk": "high",
+          "require_confirmation": true
+        },
+        {
+          "endpoint_id": "mihub.deploy.vercel",
+          "modes": ["deny"],
+          "max_risk": "high",
+          "require_confirmation": true
         }
       ],
       "restrictions": [
@@ -152,7 +188,8 @@
       "permissions": [
         "GET sulle app live (Vercel, Hetzner)",
         "GET contenuti repository",
-        "Test e verifiche manuali",
+        "Test e verifiche manuali via browser",
+        "POST su endpoint di test non distruttivi (es. /api/guardian/debug/testEndpoint)",
         "Screenshot e documentazione"
       ]
     },
@@ -160,7 +197,7 @@
       "id": "gemini_arch",
       "display_name": "Gemini Arch (Gemini 3 Pro)",
       "roles": ["architect", "reviewer"],
-      "description": "Analisi architettura, review blueprint, design sistemi",
+      "description": "Analisi architettura, review blueprint, design sistemi (SOLO LETTURA)",
       "rules": [
         {
           "endpoint_id": "github.repo.contents",
@@ -188,10 +225,9 @@
         "NESSUNA azione scrivente"
       ],
       "permissions": [
-        "Lettura repository",
-        "Lettura blueprint",
-        "Lettura log",
-        "Analisi e review"
+        "Lettura repository (file blueprint, codice)",
+        "Lettura log Guardian (GET /api/logs/getLogs)",
+        "Analisi e review architettura"
       ]
     },
     {

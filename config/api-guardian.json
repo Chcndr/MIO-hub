@@ -1,6 +1,6 @@
 {
-  "version": 2,
-  "last_updated": "2025-11-24T00:00:00Z",
+  "version": 3,
+  "last_updated": "2025-11-24T12:00:00Z",
   "risk_levels": ["low", "medium", "high"],
   "rules": {
     "always_require_confirmation_for": [
@@ -9,6 +9,10 @@
     ],
     "log_every_call": true,
     "log_channel": "api-guardian",
+    "auto_log_patterns": [
+      "mihub.*",
+      "github.*"
+    ],
     "write_log_to": {
       "type": "database",
       "target": "mio_agent_logs",
@@ -29,7 +33,7 @@
           "Database migrations"
         ]
       },
-      "manus": {
+      "manus_worker": {
         "forbidden_endpoints": [
           "github.repo.file.upsert",
           "mihub.deploy.vercel"
@@ -53,6 +57,7 @@
           "github.repo.file.upsert",
           "mihub.tasks.list",
           "mihub.tasks.create",
+          "mihub.orchestrator.run",
           "mihub.deploy.vercel",
           "logs.createLog",
           "logs.getLogs"

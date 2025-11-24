@@ -528,6 +528,28 @@
           },
           "implemented": "planned",
           "implementation_note": "tRPC + REST to be implemented"
+        },
+        {
+          "id": "mihub.orchestrator.run",
+          "method": "POST",
+          "path": "/api/mihub/orchestrator",
+          "category": "mio_agent",
+          "description": "Orchestratore multi-agente MIO - coordina mio, dev, manus_worker, gemini_arch",
+          "risk_level": "medium",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "default_body": {
+              "mode": "auto",
+              "conversationId": null,
+              "message": "Test orchestrator",
+              "meta": {}
+            },
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "Backend REST implementato su mihub-backend-rest"
         }
       ]
     },
