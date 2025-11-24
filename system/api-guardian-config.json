@@ -1,0 +1,344 @@
+{
+  "version": "1.0.0",
+  "description": "API Guardian - Gestione centralizzata endpoint, permessi e log per MIO/MIHUB",
+  "updated": "2025-11-18",
+  "services": {
+    "mihub": {
+      "name": "MIHUB Backend",
+      "base_url": "http://157.90.29.66",
+      "description": "Backend principale su Hetzner con tRPC, database e servizi",
+      "status": "active",
+      "health_endpoint": "/health",
+      "health_check_interval": "5m"
+    },
+    "frontend": {
+      "name": "DMS Hub Frontend",
+      "base_url": "https://dms-hub-app-new.vercel.app",
+      "description": "Frontend React su Vercel",
+      "status": "active"
+    },
+    "zapier": {
+      "name": "Zapier Automations",
+      "base_url": "https://hooks.zapier.com",
+      "description": "Automazioni e webhook handler",
+      "status": "active"
+    }
+  },
+  "endpoints": {
+    "mihub_health": {
+      "service": "mihub",
+      "path": "/health",
+      "method": "GET",
+      "description": "Health check MIHUB backend",
+      "auth_required": false,
+      "rate_limit": {
+        "enabled": false
+      },
+      "allowed_origins": ["*"],
+      "log_requests": true,
+      "log_responses": false
+    },
+    "mihub_trpc": {
+      "service": "mihub",
+      "path": "/trpc",
+      "method": "POST",
+      "description": "tRPC procedure calls",
+      "auth_required": false,
+      "rate_limit": {
+        "enabled": true,
+        "max_requests": 100,
+        "window": "1m"
+      },
+      "allowed_origins": [
+        "https://dms-hub-app-new.vercel.app",
+        "http://localhost:5173"
+      ],
+      "log_requests": true,
+      "log_responses": true,
+      "cors": {
+        "enabled": true,
+        "credentials": true
+      }
+    },
+    "abacus_invoke": {
+      "service": "mihub",
+      "path": "/api/abacus/invoke",
+      "method": "POST",
+      "description": "Invoca Abacus per elaborazioni MIO",
+      "auth_required": true,
+      "auth_type": "api_key",
+      "rate_limit": {
+        "enabled": true,
+        "max_requests": 10,
+        "window": "1m"
+      },
+      "allowed_sources": ["zapier", "mio", "admin"],
+      "log_requests": true,
+      "log_responses": true,
+      "validation": {
+        "required_fields": ["event_type", "payload"],
+        "optional_fields": ["repository", "sender", "timestamp"]
+      }
+    },
+    "tasks_log": {
+      "service": "mihub",
+      "path": "/api/tasks/log",
+      "method": "POST",
+      "description": "Logga task completati da MIO",
+      "auth_required": true,
+      "auth_type": "api_key",
+      "rate_limit": {
+        "enabled": true,
+        "max_requests": 50,
+        "window": "1m"
+      },
+      "allowed_sources": ["zapier", "mio", "admin"],
+      "log_requests": true,
+      "log_responses": false,
+      "validation": {
+        "required_fields": ["commit_sha", "commit_message"],
+        "optional_fields": ["author", "files_modified", "timestamp"]
+      }
+    },
+    "alerts_health_failed": {
+      "service": "mihub",
+      "path": "/api/alerts/health-check-failed",
+      "method": "POST",
+      "description": "Alert per health check fallito",
+      "auth_required": true,
+      "auth_type": "api_key",
+      "rate_limit": {
+        "enabled": true,
+        "max_requests": 5,
+        "window": "15m"
+      },
+      "allowed_sources": ["zapier", "monitoring"],
+      "log_requests": true,
+      "log_responses": false
+    },
+    "mio_agent_query": {
+      "service": "mihub",
+      "path": "/api/mio/query",
+      "method": "POST",
+      "description": "Query MIO agent",
+      "auth_required": true,
+      "auth_type": "session",
+      "rate_limit": {
+        "enabled": true,
+        "max_requests": 20,
+        "window": "1m"
+      },
+      "allowed_origins": [
+        "https://dms-hub-app-new.vercel.app"
+      ],
+      "log_requests": true,
+      "log_responses": true
+    }
+  },
+  "auth": {
+    "api_key": {
+      "header_name": "X-API-Key",
+      "sources": {
+        "zapier": {
+          "enabled": true,
+          "key_prefix": "zap_",
+          "permissions": ["abacus_invoke", "tasks_log", "alerts_health_failed"]
+        },
+        "mio": {
+          "enabled": true,
+          "key_prefix": "mio_",
+          "permissions": ["abacus_invoke", "tasks_log", "mio_agent_query"]
+        },
+        "admin": {
+          "enabled": true,
+          "key_prefix": "adm_",
+          "permissions": ["*"]
+        }
+      }
+    },
+    "session": {
+      "cookie_name": "dms_session",
+      "max_age": "7d",
+      "secure": true,
+      "http_only": true,
+      "same_site": "lax"
+    }
+  },
+  "rate_limiting": {
+    "global": {
+      "enabled": true,
+      "max_requests": 1000,
+      "window": "1h",
+      "strategy": "sliding_window"
+    },
+    "per_endpoint": {
+      "enabled": true
+    },
+    "per_user": {
+      "enabled": true,
+      "max_requests": 100,
+      "window": "1m"
+    }
+  },
+  "logging": {
+    "enabled": true,
+    "level": "info",
+    "destinations": [
+      {
+        "type": "database",
+        "table": "api_logs",
+        "fields": [
+          "timestamp",
+          "endpoint",
+          "method",
+          "source",
+          "status_code",
+          "response_time",
+          "error"
+        ]
+      },
+      {
+        "type": "file",
+        "path": "/home/ubuntu/MIO-hub/logs/api-guardian.log",
+        "rotation": "daily",
+        "max_size": "100MB",
+        "max_files": 30
+      }
+    ],
+    "sensitive_fields": [
+      "password",
+      "api_key",
+      "token",
+      "secret"
+    ],
+    "mask_sensitive": true
+  },
+  "monitoring": {
+    "enabled": true,
+    "metrics": [
+      {
+        "name": "request_count",
+        "type": "counter",
+        "labels": ["endpoint", "method", "status"]
+      },
+      {
+        "name": "request_duration",
+        "type": "histogram",
+        "labels": ["endpoint", "method"],
+        "buckets": [0.01, 0.05, 0.1, 0.5, 1, 5]
+      },
+      {
+        "name": "error_rate",
+        "type": "gauge",
+        "labels": ["endpoint", "error_type"]
+      }
+    ],
+    "alerts": [
+      {
+        "name": "high_error_rate",
+        "condition": "error_rate > 0.1",
+        "window": "5m",
+        "action": "notify_admin"
+      },
+      {
+        "name": "rate_limit_exceeded",
+        "condition": "rate_limit_hits > 10",
+        "window": "1m",
+        "action": "log_warning"
+      }
+    ]
+  },
+  "cors": {
+    "global": {
+      "enabled": true,
+      "allowed_origins": [
+        "https://dms-hub-app-new.vercel.app",
+        "http://localhost:5173"
+      ],
+      "allowed_methods": ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+      "allowed_headers": [
+        "Content-Type",
+        "Authorization",
+        "X-API-Key",
+        "X-Zapier-Source"
+      ],
+      "expose_headers": ["X-Request-ID", "X-Rate-Limit-Remaining"],
+      "credentials": true,
+      "max_age": 86400
+    }
+  },
+  "security": {
+    "ip_whitelist": {
+      "enabled": false,
+      "ips": []
+    },
+    "ip_blacklist": {
+      "enabled": true,
+      "ips": []
+    },
+    "request_validation": {
+      "enabled": true,
+      "max_body_size": "10MB",
+      "max_url_length": 2048,
+      "reject_malformed_json": true
+    },
+    "headers": {
+      "X-Content-Type-Options": "nosniff",
+      "X-Frame-Options": "DENY",
+      "X-XSS-Protection": "1; mode=block",
+      "Strict-Transport-Security": "max-age=31536000; includeSubDomains"
+    }
+  },
+  "caching": {
+    "enabled": true,
+    "strategy": "redis",
+    "ttl": {
+      "default": "5m",
+      "health": "30s",
+      "static": "1h"
+    },
+    "cache_control": {
+      "public_endpoints": "public, max-age=300",
+      "private_endpoints": "private, no-cache"
+    }
+  },
+  "webhooks": {
+    "zapier_catch_hook": {
+      "url": "https://hooks.zapier.com/hooks/catch/[YOUR_HOOK_ID]/",
+      "description": "Webhook per ricevere eventi da Zapier",
+      "events": ["task_completed", "deployment_success", "error_occurred"],
+      "retry": {
+        "enabled": true,
+        "max_attempts": 3,
+        "backoff": "exponential"
+      }
+    }
+  },
+  "integrations": {
+    "github": {
+      "enabled": true,
+      "repository": "Chcndr/MIO-hub",
+      "events": ["push", "repository_dispatch"],
+      "webhook_secret": "env:GITHUB_WEBHOOK_SECRET"
+    },
+    "zapier": {
+      "enabled": true,
+      "api_key": "env:ZAPIER_API_KEY"
+    },
+    "sentry": {
+      "enabled": false,
+      "dsn": "env:SENTRY_DSN"
+    }
+  },
+  "documentation": {
+    "openapi_spec": "/home/ubuntu/MIO-hub/docs/api-guardian-openapi.yaml",
+    "readme": "/home/ubuntu/MIO-hub/docs/api-guardian-readme.md",
+    "examples": "/home/ubuntu/MIO-hub/docs/api-guardian-examples.md"
+  },
+  "notes": {
+    "setup": "Per implementare API Guardian, creare middleware Express che legge questa config e applica regole",
+    "usage": "MIO può leggere questa config per sapere quali endpoint sono disponibili e come usarli",
+    "testing": "Usare Postman o curl per testare endpoint con diversi auth type e rate limit",
+    "monitoring": "Controllare logs/api-guardian.log per vedere richieste e errori"
+  }
+}

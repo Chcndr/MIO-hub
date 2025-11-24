@@ -1,16 +1,67 @@
 {
-  "version": 1,
+  "version": 2,
+  "last_updated": "2025-11-24T00:00:00Z",
   "risk_levels": ["low", "medium", "high"],
   "rules": {
     "always_require_confirmation_for": [
-      "deploy",
+      "mihub.deploy.vercel",
       "github.repo.file.upsert"
     ],
     "log_every_call": true,
     "log_channel": "api-guardian",
     "write_log_to": {
-      "type": "file",
-      "target": "logs/api-guardian.log"
+      "type": "database",
+      "target": "mio_agent_logs",
+      "fallback": {
+        "type": "file",
+        "target": "logs/api-guardian.log"
+      }
+    },
+    "agent_restrictions": {
+      "mio": {
+        "forbidden_endpoints": [
+          "github.repo.file.upsert",
+          "mihub.deploy.vercel"
+        ],
+        "forbidden_actions": [
+          "PUT on GitHub repos",
+          "Deploy operations",
+          "Database migrations"
+        ]
+      },
+      "manus": {
+        "forbidden_endpoints": [
+          "github.repo.file.upsert",
+          "mihub.deploy.vercel"
+        ],
+        "forbidden_actions": [
+          "PUT on GitHub repos",
+          "Deploy operations",
+          "Database migrations",
+          "Code modifications"
+        ]
+      },
+      "gemini_arch": {
+        "allowed_modes": ["read"],
+        "forbidden_actions": [
+          "Any write operation"
+        ]
+      },
+      "dev": {
+        "allowed_endpoints": [
+          "github.repo.contents",
+          "github.repo.file.upsert",
+          "mihub.tasks.list",
+          "mihub.tasks.create",
+          "mihub.deploy.vercel",
+          "logs.createLog",
+          "logs.getLogs"
+        ],
+        "require_confirmation_for": [
+          "github.repo.file.upsert",
+          "mihub.deploy.vercel"
+        ]
+      }
     }
   },
   "ui": {
@@ -22,10 +73,38 @@
       "permissions": {
         "source": "agents/permissions.json"
       },
+      "logs": {
+        "enabled": true,
+        "source": "database",
+        "endpoint": "/api/logs/getLogs"
+      },
       "debug": {
         "enabled": true,
-        "source": "logs/api-guardian.log"
+        "endpoint": "/api/guardian/debug/testEndpoint"
       }
+    }
+  },
+  "logging": {
+    "schema": {
+      "table": "mio_agent_logs",
+      "fields": [
+        "id",
+        "timestamp",
+        "agent",
+        "serviceId",
+        "endpoint",
+        "method",
+        "statusCode",
+        "risk",
+        "success",
+        "message",
+        "meta_json"
+      ]
+    },
+    "endpoints": {
+      "initSchema": "/api/logs/initSchema",
+      "createLog": "/api/logs/createLog",
+      "getLogs": "/api/logs/getLogs"
     }
   }
 }

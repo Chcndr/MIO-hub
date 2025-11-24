@@ -1,0 +1,166 @@
+{
+  "version": "1.0.0",
+  "description": "Configurazione Zapier per automazioni MIO-hub e MIHUB",
+  "zaps": [
+    {
+      "name": "MIO-hub GitHub Dispatch Handler",
+      "description": "Monitora repository_dispatch su MIO-hub e invoca Abacus automaticamente",
+      "enabled": true,
+      "trigger": {
+        "app": "GitHub",
+        "event": "repository_dispatch",
+        "repository": "Chcndr/MIO-hub",
+        "event_types": ["invoke_abacus", "deploy_task", "run_script"],
+        "polling_interval": "2 minutes"
+      },
+      "filters": [
+        {
+          "field": "event.action",
+          "condition": "equals",
+          "value": "invoke_abacus"
+        }
+      ],
+      "actions": [
+        {
+          "app": "Webhooks by Zapier",
+          "method": "POST",
+          "url": "http://157.90.29.66/api/abacus/invoke",
+          "headers": {
+            "Content-Type": "application/json",
+            "X-Zapier-Source": "MIO-hub"
+          },
+          "body": {
+            "event_type": "{{trigger.event.action}}",
+            "payload": "{{trigger.event.client_payload}}",
+            "repository": "{{trigger.repository.full_name}}",
+            "sender": "{{trigger.sender.login}}",
+            "timestamp": "{{trigger.repository.pushed_at}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "MIO-hub Task Logger",
+      "description": "Logga task completati da MIO su MIHUB database",
+      "enabled": true,
+      "trigger": {
+        "app": "GitHub",
+        "event": "push",
+        "repository": "Chcndr/MIO-hub",
+        "branch": "master",
+        "path_filter": "tasks/*.json",
+        "polling_interval": "5 minutes"
+      },
+      "filters": [
+        {
+          "field": "head_commit.message",
+          "condition": "contains",
+          "value": "[task-complete]"
+        }
+      ],
+      "actions": [
+        {
+          "app": "Webhooks by Zapier",
+          "method": "POST",
+          "url": "http://157.90.29.66/api/tasks/log",
+          "headers": {
+            "Content-Type": "application/json",
+            "X-Zapier-Source": "MIO-hub"
+          },
+          "body": {
+            "commit_sha": "{{trigger.head_commit.id}}",
+            "commit_message": "{{trigger.head_commit.message}}",
+            "author": "{{trigger.head_commit.author.name}}",
+            "files_modified": "{{trigger.head_commit.modified}}",
+            "timestamp": "{{trigger.head_commit.timestamp}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "MIHUB Health Monitor",
+      "description": "Monitora health endpoint MIHUB e notifica su errori",
+      "enabled": true,
+      "trigger": {
+        "app": "Schedule by Zapier",
+        "frequency": "every_15_minutes"
+      },
+      "actions": [
+        {
+          "app": "Webhooks by Zapier",
+          "method": "GET",
+          "url": "http://157.90.29.66/health"
+        },
+        {
+          "app": "Filter by Zapier",
+          "condition": "status_code",
+          "operator": "not_equals",
+          "value": "200",
+          "continue_if": "true"
+        },
+        {
+          "app": "Webhooks by Zapier",
+          "method": "POST",
+          "url": "http://157.90.29.66/api/alerts/health-check-failed",
+          "headers": {
+            "Content-Type": "application/json"
+          },
+          "body": {
+            "alert_type": "health_check_failed",
+            "service": "MIHUB",
+            "timestamp": "{{zap_meta_human_now}}",
+            "details": "Health endpoint returned non-200 status"
+          }
+        }
+      ]
+    }
+  ],
+  "webhooks": {
+    "incoming": [
+      {
+        "name": "Zapier Catch Hook - MIO Tasks",
+        "description": "Webhook per ricevere task da MIO tramite Zapier",
+        "url": "https://hooks.zapier.com/hooks/catch/[YOUR_HOOK_ID]/",
+        "method": "POST",
+        "expected_payload": {
+          "task_id": "string",
+          "task_type": "string",
+          "priority": "number",
+          "data": "object"
+        }
+      }
+    ],
+    "outgoing": [
+      {
+        "name": "MIHUB Abacus Endpoint",
+        "url": "http://157.90.29.66/api/abacus/invoke",
+        "method": "POST",
+        "description": "Endpoint per invocare Abacus su MIHUB"
+      },
+      {
+        "name": "MIHUB Task Logger",
+        "url": "http://157.90.29.66/api/tasks/log",
+        "method": "POST",
+        "description": "Endpoint per loggare task completati"
+      },
+      {
+        "name": "MIHUB Health Check",
+        "url": "http://157.90.29.66/health",
+        "method": "GET",
+        "description": "Endpoint health check MIHUB"
+      }
+    ]
+  },
+  "environment": {
+    "MIHUB_BASE_URL": "http://157.90.29.66",
+    "MIHUB_API_BASE": "http://157.90.29.66/api",
+    "GITHUB_REPO_MIO_HUB": "Chcndr/MIO-hub",
+    "ZAPIER_POLLING_INTERVAL": "2m"
+  },
+  "notes": {
+    "setup": "Per configurare gli Zaps, vai su https://zapier.com/app/zaps e crea nuovi Zaps seguendo le configurazioni sopra",
+    "testing": "Usa il file test-zapier-trigger.json per testare i trigger",
+    "monitoring": "Controlla Zap History su Zapier per vedere le esecuzioni",
+    "limits": "Piano Free: 100 tasks/mese, Piano Starter: 750 tasks/mese"
+  }
+}

@@ -1,15 +1,66 @@
 {
-  "version": 1,
+  "version": 2,
+  "last_updated": "2025-11-24T00:00:00Z",
   "agents": [
     {
       "id": "mio",
       "display_name": "MIO",
       "roles": ["orchestrator"],
+      "description": "Orchestratore centrale - gestisce la chat MIO HUB e coordina gli altri agenti",
       "rules": [
         {
           "endpoint_id": "mihub.tasks.list",
           "modes": ["read"],
           "max_risk": "medium",
+          "require_confirmation": false
+        },
+        {
+          "endpoint_id": "mihub.tasks.create",
+          "modes": ["write"],
+          "max_risk": "medium",
+          "require_confirmation": false
+        },
+        {
+          "endpoint_id": "logs.getLogs",
+          "modes": ["read"],
+          "max_risk": "low",
+          "require_confirmation": false
+        },
+        {
+          "endpoint_id": "github.repo.contents",
+          "modes": ["read"],
+          "max_risk": "low",
+          "require_confirmation": false
+        }
+      ],
+      "restrictions": [
+        "NO PUT su repository GitHub",
+        "NO deploy Vercel",
+        "NO migrazioni database"
+      ]
+    },
+    {
+      "id": "dev",
+      "display_name": "Dev (GPT-5.1)",
+      "roles": ["developer"],
+      "description": "Agente di sviluppo principale - backend, frontend, infra",
+      "rules": [
+        {
+          "endpoint_id": "github.repo.contents",
+          "modes": ["read"],
+          "max_risk": "low",
+          "require_confirmation": false
+        },
+        {
+          "endpoint_id": "github.repo.file.upsert",
+          "modes": ["write"],
+          "max_risk": "medium",
+          "require_confirmation": true
+        },
+        {
+          "endpoint_id": "mihub.tasks.list",
+          "modes": ["read"],
+          "max_risk": "low",
           "require_confirmation": false
         },
         {
@@ -25,23 +76,29 @@
           "require_confirmation": true
         },
         {
-          "endpoint_id": "github.repo.contents",
-          "modes": ["read"],
+          "endpoint_id": "logs.createLog",
+          "modes": ["write"],
           "max_risk": "low",
           "require_confirmation": false
         },
         {
-          "endpoint_id": "github.repo.file.upsert",
-          "modes": ["write"],
-          "max_risk": "high",
-          "require_confirmation": true
+          "endpoint_id": "logs.getLogs",
+          "modes": ["read"],
+          "max_risk": "low",
+          "require_confirmation": false
         }
+      ],
+      "permissions": [
+        "GET/PUT su /repos/{owner}/{repo}/contents/{path} del workspace DMS/MIO-HUB",
+        "POST /mihub/deploy/vercel",
+        "Chiamate agli endpoint backend MIHUB necessari per sviluppo/test"
       ]
     },
     {
       "id": "manus",
       "display_name": "Manus",
-      "roles": ["code-generator"],
+      "roles": ["operator", "tester"],
+      "description": "Operativo umano - browser, test manuali, screenshot, verifiche app live",
       "rules": [
         {
           "endpoint_id": "markets.list",
@@ -76,33 +133,72 @@
         {
           "endpoint_id": "mihub.tasks.list",
           "modes": ["read"],
-          "max_risk": "medium",
-          "require_confirmation": false
-        },
-        {
-          "endpoint_id": "mihub.tasks.create",
-          "modes": ["write"],
-          "max_risk": "medium",
+          "max_risk": "low",
           "require_confirmation": false
         },
         {
           "endpoint_id": "github.repo.contents",
           "modes": ["read"],
-          "max_risk": "medium",
+          "max_risk": "low",
+          "require_confirmation": false
+        }
+      ],
+      "restrictions": [
+        "VIETATO: PUT su repository GitHub",
+        "VIETATO: POST /mihub/deploy/vercel",
+        "VIETATO: Migrazioni database",
+        "VIETATO: Modifiche al codice sorgente"
+      ],
+      "permissions": [
+        "GET sulle app live (Vercel, Hetzner)",
+        "GET contenuti repository",
+        "Test e verifiche manuali",
+        "Screenshot e documentazione"
+      ]
+    },
+    {
+      "id": "gemini_arch",
+      "display_name": "Gemini Arch (Gemini 3 Pro)",
+      "roles": ["architect", "reviewer"],
+      "description": "Analisi architettura, review blueprint, design sistemi",
+      "rules": [
+        {
+          "endpoint_id": "github.repo.contents",
+          "modes": ["read"],
+          "max_risk": "low",
           "require_confirmation": false
         },
         {
-          "endpoint_id": "github.repo.file.upsert",
-          "modes": ["write"],
-          "max_risk": "high",
-          "require_confirmation": true
+          "endpoint_id": "logs.getLogs",
+          "modes": ["read"],
+          "max_risk": "low",
+          "require_confirmation": false
+        },
+        {
+          "endpoint_id": "mihub.tasks.list",
+          "modes": ["read"],
+          "max_risk": "low",
+          "require_confirmation": false
         }
+      ],
+      "restrictions": [
+        "SOLO LETTURA su repository",
+        "SOLO LETTURA su blueprint",
+        "SOLO LETTURA su log",
+        "NESSUNA azione scrivente"
+      ],
+      "permissions": [
+        "Lettura repository",
+        "Lettura blueprint",
+        "Lettura log",
+        "Analisi e review"
       ]
     },
     {
       "id": "abacus",
       "display_name": "Abacus",
       "roles": ["tester", "web-runner"],
+      "description": "Agente di test e automazione web (legacy)",
       "rules": [
         {
           "endpoint_id": "mihub.tasks.list",
@@ -122,6 +218,7 @@
       "id": "zapier",
       "display_name": "Zapier",
       "roles": ["automation"],
+      "description": "Automazione workflow esterni",
       "rules": [
         {
           "endpoint_id": "mihub.tasks.create",
@@ -132,12 +229,26 @@
       ]
     }
   ],
+  "guardian": {
+    "type": "infrastructure_module",
+    "description": "Modulo infrastrutturale (non LLM) che mantiene regole rischio, log, controllo permessi",
+    "responsibilities": [
+      "Validazione permessi agenti",
+      "Logging centralizzato",
+      "Gestione livelli di rischio",
+      "Richiesta conferme per azioni ad alto rischio"
+    ]
+  },
   "defaults": {
     "high_risk": {
       "require_confirmation": true
     },
     "unknown_endpoint": {
       "allow": false
+    },
+    "unknown_agent": {
+      "allow": false,
+      "default_risk": "high"
     }
   }
 }
