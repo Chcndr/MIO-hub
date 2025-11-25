@@ -465,6 +465,23 @@
           },
           "implemented": "trpc",
           "implementation_note": "tRPC router exists, REST adapter needed"
+        },
+        {
+          "id": "logs.stats",
+          "method": "GET",
+          "path": "/api/logs/stats",
+          "category": "MIO Agent",
+          "description": "Statistiche log agenti (totale, success, failed, unique agents)",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "default_params": {},
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "REST endpoint implemented in mihub-backend-rest/routes/logs.js"
         }
       ]
     },
@@ -550,6 +567,43 @@
           },
           "implemented": "rest",
           "implementation_note": "Backend REST implementato su mihub-backend-rest"
+        },
+        {
+          "id": "guardian.health",
+          "method": "GET",
+          "path": "/api/guardian/health",
+          "category": "Guardian API",
+          "description": "System health check - verifica stato endpoint Guardian e database",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "default_params": {},
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "REST endpoint implemented in mihub-backend-rest/routes/guardian.js"
+        },
+        {
+          "id": "guardian.debug.testEndpoint",
+          "method": "POST",
+          "path": "/api/guardian/debug/testEndpoint",
+          "category": "Guardian API",
+          "description": "Test endpoint generico - permette di testare qualsiasi endpoint con payload personalizzato",
+          "risk_level": "medium",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "default_body": {
+              "endpoint": "/api/logs/stats",
+              "method": "GET"
+            },
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "REST endpoint implemented in mihub-backend-rest/routes/guardian.js"
         },
         {
           "id": "admin.secrets.store",
