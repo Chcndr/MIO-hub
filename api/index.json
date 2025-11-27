@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "last_updated": "2025-11-27T20:55:00Z",
+  "last_updated": "2025-11-27T03:00:00Z",
   "services": [
     {
       "id": "dms-hub",
@@ -516,6 +516,60 @@
           },
           "implemented": "rest",
           "implementation_note": "Implemented in routes/gis.js - Serves editor-v3-sample.json"
+        },
+        {
+          "id": "abacus.github.list",
+          "method": "POST",
+          "path": "/api/abacus/github/list",
+          "category": "Abacus GitHub",
+          "description": "Lista file/directory in un repository GitHub (via MIHUB proxy)",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "note": "Richiede owner, repo, path (opzionale)"
+          },
+          "implemented": "rest",
+          "implementation_note": "GitHub proxy module - uses token from DMS secrets",
+          "guardian_log": true,
+          "log_category": "abacus_github"
+        },
+        {
+          "id": "abacus.github.get",
+          "method": "POST",
+          "path": "/api/abacus/github/get",
+          "category": "Abacus GitHub",
+          "description": "Legge contenuto file da repository GitHub (via MIHUB proxy)",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "note": "Richiede owner, repo, path"
+          },
+          "implemented": "rest",
+          "implementation_note": "GitHub proxy module - auto-decodes base64 content",
+          "guardian_log": true,
+          "log_category": "abacus_github"
+        },
+        {
+          "id": "abacus.github.update",
+          "method": "POST",
+          "path": "/api/abacus/github/update",
+          "category": "Abacus GitHub",
+          "description": "Crea/aggiorna file in repository GitHub (via MIHUB proxy)",
+          "risk_level": "high",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "note": "Richiede owner, repo, path, content, message, sha (per update)"
+          },
+          "implemented": "rest",
+          "implementation_note": "GitHub proxy module - requires SHA for updates",
+          "guardian_log": true,
+          "log_category": "abacus_github"
         }
       ]
     },
