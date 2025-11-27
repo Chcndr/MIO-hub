@@ -30,7 +30,7 @@
           "method": "POST",
           "path": "/api/dmsHub/markets/importAuto",
           "category": "Mercati",
-          "description": "Import automatico da Slot Editor v3 (senza nome/città)",
+          "description": "Import automatico da Slot Editor v3 (senza nome/citt\u00e0)",
           "risk_level": "high",
           "require_auth": true,
           "enabled": true,
@@ -292,7 +292,7 @@
           "enabled": true,
           "test": {
             "enabled": false,
-            "note": "Richiede dati completi concessione (company_id, stall_id, tipo, validità)"
+            "note": "Richiede dati completi concessione (company_id, stall_id, tipo, validit\u00e0)"
           },
           "implemented": "rest",
           "implementation_note": "REST endpoint implemented in mihub-backend-rest",
@@ -570,6 +570,66 @@
           "implementation_note": "GitHub proxy module - requires SHA for updates",
           "guardian_log": true,
           "log_category": "abacus_github"
+        },
+        {
+          "path": "/api/admin/secrets",
+          "method": "GET",
+          "category": "admin",
+          "description": "Lista metadata di tutti i secrets configurati (senza valori)",
+          "implemented": "rest",
+          "guardian_log": true,
+          "log_category": "admin_secrets",
+          "enabled": true
+        },
+        {
+          "path": "/api/admin/secrets",
+          "method": "POST",
+          "category": "admin",
+          "description": "Salva o aggiorna un secret cifrato",
+          "implemented": "rest",
+          "guardian_log": true,
+          "log_category": "admin_secrets",
+          "enabled": true
+        },
+        {
+          "path": "/api/admin/secrets/:name",
+          "method": "DELETE",
+          "category": "admin",
+          "description": "Elimina un secret",
+          "implemented": "rest",
+          "guardian_log": true,
+          "log_category": "admin_secrets",
+          "enabled": true
+        },
+        {
+          "path": "/api/admin/secrets",
+          "method": "GET",
+          "category": "admin",
+          "description": "Lista metadata di tutti i secrets configurati (senza valori)",
+          "implemented": "rest",
+          "guardian_log": true,
+          "log_category": "admin_secrets",
+          "enabled": true
+        },
+        {
+          "path": "/api/admin/secrets",
+          "method": "POST",
+          "category": "admin",
+          "description": "Salva o aggiorna un secret cifrato",
+          "implemented": "rest",
+          "guardian_log": true,
+          "log_category": "admin_secrets",
+          "enabled": true
+        },
+        {
+          "path": "/api/admin/secrets/:name",
+          "method": "DELETE",
+          "category": "admin",
+          "description": "Elimina un secret",
+          "implemented": "rest",
+          "guardian_log": true,
+          "log_category": "admin_secrets",
+          "enabled": true
         }
       ]
     },
