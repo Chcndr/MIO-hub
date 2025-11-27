@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "last_updated": "2025-11-21T18:30:00Z",
+  "last_updated": "2025-11-27T20:00:00Z",
   "services": [
     {
       "id": "dms-hub",
@@ -30,7 +30,7 @@
           "method": "POST",
           "path": "/api/dmsHub/markets/importAuto",
           "category": "Mercati",
-          "description": "Import automatico da Slot Editor v3 (senza nome/citt\u00e0)",
+          "description": "Import automatico da Slot Editor v3 (senza nome/città)",
           "risk_level": "high",
           "require_auth": true,
           "enabled": true,
@@ -218,6 +218,106 @@
           },
           "implemented": "trpc",
           "implementation_note": "tRPC router exists, REST adapter needed"
+        },
+        {
+          "id": "companies.list",
+          "method": "GET",
+          "path": "/api/markets/:marketId/companies",
+          "category": "Imprese",
+          "description": "Lista imprese per mercato",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "default_params": {},
+            "expected_status": 200,
+            "test_url": "https://mihub.157-90-29-66.nip.io/api/markets/1/companies"
+          },
+          "implemented": "rest",
+          "implementation_note": "REST endpoint implemented in routes/markets.js"
+        },
+        {
+          "id": "companies.create",
+          "method": "POST",
+          "path": "/api/markets/:marketId/companies",
+          "category": "Imprese",
+          "description": "Crea nuova impresa",
+          "risk_level": "medium",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "note": "Richiede dati completi impresa (business_name, vat_number, etc.)"
+          },
+          "implemented": "rest",
+          "implementation_note": "REST endpoint implemented in routes/markets.js"
+        },
+        {
+          "id": "companies.update",
+          "method": "PUT",
+          "path": "/api/markets/companies/:companyId",
+          "category": "Imprese",
+          "description": "Aggiorna dati impresa",
+          "risk_level": "medium",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "note": "Richiede companyId e dati aggiornati"
+          },
+          "implemented": "rest",
+          "implementation_note": "REST endpoint implemented in routes/markets.js"
+        },
+        {
+          "id": "concessions.list",
+          "method": "GET",
+          "path": "/api/markets/:marketId/concessions",
+          "category": "Concessioni",
+          "description": "Lista concessioni per mercato (impresa + posteggio)",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "default_params": {},
+            "expected_status": 200,
+            "test_url": "https://mihub.157-90-29-66.nip.io/api/markets/1/concessions"
+          },
+          "implemented": "rest",
+          "implementation_note": "REST endpoint implemented in routes/markets.js"
+        },
+        {
+          "id": "concessions.create",
+          "method": "POST",
+          "path": "/api/markets/:marketId/concessions",
+          "category": "Concessioni",
+          "description": "Crea nuova concessione (assegna posteggio a impresa)",
+          "risk_level": "medium",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "note": "Richiede vendor_id, stall_id, start_date, end_date"
+          },
+          "implemented": "rest",
+          "implementation_note": "REST endpoint implemented in routes/markets.js"
+        },
+        {
+          "id": "concessions.update",
+          "method": "PUT",
+          "path": "/api/markets/concessions/:concessionId",
+          "category": "Concessioni",
+          "description": "Aggiorna concessione esistente",
+          "risk_level": "medium",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "note": "Richiede concessionId e dati aggiornati"
+          },
+          "implemented": "rest",
+          "implementation_note": "REST endpoint implemented in routes/markets.js"
         },
         {
           "id": "bookings.listActive",
