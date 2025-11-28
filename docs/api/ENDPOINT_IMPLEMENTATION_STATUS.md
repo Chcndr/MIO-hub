@@ -1,7 +1,7 @@
 # Endpoint Implementation Status - MIHUB Backend
 
 **Data aggiornamento:** 28 novembre 2025  
-**Backend commit:** 32bdc49
+**Backend commit:** fe1eab7 (DMS Hub endpoints)
 
 ---
 
@@ -682,3 +682,275 @@ curl -X POST https://mihub.157-90-29-66.nip.io/api/abacus/sql/query \
 ---
 
 **Fine Documentazione**
+
+
+---
+
+## 🏪 DMS Hub (Gestione Mercati e Commercio)
+
+### GET `/api/dmsHub/markets/list`
+
+**Status:** ✅ **IMPLEMENTED**  
+**Protection:** Nessuna (pubblico)
+
+**Descrizione:** Lista mercati con statistiche posteggi (occupati, liberi).
+
+**Query Parameters:** Nessuno
+
+**Response:**
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "id": 1,
+      "code": "GR001",
+      "name": "Mercato Grosseto",
+      "city": "Grosseto",
+      "days": "Martedì, Giovedì",
+      "totalStalls": 160,
+      "occupiedStalls": 145,
+      "freeStalls": 15,
+      "active": true,
+      "latitude": "42.75855600",
+      "longitude": "11.11423200",
+      "createdAt": "2025-11-21T23:52:05.623Z",
+      "updatedAt": "2025-11-21T23:52:05.623Z"
+    }
+  ],
+  "count": 1
+}
+```
+
+**Dati:** ✅ Reali da Neon PostgreSQL (tabelle `markets` + `stalls`)
+
+**Test:**
+```bash
+curl https://mihub.157-90-29-66.nip.io/api/dmsHub/markets/list
+```
+
+---
+
+### GET `/api/dmsHub/markets/getById`
+
+**Status:** ✅ **IMPLEMENTED**  
+**Protection:** Nessuna (pubblico)
+
+**Descrizione:** Dettagli mercato completo con posteggi e statistiche.
+
+**Query Parameters:**
+- `marketId` (required) - ID numerico del mercato
+
+**Response:**
+```json
+{
+  "success": true,
+  "data": {
+    "market": {
+      "id": 1,
+      "code": "GR001",
+      "name": "Mercato Grosseto",
+      "municipality": "Grosseto",
+      "days": "Martedì, Giovedì",
+      "totalStalls": 160,
+      "status": "active",
+      "latitude": "42.75855600",
+      "longitude": "11.11423200"
+    },
+    "stalls": [
+      {
+        "id": 1,
+        "number": "1",
+        "gisSlotId": "stall-1",
+        "width": "4.00",
+        "depth": "7.60",
+        "type": "fisso",
+        "status": "occupato",
+        "orientation": "120.30",
+        "notes": null,
+        "vendorId": null,
+        "vendorBusinessName": null,
+        "vendorContactName": null
+      }
+    ],
+    "statistics": {
+      "totalStalls": 160,
+      "occupied": 145,
+      "free": 15,
+      "reserved": 0,
+      "booked": 0
+    }
+  }
+}
+```
+
+**Dati:** ✅ Reali da Neon PostgreSQL (tabelle `markets`, `stalls`)
+
+**Test:**
+```bash
+curl "https://mihub.157-90-29-66.nip.io/api/dmsHub/markets/getById?marketId=1"
+```
+
+---
+
+### GET `/api/dmsHub/stalls/listByMarket`
+
+**Status:** ✅ **IMPLEMENTED**  
+**Protection:** Nessuna (pubblico)
+
+**Descrizione:** Lista posteggi per mercato con vendor info.
+
+**Query Parameters:**
+- `marketId` (required) - ID numerico del mercato
+
+**Response:**
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "id": 1,
+      "marketId": 1,
+      "number": "1",
+      "gisSlotId": "stall-1",
+      "width": "4.00",
+      "depth": "7.60",
+      "type": "fisso",
+      "status": "occupato",
+      "orientation": "120.30",
+      "notes": null,
+      "vendorId": null,
+      "vendorBusinessName": null,
+      "vendorContactName": null,
+      "createdAt": "2025-11-21T23:52:05.630Z",
+      "updatedAt": "2025-11-26T22:38:28.667Z"
+    }
+  ],
+  "count": 160
+}
+```
+
+**Dati:** ✅ Reali da Neon PostgreSQL (tabelle `stalls` LEFT JOIN `vendors`)
+
+**Test:**
+```bash
+curl "https://mihub.157-90-29-66.nip.io/api/dmsHub/stalls/listByMarket?marketId=1"
+```
+
+---
+
+### GET `/api/dmsHub/vendors/list`
+
+**Status:** ✅ **IMPLEMENTED**  
+**Protection:** Nessuna (pubblico)
+
+**Descrizione:** Lista operatori/imprese con concessioni attive.
+
+**Query Parameters:** Nessuno
+
+**Response:**
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "id": 1,
+      "firstName": "Mario",
+      "lastName": "Rossi",
+      "businessName": "Rossi Frutta & Verdura",
+      "businessType": "ambulante",
+      "fiscalCode": "RSSMRA70A01H501Z",
+      "vatNumber": "IT12345678901",
+      "email": "mario.rossi@example.com",
+      "phone": "+39 333 1234567",
+      "address": "Via Roma 123",
+      "city": "Grosseto",
+      "province": "GR",
+      "zipCode": "58100",
+      "status": "active",
+      "activeConcessions": 2,
+      "createdAt": "2025-11-21T23:52:05.640Z",
+      "updatedAt": "2025-11-21T23:52:05.640Z"
+    }
+  ],
+  "count": 1
+}
+```
+
+**Dati:** ✅ Reali da Neon PostgreSQL (tabelle `vendors` LEFT JOIN `concessions`)
+
+**Test:**
+```bash
+curl https://mihub.157-90-29-66.nip.io/api/dmsHub/vendors/list
+```
+
+---
+
+### GET `/api/dmsHub/concessions/list`
+
+**Status:** ✅ **IMPLEMENTED**  
+**Protection:** Nessuna (pubblico)
+
+**Descrizione:** Lista concessioni con filtri opzionali.
+
+**Query Parameters:**
+- `vendorId` (optional) - Filtra per operatore
+- `status` (optional) - Filtra per status (active, expired, suspended)
+
+**Response:**
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "id": 1,
+      "vendorId": 1,
+      "vendorBusinessName": "Rossi Frutta & Verdura",
+      "marketId": 1,
+      "marketName": "Mercato Grosseto",
+      "stallId": 5,
+      "stallNumber": "5",
+      "type": "fisso",
+      "validFrom": "2025-01-01",
+      "validTo": "2025-12-31",
+      "status": "active",
+      "notes": null,
+      "createdAt": "2025-11-21T23:52:05.650Z",
+      "updatedAt": "2025-11-21T23:52:05.650Z"
+    }
+  ],
+  "count": 1
+}
+```
+
+**Dati:** ✅ Reali da Neon PostgreSQL (tabelle `concessions` LEFT JOIN `vendors`, `markets`, `stalls`)
+
+**Test:**
+```bash
+curl "https://mihub.157-90-29-66.nip.io/api/dmsHub/concessions/list?vendorId=1&status=active"
+```
+
+---
+
+## 📊 Riepilogo Status DMS Hub
+
+| Endpoint | Method | Status | Dati | Protection |
+|----------|--------|--------|------|------------|
+| `/api/dmsHub/markets/list` | GET | ✅ IMPLEMENTED | Reali (Neon) | Pubblico |
+| `/api/dmsHub/markets/getById` | GET | ✅ IMPLEMENTED | Reali (Neon) | Pubblico |
+| `/api/dmsHub/stalls/listByMarket` | GET | ✅ IMPLEMENTED | Reali (Neon) | Pubblico |
+| `/api/dmsHub/vendors/list` | GET | ✅ IMPLEMENTED | Reali (Neon) | Pubblico |
+| `/api/dmsHub/concessions/list` | GET | ✅ IMPLEMENTED | Reali (Neon) | Pubblico |
+
+**Totale DMS Hub:** 5/5 endpoint implementati ✅  
+**Mock:** 0/5 ❌  
+**Non implementati:** 0/5 ❌
+
+**Note:**
+- ✅ Tutti gli endpoint DMS Hub sono compatibili con documentazione `DMS_HUB_DOCUMENTAZIONE_COMPLETA.pdf`
+- ✅ Nessun mock, solo dati reali da Neon PostgreSQL
+- ✅ JSON grezzo senza wrapper finti
+- ✅ Error handling completo (400, 404, 500)
+- ⚠️ **Deploy backend Hetzner richiesto** (commit fe1eab7)
+
+---
