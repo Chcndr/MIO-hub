@@ -906,6 +906,24 @@
           "implementation_note": "REST endpoint implemented in mihub-backend-rest/routes/qualificazioni.js"
         },
         {
+          "id": "admin.migrate.pdnd",
+          "method": "POST",
+          "path": "/api/admin/migrate-pdnd",
+          "category": "MIO Agent",
+          "description": "Esegue migration database PDND: espande tabella imprese e crea tabelle DURC/SUAP",
+          "risk_level": "high",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "default_body": {},
+            "expected_status": 200,
+            "note": "Eseguire solo una volta. Verifica log per conferma."
+          },
+          "implemented": "rest",
+          "implementation_note": "FASE 1 MASTER PLAN - Database upgrade per Sistema Rating Imprese PDND"
+        },
+        {
           "id": "admin.secrets.store",
           "method": "POST",
           "path": "/admin/secrets",
