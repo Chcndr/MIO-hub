@@ -906,6 +906,25 @@
           "implementation_note": "REST endpoint implemented in mihub-backend-rest/routes/qualificazioni.js"
         },
         {
+          "id": "imprese.rating",
+          "method": "GET",
+          "path": "/api/imprese/:id/rating",
+          "category": "MIO Agent",
+          "description": "Calcola rating conformità impresa (semaforo VERDE/GIALLO/ROSSO)",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "default_body": {
+              "id": 1
+            },
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "FASE 2 MASTER PLAN - Motore rating con logica semaforo (stato impresa, PEC, DURC, concessioni)"
+        },
+        {
           "id": "admin.migrate.pdnd",
           "method": "POST",
           "path": "/api/admin/migrate-pdnd",
