@@ -834,6 +834,78 @@
           "implementation_note": "REST endpoint implemented in mihub-backend-rest/routes/guardian.js"
         },
         {
+          "id": "imprese.list",
+          "method": "GET",
+          "path": "/api/imprese",
+          "category": "Imprese & Qualificazioni",
+          "description": "Lista tutte le imprese registrate nel sistema",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "default_params": {},
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "REST endpoint implemented in mihub-backend-rest/routes/imprese.js"
+        },
+        {
+          "id": "imprese.getById",
+          "method": "GET",
+          "path": "/api/imprese/:id",
+          "category": "Imprese & Qualificazioni",
+          "description": "Dettagli di una singola impresa per ID",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "default_body": {
+              "id": 1
+            },
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "REST endpoint implemented in mihub-backend-rest/routes/imprese.js"
+        },
+        {
+          "id": "qualificazioni.list",
+          "method": "GET",
+          "path": "/api/qualificazioni",
+          "category": "Imprese & Qualificazioni",
+          "description": "Lista tutte le qualificazioni di tutte le imprese",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "default_params": {},
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "REST endpoint implemented in mihub-backend-rest/routes/qualificazioni.js"
+        },
+        {
+          "id": "qualificazioni.byImpresa",
+          "method": "GET",
+          "path": "/api/imprese/:id/qualificazioni",
+          "category": "Imprese & Qualificazioni",
+          "description": "Lista qualificazioni per una specifica impresa",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "default_body": {
+              "id": 1
+            },
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "REST endpoint implemented in mihub-backend-rest/routes/qualificazioni.js"
+        },
+        {
           "id": "admin.secrets.store",
           "method": "POST",
           "path": "/admin/secrets",
