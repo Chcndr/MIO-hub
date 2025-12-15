@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "last_updated": "2025-11-27T03:00:00Z",
+  "last_updated": "2024-12-15T15:00:00Z",
   "services": [
     {
       "id": "dms-hub",
@@ -1019,6 +1019,118 @@
           },
           "implemented": "planned",
           "implementation_note": "REST-only endpoint, no tRPC needed"
+        },
+        {
+          "id": "system.health",
+          "method": "GET",
+          "path": "/api/system/health",
+          "category": "System Status",
+          "description": "🟢 FASE 2: Health check Backend API - Status, uptime, memory usage",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "default_params": {},
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "REST endpoint, no tRPC needed"
+        },
+        {
+          "id": "system.pm2Status",
+          "method": "GET",
+          "path": "/api/system/pm2-status",
+          "category": "System Status",
+          "description": "🟢 FASE 2: PM2 process status - PID, uptime, restarts, memory, CPU",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "default_params": {},
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "REST endpoint, no tRPC needed"
+        },
+        {
+          "id": "workspace.save",
+          "method": "POST",
+          "path": "/api/workspace/save",
+          "category": "Shared Workspace",
+          "description": "🎨 FASE 3: Salva snapshot tldraw nel database",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "default_body": {
+              "conversationId": "test-conversation-123",
+              "snapshot": {
+                "store": {},
+                "schema": {}
+              }
+            },
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "REST endpoint, no tRPC needed"
+        },
+        {
+          "id": "workspace.load",
+          "method": "GET",
+          "path": "/api/workspace/load",
+          "category": "Shared Workspace",
+          "description": "🎨 FASE 3: Carica snapshot tldraw dal database",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "default_params": {
+              "conversationId": "test-conversation-123"
+            },
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "REST endpoint, no tRPC needed"
+        },
+        {
+          "id": "workspace.list",
+          "method": "GET",
+          "path": "/api/workspace/list",
+          "category": "Shared Workspace",
+          "description": "🎨 FASE 3: Lista tutti gli snapshot salvati (debug)",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "default_params": {},
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "REST endpoint, no tRPC needed"
+        },
+        {
+          "id": "workspace.delete",
+          "method": "DELETE",
+          "path": "/api/workspace/delete",
+          "category": "Shared Workspace",
+          "description": "🎨 FASE 3: Elimina snapshot (cleanup)",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "default_params": {
+              "conversationId": "test-conversation-123"
+            },
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "REST endpoint, no tRPC needed"
         }
       ]
     }
