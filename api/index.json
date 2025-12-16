@@ -630,6 +630,48 @@
           "guardian_log": true,
           "log_category": "admin_secrets",
           "enabled": true
+        },
+        {
+          "id": "routing.calculate",
+          "method": "POST",
+          "path": "/api/routing/calculate",
+          "category": "Shopping Route",
+          "description": "Calcola percorso ottimizzato da punto A a posteggio/mercato con CO₂ e crediti",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "default_params": {
+              "start": {"lat": 42.76, "lng": 11.11},
+              "destination": {"stallId": 1},
+              "mode": "walking"
+            },
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "Backend Hetzner - OpenRouteService integration"
+        },
+        {
+          "id": "routing.tplStops",
+          "method": "GET",
+          "path": "/api/routing/tpl-stops",
+          "category": "Shopping Route",
+          "description": "Trova fermate TPL (bus/metro) vicine a coordinate GPS",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "default_params": {
+              "lat": 42.76,
+              "lng": 11.11,
+              "radius": 1000
+            },
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "Backend Hetzner - Centro Mobilità integration"
         }
       ]
     },
