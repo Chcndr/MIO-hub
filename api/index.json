@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "last_updated": "2024-12-15T15:00:00Z",
+  "last_updated": "2025-12-17T19:05:58.090Z",
   "services": [
     {
       "id": "dms-hub",
@@ -10,437 +10,167 @@
       "description": "API centralizzate per gestione completa mercati, posteggi, operatori",
       "endpoints": [
         {
-          "id": "markets.importFromSlotEditor",
+          "id": "bookings.cancel",
           "method": "POST",
-          "path": "/api/dmsHub/markets/importFromSlotEditor",
-          "category": "Mercati",
-          "description": "Import JSON completo da Slot Editor v3 (manuale)",
-          "risk_level": "high",
-          "require_auth": true,
+          "path": "/api/trpc/dmsHub.bookings.cancel",
+          "category": "DmsHub",
+          "description": "Cancella prenotazione",
+          "risk_level": "medium",
+          "require_auth": false,
           "enabled": true,
           "test": {
             "enabled": false,
-            "note": "Richiede JSON completo Slot Editor v3"
-          },
-          "implemented": "trpc",
-          "implementation_note": "tRPC router exists, REST adapter needed"
-        },
-        {
-          "id": "markets.importAuto",
-          "method": "POST",
-          "path": "/api/dmsHub/markets/importAuto",
-          "category": "Mercati",
-          "description": "Import automatico da Slot Editor v3 (senza nome/citt\u00e0)",
-          "risk_level": "high",
-          "require_auth": true,
-          "enabled": true,
-          "test": {
-            "enabled": false,
-            "note": "Richiede JSON grezzo Slot Editor v3"
-          },
-          "implemented": "trpc",
-          "implementation_note": "tRPC router exists, REST adapter needed"
-        },
-        {
-          "id": "markets.list",
-          "method": "GET",
-          "path": "/api/dmsHub/markets/list",
-          "category": "Mercati",
-          "description": "Lista mercati con statistiche",
-          "risk_level": "low",
-          "require_auth": true,
-          "enabled": true,
-          "test": {
-            "enabled": true,
             "default_params": {},
             "expected_status": 200
           },
           "implemented": "trpc",
-          "implementation_note": "tRPC router exists, REST adapter needed"
+          "implementation_note": "Auto-discovered from backend code",
+          "router": "dmsHub",
+          "subrouter": "bookings",
+          "procedure": "cancel"
         },
         {
-          "id": "markets.getById",
+          "id": "bookings.confirmCheckin",
           "method": "GET",
-          "path": "/api/dmsHub/markets/getById",
-          "category": "Mercati",
-          "description": "Dettagli mercato completo (geometria, posteggi, marker, aree)",
+          "path": "/api/trpc/dmsHub.bookings.confirmCheckin",
+          "category": "DmsHub",
+          "description": "Conferma check-in",
           "risk_level": "low",
-          "require_auth": true,
+          "require_auth": false,
           "enabled": true,
           "test": {
             "enabled": true,
-            "default_params": {
-              "id": 1
-            },
             "expected_status": 200
           },
           "implemented": "trpc",
-          "implementation_note": "tRPC router exists, REST adapter needed"
-        },
-        {
-          "id": "stalls.listByMarket",
-          "method": "GET",
-          "path": "/api/dmsHub/stalls/listByMarket",
-          "category": "Posteggi",
-          "description": "Lista posteggi per mercato",
-          "risk_level": "low",
-          "require_auth": true,
-          "enabled": true,
-          "test": {
-            "enabled": true,
-            "default_params": {
-              "marketId": 1
-            },
-            "expected_status": 200
-          },
-          "implemented": "trpc",
-          "implementation_note": "tRPC router exists, REST adapter needed"
-        },
-        {
-          "id": "stalls.updateStatus",
-          "method": "POST",
-          "path": "/api/dmsHub/stalls/updateStatus",
-          "category": "Posteggi",
-          "description": "Aggiorna stato posteggio (free/occupied/reserved/maintenance)",
-          "risk_level": "medium",
-          "require_auth": true,
-          "enabled": true,
-          "test": {
-            "enabled": true,
-            "default_body": {
-              "stallId": 1,
-              "status": "occupied"
-            },
-            "expected_status": 200
-          },
-          "implemented": "trpc",
-          "implementation_note": "tRPC router exists, REST adapter needed"
-        },
-        {
-          "id": "stalls.getStatuses",
-          "method": "GET",
-          "path": "/api/dmsHub/stalls/getStatuses",
-          "category": "Posteggi",
-          "description": "Stati real-time posteggi mercato",
-          "risk_level": "low",
-          "require_auth": true,
-          "enabled": true,
-          "test": {
-            "enabled": true,
-            "default_params": {
-              "marketId": 1
-            },
-            "expected_status": 200
-          },
-          "implemented": "trpc",
-          "implementation_note": "tRPC router exists, REST adapter needed"
-        },
-        {
-          "id": "vendors.list",
-          "method": "GET",
-          "path": "/api/dmsHub/vendors/list",
-          "category": "Operatori",
-          "description": "Lista operatori",
-          "risk_level": "low",
-          "require_auth": true,
-          "enabled": true,
-          "test": {
-            "enabled": true,
-            "default_params": {},
-            "expected_status": 200
-          },
-          "implemented": "trpc",
-          "implementation_note": "tRPC router exists, REST adapter needed"
-        },
-        {
-          "id": "vendors.create",
-          "method": "POST",
-          "path": "/api/dmsHub/vendors/create",
-          "category": "Operatori",
-          "description": "Crea operatore",
-          "risk_level": "medium",
-          "require_auth": true,
-          "enabled": true,
-          "test": {
-            "enabled": false,
-            "note": "Richiede dati completi operatore"
-          },
-          "implemented": "trpc",
-          "implementation_note": "tRPC router exists, REST adapter needed"
-        },
-        {
-          "id": "vendors.update",
-          "method": "PUT",
-          "path": "/api/dmsHub/vendors/update",
-          "category": "Operatori",
-          "description": "Aggiorna operatore",
-          "risk_level": "medium",
-          "require_auth": true,
-          "enabled": true,
-          "test": {
-            "enabled": false,
-            "note": "Richiede ID e dati aggiornati"
-          },
-          "implemented": "trpc",
-          "implementation_note": "tRPC router exists, REST adapter needed"
-        },
-        {
-          "id": "vendors.getFullDetails",
-          "method": "GET",
-          "path": "/api/dmsHub/vendors/getFullDetails",
-          "category": "Operatori",
-          "description": "Dettagli completi operatore (posteggi, prenotazioni, presenze)",
-          "risk_level": "low",
-          "require_auth": true,
-          "enabled": true,
-          "test": {
-            "enabled": true,
-            "default_params": {
-              "vendorId": 1
-            },
-            "expected_status": 200
-          },
-          "implemented": "trpc",
-          "implementation_note": "tRPC router exists, REST adapter needed"
-        },
-        {
-          "id": "companies.listByMarket",
-          "method": "GET",
-          "path": "/api/markets/:marketId/companies",
-          "category": "Imprese",
-          "description": "Lista imprese registrate per mercato",
-          "risk_level": "low",
-          "require_auth": true,
-          "enabled": true,
-          "test": {
-            "enabled": true,
-            "default_params": {
-              "marketId": 1
-            },
-            "expected_status": 200
-          },
-          "implemented": "rest",
-          "implementation_note": "REST endpoint implemented in mihub-backend-rest",
-          "guardian_log": true,
-          "log_category": "markets_companies"
-        },
-        {
-          "id": "companies.create",
-          "method": "POST",
-          "path": "/api/markets/:marketId/companies",
-          "category": "Imprese",
-          "description": "Crea nuova impresa per mercato",
-          "risk_level": "medium",
-          "require_auth": true,
-          "enabled": true,
-          "test": {
-            "enabled": false,
-            "note": "Richiede dati completi impresa (business_name, vat_number, etc.)"
-          },
-          "implemented": "rest",
-          "implementation_note": "REST endpoint implemented in mihub-backend-rest",
-          "guardian_log": true,
-          "log_category": "markets_companies"
-        },
-        {
-          "id": "companies.update",
-          "method": "PUT",
-          "path": "/api/markets/companies/:companyId",
-          "category": "Imprese",
-          "description": "Aggiorna dati impresa esistente",
-          "risk_level": "medium",
-          "require_auth": true,
-          "enabled": true,
-          "test": {
-            "enabled": false,
-            "note": "Richiede ID impresa e campi da aggiornare"
-          },
-          "implemented": "rest",
-          "implementation_note": "REST endpoint implemented in mihub-backend-rest",
-          "guardian_log": true,
-          "log_category": "markets_companies"
-        },
-        {
-          "id": "concessions.listByMarket",
-          "method": "GET",
-          "path": "/api/markets/:marketId/concessions",
-          "category": "Concessioni",
-          "description": "Lista concessioni attive per mercato",
-          "risk_level": "low",
-          "require_auth": true,
-          "enabled": true,
-          "test": {
-            "enabled": true,
-            "default_params": {
-              "marketId": 1
-            },
-            "expected_status": 200
-          },
-          "implemented": "rest",
-          "implementation_note": "REST endpoint implemented in mihub-backend-rest",
-          "guardian_log": true,
-          "log_category": "markets_concessions"
-        },
-        {
-          "id": "concessions.create",
-          "method": "POST",
-          "path": "/api/markets/:marketId/concessions",
-          "category": "Concessioni",
-          "description": "Crea nuova concessione per mercato",
-          "risk_level": "medium",
-          "require_auth": true,
-          "enabled": true,
-          "test": {
-            "enabled": false,
-            "note": "Richiede dati completi concessione (company_id, stall_id, tipo, validit\u00e0)"
-          },
-          "implemented": "rest",
-          "implementation_note": "REST endpoint implemented in mihub-backend-rest",
-          "guardian_log": true,
-          "log_category": "markets_concessions"
-        },
-        {
-          "id": "concessions.update",
-          "method": "PUT",
-          "path": "/api/markets/concessions/:concessionId",
-          "category": "Concessioni",
-          "description": "Aggiorna concessione esistente",
-          "risk_level": "medium",
-          "require_auth": true,
-          "enabled": true,
-          "test": {
-            "enabled": false,
-            "note": "Richiede ID concessione e campi da aggiornare"
-          },
-          "implemented": "rest",
-          "implementation_note": "REST endpoint implemented in mihub-backend-rest",
-          "guardian_log": true,
-          "log_category": "markets_concessions"
+          "implementation_note": "Auto-discovered from backend code",
+          "router": "dmsHub",
+          "subrouter": "bookings",
+          "procedure": "confirmCheckin"
         },
         {
           "id": "bookings.create",
-          "method": "POST",
-          "path": "/api/dmsHub/bookings/create",
-          "category": "Prenotazioni",
-          "description": "Prenota posteggio",
-          "risk_level": "medium",
-          "require_auth": true,
+          "method": "GET",
+          "path": "/api/trpc/dmsHub.bookings.create",
+          "category": "DmsHub",
+          "description": "Crea prenotazione",
+          "risk_level": "low",
+          "require_auth": false,
           "enabled": true,
           "test": {
-            "enabled": false,
-            "note": "Richiede vendorId, stallId, date"
+            "enabled": true,
+            "expected_status": 200
           },
           "implemented": "trpc",
-          "implementation_note": "tRPC router exists, REST adapter needed"
+          "implementation_note": "Auto-discovered from backend code",
+          "router": "dmsHub",
+          "subrouter": "bookings",
+          "procedure": "create"
         },
         {
           "id": "bookings.listActive",
           "method": "GET",
-          "path": "/api/dmsHub/bookings/listActive",
-          "category": "Prenotazioni",
-          "description": "Prenotazioni attive",
+          "path": "/api/trpc/dmsHub.bookings.listActive",
+          "category": "DmsHub",
+          "description": "Lista prenotazioni attive",
           "risk_level": "low",
-          "require_auth": true,
+          "require_auth": false,
           "enabled": true,
           "test": {
             "enabled": true,
-            "default_params": {},
             "expected_status": 200
           },
           "implemented": "trpc",
-          "implementation_note": "tRPC router exists, REST adapter needed"
-        },
-        {
-          "id": "bookings.confirmCheckin",
-          "method": "POST",
-          "path": "/api/dmsHub/bookings/confirmCheckin",
-          "category": "Prenotazioni",
-          "description": "Conferma check-in",
-          "risk_level": "medium",
-          "require_auth": true,
-          "enabled": true,
-          "test": {
-            "enabled": false,
-            "note": "Richiede bookingId"
-          },
-          "implemented": "trpc",
-          "implementation_note": "tRPC router exists, REST adapter needed"
-        },
-        {
-          "id": "bookings.cancel",
-          "method": "DELETE",
-          "path": "/api/dmsHub/bookings/cancel",
-          "category": "Prenotazioni",
-          "description": "Cancella prenotazione",
-          "risk_level": "medium",
-          "require_auth": true,
-          "enabled": true,
-          "test": {
-            "enabled": false,
-            "note": "Richiede bookingId"
-          },
-          "implemented": "trpc",
-          "implementation_note": "tRPC router exists, REST adapter needed"
-        },
-        {
-          "id": "presences.checkout",
-          "method": "POST",
-          "path": "/api/dmsHub/presences/checkout",
-          "category": "Presenze",
-          "description": "Check-out operatore",
-          "risk_level": "medium",
-          "require_auth": true,
-          "enabled": true,
-          "test": {
-            "enabled": false,
-            "note": "Richiede presenceId"
-          },
-          "implemented": "trpc",
-          "implementation_note": "tRPC router exists, REST adapter needed"
-        },
-        {
-          "id": "presences.getTodayByMarket",
-          "method": "GET",
-          "path": "/api/dmsHub/presences/getTodayByMarket",
-          "category": "Presenze",
-          "description": "Presenze oggi per mercato",
-          "risk_level": "low",
-          "require_auth": true,
-          "enabled": true,
-          "test": {
-            "enabled": true,
-            "default_params": {
-              "marketId": 1
-            },
-            "expected_status": 200
-          },
-          "implemented": "trpc",
-          "implementation_note": "tRPC router exists, REST adapter needed"
+          "implementation_note": "Auto-discovered from backend code",
+          "router": "dmsHub",
+          "subrouter": "bookings",
+          "procedure": "listActive"
         },
         {
           "id": "inspections.create",
-          "method": "POST",
-          "path": "/api/dmsHub/inspections/create",
-          "category": "Controlli",
-          "description": "Crea controllo Polizia",
-          "risk_level": "high",
-          "require_auth": true,
+          "method": "GET",
+          "path": "/api/trpc/dmsHub.inspections.create",
+          "category": "DmsHub",
+          "description": "Crea controllo",
+          "risk_level": "low",
+          "require_auth": false,
           "enabled": true,
           "test": {
-            "enabled": false,
-            "note": "Richiede dati controllo completi"
+            "enabled": true,
+            "expected_status": 200
           },
           "implemented": "trpc",
-          "implementation_note": "tRPC router exists, REST adapter needed"
+          "implementation_note": "Auto-discovered from backend code",
+          "router": "dmsHub",
+          "subrouter": "inspections",
+          "procedure": "create"
         },
         {
           "id": "inspections.list",
           "method": "GET",
-          "path": "/api/dmsHub/inspections/list",
-          "category": "Controlli",
+          "path": "/api/trpc/dmsHub.inspections.list",
+          "category": "DmsHub",
           "description": "Lista controlli",
           "risk_level": "low",
-          "require_auth": true,
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "trpc",
+          "implementation_note": "Auto-discovered from backend code",
+          "router": "dmsHub",
+          "subrouter": "inspections",
+          "procedure": "list"
+        },
+        {
+          "id": "locations.create",
+          "method": "GET",
+          "path": "/api/trpc/dmsHub.locations.create",
+          "category": "DmsHub",
+          "description": "create endpoint",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "trpc",
+          "implementation_note": "Auto-discovered from backend code",
+          "router": "dmsHub",
+          "subrouter": "locations",
+          "procedure": "create"
+        },
+        {
+          "id": "locations.delete",
+          "method": "POST",
+          "path": "/api/trpc/dmsHub.locations.delete",
+          "category": "DmsHub",
+          "description": "delete endpoint",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "default_params": {},
+            "expected_status": 200
+          },
+          "implemented": "trpc",
+          "implementation_note": "Auto-discovered from backend code",
+          "router": "dmsHub",
+          "subrouter": "locations",
+          "procedure": "delete"
+        },
+        {
+          "id": "locations.getById",
+          "method": "GET",
+          "path": "/api/trpc/dmsHub.locations.getById",
+          "category": "DmsHub",
+          "description": "getById endpoint",
+          "risk_level": "low",
+          "require_auth": false,
           "enabled": true,
           "test": {
             "enabled": true,
@@ -448,32 +178,620 @@
             "expected_status": 200
           },
           "implemented": "trpc",
-          "implementation_note": "tRPC router exists, REST adapter needed"
+          "implementation_note": "Auto-discovered from backend code",
+          "router": "dmsHub",
+          "subrouter": "locations",
+          "procedure": "getById"
         },
         {
-          "id": "violations.create",
+          "id": "locations.list",
+          "method": "GET",
+          "path": "/api/trpc/dmsHub.locations.list",
+          "category": "DmsHub",
+          "description": "list endpoint",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "trpc",
+          "implementation_note": "Auto-discovered from backend code",
+          "router": "dmsHub",
+          "subrouter": "locations",
+          "procedure": "list"
+        },
+        {
+          "id": "locations.update",
+          "method": "GET",
+          "path": "/api/trpc/dmsHub.locations.update",
+          "category": "DmsHub",
+          "description": "update endpoint",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "trpc",
+          "implementation_note": "Auto-discovered from backend code",
+          "router": "dmsHub",
+          "subrouter": "locations",
+          "procedure": "update"
+        },
+        {
+          "id": "markets.getById",
+          "method": "GET",
+          "path": "/api/trpc/dmsHub.markets.getById",
+          "category": "DmsHub",
+          "description": "Dettagli mercato con geometria",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "default_params": {},
+            "expected_status": 200
+          },
+          "implemented": "trpc",
+          "implementation_note": "Auto-discovered from backend code",
+          "router": "dmsHub",
+          "subrouter": "markets",
+          "procedure": "getById"
+        },
+        {
+          "id": "markets.importAuto",
           "method": "POST",
-          "path": "/api/dmsHub/violations/create",
-          "category": "Verbali",
-          "description": "Emetti verbale",
-          "risk_level": "high",
-          "require_auth": true,
+          "path": "/api/trpc/dmsHub.markets.importAuto",
+          "category": "DmsHub",
+          "description": "Import automatico da Slot Editor v3 (senza richiedere nome/città)",
+          "risk_level": "medium",
+          "require_auth": false,
           "enabled": true,
           "test": {
             "enabled": false,
-            "note": "Richiede dati verbale completi"
+            "default_params": {},
+            "expected_status": 200
           },
           "implemented": "trpc",
-          "implementation_note": "tRPC router exists, REST adapter needed"
+          "implementation_note": "Auto-discovered from backend code",
+          "router": "dmsHub",
+          "subrouter": "markets",
+          "procedure": "importAuto"
+        },
+        {
+          "id": "markets.importFromSlotEditor",
+          "method": "GET",
+          "path": "/api/trpc/dmsHub.markets.importFromSlotEditor",
+          "category": "DmsHub",
+          "description": "Import JSON completo da Slot Editor v3",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "trpc",
+          "implementation_note": "Auto-discovered from backend code",
+          "router": "dmsHub",
+          "subrouter": "markets",
+          "procedure": "importFromSlotEditor"
+        },
+        {
+          "id": "markets.list",
+          "method": "GET",
+          "path": "/api/trpc/dmsHub.markets.list",
+          "category": "DmsHub",
+          "description": "Lista tutti i mercati",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "trpc",
+          "implementation_note": "Auto-discovered from backend code",
+          "router": "dmsHub",
+          "subrouter": "markets",
+          "procedure": "list"
+        },
+        {
+          "id": "presences.checkout",
+          "method": "GET",
+          "path": "/api/trpc/dmsHub.presences.checkout",
+          "category": "DmsHub",
+          "description": "Check-out operatore",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "default_params": {},
+            "expected_status": 200
+          },
+          "implemented": "trpc",
+          "implementation_note": "Auto-discovered from backend code",
+          "router": "dmsHub",
+          "subrouter": "presences",
+          "procedure": "checkout"
+        },
+        {
+          "id": "presences.getTodayByMarket",
+          "method": "GET",
+          "path": "/api/trpc/dmsHub.presences.getTodayByMarket",
+          "category": "DmsHub",
+          "description": "Presenze oggi per mercato",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "default_params": {},
+            "expected_status": 200
+          },
+          "implemented": "trpc",
+          "implementation_note": "Auto-discovered from backend code",
+          "router": "dmsHub",
+          "subrouter": "presences",
+          "procedure": "getTodayByMarket"
+        },
+        {
+          "id": "services.create",
+          "method": "GET",
+          "path": "/api/trpc/dmsHub.services.create",
+          "category": "DmsHub",
+          "description": "create endpoint",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "trpc",
+          "implementation_note": "Auto-discovered from backend code",
+          "router": "dmsHub",
+          "subrouter": "services",
+          "procedure": "create"
+        },
+        {
+          "id": "services.list",
+          "method": "GET",
+          "path": "/api/trpc/dmsHub.services.list",
+          "category": "DmsHub",
+          "description": "list endpoint",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "default_params": {},
+            "expected_status": 200
+          },
+          "implemented": "trpc",
+          "implementation_note": "Auto-discovered from backend code",
+          "router": "dmsHub",
+          "subrouter": "services",
+          "procedure": "list"
+        },
+        {
+          "id": "shops.create",
+          "method": "GET",
+          "path": "/api/trpc/dmsHub.shops.create",
+          "category": "DmsHub",
+          "description": "create endpoint",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "trpc",
+          "implementation_note": "Auto-discovered from backend code",
+          "router": "dmsHub",
+          "subrouter": "shops",
+          "procedure": "create"
+        },
+        {
+          "id": "shops.list",
+          "method": "GET",
+          "path": "/api/trpc/dmsHub.shops.list",
+          "category": "DmsHub",
+          "description": "list endpoint",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "default_params": {},
+            "expected_status": 200
+          },
+          "implemented": "trpc",
+          "implementation_note": "Auto-discovered from backend code",
+          "router": "dmsHub",
+          "subrouter": "shops",
+          "procedure": "list"
+        },
+        {
+          "id": "stalls.getStatuses",
+          "method": "GET",
+          "path": "/api/trpc/dmsHub.stalls.getStatuses",
+          "category": "DmsHub",
+          "description": "Stati real-time tutti i posteggi di un mercato",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "default_params": {},
+            "expected_status": 200
+          },
+          "implemented": "trpc",
+          "implementation_note": "Auto-discovered from backend code",
+          "router": "dmsHub",
+          "subrouter": "stalls",
+          "procedure": "getStatuses"
+        },
+        {
+          "id": "stalls.listByMarket",
+          "method": "GET",
+          "path": "/api/trpc/dmsHub.stalls.listByMarket",
+          "category": "DmsHub",
+          "description": "Lista posteggi per mercato",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "default_params": {},
+            "expected_status": 200
+          },
+          "implemented": "trpc",
+          "implementation_note": "Auto-discovered from backend code",
+          "router": "dmsHub",
+          "subrouter": "stalls",
+          "procedure": "listByMarket"
+        },
+        {
+          "id": "stalls.updateStatus",
+          "method": "GET",
+          "path": "/api/trpc/dmsHub.stalls.updateStatus",
+          "category": "DmsHub",
+          "description": "Aggiorna stato posteggio",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "default_params": {},
+            "expected_status": 200
+          },
+          "implemented": "trpc",
+          "implementation_note": "Auto-discovered from backend code",
+          "router": "dmsHub",
+          "subrouter": "stalls",
+          "procedure": "updateStatus"
+        },
+        {
+          "id": "vendors.create",
+          "method": "GET",
+          "path": "/api/trpc/dmsHub.vendors.create",
+          "category": "DmsHub",
+          "description": "Crea nuovo operatore",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "trpc",
+          "implementation_note": "Auto-discovered from backend code",
+          "router": "dmsHub",
+          "subrouter": "vendors",
+          "procedure": "create"
+        },
+        {
+          "id": "vendors.getFullDetails",
+          "method": "GET",
+          "path": "/api/trpc/dmsHub.vendors.getFullDetails",
+          "category": "DmsHub",
+          "description": "Dettagli operatore completi (per App Polizia)",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "default_params": {},
+            "expected_status": 200
+          },
+          "implemented": "trpc",
+          "implementation_note": "Auto-discovered from backend code",
+          "router": "dmsHub",
+          "subrouter": "vendors",
+          "procedure": "getFullDetails"
+        },
+        {
+          "id": "vendors.list",
+          "method": "GET",
+          "path": "/api/trpc/dmsHub.vendors.list",
+          "category": "DmsHub",
+          "description": "Lista tutti gli operatori",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "trpc",
+          "implementation_note": "Auto-discovered from backend code",
+          "router": "dmsHub",
+          "subrouter": "vendors",
+          "procedure": "list"
+        },
+        {
+          "id": "vendors.update",
+          "method": "GET",
+          "path": "/api/trpc/dmsHub.vendors.update",
+          "category": "DmsHub",
+          "description": "Aggiorna operatore",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "trpc",
+          "implementation_note": "Auto-discovered from backend code",
+          "router": "dmsHub",
+          "subrouter": "vendors",
+          "procedure": "update"
+        },
+        {
+          "id": "violations.create",
+          "method": "GET",
+          "path": "/api/trpc/dmsHub.violations.create",
+          "category": "DmsHub",
+          "description": "Crea verbale",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "trpc",
+          "implementation_note": "Auto-discovered from backend code",
+          "router": "dmsHub",
+          "subrouter": "violations",
+          "procedure": "create"
         },
         {
           "id": "violations.list",
           "method": "GET",
-          "path": "/api/dmsHub/violations/list",
-          "category": "Verbali",
+          "path": "/api/trpc/dmsHub.violations.list",
+          "category": "DmsHub",
           "description": "Lista verbali",
           "risk_level": "low",
-          "require_auth": true,
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "trpc",
+          "implementation_note": "Auto-discovered from backend code",
+          "router": "dmsHub",
+          "subrouter": "violations",
+          "procedure": "list"
+        },
+        {
+          "id": "initDemoLogs",
+          "method": "POST",
+          "path": "/api/trpc/guardian.initDemoLogs",
+          "category": "Guardian",
+          "description": "============================================================================",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "trpc",
+          "implementation_note": "Auto-discovered from backend code",
+          "router": "guardian",
+          "subrouter": null,
+          "procedure": "initDemoLogs"
+        },
+        {
+          "id": "integrations",
+          "method": "GET",
+          "path": "/api/trpc/guardian.integrations",
+          "category": "Guardian",
+          "description": "============================================================================",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "trpc",
+          "implementation_note": "Auto-discovered from backend code",
+          "router": "guardian",
+          "subrouter": null,
+          "procedure": "integrations"
+        },
+        {
+          "id": "logApiCall",
+          "method": "GET",
+          "path": "/api/trpc/guardian.logApiCall",
+          "category": "Guardian",
+          "description": "============================================================================",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "trpc",
+          "implementation_note": "Auto-discovered from backend code",
+          "router": "guardian",
+          "subrouter": null,
+          "procedure": "logApiCall"
+        },
+        {
+          "id": "logs",
+          "method": "GET",
+          "path": "/api/trpc/guardian.logs",
+          "category": "Guardian",
+          "description": "============================================================================",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "trpc",
+          "implementation_note": "Auto-discovered from backend code",
+          "router": "guardian",
+          "subrouter": null,
+          "procedure": "logs"
+        },
+        {
+          "id": "stats",
+          "method": "GET",
+          "path": "/api/trpc/guardian.stats",
+          "category": "Guardian",
+          "description": "============================================================================",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "trpc",
+          "implementation_note": "Auto-discovered from backend code",
+          "router": "guardian",
+          "subrouter": null,
+          "procedure": "stats"
+        },
+        {
+          "id": "testEndpoint",
+          "method": "GET",
+          "path": "/api/trpc/guardian.testEndpoint",
+          "category": "Guardian",
+          "description": "============================================================================",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "trpc",
+          "implementation_note": "Auto-discovered from backend code",
+          "router": "guardian",
+          "subrouter": null,
+          "procedure": "testEndpoint"
+        },
+        {
+          "id": "apiKeys.create",
+          "method": "GET",
+          "path": "/api/trpc/integrations.apiKeys.create",
+          "category": "Integrations",
+          "description": "Crea nuova API key",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "trpc",
+          "implementation_note": "Auto-discovered from backend code",
+          "router": "integrations",
+          "subrouter": "apiKeys",
+          "procedure": "create"
+        },
+        {
+          "id": "apiKeys.delete",
+          "method": "POST",
+          "path": "/api/trpc/integrations.apiKeys.delete",
+          "category": "Integrations",
+          "description": "Elimina API key",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "default_params": {},
+            "expected_status": 200
+          },
+          "implemented": "trpc",
+          "implementation_note": "Auto-discovered from backend code",
+          "router": "integrations",
+          "subrouter": "apiKeys",
+          "procedure": "delete"
+        },
+        {
+          "id": "apiKeys.list",
+          "method": "GET",
+          "path": "/api/trpc/integrations.apiKeys.list",
+          "category": "Integrations",
+          "description": "Lista tutte le API keys",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "trpc",
+          "implementation_note": "Auto-discovered from backend code",
+          "router": "integrations",
+          "subrouter": "apiKeys",
+          "procedure": "list"
+        },
+        {
+          "id": "apiKeys.regenerate",
+          "method": "POST",
+          "path": "/api/trpc/integrations.apiKeys.regenerate",
+          "category": "Integrations",
+          "description": "Rigenera API key",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "default_params": {},
+            "expected_status": 200
+          },
+          "implemented": "trpc",
+          "implementation_note": "Auto-discovered from backend code",
+          "router": "integrations",
+          "subrouter": "apiKeys",
+          "procedure": "regenerate"
+        },
+        {
+          "id": "apiKeys.updateStatus",
+          "method": "GET",
+          "path": "/api/trpc/integrations.apiKeys.updateStatus",
+          "category": "Integrations",
+          "description": "Aggiorna status API key",
+          "risk_level": "low",
+          "require_auth": false,
           "enabled": true,
           "test": {
             "enabled": true,
@@ -481,14 +799,171 @@
             "expected_status": 200
           },
           "implemented": "trpc",
-          "implementation_note": "tRPC router exists, REST adapter needed"
+          "implementation_note": "Auto-discovered from backend code",
+          "router": "integrations",
+          "subrouter": "apiKeys",
+          "procedure": "updateStatus"
         },
         {
-          "id": "gis.health",
+          "id": "apiStats.byEndpoint",
           "method": "GET",
-          "path": "/api/gis/health",
-          "category": "GIS",
-          "description": "Health check modulo GIS",
+          "path": "/api/trpc/integrations.apiStats.byEndpoint",
+          "category": "Integrations",
+          "description": "Statistiche per endpoint (top 10)",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "trpc",
+          "implementation_note": "Auto-discovered from backend code",
+          "router": "integrations",
+          "subrouter": "apiStats",
+          "procedure": "byEndpoint"
+        },
+        {
+          "id": "apiStats.today",
+          "method": "GET",
+          "path": "/api/trpc/integrations.apiStats.today",
+          "category": "Integrations",
+          "description": "Statistiche oggi",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "trpc",
+          "implementation_note": "Auto-discovered from backend code",
+          "router": "integrations",
+          "subrouter": "apiStats",
+          "procedure": "today"
+        },
+        {
+          "id": "connections.healthCheck",
+          "method": "POST",
+          "path": "/api/trpc/integrations.connections.healthCheck",
+          "category": "Integrations",
+          "description": "Health check singola connessione",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "default_params": {},
+            "expected_status": 200
+          },
+          "implemented": "trpc",
+          "implementation_note": "Auto-discovered from backend code",
+          "router": "integrations",
+          "subrouter": "connections",
+          "procedure": "healthCheck"
+        },
+        {
+          "id": "connections.healthCheckAll",
+          "method": "POST",
+          "path": "/api/trpc/integrations.connections.healthCheckAll",
+          "category": "Integrations",
+          "description": "Health check tutte le connessioni",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "trpc",
+          "implementation_note": "Auto-discovered from backend code",
+          "router": "integrations",
+          "subrouter": "connections",
+          "procedure": "healthCheckAll"
+        },
+        {
+          "id": "connections.list",
+          "method": "GET",
+          "path": "/api/trpc/integrations.connections.list",
+          "category": "Integrations",
+          "description": "Lista connessioni",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "trpc",
+          "implementation_note": "Auto-discovered from backend code",
+          "router": "integrations",
+          "subrouter": "connections",
+          "procedure": "list"
+        },
+        {
+          "id": "webhooks.create",
+          "method": "GET",
+          "path": "/api/trpc/integrations.webhooks.create",
+          "category": "Integrations",
+          "description": "Crea webhook",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "trpc",
+          "implementation_note": "Auto-discovered from backend code",
+          "router": "integrations",
+          "subrouter": "webhooks",
+          "procedure": "create"
+        },
+        {
+          "id": "webhooks.delete",
+          "method": "POST",
+          "path": "/api/trpc/integrations.webhooks.delete",
+          "category": "Integrations",
+          "description": "Elimina webhook",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "default_params": {},
+            "expected_status": 200
+          },
+          "implemented": "trpc",
+          "implementation_note": "Auto-discovered from backend code",
+          "router": "integrations",
+          "subrouter": "webhooks",
+          "procedure": "delete"
+        },
+        {
+          "id": "webhooks.list",
+          "method": "GET",
+          "path": "/api/trpc/integrations.webhooks.list",
+          "category": "Integrations",
+          "description": "Lista webhook",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "trpc",
+          "implementation_note": "Auto-discovered from backend code",
+          "router": "integrations",
+          "subrouter": "webhooks",
+          "procedure": "list"
+        },
+        {
+          "id": "webhooks.logs",
+          "method": "GET",
+          "path": "/api/trpc/integrations.webhooks.logs",
+          "category": "Integrations",
+          "description": "Log webhook",
           "risk_level": "low",
           "require_auth": false,
           "enabled": true,
@@ -497,15 +972,18 @@
             "default_params": {},
             "expected_status": 200
           },
-          "implemented": "rest",
-          "implementation_note": "Implemented in routes/gis.js"
+          "implemented": "trpc",
+          "implementation_note": "Auto-discovered from backend code",
+          "router": "integrations",
+          "subrouter": "webhooks",
+          "procedure": "logs"
         },
         {
-          "id": "gis.marketMap",
+          "id": "webhooks.test",
           "method": "GET",
-          "path": "/api/gis/market-map",
-          "category": "GIS",
-          "description": "Dati mappa mercato da Editor v3 (GeoJSON)",
+          "path": "/api/trpc/integrations.webhooks.test",
+          "category": "Integrations",
+          "description": "Test webhook (trigger manuale)",
           "risk_level": "low",
           "require_auth": false,
           "enabled": true,
@@ -514,164 +992,338 @@
             "default_params": {},
             "expected_status": 200
           },
-          "implemented": "rest",
-          "implementation_note": "Implemented in routes/gis.js - Serves editor-v3-sample.json"
+          "implemented": "trpc",
+          "implementation_note": "Auto-discovered from backend code",
+          "router": "integrations",
+          "subrouter": "webhooks",
+          "procedure": "test"
         },
         {
-          "id": "abacus.github.list",
-          "method": "POST",
-          "path": "/api/abacus/github/list",
-          "category": "Abacus GitHub",
-          "description": "Lista file/directory in un repository GitHub (via MIHUB proxy)",
-          "risk_level": "low",
-          "require_auth": false,
-          "enabled": true,
-          "test": {
-            "enabled": true,
-            "note": "Richiede owner, repo, path (opzionale)"
-          },
-          "implemented": "rest",
-          "implementation_note": "GitHub proxy module - uses token from DMS secrets",
-          "guardian_log": true,
-          "log_category": "abacus_github"
-        },
-        {
-          "id": "abacus.github.get",
-          "method": "POST",
-          "path": "/api/abacus/github/get",
-          "category": "Abacus GitHub",
-          "description": "Legge contenuto file da repository GitHub (via MIHUB proxy)",
-          "risk_level": "low",
-          "require_auth": false,
-          "enabled": true,
-          "test": {
-            "enabled": true,
-            "note": "Richiede owner, repo, path"
-          },
-          "implemented": "rest",
-          "implementation_note": "GitHub proxy module - auto-decodes base64 content",
-          "guardian_log": true,
-          "log_category": "abacus_github"
-        },
-        {
-          "id": "abacus.github.update",
-          "method": "POST",
-          "path": "/api/abacus/github/update",
-          "category": "Abacus GitHub",
-          "description": "Crea/aggiorna file in repository GitHub (via MIHUB proxy)",
-          "risk_level": "high",
-          "require_auth": false,
-          "enabled": true,
-          "test": {
-            "enabled": true,
-            "note": "Richiede owner, repo, path, content, message, sha (per update)"
-          },
-          "implemented": "rest",
-          "implementation_note": "GitHub proxy module - requires SHA for updates",
-          "guardian_log": true,
-          "log_category": "abacus_github"
-        },
-        {
-          "path": "/api/admin/secrets",
+          "id": "createTask",
           "method": "GET",
-          "category": "admin",
-          "description": "Lista metadata di tutti i secrets configurati (senza valori)",
-          "implemented": "rest",
-          "guardian_log": true,
-          "log_category": "admin_secrets",
-          "enabled": true
-        },
-        {
-          "path": "/api/admin/secrets",
-          "method": "POST",
-          "category": "admin",
-          "description": "Salva o aggiorna un secret cifrato",
-          "implemented": "rest",
-          "guardian_log": true,
-          "log_category": "admin_secrets",
-          "enabled": true
-        },
-        {
-          "path": "/api/admin/secrets/:name",
-          "method": "DELETE",
-          "category": "admin",
-          "description": "Elimina un secret",
-          "implemented": "rest",
-          "guardian_log": true,
-          "log_category": "admin_secrets",
-          "enabled": true
-        },
-        {
-          "path": "/api/admin/secrets",
-          "method": "GET",
-          "category": "admin",
-          "description": "Lista metadata di tutti i secrets configurati (senza valori)",
-          "implemented": "rest",
-          "guardian_log": true,
-          "log_category": "admin_secrets",
-          "enabled": true
-        },
-        {
-          "path": "/api/admin/secrets",
-          "method": "POST",
-          "category": "admin",
-          "description": "Salva o aggiorna un secret cifrato",
-          "implemented": "rest",
-          "guardian_log": true,
-          "log_category": "admin_secrets",
-          "enabled": true
-        },
-        {
-          "path": "/api/admin/secrets/:name",
-          "method": "DELETE",
-          "category": "admin",
-          "description": "Elimina un secret",
-          "implemented": "rest",
-          "guardian_log": true,
-          "log_category": "admin_secrets",
-          "enabled": true
-        },
-        {
-          "id": "routing.calculate",
-          "method": "POST",
-          "path": "/api/routing/calculate",
-          "category": "Shopping Route",
-          "description": "Calcola percorso ottimizzato da punto A a posteggio/mercato con CO₂ e crediti",
+          "path": "/api/trpc/mihub.createTask",
+          "category": "Mihub",
+          "description": "createTask endpoint",
           "risk_level": "low",
           "require_auth": false,
           "enabled": true,
           "test": {
             "enabled": true,
-            "default_params": {
-              "start": {"lat": 42.76, "lng": 11.11},
-              "destination": {"stallId": 1},
-              "mode": "walking"
-            },
             "expected_status": 200
           },
-          "implemented": "rest",
-          "implementation_note": "Backend Hetzner - OpenRouteService integration"
+          "implemented": "trpc",
+          "implementation_note": "Auto-discovered from backend code",
+          "router": "mihub",
+          "subrouter": null,
+          "procedure": "createTask"
         },
         {
-          "id": "routing.tplStops",
+          "id": "deleteBagValue",
+          "method": "POST",
+          "path": "/api/trpc/mihub.deleteBagValue",
+          "category": "Mihub",
+          "description": "deleteBagValue endpoint",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "default_params": {},
+            "expected_status": 200
+          },
+          "implemented": "trpc",
+          "implementation_note": "Auto-discovered from backend code",
+          "router": "mihub",
+          "subrouter": null,
+          "procedure": "deleteBagValue"
+        },
+        {
+          "id": "getBagValue",
           "method": "GET",
-          "path": "/api/routing/tpl-stops",
-          "category": "Shopping Route",
-          "description": "Trova fermate TPL (bus/metro) vicine a coordinate GPS",
+          "path": "/api/trpc/mihub.getBagValue",
+          "category": "Mihub",
+          "description": "getBagValue endpoint",
           "risk_level": "low",
           "require_auth": false,
           "enabled": true,
           "test": {
             "enabled": true,
-            "default_params": {
-              "lat": 42.76,
-              "lng": 11.11,
-              "radius": 1000
-            },
+            "default_params": {},
             "expected_status": 200
           },
-          "implemented": "rest",
-          "implementation_note": "Backend Hetzner - Centro Mobilità integration"
+          "implemented": "trpc",
+          "implementation_note": "Auto-discovered from backend code",
+          "router": "mihub",
+          "subrouter": null,
+          "procedure": "getBagValue"
+        },
+        {
+          "id": "getBrainMemory",
+          "method": "GET",
+          "path": "/api/trpc/mihub.getBrainMemory",
+          "category": "Mihub",
+          "description": "getBrainMemory endpoint",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "trpc",
+          "implementation_note": "Auto-discovered from backend code",
+          "router": "mihub",
+          "subrouter": null,
+          "procedure": "getBrainMemory"
+        },
+        {
+          "id": "getMessages",
+          "method": "GET",
+          "path": "/api/trpc/mihub.getMessages",
+          "category": "Mihub",
+          "description": "getMessages endpoint",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "default_params": {},
+            "expected_status": 200
+          },
+          "implemented": "trpc",
+          "implementation_note": "Auto-discovered from backend code",
+          "router": "mihub",
+          "subrouter": null,
+          "procedure": "getMessages"
+        },
+        {
+          "id": "getTasks",
+          "method": "GET",
+          "path": "/api/trpc/mihub.getTasks",
+          "category": "Mihub",
+          "description": "getTasks endpoint",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "trpc",
+          "implementation_note": "Auto-discovered from backend code",
+          "router": "mihub",
+          "subrouter": null,
+          "procedure": "getTasks"
+        },
+        {
+          "id": "markMessageAsRead",
+          "method": "GET",
+          "path": "/api/trpc/mihub.markMessageAsRead",
+          "category": "Mihub",
+          "description": "markMessageAsRead endpoint",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "default_params": {},
+            "expected_status": 200
+          },
+          "implemented": "trpc",
+          "implementation_note": "Auto-discovered from backend code",
+          "router": "mihub",
+          "subrouter": null,
+          "procedure": "markMessageAsRead"
+        },
+        {
+          "id": "saveBrainMemory",
+          "method": "GET",
+          "path": "/api/trpc/mihub.saveBrainMemory",
+          "category": "Mihub",
+          "description": "saveBrainMemory endpoint",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "trpc",
+          "implementation_note": "Auto-discovered from backend code",
+          "router": "mihub",
+          "subrouter": null,
+          "procedure": "saveBrainMemory"
+        },
+        {
+          "id": "sendMessage",
+          "method": "GET",
+          "path": "/api/trpc/mihub.sendMessage",
+          "category": "Mihub",
+          "description": "sendMessage endpoint",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "trpc",
+          "implementation_note": "Auto-discovered from backend code",
+          "router": "mihub",
+          "subrouter": null,
+          "procedure": "sendMessage"
+        },
+        {
+          "id": "setBagValue",
+          "method": "GET",
+          "path": "/api/trpc/mihub.setBagValue",
+          "category": "Mihub",
+          "description": "setBagValue endpoint",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "trpc",
+          "implementation_note": "Auto-discovered from backend code",
+          "router": "mihub",
+          "subrouter": null,
+          "procedure": "setBagValue"
+        },
+        {
+          "id": "updateTaskStatus",
+          "method": "GET",
+          "path": "/api/trpc/mihub.updateTaskStatus",
+          "category": "Mihub",
+          "description": "updateTaskStatus endpoint",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "trpc",
+          "implementation_note": "Auto-discovered from backend code",
+          "router": "mihub",
+          "subrouter": null,
+          "procedure": "updateTaskStatus"
+        },
+        {
+          "id": "createLog",
+          "method": "GET",
+          "path": "/api/trpc/mioAgent.createLog",
+          "category": "MioAgent",
+          "description": "Crea un nuovo log nel database",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "trpc",
+          "implementation_note": "Auto-discovered from backend code",
+          "router": "mioAgent",
+          "subrouter": null,
+          "procedure": "createLog"
+        },
+        {
+          "id": "getLogById",
+          "method": "GET",
+          "path": "/api/trpc/mioAgent.getLogById",
+          "category": "MioAgent",
+          "description": "Recupera un singolo log per ID",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "trpc",
+          "implementation_note": "Auto-discovered from backend code",
+          "router": "mioAgent",
+          "subrouter": null,
+          "procedure": "getLogById"
+        },
+        {
+          "id": "getLogs",
+          "method": "GET",
+          "path": "/api/trpc/mioAgent.getLogs",
+          "category": "MioAgent",
+          "description": "Recupera tutti i log dal database",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "trpc",
+          "implementation_note": "Auto-discovered from backend code",
+          "router": "mioAgent",
+          "subrouter": null,
+          "procedure": "getLogs"
+        },
+        {
+          "id": "initSchema",
+          "method": "POST",
+          "path": "/api/trpc/mioAgent.initSchema",
+          "category": "MioAgent",
+          "description": "Inizializza lo schema del database (crea tabella se non esiste)",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "trpc",
+          "implementation_note": "Auto-discovered from backend code",
+          "router": "mioAgent",
+          "subrouter": null,
+          "procedure": "initSchema"
+        },
+        {
+          "id": "testDatabase",
+          "method": "GET",
+          "path": "/api/trpc/mioAgent.testDatabase",
+          "category": "MioAgent",
+          "description": "Test connessione database e diagnostica",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "trpc",
+          "implementation_note": "Auto-discovered from backend code",
+          "router": "mioAgent",
+          "subrouter": null,
+          "procedure": "testDatabase"
+        },
+        {
+          "id": "health",
+          "method": "GET",
+          "path": "/api/trpc/system.health",
+          "category": "System",
+          "description": "health endpoint",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "trpc",
+          "implementation_note": "Auto-discovered from backend code",
+          "router": "system",
+          "subrouter": null,
+          "procedure": "health"
         }
       ]
     },
