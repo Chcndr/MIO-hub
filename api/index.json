@@ -1324,6 +1324,44 @@
           "router": "system",
           "subrouter": null,
           "procedure": "health"
+        },
+        {
+          "id": "mail.webhookReceive",
+          "method": "POST",
+          "path": "/api/mihub/webhook/email",
+          "category": "Mail",
+          "description": "📧 Riceve email da Zapier e le salva nel sistema",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "default_body": {
+              "from": "test@example.com",
+              "subject": "Test Email",
+              "body_plain": "This is a test email"
+            },
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "Webhook endpoint for Zapier email integration"
+        },
+        {
+          "id": "mail.listInbox",
+          "method": "GET",
+          "path": "/api/mihub/mail/inbox",
+          "category": "Mail",
+          "description": "📧 Lista email ricevute nella inbox",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "default_params": {},
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "REST endpoint for listing received emails"
         }
       ]
     },
