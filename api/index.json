@@ -1,6 +1,6 @@
 {
-  "version": 3,
-  "last_updated": "2025-12-17T19:58:20.641Z",
+  "version": 4,
+  "last_updated": "2025-12-22T16:19:38.783184Z",
   "services": [
     {
       "id": "dms-hub",
@@ -1362,6 +1362,552 @@
           },
           "implemented": "rest",
           "implementation_note": "REST endpoint for listing received emails"
+        },
+        {
+          "id": "wallet.stats",
+          "method": "GET",
+          "path": "/api/trpc/wallet.stats",
+          "category": "Wallet",
+          "description": "Statistiche generali wallet (attivi, saldo totale, saldo basso, bloccati)",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "trpc",
+          "implementation_note": "Sistema Wallet/PagoPA per operatori mercatali",
+          "router": "wallet",
+          "procedure": "stats"
+        },
+        {
+          "id": "wallet.list",
+          "method": "GET",
+          "path": "/api/trpc/wallet.list",
+          "category": "Wallet",
+          "description": "Lista wallet operatori con filtri",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "trpc",
+          "router": "wallet",
+          "procedure": "list"
+        },
+        {
+          "id": "wallet.getById",
+          "method": "GET",
+          "path": "/api/trpc/wallet.getById",
+          "category": "Wallet",
+          "description": "Dettaglio wallet per ID",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "default_params": {
+              "walletId": 1
+            },
+            "expected_status": 200
+          },
+          "implemented": "trpc",
+          "router": "wallet",
+          "procedure": "getById"
+        },
+        {
+          "id": "wallet.getByImpresa",
+          "method": "GET",
+          "path": "/api/trpc/wallet.getByImpresa",
+          "category": "Wallet",
+          "description": "Wallet associato a una impresa",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "default_params": {
+              "impresaId": 1
+            },
+            "expected_status": 200
+          },
+          "implemented": "trpc",
+          "router": "wallet",
+          "procedure": "getByImpresa"
+        },
+        {
+          "id": "wallet.create",
+          "method": "POST",
+          "path": "/api/trpc/wallet.create",
+          "category": "Wallet",
+          "description": "Crea nuovo wallet per operatore",
+          "risk_level": "medium",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "trpc",
+          "router": "wallet",
+          "procedure": "create"
+        },
+        {
+          "id": "wallet.updateStatus",
+          "method": "POST",
+          "path": "/api/trpc/wallet.updateStatus",
+          "category": "Wallet",
+          "description": "Aggiorna stato wallet (ATTIVO, BLOCCATO, SOSPESO)",
+          "risk_level": "medium",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "trpc",
+          "router": "wallet",
+          "procedure": "updateStatus"
+        },
+        {
+          "id": "wallet.transazioni",
+          "method": "GET",
+          "path": "/api/trpc/wallet.transazioni",
+          "category": "Wallet",
+          "description": "Storico transazioni wallet (ricariche, decurtazioni)",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "default_params": {
+              "walletId": 1
+            },
+            "expected_status": 200
+          },
+          "implemented": "trpc",
+          "router": "wallet",
+          "procedure": "transazioni"
+        },
+        {
+          "id": "wallet.ricarica",
+          "method": "POST",
+          "path": "/api/trpc/wallet.ricarica",
+          "category": "Wallet",
+          "description": "Ricarica wallet (bonifico, contanti)",
+          "risk_level": "medium",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "trpc",
+          "router": "wallet",
+          "procedure": "ricarica"
+        },
+        {
+          "id": "wallet.decurtazione",
+          "method": "POST",
+          "path": "/api/trpc/wallet.decurtazione",
+          "category": "Wallet",
+          "description": "Decurtazione wallet (presenza mercato, sanzione)",
+          "risk_level": "medium",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "trpc",
+          "router": "wallet",
+          "procedure": "decurtazione"
+        },
+        {
+          "id": "wallet.generaAvvisoPagopa",
+          "method": "POST",
+          "path": "/api/trpc/wallet.generaAvvisoPagopa",
+          "category": "Wallet",
+          "description": "PAGOPA - Genera avviso di pagamento tramite E-FIL Plug&Pay",
+          "risk_level": "medium",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "trpc",
+          "implementation_note": "Integrazione E-FIL Plug&Pay per Comune di Grosseto",
+          "router": "wallet",
+          "procedure": "generaAvvisoPagopa"
+        },
+        {
+          "id": "wallet.avviaPagamentoPagopa",
+          "method": "POST",
+          "path": "/api/trpc/wallet.avviaPagamentoPagopa",
+          "category": "Wallet",
+          "description": "PAGOPA - Pagamento spontaneo con redirect checkout",
+          "risk_level": "medium",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "trpc",
+          "router": "wallet",
+          "procedure": "avviaPagamentoPagopa"
+        },
+        {
+          "id": "wallet.verificaPagamento",
+          "method": "GET",
+          "path": "/api/trpc/wallet.verificaPagamento",
+          "category": "Wallet",
+          "description": "PAGOPA - Verifica stato pagamento tramite IUV",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "default_params": {
+              "iuv": "RF0123456789012345678"
+            },
+            "expected_status": 200
+          },
+          "implemented": "trpc",
+          "router": "wallet",
+          "procedure": "verificaPagamento"
+        },
+        {
+          "id": "wallet.generaPdfAvviso",
+          "method": "GET",
+          "path": "/api/trpc/wallet.generaPdfAvviso",
+          "category": "Wallet",
+          "description": "PAGOPA - Genera PDF avviso di pagamento",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "trpc",
+          "router": "wallet",
+          "procedure": "generaPdfAvviso"
+        },
+        {
+          "id": "wallet.generaPdfQuietanza",
+          "method": "GET",
+          "path": "/api/trpc/wallet.generaPdfQuietanza",
+          "category": "Wallet",
+          "description": "PAGOPA - Genera PDF quietanza pagamento",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "trpc",
+          "router": "wallet",
+          "procedure": "generaPdfQuietanza"
+        },
+        {
+          "id": "wallet.avvisiPagopa",
+          "method": "GET",
+          "path": "/api/trpc/wallet.avvisiPagopa",
+          "category": "Wallet",
+          "description": "Lista avvisi PagoPA per wallet",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "default_params": {
+              "walletId": 1
+            },
+            "expected_status": 200
+          },
+          "implemented": "trpc",
+          "router": "wallet",
+          "procedure": "avvisiPagopa"
+        },
+        {
+          "id": "wallet.tariffe",
+          "method": "GET",
+          "path": "/api/trpc/wallet.tariffe",
+          "category": "Wallet",
+          "description": "Tariffe giornaliere per tipo posteggio",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "trpc",
+          "router": "wallet",
+          "procedure": "tariffe"
+        },
+        {
+          "id": "wallet.upsertTariffa",
+          "method": "POST",
+          "path": "/api/trpc/wallet.upsertTariffa",
+          "category": "Wallet",
+          "description": "Crea o aggiorna tariffa posteggio",
+          "risk_level": "medium",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "trpc",
+          "router": "wallet",
+          "procedure": "upsertTariffa"
+        },
+        {
+          "id": "wallet.verificaSaldoPresenza",
+          "method": "POST",
+          "path": "/api/trpc/wallet.verificaSaldoPresenza",
+          "category": "Wallet",
+          "description": "Verifica saldo sufficiente per presenza mercato",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "trpc",
+          "implementation_note": "Usato dal check-in per bloccare operatori con saldo insufficiente",
+          "router": "wallet",
+          "procedure": "verificaSaldoPresenza"
+        },
+        {
+          "id": "wallet.ricercaPagamentiGiornalieri",
+          "method": "GET",
+          "path": "/api/trpc/wallet.ricercaPagamentiGiornalieri",
+          "category": "Wallet",
+          "description": "PAGOPA - Ricerca pagamenti per riconciliazione",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "trpc",
+          "router": "wallet",
+          "procedure": "ricercaPagamentiGiornalieri"
+        },
+        {
+          "id": "wallet.reportMovimenti",
+          "method": "GET",
+          "path": "/api/trpc/wallet.reportMovimenti",
+          "category": "Wallet",
+          "description": "Report movimenti wallet per periodo",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "trpc",
+          "router": "wallet",
+          "procedure": "reportMovimenti"
+        },
+        {
+          "id": "imprese.list",
+          "method": "GET",
+          "path": "/api/imprese",
+          "category": "Imprese",
+          "description": "Lista imprese registrate con filtri",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "API REST per gestione imprese e qualificazioni"
+        },
+        {
+          "id": "imprese.getById",
+          "method": "GET",
+          "path": "/api/imprese/:id",
+          "category": "Imprese",
+          "description": "Dettaglio impresa per ID",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "default_params": {
+              "id": 1
+            },
+            "expected_status": 200
+          },
+          "implemented": "rest"
+        },
+        {
+          "id": "qualificazioni.list",
+          "method": "GET",
+          "path": "/api/qualificazioni",
+          "category": "Imprese",
+          "description": "Lista qualificazioni disponibili",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest"
+        },
+        {
+          "id": "imprese.qualificazioni",
+          "method": "GET",
+          "path": "/api/imprese/:id/qualificazioni",
+          "category": "Imprese",
+          "description": "Qualificazioni associate a impresa",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "default_params": {
+              "id": 1
+            },
+            "expected_status": 200
+          },
+          "implemented": "rest"
+        },
+        {
+          "id": "imprese.rating",
+          "method": "GET",
+          "path": "/api/imprese/:id/rating",
+          "category": "Imprese",
+          "description": "Semaforo Conformità impresa (rating)",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "default_params": {
+              "id": 1
+            },
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "Calcola rating conformità basato su qualificazioni e documenti"
+        },
+        {
+          "id": "imprese.migratePdnd",
+          "method": "POST",
+          "path": "/api/admin/migrate-pdnd",
+          "category": "Imprese",
+          "description": "Migrazione dati imprese verso PDND",
+          "risk_level": "high",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "Piattaforma Digitale Nazionale Dati - richiede credenziali PDND"
+        },
+        {
+          "id": "guardian.integrations",
+          "method": "GET",
+          "path": "/api/trpc/guardian.integrations",
+          "category": "Guardian",
+          "description": "Inventario API completo con statistiche",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "trpc",
+          "implementation_note": "Sistema Guardian per monitoraggio API",
+          "router": "guardian",
+          "procedure": "integrations"
+        },
+        {
+          "id": "guardian.logs",
+          "method": "GET",
+          "path": "/api/trpc/guardian.logs",
+          "category": "Guardian",
+          "description": "Log centralizzati del sistema",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "trpc",
+          "router": "guardian",
+          "procedure": "logs"
+        },
+        {
+          "id": "guardian.stats",
+          "method": "GET",
+          "path": "/api/trpc/guardian.stats",
+          "category": "Guardian",
+          "description": "Statistiche complete sistema (API + Log)",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "trpc",
+          "router": "guardian",
+          "procedure": "stats"
+        },
+        {
+          "id": "guardian.testEndpoint",
+          "method": "POST",
+          "path": "/api/trpc/guardian.testEndpoint",
+          "category": "Guardian",
+          "description": "Proxy per testare endpoint API",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "trpc",
+          "router": "guardian",
+          "procedure": "testEndpoint"
+        },
+        {
+          "id": "guardian.logApiCall",
+          "method": "POST",
+          "path": "/api/trpc/guardian.logApiCall",
+          "category": "Guardian",
+          "description": "Logga una chiamata API manualmente",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "trpc",
+          "router": "guardian",
+          "procedure": "logApiCall"
         }
       ]
     },
