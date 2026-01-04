@@ -1,6 +1,6 @@
 {
-  "version": 5,
-  "last_updated": "2025-12-29T21:55:48.538271Z",
+  "version": 6,
+  "last_updated": "2026-01-04T01:58:45.916782Z",
   "services": [
     {
       "id": "dms-hub",
@@ -2251,6 +2251,216 @@
           },
           "implemented": "rest",
           "implementation_note": "Ritorna solo name, scope, last4, updated_at"
+        },
+        {
+          "id": "concessions.list",
+          "method": "GET",
+          "path": "/api/concessions",
+          "category": "Concessioni",
+          "description": "Lista tutte le concessioni",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          }
+        },
+        {
+          "id": "concessions.getById",
+          "method": "GET",
+          "path": "/api/concessions/:id",
+          "category": "Concessioni",
+          "description": "Dettaglio concessione per ID",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          }
+        },
+        {
+          "id": "concessions.create",
+          "method": "POST",
+          "path": "/api/concessions",
+          "category": "Concessioni",
+          "description": "Crea nuova concessione",
+          "risk_level": "medium",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 201
+          }
+        },
+        {
+          "id": "concessions.update",
+          "method": "PATCH",
+          "path": "/api/concessions/:id",
+          "category": "Concessioni",
+          "description": "Aggiorna concessione esistente",
+          "risk_level": "medium",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          }
+        },
+        {
+          "id": "concessions.delete",
+          "method": "DELETE",
+          "path": "/api/concessions/:id",
+          "category": "Concessioni",
+          "description": "Elimina concessione",
+          "risk_level": "high",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          }
+        },
+        {
+          "id": "concessions.full",
+          "method": "GET",
+          "path": "/api/concessions/:id/full",
+          "category": "Concessioni",
+          "description": "Dettaglio completo con relazioni",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          }
+        },
+        {
+          "id": "concessions.associaPosteggio",
+          "method": "POST",
+          "path": "/api/concessions/:id/associa-posteggio",
+          "category": "Concessioni",
+          "description": "Associa posteggio a concessione",
+          "risk_level": "medium",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          }
+        },
+        {
+          "id": "imprese.create",
+          "method": "POST",
+          "path": "/api/imprese",
+          "category": "Imprese",
+          "description": "Crea nuova impresa",
+          "risk_level": "medium",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 201
+          }
+        },
+        {
+          "id": "imprese.update",
+          "method": "PUT",
+          "path": "/api/imprese/:id",
+          "category": "Imprese",
+          "description": "Aggiorna impresa esistente",
+          "risk_level": "medium",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          }
+        },
+        {
+          "id": "imprese.delete",
+          "method": "DELETE",
+          "path": "/api/imprese/:id",
+          "category": "Imprese",
+          "description": "Elimina impresa",
+          "risk_level": "high",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          }
+        },
+        {
+          "id": "imprese.qualificazioni.list",
+          "method": "GET",
+          "path": "/api/imprese/:id/qualificazioni",
+          "category": "Imprese",
+          "description": "Lista qualificazioni impresa",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          }
+        },
+        {
+          "id": "imprese.vetrina",
+          "method": "GET",
+          "path": "/api/imprese/:id/vetrina",
+          "category": "Imprese",
+          "description": "Dati vetrina impresa",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          }
+        },
+        {
+          "id": "qualificazioni.create",
+          "method": "POST",
+          "path": "/api/qualificazioni",
+          "category": "Qualificazioni",
+          "description": "Crea nuova qualificazione",
+          "risk_level": "medium",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 201
+          }
+        },
+        {
+          "id": "qualificazioni.durc",
+          "method": "GET",
+          "path": "/api/qualificazioni/durc/:cf",
+          "category": "Qualificazioni",
+          "description": "Verifica DURC per codice fiscale",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          }
+        },
+        {
+          "id": "qualificazioni.suap",
+          "method": "GET",
+          "path": "/api/qualificazioni/suap/:cf",
+          "category": "Qualificazioni",
+          "description": "Verifica qualificazioni SUAP",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          }
         }
       ]
     },
