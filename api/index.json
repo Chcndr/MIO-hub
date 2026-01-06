@@ -1,6 +1,6 @@
 {
-  "version": 6,
-  "last_updated": "2026-01-04T01:58:45.916782Z",
+  "version": 7,
+  "last_updated": "2026-01-06T03:50:00.000000Z",
   "services": [
     {
       "id": "dms-hub",
@@ -2950,6 +2950,151 @@
             "enabled": false,
             "expected_status": 200
           }
+        },
+        {
+          "id": "hub.locations.list",
+          "method": "GET",
+          "path": "/api/hub/locations",
+          "category": "HUB",
+          "description": "Lista tutti gli HUB (indipendenti e collegati a mercati)",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "Endpoint REST per gestione HUB indipendenti"
+        },
+        {
+          "id": "hub.locations.getById",
+          "method": "GET",
+          "path": "/api/hub/locations/:id",
+          "category": "HUB",
+          "description": "Dettaglio HUB con negozi e servizi",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "default_params": { "id": 1 },
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "Include shops e services associati"
+        },
+        {
+          "id": "hub.locations.create",
+          "method": "POST",
+          "path": "/api/hub/locations",
+          "category": "HUB",
+          "description": "Crea nuovo HUB (con negozi opzionali)",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 201
+          },
+          "implemented": "rest",
+          "implementation_note": "Supporta creazione HUB indipendente con shops in batch"
+        },
+        {
+          "id": "hub.locations.update",
+          "method": "PUT",
+          "path": "/api/hub/locations/:id",
+          "category": "HUB",
+          "description": "Aggiorna HUB esistente",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "Update parziale supportato"
+        },
+        {
+          "id": "hub.locations.delete",
+          "method": "DELETE",
+          "path": "/api/hub/locations/:id",
+          "category": "HUB",
+          "description": "Elimina HUB (soft delete)",
+          "risk_level": "high",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "Soft delete - imposta active=0"
+        },
+        {
+          "id": "hub.shops.list",
+          "method": "GET",
+          "path": "/api/hub/shops",
+          "category": "HUB",
+          "description": "Lista negozi HUB (filtro opzionale per hubId)",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "Query param: hubId per filtrare"
+        },
+        {
+          "id": "hub.shops.create",
+          "method": "POST",
+          "path": "/api/hub/shops",
+          "category": "HUB",
+          "description": "Crea nuovo negozio in HUB",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 201
+          },
+          "implemented": "rest",
+          "implementation_note": "Richiede hubId e name"
+        },
+        {
+          "id": "hub.services.list",
+          "method": "GET",
+          "path": "/api/hub/services",
+          "category": "HUB",
+          "description": "Lista servizi HUB (filtro opzionale per hubId)",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "Query param: hubId per filtrare"
+        },
+        {
+          "id": "hub.services.create",
+          "method": "POST",
+          "path": "/api/hub/services",
+          "category": "HUB",
+          "description": "Crea nuovo servizio in HUB",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 201
+          },
+          "implemented": "rest",
+          "implementation_note": "Richiede hubId, name e type"
         }
       ]
     }
