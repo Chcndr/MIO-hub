@@ -1,6 +1,6 @@
 {
-  "version": 7,
-  "last_updated": "2026-01-06T03:50:00.000000Z",
+  "version": 8,
+  "last_updated": "2026-01-07T10:00:00.000000Z",
   "services": [
     {
       "id": "dms-hub",
@@ -416,6 +416,32 @@
           "router": "dmsHub",
           "subrouter": "shops",
           "procedure": "list"
+        },
+        {
+          "id": "shops.createWithImpresa",
+          "method": "POST",
+          "path": "/api/hub/shops/create-with-impresa",
+          "category": "HUB",
+          "description": "Crea nuovo negozio + impresa in transazione atomica",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "default_params": {
+              "denominazione": "Test Negozio",
+              "partitaIva": "12345678901",
+              "codiceFiscale": "TSTNGZ80A01H501Z",
+              "comune": "Grosseto",
+              "hubId": 7
+            },
+            "expected_status": 201
+          },
+          "implemented": "rest",
+          "implementation_note": "REST API su Hetzner backend - Crea impresa + hub_shop + point GIS",
+          "router": "hub",
+          "subrouter": "shops",
+          "procedure": "createWithImpresa"
         },
         {
           "id": "stalls.getStatuses",
