@@ -1,6 +1,6 @@
 {
-  "version": 8,
-  "last_updated": "2026-01-07T10:00:00.000000Z",
+  "version": 9,
+  "last_updated": "2026-01-08T10:00:00.000000Z",
   "services": [
     {
       "id": "dms-hub",
@@ -502,6 +502,26 @@
           "router": "dmsHub",
           "subrouter": "stalls",
           "procedure": "updateStatus"
+        },
+        {
+          "id": "stalls.stats.totals",
+          "method": "GET",
+          "path": "/api/stalls/stats/totals",
+          "category": "GIS & Abacus",
+          "description": "Statistiche aggregate posteggi: totali, occupati, liberi, in assegnazione",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "default_params": {},
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "REST endpoint on Hetzner backend",
+          "router": "stalls",
+          "subrouter": "stats",
+          "procedure": "totals"
         },
         {
           "id": "vendors.create",
