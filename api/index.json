@@ -2487,6 +2487,74 @@
             "enabled": true,
             "expected_status": 200
           }
+        },
+        {
+          "id": "regioni.list",
+          "method": "GET",
+          "path": "/api/regioni",
+          "category": "Regioni",
+          "description": "Lista tutte le 20 regioni italiane con coordinate",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "Navigazione geografica Italia"
+        },
+        {
+          "id": "regioni.getById",
+          "method": "GET",
+          "path": "/api/regioni/:id",
+          "category": "Regioni",
+          "description": "Dettaglio singola regione con coordinate",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "default_params": {
+              "id": 9
+            },
+            "expected_status": 200
+          },
+          "implemented": "rest"
+        },
+        {
+          "id": "regioni.province",
+          "method": "GET",
+          "path": "/api/regioni/:id/province",
+          "category": "Regioni",
+          "description": "Lista province di una regione con coordinate",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "default_params": {
+              "id": 9
+            },
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "Toscana (id=9) ha 10 province"
+        },
+        {
+          "id": "regioni.province.all",
+          "method": "GET",
+          "path": "/api/regioni/province/all",
+          "category": "Regioni",
+          "description": "Lista tutte le 107 province italiane",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest"
         }
       ]
     },
