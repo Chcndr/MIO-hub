@@ -1,6 +1,6 @@
 {
-  "version": 9,
-  "last_updated": "2026-01-08T10:00:00.000000Z",
+  "version": 10,
+  "last_updated": "2026-01-09T18:04:45.000000Z",
   "services": [
     {
       "id": "dms-hub",
@@ -2575,6 +2575,214 @@
             "expected_status": 200
           },
           "implemented": "rest"
+        },
+        {
+          "id": "security.health",
+          "method": "GET",
+          "path": "/api/security/health",
+          "category": "Security",
+          "description": "Health check modulo sicurezza RBAC",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "Security RBAC module - 9 Gen 2026"
+        },
+        {
+          "id": "security.stats",
+          "method": "GET",
+          "path": "/api/security/stats",
+          "category": "Security",
+          "description": "Statistiche dashboard sicurezza (ruoli, permessi, eventi)",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "Security RBAC module - 9 Gen 2026"
+        },
+        {
+          "id": "security.roles.list",
+          "method": "GET",
+          "path": "/api/security/roles",
+          "category": "Security",
+          "description": "Lista tutti i ruoli con conteggio permessi",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "Security RBAC module - 9 Gen 2026"
+        },
+        {
+          "id": "security.roles.detail",
+          "method": "GET",
+          "path": "/api/security/roles/:id",
+          "category": "Security",
+          "description": "Dettaglio singolo ruolo con lista permessi",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "Security RBAC module - 9 Gen 2026"
+        },
+        {
+          "id": "security.permissions.list",
+          "method": "GET",
+          "path": "/api/security/permissions",
+          "category": "Security",
+          "description": "Lista permessi raggruppati per categoria",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "Security RBAC module - 9 Gen 2026"
+        },
+        {
+          "id": "security.matrix",
+          "method": "GET",
+          "path": "/api/security/matrix",
+          "category": "Security",
+          "description": "Matrice completa ruoli-permessi (220 mappature)",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "Security RBAC module - 9 Gen 2026"
+        },
+        {
+          "id": "security.accessLogs",
+          "method": "GET",
+          "path": "/api/security/access-logs",
+          "category": "Security",
+          "description": "Log accessi con filtri (user, action, date)",
+          "risk_level": "medium",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "Security RBAC module - 9 Gen 2026"
+        },
+        {
+          "id": "security.events.list",
+          "method": "GET",
+          "path": "/api/security/events",
+          "category": "Security",
+          "description": "Lista eventi sicurezza con filtri (type, severity)",
+          "risk_level": "medium",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "Security RBAC module - 9 Gen 2026"
+        },
+        {
+          "id": "security.events.create",
+          "method": "POST",
+          "path": "/api/security/events",
+          "category": "Security",
+          "description": "Registra nuovo evento di sicurezza",
+          "risk_level": "medium",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 201
+          },
+          "implemented": "rest",
+          "implementation_note": "Security RBAC module - 9 Gen 2026"
+        },
+        {
+          "id": "security.loginAttempts",
+          "method": "GET",
+          "path": "/api/security/login-attempts",
+          "category": "Security",
+          "description": "Storico tentativi di login (successi/fallimenti)",
+          "risk_level": "medium",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "Security RBAC module - 9 Gen 2026"
+        },
+        {
+          "id": "security.ipBlacklist.list",
+          "method": "GET",
+          "path": "/api/security/ip-blacklist",
+          "category": "Security",
+          "description": "Lista IP bloccati",
+          "risk_level": "medium",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "Security RBAC module - 9 Gen 2026"
+        },
+        {
+          "id": "security.ipBlacklist.block",
+          "method": "POST",
+          "path": "/api/security/ip-blacklist",
+          "category": "Security",
+          "description": "Blocca un indirizzo IP",
+          "risk_level": "high",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 201
+          },
+          "implemented": "rest",
+          "implementation_note": "Security RBAC module - 9 Gen 2026"
+        },
+        {
+          "id": "security.ipBlacklist.unblock",
+          "method": "DELETE",
+          "path": "/api/security/ip-blacklist/:ip",
+          "category": "Security",
+          "description": "Sblocca un indirizzo IP",
+          "risk_level": "high",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "Security RBAC module - 9 Gen 2026"
         }
       ]
     },
@@ -3092,7 +3300,9 @@
           "enabled": true,
           "test": {
             "enabled": true,
-            "default_params": { "id": 1 },
+            "default_params": {
+              "id": 1
+            },
             "expected_status": 200
           },
           "implemented": "rest",
