@@ -1,6 +1,6 @@
 {
-  "version": 10,
-  "last_updated": "2026-01-09T18:04:45.000000Z",
+  "version": 11,
+  "last_updated": "2026-01-09T18:55:00Z",
   "services": [
     {
       "id": "dms-hub",
@@ -3419,6 +3419,615 @@
           },
           "implemented": "rest",
           "implementation_note": "Richiede hubId, name e type"
+        }
+      ]
+    },
+    {
+      "id": "security-rbac",
+      "display_name": "Security RBAC API",
+      "base_url": "https://orchestratore.mio-hub.me",
+      "env": "production",
+      "description": "API per gestione sicurezza, ruoli, permessi, audit e compliance GDPR",
+      "endpoints": [
+        {
+          "id": "security.stats",
+          "method": "GET",
+          "path": "/api/security/stats",
+          "category": "Dashboard",
+          "description": "Statistiche generali sicurezza",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true
+        },
+        {
+          "id": "security.users.list",
+          "method": "GET",
+          "path": "/api/security/users",
+          "category": "Users",
+          "description": "Lista utenti con filtri",
+          "risk_level": "medium",
+          "require_auth": true,
+          "enabled": true
+        },
+        {
+          "id": "security.users.get",
+          "method": "GET",
+          "path": "/api/security/users/:id",
+          "category": "Users",
+          "description": "Dettaglio utente",
+          "risk_level": "medium",
+          "require_auth": true,
+          "enabled": true
+        },
+        {
+          "id": "security.users.create",
+          "method": "POST",
+          "path": "/api/security/users",
+          "category": "Users",
+          "description": "Crea nuovo utente",
+          "risk_level": "high",
+          "require_auth": true,
+          "enabled": true
+        },
+        {
+          "id": "security.users.update",
+          "method": "PUT",
+          "path": "/api/security/users/:id",
+          "category": "Users",
+          "description": "Aggiorna utente",
+          "risk_level": "high",
+          "require_auth": true,
+          "enabled": true
+        },
+        {
+          "id": "security.users.delete",
+          "method": "DELETE",
+          "path": "/api/security/users/:id",
+          "category": "Users",
+          "description": "Elimina utente",
+          "risk_level": "critical",
+          "require_auth": true,
+          "enabled": true
+        },
+        {
+          "id": "security.users.lock",
+          "method": "POST",
+          "path": "/api/security/users/:id/lock",
+          "category": "Users",
+          "description": "Blocca utente",
+          "risk_level": "high",
+          "require_auth": true,
+          "enabled": true
+        },
+        {
+          "id": "security.users.unlock",
+          "method": "POST",
+          "path": "/api/security/users/:id/unlock",
+          "category": "Users",
+          "description": "Sblocca utente",
+          "risk_level": "high",
+          "require_auth": true,
+          "enabled": true
+        },
+        {
+          "id": "security.users.resetPassword",
+          "method": "POST",
+          "path": "/api/security/users/:id/reset-password",
+          "category": "Users",
+          "description": "Reset password utente",
+          "risk_level": "high",
+          "require_auth": true,
+          "enabled": true
+        },
+        {
+          "id": "security.users.impersonate",
+          "method": "POST",
+          "path": "/api/security/users/:id/impersonate",
+          "category": "Users",
+          "description": "Impersona utente",
+          "risk_level": "critical",
+          "require_auth": true,
+          "enabled": true
+        },
+        {
+          "id": "security.users.roles",
+          "method": "GET",
+          "path": "/api/security/users/:id/roles",
+          "category": "Users",
+          "description": "Ruoli assegnati a utente",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true
+        },
+        {
+          "id": "security.roles.list",
+          "method": "GET",
+          "path": "/api/security/roles",
+          "category": "Roles",
+          "description": "Lista ruoli con permessi",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true
+        },
+        {
+          "id": "security.roles.get",
+          "method": "GET",
+          "path": "/api/security/roles/:id",
+          "category": "Roles",
+          "description": "Dettaglio ruolo",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true
+        },
+        {
+          "id": "security.roles.create",
+          "method": "POST",
+          "path": "/api/security/roles",
+          "category": "Roles",
+          "description": "Crea nuovo ruolo",
+          "risk_level": "high",
+          "require_auth": true,
+          "enabled": true
+        },
+        {
+          "id": "security.roles.update",
+          "method": "PUT",
+          "path": "/api/security/roles/:id",
+          "category": "Roles",
+          "description": "Aggiorna ruolo",
+          "risk_level": "high",
+          "require_auth": true,
+          "enabled": true
+        },
+        {
+          "id": "security.roles.delete",
+          "method": "DELETE",
+          "path": "/api/security/roles/:id",
+          "category": "Roles",
+          "description": "Elimina ruolo",
+          "risk_level": "critical",
+          "require_auth": true,
+          "enabled": true
+        },
+        {
+          "id": "security.roles.assign",
+          "method": "POST",
+          "path": "/api/security/roles/:id/assign",
+          "category": "Roles",
+          "description": "Assegna ruolo a utente",
+          "risk_level": "high",
+          "require_auth": true,
+          "enabled": true
+        },
+        {
+          "id": "security.roles.revoke",
+          "method": "POST",
+          "path": "/api/security/roles/:id/revoke",
+          "category": "Roles",
+          "description": "Revoca ruolo da utente",
+          "risk_level": "high",
+          "require_auth": true,
+          "enabled": true
+        },
+        {
+          "id": "security.roles.permissions",
+          "method": "GET",
+          "path": "/api/security/roles/:id/permissions",
+          "category": "Roles",
+          "description": "Permessi di un ruolo",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true
+        },
+        {
+          "id": "security.permissions.list",
+          "method": "GET",
+          "path": "/api/security/permissions",
+          "category": "Permissions",
+          "description": "Lista permessi per categoria",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true
+        },
+        {
+          "id": "security.matrix",
+          "method": "GET",
+          "path": "/api/security/matrix",
+          "category": "Matrix",
+          "description": "Matrice ruoli-permessi",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true
+        },
+        {
+          "id": "security.sessions.list",
+          "method": "GET",
+          "path": "/api/security/sessions",
+          "category": "Sessions",
+          "description": "Lista sessioni attive",
+          "risk_level": "medium",
+          "require_auth": true,
+          "enabled": true
+        },
+        {
+          "id": "security.sessions.stats",
+          "method": "GET",
+          "path": "/api/security/sessions/stats",
+          "category": "Sessions",
+          "description": "Statistiche sessioni",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true
+        },
+        {
+          "id": "security.sessions.get",
+          "method": "GET",
+          "path": "/api/security/sessions/:id",
+          "category": "Sessions",
+          "description": "Dettaglio sessione",
+          "risk_level": "medium",
+          "require_auth": true,
+          "enabled": true
+        },
+        {
+          "id": "security.sessions.terminate",
+          "method": "DELETE",
+          "path": "/api/security/sessions/:id",
+          "category": "Sessions",
+          "description": "Termina sessione",
+          "risk_level": "high",
+          "require_auth": true,
+          "enabled": true
+        },
+        {
+          "id": "security.sessions.terminateAll",
+          "method": "DELETE",
+          "path": "/api/security/sessions/user/:userId",
+          "category": "Sessions",
+          "description": "Termina tutte sessioni utente",
+          "risk_level": "high",
+          "require_auth": true,
+          "enabled": true
+        },
+        {
+          "id": "security.accessLogs.list",
+          "method": "GET",
+          "path": "/api/security/access-logs",
+          "category": "Access",
+          "description": "Log accessi con filtri",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true
+        },
+        {
+          "id": "security.accessLogs.stats",
+          "method": "GET",
+          "path": "/api/security/access-logs/stats",
+          "category": "Access",
+          "description": "Statistiche accessi",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true
+        },
+        {
+          "id": "security.events.list",
+          "method": "GET",
+          "path": "/api/security/events",
+          "category": "Events",
+          "description": "Eventi sicurezza",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true
+        },
+        {
+          "id": "security.events.create",
+          "method": "POST",
+          "path": "/api/security/events",
+          "category": "Events",
+          "description": "Crea evento sicurezza",
+          "risk_level": "medium",
+          "require_auth": true,
+          "enabled": true
+        },
+        {
+          "id": "security.ipBlacklist.list",
+          "method": "GET",
+          "path": "/api/security/ip-blacklist",
+          "category": "IP Blacklist",
+          "description": "Lista IP bloccati",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true
+        },
+        {
+          "id": "security.ipBlacklist.block",
+          "method": "POST",
+          "path": "/api/security/ip-blacklist",
+          "category": "IP Blacklist",
+          "description": "Blocca IP",
+          "risk_level": "high",
+          "require_auth": true,
+          "enabled": true
+        },
+        {
+          "id": "security.ipBlacklist.unblock",
+          "method": "DELETE",
+          "path": "/api/security/ip-blacklist/:ip",
+          "category": "IP Blacklist",
+          "description": "Sblocca IP",
+          "risk_level": "high",
+          "require_auth": true,
+          "enabled": true
+        },
+        {
+          "id": "security.loginAttempts.list",
+          "method": "GET",
+          "path": "/api/security/login-attempts",
+          "category": "Login",
+          "description": "Tentativi di login",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true
+        },
+        {
+          "id": "security.audit.list",
+          "method": "GET",
+          "path": "/api/security/audit",
+          "category": "Audit",
+          "description": "Lista audit logs",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true
+        },
+        {
+          "id": "security.audit.stats",
+          "method": "GET",
+          "path": "/api/security/audit/stats",
+          "category": "Audit",
+          "description": "Statistiche audit",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true
+        },
+        {
+          "id": "security.audit.export",
+          "method": "GET",
+          "path": "/api/security/audit/export",
+          "category": "Audit",
+          "description": "Esporta audit logs",
+          "risk_level": "medium",
+          "require_auth": true,
+          "enabled": true
+        },
+        {
+          "id": "security.audit.byEntity",
+          "method": "GET",
+          "path": "/api/security/audit/by-entity/:type/:id",
+          "category": "Audit",
+          "description": "Audit per entit\u00e0",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true
+        },
+        {
+          "id": "security.audit.byUser",
+          "method": "GET",
+          "path": "/api/security/audit/by-user/:email",
+          "category": "Audit",
+          "description": "Audit per utente",
+          "risk_level": "medium",
+          "require_auth": true,
+          "enabled": true
+        },
+        {
+          "id": "security.audit.gdprReport",
+          "method": "GET",
+          "path": "/api/security/audit/gdpr-report/:userId",
+          "category": "Audit",
+          "description": "Report GDPR utente",
+          "risk_level": "high",
+          "require_auth": true,
+          "enabled": true
+        },
+        {
+          "id": "security.audit.get",
+          "method": "GET",
+          "path": "/api/security/audit/:id",
+          "category": "Audit",
+          "description": "Dettaglio audit log",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true
+        },
+        {
+          "id": "security.compliance.status",
+          "method": "GET",
+          "path": "/api/security/compliance/status",
+          "category": "Compliance",
+          "description": "Stato compliance",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true
+        },
+        {
+          "id": "security.compliance.certificates",
+          "method": "GET",
+          "path": "/api/security/compliance/certificates",
+          "category": "Compliance",
+          "description": "Lista certificati",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true
+        },
+        {
+          "id": "security.compliance.report",
+          "method": "GET",
+          "path": "/api/security/compliance/report",
+          "category": "Compliance",
+          "description": "Report compliance",
+          "risk_level": "medium",
+          "require_auth": true,
+          "enabled": true
+        },
+        {
+          "id": "security.compliance.gdprRequests",
+          "method": "GET",
+          "path": "/api/security/compliance/gdpr-requests",
+          "category": "Compliance",
+          "description": "Richieste GDPR",
+          "risk_level": "medium",
+          "require_auth": true,
+          "enabled": true
+        },
+        {
+          "id": "security.compliance.gdprExport",
+          "method": "POST",
+          "path": "/api/security/compliance/gdpr-export/:userId",
+          "category": "Compliance",
+          "description": "Export dati GDPR",
+          "risk_level": "high",
+          "require_auth": true,
+          "enabled": true
+        },
+        {
+          "id": "security.compliance.gdprDelete",
+          "method": "POST",
+          "path": "/api/security/compliance/gdpr-delete/:userId",
+          "category": "Compliance",
+          "description": "Cancellazione GDPR",
+          "risk_level": "critical",
+          "require_auth": true,
+          "enabled": true
+        },
+        {
+          "id": "security.delegations.list",
+          "method": "GET",
+          "path": "/api/security/delegations",
+          "category": "Delegations",
+          "description": "Lista deleghe",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true
+        },
+        {
+          "id": "security.delegations.get",
+          "method": "GET",
+          "path": "/api/security/delegations/:id",
+          "category": "Delegations",
+          "description": "Dettaglio delega",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true
+        },
+        {
+          "id": "security.delegations.create",
+          "method": "POST",
+          "path": "/api/security/delegations",
+          "category": "Delegations",
+          "description": "Crea delega",
+          "risk_level": "high",
+          "require_auth": true,
+          "enabled": true
+        },
+        {
+          "id": "security.delegations.revoke",
+          "method": "POST",
+          "path": "/api/security/delegations/:id/revoke",
+          "category": "Delegations",
+          "description": "Revoca delega",
+          "risk_level": "high",
+          "require_auth": true,
+          "enabled": true
+        },
+        {
+          "id": "security.delegations.byUser",
+          "method": "GET",
+          "path": "/api/security/delegations/user/:userId",
+          "category": "Delegations",
+          "description": "Deleghe utente",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true
+        },
+        {
+          "id": "security.threats.dashboard",
+          "method": "GET",
+          "path": "/api/security/threats/dashboard",
+          "category": "Threats",
+          "description": "Dashboard minacce",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true
+        },
+        {
+          "id": "security.threats.alerts",
+          "method": "GET",
+          "path": "/api/security/threats/alerts",
+          "category": "Threats",
+          "description": "Alert attivi",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true
+        },
+        {
+          "id": "security.threats.acknowledge",
+          "method": "POST",
+          "path": "/api/security/threats/alerts/:id/acknowledge",
+          "category": "Threats",
+          "description": "Riconosci alert",
+          "risk_level": "medium",
+          "require_auth": true,
+          "enabled": true
+        },
+        {
+          "id": "security.threats.patterns",
+          "method": "GET",
+          "path": "/api/security/threats/patterns",
+          "category": "Threats",
+          "description": "Pattern di attacco",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true
+        },
+        {
+          "id": "security.threats.report",
+          "method": "GET",
+          "path": "/api/security/threats/report",
+          "category": "Threats",
+          "description": "Report minacce",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true
+        },
+        {
+          "id": "security.threats.scan",
+          "method": "POST",
+          "path": "/api/security/threats/scan",
+          "category": "Threats",
+          "description": "Scansione sicurezza",
+          "risk_level": "medium",
+          "require_auth": true,
+          "enabled": true
+        },
+        {
+          "id": "security.threats.recommendations",
+          "method": "GET",
+          "path": "/api/security/threats/recommendations",
+          "category": "Threats",
+          "description": "Raccomandazioni",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true
+        },
+        {
+          "id": "security.health",
+          "method": "GET",
+          "path": "/api/security/health",
+          "category": "Health",
+          "description": "Health check modulo security",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true
         }
       ]
     }
