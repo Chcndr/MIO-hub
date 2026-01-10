@@ -1,6 +1,6 @@
 {
-  "version": 12,
-  "last_updated": "2026-01-10T11:30:00Z",
+  "version": 13,
+  "last_updated": "2026-01-10T17:20:00Z",
   "services": [
     {
       "id": "dms-hub",
@@ -4067,6 +4067,183 @@
           "risk_level": "low",
           "require_auth": false,
           "enabled": true
+        }
+      ]
+    },
+    {
+      "id": "mihub-tcc",
+      "display_name": "Token Carbon Credit (TCC) API",
+      "base_url": "https://orchestratore.mio-hub.me",
+      "env": "production",
+      "description": "API per gestione Token Carbon Credit - Wallet cittadini, transazioni, QR Code e rimborsi commercianti",
+      "endpoints": [
+        {
+          "id": "tcc.fund",
+          "method": "GET",
+          "path": "/api/tcc/fund",
+          "category": "TCC Fondo",
+          "description": "Stato fondo TCC - Saldo, distribuiti, riscattati",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/tcc.js"
+        },
+        {
+          "id": "tcc.stats",
+          "method": "GET",
+          "path": "/api/tcc/stats",
+          "category": "TCC Fondo",
+          "description": "Statistiche globali TCC - Transazioni, utenti attivi",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/tcc.js"
+        },
+        {
+          "id": "tcc.config",
+          "method": "GET",
+          "path": "/api/tcc/config",
+          "category": "TCC Fondo",
+          "description": "Configurazione regole TCC - Valori guadagno, conversione",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/tcc.js"
+        },
+        {
+          "id": "tcc.wallet",
+          "method": "GET",
+          "path": "/api/tcc/wallet/:userId",
+          "category": "TCC Wallet",
+          "description": "Wallet cittadino - Saldo TCC e dati utente",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "default_params": { "userId": 30 },
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/tcc.js"
+        },
+        {
+          "id": "tcc.wallet.transactions",
+          "method": "GET",
+          "path": "/api/tcc/wallet/:userId/transactions",
+          "category": "TCC Wallet",
+          "description": "Storico transazioni wallet cittadino",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "default_params": { "userId": 30 },
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/tcc.js"
+        },
+        {
+          "id": "tcc.earn",
+          "method": "POST",
+          "path": "/api/tcc/earn",
+          "category": "TCC Transazioni",
+          "description": "Guadagna TCC - Check-in, acquisti BIO/KM0, bonus trasporto",
+          "risk_level": "medium",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/tcc.js"
+        },
+        {
+          "id": "tcc.spend",
+          "method": "POST",
+          "path": "/api/tcc/spend",
+          "category": "TCC Transazioni",
+          "description": "Spendi TCC - Sconto presso commercianti",
+          "risk_level": "medium",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/tcc.js"
+        },
+        {
+          "id": "tcc.qrcode",
+          "method": "GET",
+          "path": "/api/tcc/qrcode/:userId",
+          "category": "TCC QR Code",
+          "description": "Genera QR Code wallet cittadino (valido 24h)",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "default_params": { "userId": 30 },
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/tcc.js"
+        },
+        {
+          "id": "tcc.scan",
+          "method": "POST",
+          "path": "/api/tcc/scan",
+          "category": "TCC QR Code",
+          "description": "Scansione QR Code commerciante - Assegna TCC al cittadino",
+          "risk_level": "medium",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/tcc.js"
+        },
+        {
+          "id": "tcc.validate-qr",
+          "method": "POST",
+          "path": "/api/tcc/validate-qr",
+          "category": "TCC QR Code",
+          "description": "Valida QR Code senza assegnare TCC",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/tcc.js"
+        },
+        {
+          "id": "tcc.merchant.redeem",
+          "method": "POST",
+          "path": "/api/tcc/merchant/redeem",
+          "category": "TCC Commercianti",
+          "description": "Rimborso commerciante - Converte TCC in EUR",
+          "risk_level": "high",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/tcc.js"
         }
       ]
     }
