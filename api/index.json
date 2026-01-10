@@ -1,6 +1,6 @@
 {
-  "version": 11,
-  "last_updated": "2026-01-09T18:55:00Z",
+  "version": 12,
+  "last_updated": "2026-01-10T11:30:00Z",
   "services": [
     {
       "id": "dms-hub",
@@ -246,7 +246,7 @@
           "method": "POST",
           "path": "/api/trpc/dmsHub.markets.importAuto",
           "category": "DmsHub",
-          "description": "Import automatico da Slot Editor v3 (senza richiedere nome/citt\u00e0)",
+          "description": "Import automatico da Slot Editor v3 (senza richiedere nome/città)",
           "risk_level": "medium",
           "require_auth": false,
           "enabled": true,
@@ -1376,7 +1376,7 @@
           "method": "POST",
           "path": "/api/mihub/webhook/email",
           "category": "Mail",
-          "description": "\ud83d\udce7 Riceve email da Zapier e le salva nel sistema",
+          "description": "📧 Riceve email da Zapier e le salva nel sistema",
           "risk_level": "low",
           "require_auth": false,
           "enabled": true,
@@ -1397,7 +1397,7 @@
           "method": "GET",
           "path": "/api/mihub/mail/inbox",
           "category": "Mail",
-          "description": "\ud83d\udce7 Lista email ricevute nella inbox",
+          "description": "📧 Lista email ricevute nella inbox",
           "risk_level": "low",
           "require_auth": false,
           "enabled": true,
@@ -1839,7 +1839,7 @@
           "method": "GET",
           "path": "/api/imprese/:id/rating",
           "category": "Imprese",
-          "description": "Semaforo Conformit\u00e0 impresa (rating)",
+          "description": "Semaforo Conformità impresa (rating)",
           "risk_level": "low",
           "require_auth": true,
           "enabled": true,
@@ -1851,7 +1851,7 @@
             "expected_status": 200
           },
           "implemented": "rest",
-          "implementation_note": "Calcola rating conformit\u00e0 basato su qualificazioni e documenti"
+          "implementation_note": "Calcola rating conformità basato su qualificazioni e documenti"
         },
         {
           "id": "imprese.migratePdnd",
@@ -2234,7 +2234,7 @@
           "method": "GET",
           "path": "/api/imprese/:id/rating",
           "category": "MIO Agent",
-          "description": "Calcola rating conformit\u00e0 impresa (semaforo VERDE/GIALLO/ROSSO)",
+          "description": "Calcola rating conformità impresa (semaforo VERDE/GIALLO/ROSSO)",
           "risk_level": "low",
           "require_auth": true,
           "enabled": true,
@@ -2783,6 +2783,45 @@
           },
           "implemented": "rest",
           "implementation_note": "Security RBAC module - 9 Gen 2026"
+        },
+        {
+          "id": "auth.register",
+          "method": "POST",
+          "path": "/api/auth/register",
+          "category": "Auth",
+          "description": "Registrazione cittadino con email/password - Crea wallet TCC",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "default_params": {
+              "email": "test@example.com",
+              "password": "testpassword123",
+              "name": "Test User"
+            },
+            "expected_status": 201
+          },
+          "implementation_note": "Crea utente + wallet TCC in extended_users"
+        },
+        {
+          "id": "auth.login",
+          "method": "POST",
+          "path": "/api/auth/login",
+          "category": "Auth",
+          "description": "Login cittadino con email/password",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "default_params": {
+              "email": "test@example.com",
+              "password": "testpassword123"
+            },
+            "expected_status": 200
+          },
+          "implementation_note": "Ritorna token sessione e saldo wallet"
         }
       ]
     },
@@ -2835,7 +2874,7 @@
           "method": "GET",
           "path": "/api/system/health",
           "category": "System Status",
-          "description": "\ud83d\udfe2 FASE 2: Health check Backend API - Status, uptime, memory usage",
+          "description": "🟢 FASE 2: Health check Backend API - Status, uptime, memory usage",
           "risk_level": "low",
           "require_auth": false,
           "enabled": true,
@@ -2852,7 +2891,7 @@
           "method": "GET",
           "path": "/api/system/pm2-status",
           "category": "System Status",
-          "description": "\ud83d\udfe2 FASE 2: PM2 process status - PID, uptime, restarts, memory, CPU",
+          "description": "🟢 FASE 2: PM2 process status - PID, uptime, restarts, memory, CPU",
           "risk_level": "low",
           "require_auth": false,
           "enabled": true,
@@ -2869,7 +2908,7 @@
           "method": "POST",
           "path": "/api/workspace/save",
           "category": "Shared Workspace",
-          "description": "\ud83c\udfa8 FASE 3: Salva snapshot tldraw nel database",
+          "description": "🎨 FASE 3: Salva snapshot tldraw nel database",
           "risk_level": "medium",
           "require_auth": false,
           "enabled": true,
@@ -2892,7 +2931,7 @@
           "method": "GET",
           "path": "/api/workspace/load",
           "category": "Shared Workspace",
-          "description": "\ud83c\udfa8 FASE 3: Carica snapshot tldraw dal database",
+          "description": "🎨 FASE 3: Carica snapshot tldraw dal database",
           "risk_level": "low",
           "require_auth": false,
           "enabled": true,
@@ -2911,7 +2950,7 @@
           "method": "GET",
           "path": "/api/workspace/list",
           "category": "Shared Workspace",
-          "description": "\ud83c\udfa8 FASE 3: Lista tutti gli snapshot salvati (debug)",
+          "description": "🎨 FASE 3: Lista tutti gli snapshot salvati (debug)",
           "risk_level": "low",
           "require_auth": false,
           "enabled": true,
@@ -2928,7 +2967,7 @@
           "method": "DELETE",
           "path": "/api/workspace/delete",
           "category": "Shared Workspace",
-          "description": "\ud83c\udfa8 FASE 3: Elimina snapshot (cleanup)",
+          "description": "🎨 FASE 3: Elimina snapshot (cleanup)",
           "risk_level": "medium",
           "require_auth": false,
           "enabled": true,
@@ -3804,7 +3843,7 @@
           "method": "GET",
           "path": "/api/security/audit/by-entity/:type/:id",
           "category": "Audit",
-          "description": "Audit per entit\u00e0",
+          "description": "Audit per entità",
           "risk_level": "low",
           "require_auth": true,
           "enabled": true
