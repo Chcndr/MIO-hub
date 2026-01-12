@@ -1,6 +1,6 @@
 {
-  "version": 13,
-  "last_updated": "2026-01-10T17:20:00Z",
+  "version": 14,
+  "last_updated": "2026-01-12T12:00:00Z",
   "services": [
     {
       "id": "dms-hub",
@@ -246,7 +246,7 @@
           "method": "POST",
           "path": "/api/trpc/dmsHub.markets.importAuto",
           "category": "DmsHub",
-          "description": "Import automatico da Slot Editor v3 (senza richiedere nome/città)",
+          "description": "Import automatico da Slot Editor v3 (senza richiedere nome/citt\u00e0)",
           "risk_level": "medium",
           "require_auth": false,
           "enabled": true,
@@ -1376,7 +1376,7 @@
           "method": "POST",
           "path": "/api/mihub/webhook/email",
           "category": "Mail",
-          "description": "📧 Riceve email da Zapier e le salva nel sistema",
+          "description": "\ud83d\udce7 Riceve email da Zapier e le salva nel sistema",
           "risk_level": "low",
           "require_auth": false,
           "enabled": true,
@@ -1397,7 +1397,7 @@
           "method": "GET",
           "path": "/api/mihub/mail/inbox",
           "category": "Mail",
-          "description": "📧 Lista email ricevute nella inbox",
+          "description": "\ud83d\udce7 Lista email ricevute nella inbox",
           "risk_level": "low",
           "require_auth": false,
           "enabled": true,
@@ -1839,7 +1839,7 @@
           "method": "GET",
           "path": "/api/imprese/:id/rating",
           "category": "Imprese",
-          "description": "Semaforo Conformità impresa (rating)",
+          "description": "Semaforo Conformit\u00e0 impresa (rating)",
           "risk_level": "low",
           "require_auth": true,
           "enabled": true,
@@ -1851,7 +1851,7 @@
             "expected_status": 200
           },
           "implemented": "rest",
-          "implementation_note": "Calcola rating conformità basato su qualificazioni e documenti"
+          "implementation_note": "Calcola rating conformit\u00e0 basato su qualificazioni e documenti"
         },
         {
           "id": "imprese.migratePdnd",
@@ -2234,7 +2234,7 @@
           "method": "GET",
           "path": "/api/imprese/:id/rating",
           "category": "MIO Agent",
-          "description": "Calcola rating conformità impresa (semaforo VERDE/GIALLO/ROSSO)",
+          "description": "Calcola rating conformit\u00e0 impresa (semaforo VERDE/GIALLO/ROSSO)",
           "risk_level": "low",
           "require_auth": true,
           "enabled": true,
@@ -2874,7 +2874,7 @@
           "method": "GET",
           "path": "/api/system/health",
           "category": "System Status",
-          "description": "🟢 FASE 2: Health check Backend API - Status, uptime, memory usage",
+          "description": "\ud83d\udfe2 FASE 2: Health check Backend API - Status, uptime, memory usage",
           "risk_level": "low",
           "require_auth": false,
           "enabled": true,
@@ -2891,7 +2891,7 @@
           "method": "GET",
           "path": "/api/system/pm2-status",
           "category": "System Status",
-          "description": "🟢 FASE 2: PM2 process status - PID, uptime, restarts, memory, CPU",
+          "description": "\ud83d\udfe2 FASE 2: PM2 process status - PID, uptime, restarts, memory, CPU",
           "risk_level": "low",
           "require_auth": false,
           "enabled": true,
@@ -2908,7 +2908,7 @@
           "method": "POST",
           "path": "/api/workspace/save",
           "category": "Shared Workspace",
-          "description": "🎨 FASE 3: Salva snapshot tldraw nel database",
+          "description": "\ud83c\udfa8 FASE 3: Salva snapshot tldraw nel database",
           "risk_level": "medium",
           "require_auth": false,
           "enabled": true,
@@ -2931,7 +2931,7 @@
           "method": "GET",
           "path": "/api/workspace/load",
           "category": "Shared Workspace",
-          "description": "🎨 FASE 3: Carica snapshot tldraw dal database",
+          "description": "\ud83c\udfa8 FASE 3: Carica snapshot tldraw dal database",
           "risk_level": "low",
           "require_auth": false,
           "enabled": true,
@@ -2950,7 +2950,7 @@
           "method": "GET",
           "path": "/api/workspace/list",
           "category": "Shared Workspace",
-          "description": "🎨 FASE 3: Lista tutti gli snapshot salvati (debug)",
+          "description": "\ud83c\udfa8 FASE 3: Lista tutti gli snapshot salvati (debug)",
           "risk_level": "low",
           "require_auth": false,
           "enabled": true,
@@ -2967,7 +2967,7 @@
           "method": "DELETE",
           "path": "/api/workspace/delete",
           "category": "Shared Workspace",
-          "description": "🎨 FASE 3: Elimina snapshot (cleanup)",
+          "description": "\ud83c\udfa8 FASE 3: Elimina snapshot (cleanup)",
           "risk_level": "medium",
           "require_auth": false,
           "enabled": true,
@@ -3843,7 +3843,7 @@
           "method": "GET",
           "path": "/api/security/audit/by-entity/:type/:id",
           "category": "Audit",
-          "description": "Audit per entità",
+          "description": "Audit per entit\u00e0",
           "risk_level": "low",
           "require_auth": true,
           "enabled": true
@@ -4133,7 +4133,9 @@
           "enabled": true,
           "test": {
             "enabled": true,
-            "default_params": { "userId": 30 },
+            "default_params": {
+              "userId": 30
+            },
             "expected_status": 200
           },
           "implementation_note": "REST endpoint in mihub-backend-rest/routes/tcc.js"
@@ -4149,7 +4151,9 @@
           "enabled": true,
           "test": {
             "enabled": true,
-            "default_params": { "userId": 30 },
+            "default_params": {
+              "userId": 30
+            },
             "expected_status": 200
           },
           "implementation_note": "REST endpoint in mihub-backend-rest/routes/tcc.js"
@@ -4195,7 +4199,9 @@
           "enabled": true,
           "test": {
             "enabled": true,
-            "default_params": { "userId": 30 },
+            "default_params": {
+              "userId": 30
+            },
             "expected_status": 200
           },
           "implementation_note": "REST endpoint in mihub-backend-rest/routes/tcc.js"
@@ -4244,6 +4250,378 @@
             "expected_status": 200
           },
           "implementation_note": "REST endpoint in mihub-backend-rest/routes/tcc.js"
+        }
+      ]
+    },
+    {
+      "id": "mihub-tcc-v2",
+      "display_name": "Token Carbon Credit v2 (TCC v2) API",
+      "base_url": "https://orchestratore.mio-hub.me",
+      "env": "production",
+      "description": "API TCC v2 - Sistema completo Carbon Credits con fondo sostenibilit\u00e0, rimborsi batch, settlement operatori",
+      "endpoints": [
+        {
+          "id": "tcc.v2.config",
+          "method": "GET",
+          "path": "/api/tcc/v2/config",
+          "category": "TCC v2 - Configurazione",
+          "description": "Configurazione globale TCC (valore, multiplier, ETS)",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/tcc-v2.js"
+        },
+        {
+          "id": "tcc.v2.fund.stats",
+          "method": "GET",
+          "path": "/api/tcc/v2/fund/stats/:comuneId",
+          "category": "TCC v2 - Configurazione",
+          "description": "Statistiche complete fondo per comune",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "default_params": {
+              "comuneId": 1
+            },
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/tcc-v2.js"
+        },
+        {
+          "id": "tcc.v2.config.update",
+          "method": "PUT",
+          "path": "/api/tcc/v2/config/update/:comuneId",
+          "category": "TCC v2 - Configurazione",
+          "description": "Aggiorna configurazione TCC per comune",
+          "risk_level": "medium",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/tcc-v2.js"
+        },
+        {
+          "id": "tcc.v2.ets-price",
+          "method": "PUT",
+          "path": "/api/tcc/v2/ets-price",
+          "category": "TCC v2 - Configurazione",
+          "description": "Aggiorna prezzo EU ETS",
+          "risk_level": "medium",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/tcc-v2.js"
+        },
+        {
+          "id": "tcc.v2.comuni",
+          "method": "GET",
+          "path": "/api/tcc/v2/comuni",
+          "category": "TCC v2 - Configurazione",
+          "description": "Lista comuni con hub attivi",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/tcc-v2.js"
+        },
+        {
+          "id": "tcc.v2.environment",
+          "method": "GET",
+          "path": "/api/tcc/v2/environment/:hubId",
+          "category": "TCC v2 - Ambiente",
+          "description": "Dati ambientali real-time (meteo, AQI, ETS)",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "default_params": {
+              "hubId": 1
+            },
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/tcc-v2.js - Integra Open-Meteo API"
+        },
+        {
+          "id": "tcc.v2.rules.list",
+          "method": "GET",
+          "path": "/api/tcc/v2/rules",
+          "category": "TCC v2 - Regole Boost",
+          "description": "Lista regole boost attive",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/tcc-v2.js"
+        },
+        {
+          "id": "tcc.v2.rules.create",
+          "method": "POST",
+          "path": "/api/tcc/v2/rules",
+          "category": "TCC v2 - Regole Boost",
+          "description": "Crea nuova regola boost",
+          "risk_level": "medium",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/tcc-v2.js"
+        },
+        {
+          "id": "tcc.v2.rules.update",
+          "method": "PUT",
+          "path": "/api/tcc/v2/rules/:id",
+          "category": "TCC v2 - Regole Boost",
+          "description": "Aggiorna regola boost",
+          "risk_level": "medium",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/tcc-v2.js"
+        },
+        {
+          "id": "tcc.v2.rules.delete",
+          "method": "DELETE",
+          "path": "/api/tcc/v2/rules/:id",
+          "category": "TCC v2 - Regole Boost",
+          "description": "Elimina regola boost",
+          "risk_level": "high",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/tcc-v2.js"
+        },
+        {
+          "id": "tcc.v2.operator.wallet",
+          "method": "GET",
+          "path": "/api/tcc/v2/operator/wallet/:operatorId",
+          "category": "TCC v2 - Hub Operatore",
+          "description": "Wallet giornaliero operatore",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "default_params": {
+              "operatorId": 5
+            },
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/tcc-v2.js"
+        },
+        {
+          "id": "tcc.v2.operator.assign-tcc",
+          "method": "POST",
+          "path": "/api/tcc/v2/operator/assign-tcc",
+          "category": "TCC v2 - Hub Operatore",
+          "description": "Assegna TCC a cittadino (formula: euro/10 \u00d7 policy_multiplier)",
+          "risk_level": "medium",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/tcc-v2.js"
+        },
+        {
+          "id": "tcc.v2.operator.redeem-tcc",
+          "method": "POST",
+          "path": "/api/tcc/v2/operator/redeem-tcc",
+          "category": "TCC v2 - Hub Operatore",
+          "description": "Riscatta TCC da cittadino (sconto acquisti)",
+          "risk_level": "medium",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/tcc-v2.js"
+        },
+        {
+          "id": "tcc.v2.operator.settlement",
+          "method": "POST",
+          "path": "/api/tcc/v2/operator/settlement",
+          "category": "TCC v2 - Hub Operatore",
+          "description": "Chiusura giornata operatore - Crea richiesta rimborso",
+          "risk_level": "high",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/tcc-v2.js"
+        },
+        {
+          "id": "tcc.v2.operator.history",
+          "method": "GET",
+          "path": "/api/tcc/v2/operator/history/:operatorId",
+          "category": "TCC v2 - Hub Operatore",
+          "description": "Storico transazioni operatore",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "default_params": {
+              "operatorId": 5
+            },
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/tcc-v2.js"
+        },
+        {
+          "id": "tcc.v2.citizen.wallet",
+          "method": "GET",
+          "path": "/api/tcc/v2/citizen/wallet/:userId",
+          "category": "TCC v2 - Cittadino",
+          "description": "Wallet TCC cittadino",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "default_params": {
+              "userId": 30
+            },
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/tcc-v2.js"
+        },
+        {
+          "id": "tcc.v2.citizen.transactions",
+          "method": "GET",
+          "path": "/api/tcc/v2/citizen/transactions/:userId",
+          "category": "TCC v2 - Cittadino",
+          "description": "Storico transazioni cittadino",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "default_params": {
+              "userId": 30
+            },
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/tcc-v2.js"
+        },
+        {
+          "id": "tcc.v2.pending-reimbursements",
+          "method": "GET",
+          "path": "/api/tcc/v2/pending-reimbursements",
+          "category": "TCC v2 - Dashboard PA",
+          "description": "Lista rimborsi operatori in attesa (pending)",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/tcc-v2.js - NUOVO v5.6.0"
+        },
+        {
+          "id": "tcc.v2.process-batch-reimbursements",
+          "method": "POST",
+          "path": "/api/tcc/v2/process-batch-reimbursements",
+          "category": "TCC v2 - Dashboard PA",
+          "description": "Processa batch rimborsi operatori",
+          "risk_level": "high",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/tcc-v2.js - NUOVO v5.6.0"
+        },
+        {
+          "id": "tcc.v2.reimbursement-history",
+          "method": "GET",
+          "path": "/api/tcc/v2/reimbursement-history",
+          "category": "TCC v2 - Dashboard PA",
+          "description": "Storico rimborsi completati (filtro per anno)",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/tcc-v2.js - NUOVO v5.6.0"
+        },
+        {
+          "id": "tcc.v2.fund-status",
+          "method": "GET",
+          "path": "/api/tcc/v2/fund-status",
+          "category": "TCC v2 - Dashboard PA",
+          "description": "Stato completo fondo con saldo positivo/negativo",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/tcc-v2.js - NUOVO v5.6.0"
+        },
+        {
+          "id": "tcc.v2.policy-multiplier.get",
+          "method": "GET",
+          "path": "/api/tcc/v2/policy-multiplier",
+          "category": "TCC v2 - Policy",
+          "description": "Valore attuale leva politica (1-10)",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/tcc-v2.js"
+        },
+        {
+          "id": "tcc.v2.policy-multiplier.update",
+          "method": "PUT",
+          "path": "/api/tcc/v2/policy-multiplier",
+          "category": "TCC v2 - Policy",
+          "description": "Aggiorna leva politica (slider 1-10)",
+          "risk_level": "medium",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/tcc-v2.js"
         }
       ]
     }
