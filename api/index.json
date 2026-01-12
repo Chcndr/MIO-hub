@@ -1,6 +1,6 @@
 {
-  "version": 14,
-  "last_updated": "2026-01-12T12:00:00Z",
+  "version": 15,
+  "last_updated": "2026-01-12T19:55:00Z",
   "services": [
     {
       "id": "dms-hub",
@@ -4622,6 +4622,117 @@
             "expected_status": 200
           },
           "implementation_note": "REST endpoint in mihub-backend-rest/routes/tcc-v2.js"
+        },
+        {
+          "id": "tcc.v2.impresa.wallet.get",
+          "method": "GET",
+          "path": "/api/tcc/v2/impresa/:impresaId/wallet",
+          "category": "TCC v2 - Wallet Impresa",
+          "description": "Wallet TCC Impresa - Saldo e stato qualifiche",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "default_params": { "impresaId": 38 },
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/tcc-v2.js - v5.7.0 Wallet-Impresa"
+        },
+        {
+          "id": "tcc.v2.impresa.wallet.create",
+          "method": "POST",
+          "path": "/api/tcc/v2/impresa/:impresaId/wallet/create",
+          "category": "TCC v2 - Wallet Impresa",
+          "description": "Crea Wallet TCC per Impresa",
+          "risk_level": "medium",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "default_params": { "impresaId": 38 },
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/tcc-v2.js - v5.7.0 Wallet-Impresa"
+        },
+        {
+          "id": "tcc.v2.impresa.qualification.status",
+          "method": "GET",
+          "path": "/api/tcc/v2/impresa/:impresaId/qualification-status",
+          "category": "TCC v2 - Wallet Impresa",
+          "description": "Stato Qualifiche Impresa per Semaforo",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "default_params": { "impresaId": 38 },
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/tcc-v2.js - v5.7.0 Wallet-Impresa"
+        },
+        {
+          "id": "tcc.v2.impresa.wallet.status.update",
+          "method": "PUT",
+          "path": "/api/tcc/v2/impresa/:impresaId/wallet/status",
+          "category": "TCC v2 - Wallet Impresa",
+          "description": "Aggiorna Stato Wallet Impresa (active/suspended)",
+          "risk_level": "medium",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "default_params": { "impresaId": 38 },
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/tcc-v2.js - v5.7.0 Wallet-Impresa"
+        },
+        {
+          "id": "tcc.v2.impresa.wallet.transactions",
+          "method": "GET",
+          "path": "/api/tcc/v2/impresa/:impresaId/wallet/transactions",
+          "category": "TCC v2 - Wallet Impresa",
+          "description": "Storico Transazioni Wallet Impresa",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "default_params": { "impresaId": 38 },
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/tcc-v2.js - v5.7.0 Wallet-Impresa"
+        },
+        {
+          "id": "tcc.v2.impresa.wallet.sync",
+          "method": "POST",
+          "path": "/api/tcc/v2/impresa/:impresaId/wallet/sync-qualification",
+          "category": "TCC v2 - Wallet Impresa",
+          "description": "Sincronizza Wallet con Qualifiche Impresa",
+          "risk_level": "medium",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "default_params": { "impresaId": 38 },
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/tcc-v2.js - v5.7.0 Wallet-Impresa"
+        },
+        {
+          "id": "tcc.v2.wallets.all",
+          "method": "GET",
+          "path": "/api/tcc/v2/wallets/all",
+          "category": "TCC v2 - Wallet Impresa",
+          "description": "Lista Tutti i Wallet TCC Imprese",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/tcc-v2.js - v5.7.0 Wallet-Impresa"
         }
       ]
     }
