@@ -1,6 +1,6 @@
 {
-  "version": 15,
-  "last_updated": "2026-01-12T19:55:00Z",
+  "version": 16,
+  "last_updated": "2026-01-12T20:10:00Z",
   "services": [
     {
       "id": "dms-hub",
@@ -246,7 +246,7 @@
           "method": "POST",
           "path": "/api/trpc/dmsHub.markets.importAuto",
           "category": "DmsHub",
-          "description": "Import automatico da Slot Editor v3 (senza richiedere nome/citt\u00e0)",
+          "description": "Import automatico da Slot Editor v3 (senza richiedere nome/città)",
           "risk_level": "medium",
           "require_auth": false,
           "enabled": true,
@@ -1376,7 +1376,7 @@
           "method": "POST",
           "path": "/api/mihub/webhook/email",
           "category": "Mail",
-          "description": "\ud83d\udce7 Riceve email da Zapier e le salva nel sistema",
+          "description": "📧 Riceve email da Zapier e le salva nel sistema",
           "risk_level": "low",
           "require_auth": false,
           "enabled": true,
@@ -1397,7 +1397,7 @@
           "method": "GET",
           "path": "/api/mihub/mail/inbox",
           "category": "Mail",
-          "description": "\ud83d\udce7 Lista email ricevute nella inbox",
+          "description": "📧 Lista email ricevute nella inbox",
           "risk_level": "low",
           "require_auth": false,
           "enabled": true,
@@ -1839,7 +1839,7 @@
           "method": "GET",
           "path": "/api/imprese/:id/rating",
           "category": "Imprese",
-          "description": "Semaforo Conformit\u00e0 impresa (rating)",
+          "description": "Semaforo Conformità impresa (rating)",
           "risk_level": "low",
           "require_auth": true,
           "enabled": true,
@@ -1851,7 +1851,7 @@
             "expected_status": 200
           },
           "implemented": "rest",
-          "implementation_note": "Calcola rating conformit\u00e0 basato su qualificazioni e documenti"
+          "implementation_note": "Calcola rating conformità basato su qualificazioni e documenti"
         },
         {
           "id": "imprese.migratePdnd",
@@ -1954,6 +1954,882 @@
           "implemented": "trpc",
           "router": "guardian",
           "procedure": "logApiCall"
+        },
+        {
+          "id": "analytics.overview",
+          "method": "GET",
+          "path": "/api/analytics/overview",
+          "category": "Analytics",
+          "description": "Panoramica statistiche sistema",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implementation_note": "tRPC endpoint in dms-hub-app-new"
+        },
+        {
+          "id": "analytics.markets",
+          "method": "GET",
+          "path": "/api/analytics/markets",
+          "category": "Analytics",
+          "description": "Statistiche mercati",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implementation_note": "tRPC endpoint in dms-hub-app-new"
+        },
+        {
+          "id": "analytics.shops",
+          "method": "GET",
+          "path": "/api/analytics/shops",
+          "category": "Analytics",
+          "description": "Elenco negozi con statistiche",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implementation_note": "tRPC endpoint in dms-hub-app-new"
+        },
+        {
+          "id": "analytics.transactions",
+          "method": "GET",
+          "path": "/api/analytics/transactions",
+          "category": "Analytics",
+          "description": "Elenco transazioni recenti",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implementation_note": "tRPC endpoint in dms-hub-app-new"
+        },
+        {
+          "id": "analytics.checkins",
+          "method": "GET",
+          "path": "/api/analytics/checkins",
+          "category": "Analytics",
+          "description": "Elenco check-in operatori",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implementation_note": "tRPC endpoint in dms-hub-app-new"
+        },
+        {
+          "id": "analytics.products",
+          "method": "GET",
+          "path": "/api/analytics/products",
+          "category": "Analytics",
+          "description": "Elenco prodotti con statistiche",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implementation_note": "tRPC endpoint in dms-hub-app-new"
+        },
+        {
+          "id": "analytics.productTracking",
+          "method": "GET",
+          "path": "/api/analytics/productTracking",
+          "category": "Analytics",
+          "description": "Tracciamento prodotti (blockchain)",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implementation_note": "tRPC endpoint in dms-hub-app-new"
+        },
+        {
+          "id": "auth.me",
+          "method": "GET",
+          "path": "/api/auth/me",
+          "category": "System & Auth",
+          "description": "Informazioni utente corrente",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implementation_note": "tRPC endpoint in dms-hub-app-new"
+        },
+        {
+          "id": "auth.logout",
+          "method": "POST",
+          "path": "/api/auth/logout",
+          "category": "System & Auth",
+          "description": "Logout utente",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "tRPC endpoint in dms-hub-app-new"
+        },
+        {
+          "id": "carbonCredits.config",
+          "method": "GET",
+          "path": "/api/carbonCredits/config",
+          "category": "Carbon Credits Legacy",
+          "description": "Configurazione crediti di carbonio",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implementation_note": "Legacy endpoint - vedere TCC v2 per nuova versione"
+        },
+        {
+          "id": "carbonCredits.fundTransactions",
+          "method": "GET",
+          "path": "/api/carbonCredits/fundTransactions",
+          "category": "Carbon Credits Legacy",
+          "description": "Transazioni fondo crediti carbonio",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implementation_note": "Legacy endpoint - vedere TCC v2 per nuova versione"
+        },
+        {
+          "id": "carbonCredits.reimbursements",
+          "method": "GET",
+          "path": "/api/carbonCredits/reimbursements",
+          "category": "Carbon Credits Legacy",
+          "description": "Rimborsi crediti carbonio",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implementation_note": "Legacy endpoint - vedere TCC v2 per nuova versione"
+        },
+        {
+          "id": "businesses.list",
+          "method": "GET",
+          "path": "/api/businesses/list",
+          "category": "Businesses",
+          "description": "Elenco attività commerciali",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implementation_note": "tRPC endpoint in dms-hub-app-new"
+        },
+        {
+          "id": "civicReports.list",
+          "method": "GET",
+          "path": "/api/civicReports/list",
+          "category": "Civic Reports",
+          "description": "Elenco segnalazioni civiche",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implementation_note": "tRPC endpoint in dms-hub-app-new"
+        },
+        {
+          "id": "concessions.full",
+          "method": "GET",
+          "path": "/api/concessions/full",
+          "category": "Concessioni",
+          "description": "Lista concessioni con dettagli completi",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest"
+        },
+        {
+          "id": "guardian.integrations",
+          "method": "GET",
+          "path": "/api/guardian/integrations",
+          "category": "Guardian",
+          "description": "Inventario API completo",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implementation_note": "tRPC endpoint in dms-hub-app-new/server/guardianRouter.ts"
+        },
+        {
+          "id": "guardian.logs",
+          "method": "GET",
+          "path": "/api/guardian/logs",
+          "category": "Guardian",
+          "description": "Log centralizzati del sistema",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implementation_note": "tRPC endpoint in dms-hub-app-new/server/guardianRouter.ts"
+        },
+        {
+          "id": "inspections.list",
+          "method": "GET",
+          "path": "/api/inspections/list",
+          "category": "Inspections",
+          "description": "Elenco ispezioni e violazioni",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implementation_note": "tRPC endpoint in dms-hub-app-new"
+        },
+        {
+          "id": "logs.system",
+          "method": "GET",
+          "path": "/api/logs/system",
+          "category": "Logs",
+          "description": "Log di sistema",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implementation_note": "tRPC endpoint in dms-hub-app-new"
+        },
+        {
+          "id": "mioAgent.getLogs",
+          "method": "GET",
+          "path": "/api/mioAgent/getLogs",
+          "category": "MIO Agent",
+          "description": "Log agente MIO",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest"
+        },
+        {
+          "id": "mobility.list",
+          "method": "GET",
+          "path": "/api/mobility/list",
+          "category": "Mobility",
+          "description": "Elenco dati mobilità",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implementation_note": "tRPC endpoint in dms-hub-app-new"
+        },
+        {
+          "id": "notifications.list",
+          "method": "GET",
+          "path": "/api/notifications/list",
+          "category": "Notifications",
+          "description": "Elenco notifiche",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implementation_note": "tRPC endpoint in dms-hub-app-new"
+        },
+        {
+          "id": "integrations.tper.stops",
+          "method": "GET",
+          "path": "/api/integrations/tper/stops",
+          "category": "Integrations TPER",
+          "description": "Lista fermate TPER Bologna",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implementation_note": "tRPC endpoint in dms-hub-app-new"
+        },
+        {
+          "id": "integrations.tper.sync",
+          "method": "POST",
+          "path": "/api/integrations/tper/sync",
+          "category": "Integrations TPER",
+          "description": "Sincronizza dati TPER",
+          "risk_level": "medium",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "tRPC endpoint in dms-hub-app-new"
+        },
+        {
+          "id": "qualificazioni.durc.list",
+          "method": "GET",
+          "path": "/api/qualificazioni/durc",
+          "category": "Qualificazioni",
+          "description": "Lista DURC",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest"
+        },
+        {
+          "id": "qualificazioni.durc.byImpresa",
+          "method": "GET",
+          "path": "/api/qualificazioni/durc/:impresa_id",
+          "category": "Qualificazioni",
+          "description": "DURC per impresa",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "default_params": {
+              "impresa_id": 1
+            },
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest"
+        },
+        {
+          "id": "qualificazioni.byImpresa",
+          "method": "GET",
+          "path": "/api/qualificazioni/impresa/:impresa_id",
+          "category": "Qualificazioni",
+          "description": "Qualificazioni per impresa",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "default_params": {
+              "impresa_id": 1
+            },
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest"
+        },
+        {
+          "id": "qualificazioni.suap.list",
+          "method": "GET",
+          "path": "/api/qualificazioni/suap",
+          "category": "Qualificazioni",
+          "description": "Lista qualificazioni SUAP",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest"
+        },
+        {
+          "id": "qualificazioni.suap.byId",
+          "method": "GET",
+          "path": "/api/qualificazioni/suap/:id",
+          "category": "Qualificazioni",
+          "description": "Qualificazione SUAP per ID",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "default_params": {
+              "id": 1
+            },
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest"
+        },
+        {
+          "id": "qualificazioni.suap.byImpresa",
+          "method": "GET",
+          "path": "/api/qualificazioni/suap/:impresa_id",
+          "category": "Qualificazioni",
+          "description": "Qualificazioni SUAP per impresa",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "default_params": {
+              "impresa_id": 1
+            },
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest"
+        },
+        {
+          "id": "sustainability.metrics",
+          "method": "GET",
+          "path": "/api/sustainability/metrics",
+          "category": "Sustainability",
+          "description": "Metriche di sostenibilità",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implementation_note": "tRPC endpoint in dms-hub-app-new"
+        },
+        {
+          "id": "tariffs.list",
+          "method": "GET",
+          "path": "/api/tariffs",
+          "category": "Tariffe",
+          "description": "Lista tariffe",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest"
+        },
+        {
+          "id": "tariffs.byMarket",
+          "method": "GET",
+          "path": "/api/tariffs/:marketId",
+          "category": "Tariffe",
+          "description": "Tariffe per mercato",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "default_params": {
+              "marketId": 1
+            },
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest"
+        },
+        {
+          "id": "users.analytics",
+          "method": "GET",
+          "path": "/api/users/analytics",
+          "category": "Users",
+          "description": "Statistiche utenti",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implementation_note": "tRPC endpoint in dms-hub-app-new"
+        },
+        {
+          "id": "imprese.vetrina.upload",
+          "method": "POST",
+          "path": "/api/imprese/:id/vetrina/upload",
+          "category": "Imprese",
+          "description": "Upload immagine vetrina",
+          "risk_level": "medium",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest"
+        },
+        {
+          "id": "imprese.vetrina.deleteImage",
+          "method": "DELETE",
+          "path": "/api/imprese/:id/vetrina/gallery/:index",
+          "category": "Imprese",
+          "description": "Elimina immagine vetrina",
+          "risk_level": "medium",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest"
+        },
+        {
+          "id": "dmsHub.hub.locations.list",
+          "method": "GET",
+          "path": "/api/trpc/dmsHub.hub.locations.list",
+          "category": "DmsHub - HUB",
+          "description": "Lista locations HUB",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implementation_note": "tRPC endpoint in dms-hub-app-new"
+        },
+        {
+          "id": "dmsHub.hub.locations.getById",
+          "method": "GET",
+          "path": "/api/trpc/dmsHub.hub.locations.getById",
+          "category": "DmsHub - HUB",
+          "description": "Dettaglio location HUB",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implementation_note": "tRPC endpoint in dms-hub-app-new"
+        },
+        {
+          "id": "dmsHub.hub.locations.create",
+          "method": "POST",
+          "path": "/api/trpc/dmsHub.hub.locations.create",
+          "category": "DmsHub - HUB",
+          "description": "Crea location HUB",
+          "risk_level": "medium",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "tRPC endpoint in dms-hub-app-new"
+        },
+        {
+          "id": "dmsHub.hub.locations.update",
+          "method": "PUT",
+          "path": "/api/trpc/dmsHub.hub.locations.update",
+          "category": "DmsHub - HUB",
+          "description": "Aggiorna location HUB",
+          "risk_level": "medium",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "tRPC endpoint in dms-hub-app-new"
+        },
+        {
+          "id": "dmsHub.hub.locations.delete",
+          "method": "DELETE",
+          "path": "/api/trpc/dmsHub.hub.locations.delete",
+          "category": "DmsHub - HUB",
+          "description": "Elimina location HUB",
+          "risk_level": "high",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "tRPC endpoint in dms-hub-app-new"
+        },
+        {
+          "id": "dmsHub.hub.services.list",
+          "method": "GET",
+          "path": "/api/trpc/dmsHub.hub.services.list",
+          "category": "DmsHub - HUB",
+          "description": "Lista servizi HUB",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implementation_note": "tRPC endpoint in dms-hub-app-new"
+        },
+        {
+          "id": "dmsHub.hub.services.create",
+          "method": "POST",
+          "path": "/api/trpc/dmsHub.hub.services.create",
+          "category": "DmsHub - HUB",
+          "description": "Crea servizio HUB",
+          "risk_level": "medium",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "tRPC endpoint in dms-hub-app-new"
+        },
+        {
+          "id": "dmsHub.hub.shops.list",
+          "method": "GET",
+          "path": "/api/trpc/dmsHub.hub.shops.list",
+          "category": "DmsHub - HUB",
+          "description": "Lista negozi HUB",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implementation_note": "tRPC endpoint in dms-hub-app-new"
+        },
+        {
+          "id": "dmsHub.hub.shops.create",
+          "method": "POST",
+          "path": "/api/trpc/dmsHub.hub.shops.create",
+          "category": "DmsHub - HUB",
+          "description": "Crea negozio HUB",
+          "risk_level": "medium",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "tRPC endpoint in dms-hub-app-new"
+        },
+        {
+          "id": "wallet.pagamentoSpontaneo",
+          "method": "POST",
+          "path": "/api/trpc/wallet.pagamentoSpontaneo",
+          "category": "Wallet tRPC",
+          "description": "Pagamento spontaneo",
+          "risk_level": "medium",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "tRPC endpoint in dms-hub-app-new"
+        },
+        {
+          "id": "wallet.reportMercato",
+          "method": "GET",
+          "path": "/api/trpc/wallet.reportMercato",
+          "category": "Wallet tRPC",
+          "description": "Report mercato",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implementation_note": "tRPC endpoint in dms-hub-app-new"
+        },
+        {
+          "id": "wallet.reportRiconciliazione",
+          "method": "GET",
+          "path": "/api/trpc/wallet.reportRiconciliazione",
+          "category": "Wallet tRPC",
+          "description": "Report riconciliazione",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implementation_note": "tRPC endpoint in dms-hub-app-new"
+        },
+        {
+          "id": "wallets.list",
+          "method": "GET",
+          "path": "/api/wallets",
+          "category": "Wallets REST",
+          "description": "Lista wallets",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest"
+        },
+        {
+          "id": "wallets.create",
+          "method": "POST",
+          "path": "/api/wallets",
+          "category": "Wallets REST",
+          "description": "Crea wallet",
+          "risk_level": "medium",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest"
+        },
+        {
+          "id": "wallets.delete",
+          "method": "DELETE",
+          "path": "/api/wallets/:id",
+          "category": "Wallets REST",
+          "description": "Elimina wallet",
+          "risk_level": "high",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest"
+        },
+        {
+          "id": "wallets.transactions",
+          "method": "GET",
+          "path": "/api/wallets/:id/transactions",
+          "category": "Wallets REST",
+          "description": "Transazioni wallet",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "default_params": {
+              "id": 1
+            },
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest"
+        },
+        {
+          "id": "wallets.byCompany",
+          "method": "GET",
+          "path": "/api/wallets/company/:companyId",
+          "category": "Wallets REST",
+          "description": "Wallets per impresa",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "default_params": {
+              "companyId": 1
+            },
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest"
+        },
+        {
+          "id": "wallets.init",
+          "method": "POST",
+          "path": "/api/wallets/init",
+          "category": "Wallets REST",
+          "description": "Inizializza schema wallets",
+          "risk_level": "high",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest"
+        },
+        {
+          "id": "wallets.deposit",
+          "method": "POST",
+          "path": "/api/wallets/deposit",
+          "category": "Wallets REST",
+          "description": "Deposito wallet",
+          "risk_level": "medium",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest"
+        },
+        {
+          "id": "wallets.withdraw",
+          "method": "POST",
+          "path": "/api/wallets/withdraw",
+          "category": "Wallets REST",
+          "description": "Prelievo wallet",
+          "risk_level": "medium",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest"
+        },
+        {
+          "id": "wallets.calculateAnnualFee",
+          "method": "POST",
+          "path": "/api/wallets/calculate-annual-fee",
+          "category": "Wallets REST",
+          "description": "Calcola canone annuale",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest"
         }
       ]
     },
@@ -2234,7 +3110,7 @@
           "method": "GET",
           "path": "/api/imprese/:id/rating",
           "category": "MIO Agent",
-          "description": "Calcola rating conformit\u00e0 impresa (semaforo VERDE/GIALLO/ROSSO)",
+          "description": "Calcola rating conformità impresa (semaforo VERDE/GIALLO/ROSSO)",
           "risk_level": "low",
           "require_auth": true,
           "enabled": true,
@@ -2874,7 +3750,7 @@
           "method": "GET",
           "path": "/api/system/health",
           "category": "System Status",
-          "description": "\ud83d\udfe2 FASE 2: Health check Backend API - Status, uptime, memory usage",
+          "description": "🟢 FASE 2: Health check Backend API - Status, uptime, memory usage",
           "risk_level": "low",
           "require_auth": false,
           "enabled": true,
@@ -2891,7 +3767,7 @@
           "method": "GET",
           "path": "/api/system/pm2-status",
           "category": "System Status",
-          "description": "\ud83d\udfe2 FASE 2: PM2 process status - PID, uptime, restarts, memory, CPU",
+          "description": "🟢 FASE 2: PM2 process status - PID, uptime, restarts, memory, CPU",
           "risk_level": "low",
           "require_auth": false,
           "enabled": true,
@@ -2908,7 +3784,7 @@
           "method": "POST",
           "path": "/api/workspace/save",
           "category": "Shared Workspace",
-          "description": "\ud83c\udfa8 FASE 3: Salva snapshot tldraw nel database",
+          "description": "🎨 FASE 3: Salva snapshot tldraw nel database",
           "risk_level": "medium",
           "require_auth": false,
           "enabled": true,
@@ -2931,7 +3807,7 @@
           "method": "GET",
           "path": "/api/workspace/load",
           "category": "Shared Workspace",
-          "description": "\ud83c\udfa8 FASE 3: Carica snapshot tldraw dal database",
+          "description": "🎨 FASE 3: Carica snapshot tldraw dal database",
           "risk_level": "low",
           "require_auth": false,
           "enabled": true,
@@ -2950,7 +3826,7 @@
           "method": "GET",
           "path": "/api/workspace/list",
           "category": "Shared Workspace",
-          "description": "\ud83c\udfa8 FASE 3: Lista tutti gli snapshot salvati (debug)",
+          "description": "🎨 FASE 3: Lista tutti gli snapshot salvati (debug)",
           "risk_level": "low",
           "require_auth": false,
           "enabled": true,
@@ -2967,7 +3843,7 @@
           "method": "DELETE",
           "path": "/api/workspace/delete",
           "category": "Shared Workspace",
-          "description": "\ud83c\udfa8 FASE 3: Elimina snapshot (cleanup)",
+          "description": "🎨 FASE 3: Elimina snapshot (cleanup)",
           "risk_level": "medium",
           "require_auth": false,
           "enabled": true,
@@ -3843,7 +4719,7 @@
           "method": "GET",
           "path": "/api/security/audit/by-entity/:type/:id",
           "category": "Audit",
-          "description": "Audit per entit\u00e0",
+          "description": "Audit per entità",
           "risk_level": "low",
           "require_auth": true,
           "enabled": true
@@ -4258,7 +5134,7 @@
       "display_name": "Token Carbon Credit v2 (TCC v2) API",
       "base_url": "https://orchestratore.mio-hub.me",
       "env": "production",
-      "description": "API TCC v2 - Sistema completo Carbon Credits con fondo sostenibilit\u00e0, rimborsi batch, settlement operatori",
+      "description": "API TCC v2 - Sistema completo Carbon Credits con fondo sostenibilità, rimborsi batch, settlement operatori",
       "endpoints": [
         {
           "id": "tcc.v2.config",
@@ -4439,7 +5315,7 @@
           "method": "POST",
           "path": "/api/tcc/v2/operator/assign-tcc",
           "category": "TCC v2 - Hub Operatore",
-          "description": "Assegna TCC a cittadino (formula: euro/10 \u00d7 policy_multiplier)",
+          "description": "Assegna TCC a cittadino (formula: euro/10 × policy_multiplier)",
           "risk_level": "medium",
           "require_auth": true,
           "enabled": true,
@@ -4634,7 +5510,9 @@
           "enabled": true,
           "test": {
             "enabled": true,
-            "default_params": { "impresaId": 38 },
+            "default_params": {
+              "impresaId": 38
+            },
             "expected_status": 200
           },
           "implementation_note": "REST endpoint in mihub-backend-rest/routes/tcc-v2.js - v5.7.0 Wallet-Impresa"
@@ -4650,7 +5528,9 @@
           "enabled": true,
           "test": {
             "enabled": false,
-            "default_params": { "impresaId": 38 },
+            "default_params": {
+              "impresaId": 38
+            },
             "expected_status": 200
           },
           "implementation_note": "REST endpoint in mihub-backend-rest/routes/tcc-v2.js - v5.7.0 Wallet-Impresa"
@@ -4666,7 +5546,9 @@
           "enabled": true,
           "test": {
             "enabled": true,
-            "default_params": { "impresaId": 38 },
+            "default_params": {
+              "impresaId": 38
+            },
             "expected_status": 200
           },
           "implementation_note": "REST endpoint in mihub-backend-rest/routes/tcc-v2.js - v5.7.0 Wallet-Impresa"
@@ -4682,7 +5564,9 @@
           "enabled": true,
           "test": {
             "enabled": false,
-            "default_params": { "impresaId": 38 },
+            "default_params": {
+              "impresaId": 38
+            },
             "expected_status": 200
           },
           "implementation_note": "REST endpoint in mihub-backend-rest/routes/tcc-v2.js - v5.7.0 Wallet-Impresa"
@@ -4698,7 +5582,9 @@
           "enabled": true,
           "test": {
             "enabled": true,
-            "default_params": { "impresaId": 38 },
+            "default_params": {
+              "impresaId": 38
+            },
             "expected_status": 200
           },
           "implementation_note": "REST endpoint in mihub-backend-rest/routes/tcc-v2.js - v5.7.0 Wallet-Impresa"
@@ -4714,7 +5600,9 @@
           "enabled": true,
           "test": {
             "enabled": false,
-            "default_params": { "impresaId": 38 },
+            "default_params": {
+              "impresaId": 38
+            },
             "expected_status": 200
           },
           "implementation_note": "REST endpoint in mihub-backend-rest/routes/tcc-v2.js - v5.7.0 Wallet-Impresa"
