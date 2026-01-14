@@ -1,6 +1,6 @@
 {
-  "version": 16,
-  "last_updated": "2026-01-12T20:10:00Z",
+  "version": 17,
+  "last_updated": "2026-01-14T17:30:00Z",
   "services": [
     {
       "id": "dms-hub",
@@ -2830,6 +2830,150 @@
             "expected_status": 200
           },
           "implementation_note": "REST endpoint in mihub-backend-rest"
+        },
+        {
+          "id": "wallet-history.list",
+          "method": "GET",
+          "path": "/api/wallet-history",
+          "category": "Wallets REST",
+          "description": "Lista storico eventi wallet",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": { "enabled": true, "expected_status": 200 },
+          "implementation_note": "REST endpoint in mihub-backend-rest v3.34.0"
+        },
+        {
+          "id": "wallet-history.byWallet",
+          "method": "GET",
+          "path": "/api/wallet-history/:wallet_id",
+          "category": "Wallets REST",
+          "description": "Storico eventi per wallet specifico",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": { "enabled": true, "expected_status": 200 },
+          "implementation_note": "REST endpoint in mihub-backend-rest v3.34.0"
+        },
+        {
+          "id": "wallet-history.create",
+          "method": "POST",
+          "path": "/api/wallet-history",
+          "category": "Wallets REST",
+          "description": "Crea evento storico wallet",
+          "risk_level": "medium",
+          "require_auth": true,
+          "enabled": true,
+          "test": { "enabled": false },
+          "implementation_note": "REST endpoint in mihub-backend-rest v3.34.0"
+        },
+        {
+          "id": "wallet-scadenze.list",
+          "method": "GET",
+          "path": "/api/wallet-scadenze",
+          "category": "Wallets REST",
+          "description": "Lista scadenze canone wallet",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": { "enabled": true, "expected_status": 200 },
+          "implementation_note": "REST endpoint in mihub-backend-rest v3.34.0"
+        },
+        {
+          "id": "wallet-scadenze.calcolaMora",
+          "method": "POST",
+          "path": "/api/wallet-scadenze/calcola-mora",
+          "category": "Wallets REST",
+          "description": "Calcola mora e interessi per scadenza",
+          "risk_level": "medium",
+          "require_auth": true,
+          "enabled": true,
+          "test": { "enabled": false },
+          "implementation_note": "REST endpoint in mihub-backend-rest v3.34.0"
+        },
+        {
+          "id": "canone-unico.riepilogo",
+          "method": "GET",
+          "path": "/api/canone-unico/riepilogo",
+          "category": "Wallets REST",
+          "description": "Riepilogo scadenze canone unico con filtri",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": { "enabled": true, "expected_status": 200 },
+          "implementation_note": "REST endpoint in mihub-backend-rest v3.35.0"
+        },
+        {
+          "id": "canone-unico.generaCanoneAnnuo",
+          "method": "POST",
+          "path": "/api/canone-unico/genera-canone-annuo",
+          "category": "Wallets REST",
+          "description": "Genera scadenze canone annuo per tutti i concessionari",
+          "risk_level": "high",
+          "require_auth": true,
+          "enabled": true,
+          "test": { "enabled": false },
+          "implementation_note": "REST endpoint in mihub-backend-rest v3.35.0"
+        },
+        {
+          "id": "canone-unico.generaPagamentoStraordinario",
+          "method": "POST",
+          "path": "/api/canone-unico/genera-pagamento-straordinario",
+          "category": "Wallets REST",
+          "description": "Genera avvisi pagamento per fiere/eventi straordinari",
+          "risk_level": "high",
+          "require_auth": true,
+          "enabled": true,
+          "test": { "enabled": false },
+          "implementation_note": "REST endpoint in mihub-backend-rest v3.35.0"
+        },
+        {
+          "id": "canone-unico.calcolaMora",
+          "method": "POST",
+          "path": "/api/canone-unico/calcola-mora",
+          "category": "Wallets REST",
+          "description": "Calcola mora e interessi per scadenza canone",
+          "risk_level": "medium",
+          "require_auth": true,
+          "enabled": true,
+          "test": { "enabled": false },
+          "implementation_note": "REST endpoint in mihub-backend-rest v3.35.0"
+        },
+        {
+          "id": "canone-unico.updateConcessionStatus",
+          "method": "PUT",
+          "path": "/api/canone-unico/concessions/:id/status",
+          "category": "Wallets REST",
+          "description": "Blocca/sblocca concessione per mancato pagamento",
+          "risk_level": "high",
+          "require_auth": true,
+          "enabled": true,
+          "test": { "enabled": false },
+          "implementation_note": "REST endpoint in mihub-backend-rest v3.35.0"
+        },
+        {
+          "id": "canone-unico.getImpostazioni",
+          "method": "GET",
+          "path": "/api/canone-unico/impostazioni/:comune_id",
+          "category": "Wallets REST",
+          "description": "Ottieni impostazioni blocco automatico per comune",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": { "enabled": true, "expected_status": 200 },
+          "implementation_note": "REST endpoint in mihub-backend-rest v3.35.0"
+        },
+        {
+          "id": "canone-unico.updateImpostazioni",
+          "method": "PUT",
+          "path": "/api/canone-unico/impostazioni/:comune_id",
+          "category": "Wallets REST",
+          "description": "Aggiorna impostazioni blocco automatico per comune",
+          "risk_level": "medium",
+          "require_auth": true,
+          "enabled": true,
+          "test": { "enabled": false },
+          "implementation_note": "REST endpoint in mihub-backend-rest v3.35.0"
         }
       ]
     },
