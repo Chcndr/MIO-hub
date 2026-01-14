@@ -1,6 +1,6 @@
 {
-  "version": 18,
-  "last_updated": "2026-01-14T17:45:00Z",
+  "version": 19,
+  "last_updated": "2026-01-14T19:30:00Z",
   "services": [
     {
       "id": "dms-hub",
@@ -2958,6 +2958,21 @@
             "enabled": false
           },
           "implementation_note": "REST endpoint in mihub-backend-rest v3.35.0"
+        },
+        {
+          "id": "canone-unico.impreseConcessioni",
+          "method": "GET",
+          "path": "/api/canone-unico/imprese-concessioni",
+          "category": "Wallets REST",
+          "description": "Lista imprese con concessioni per mercato con badge e saldi",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest v3.36.0"
         }
       ]
     },
