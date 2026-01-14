@@ -1,6 +1,6 @@
 {
-  "version": 17,
-  "last_updated": "2026-01-14T17:30:00Z",
+  "version": 18,
+  "last_updated": "2026-01-14T17:45:00Z",
   "services": [
     {
       "id": "dms-hub",
@@ -246,7 +246,7 @@
           "method": "POST",
           "path": "/api/trpc/dmsHub.markets.importAuto",
           "category": "DmsHub",
-          "description": "Import automatico da Slot Editor v3 (senza richiedere nome/città)",
+          "description": "Import automatico da Slot Editor v3 (senza richiedere nome/citt\u00e0)",
           "risk_level": "medium",
           "require_auth": false,
           "enabled": true,
@@ -1376,7 +1376,7 @@
           "method": "POST",
           "path": "/api/mihub/webhook/email",
           "category": "Mail",
-          "description": "📧 Riceve email da Zapier e le salva nel sistema",
+          "description": "\ud83d\udce7 Riceve email da Zapier e le salva nel sistema",
           "risk_level": "low",
           "require_auth": false,
           "enabled": true,
@@ -1397,7 +1397,7 @@
           "method": "GET",
           "path": "/api/mihub/mail/inbox",
           "category": "Mail",
-          "description": "📧 Lista email ricevute nella inbox",
+          "description": "\ud83d\udce7 Lista email ricevute nella inbox",
           "risk_level": "low",
           "require_auth": false,
           "enabled": true,
@@ -1839,7 +1839,7 @@
           "method": "GET",
           "path": "/api/imprese/:id/rating",
           "category": "Imprese",
-          "description": "Semaforo Conformità impresa (rating)",
+          "description": "Semaforo Conformit\u00e0 impresa (rating)",
           "risk_level": "low",
           "require_auth": true,
           "enabled": true,
@@ -1851,7 +1851,7 @@
             "expected_status": 200
           },
           "implemented": "rest",
-          "implementation_note": "Calcola rating conformità basato su qualificazioni e documenti"
+          "implementation_note": "Calcola rating conformit\u00e0 basato su qualificazioni e documenti"
         },
         {
           "id": "imprese.migratePdnd",
@@ -2140,7 +2140,7 @@
           "method": "GET",
           "path": "/api/businesses/list",
           "category": "Businesses",
-          "description": "Elenco attività commerciali",
+          "description": "Elenco attivit\u00e0 commerciali",
           "risk_level": "low",
           "require_auth": true,
           "enabled": true,
@@ -2181,51 +2181,6 @@
           "implementation_note": "REST endpoint in mihub-backend-rest"
         },
         {
-          "id": "guardian.integrations",
-          "method": "GET",
-          "path": "/api/guardian/integrations",
-          "category": "Guardian",
-          "description": "Inventario API completo",
-          "risk_level": "low",
-          "require_auth": false,
-          "enabled": true,
-          "test": {
-            "enabled": true,
-            "expected_status": 200
-          },
-          "implementation_note": "tRPC endpoint in dms-hub-app-new/server/guardianRouter.ts"
-        },
-        {
-          "id": "guardian.logs",
-          "method": "GET",
-          "path": "/api/guardian/logs",
-          "category": "Guardian",
-          "description": "Log centralizzati del sistema",
-          "risk_level": "low",
-          "require_auth": false,
-          "enabled": true,
-          "test": {
-            "enabled": true,
-            "expected_status": 200
-          },
-          "implementation_note": "tRPC endpoint in dms-hub-app-new/server/guardianRouter.ts"
-        },
-        {
-          "id": "inspections.list",
-          "method": "GET",
-          "path": "/api/inspections/list",
-          "category": "Inspections",
-          "description": "Elenco ispezioni e violazioni",
-          "risk_level": "low",
-          "require_auth": true,
-          "enabled": true,
-          "test": {
-            "enabled": true,
-            "expected_status": 200
-          },
-          "implementation_note": "tRPC endpoint in dms-hub-app-new"
-        },
-        {
           "id": "logs.system",
           "method": "GET",
           "path": "/api/logs/system",
@@ -2260,7 +2215,7 @@
           "method": "GET",
           "path": "/api/mobility/list",
           "category": "Mobility",
-          "description": "Elenco dati mobilità",
+          "description": "Elenco dati mobilit\u00e0",
           "risk_level": "low",
           "require_auth": true,
           "enabled": true,
@@ -2422,7 +2377,7 @@
           "method": "GET",
           "path": "/api/sustainability/metrics",
           "category": "Sustainability",
-          "description": "Metriche di sostenibilità",
+          "description": "Metriche di sostenibilit\u00e0",
           "risk_level": "low",
           "require_auth": true,
           "enabled": true,
@@ -2840,7 +2795,10 @@
           "risk_level": "low",
           "require_auth": true,
           "enabled": true,
-          "test": { "enabled": true, "expected_status": 200 },
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
           "implementation_note": "REST endpoint in mihub-backend-rest v3.34.0"
         },
         {
@@ -2852,7 +2810,10 @@
           "risk_level": "low",
           "require_auth": true,
           "enabled": true,
-          "test": { "enabled": true, "expected_status": 200 },
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
           "implementation_note": "REST endpoint in mihub-backend-rest v3.34.0"
         },
         {
@@ -2864,7 +2825,9 @@
           "risk_level": "medium",
           "require_auth": true,
           "enabled": true,
-          "test": { "enabled": false },
+          "test": {
+            "enabled": false
+          },
           "implementation_note": "REST endpoint in mihub-backend-rest v3.34.0"
         },
         {
@@ -2876,7 +2839,10 @@
           "risk_level": "low",
           "require_auth": true,
           "enabled": true,
-          "test": { "enabled": true, "expected_status": 200 },
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
           "implementation_note": "REST endpoint in mihub-backend-rest v3.34.0"
         },
         {
@@ -2888,7 +2854,9 @@
           "risk_level": "medium",
           "require_auth": true,
           "enabled": true,
-          "test": { "enabled": false },
+          "test": {
+            "enabled": false
+          },
           "implementation_note": "REST endpoint in mihub-backend-rest v3.34.0"
         },
         {
@@ -2900,7 +2868,10 @@
           "risk_level": "low",
           "require_auth": true,
           "enabled": true,
-          "test": { "enabled": true, "expected_status": 200 },
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
           "implementation_note": "REST endpoint in mihub-backend-rest v3.35.0"
         },
         {
@@ -2912,7 +2883,9 @@
           "risk_level": "high",
           "require_auth": true,
           "enabled": true,
-          "test": { "enabled": false },
+          "test": {
+            "enabled": false
+          },
           "implementation_note": "REST endpoint in mihub-backend-rest v3.35.0"
         },
         {
@@ -2924,7 +2897,9 @@
           "risk_level": "high",
           "require_auth": true,
           "enabled": true,
-          "test": { "enabled": false },
+          "test": {
+            "enabled": false
+          },
           "implementation_note": "REST endpoint in mihub-backend-rest v3.35.0"
         },
         {
@@ -2936,7 +2911,9 @@
           "risk_level": "medium",
           "require_auth": true,
           "enabled": true,
-          "test": { "enabled": false },
+          "test": {
+            "enabled": false
+          },
           "implementation_note": "REST endpoint in mihub-backend-rest v3.35.0"
         },
         {
@@ -2948,7 +2925,9 @@
           "risk_level": "high",
           "require_auth": true,
           "enabled": true,
-          "test": { "enabled": false },
+          "test": {
+            "enabled": false
+          },
           "implementation_note": "REST endpoint in mihub-backend-rest v3.35.0"
         },
         {
@@ -2960,7 +2939,10 @@
           "risk_level": "low",
           "require_auth": true,
           "enabled": true,
-          "test": { "enabled": true, "expected_status": 200 },
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
           "implementation_note": "REST endpoint in mihub-backend-rest v3.35.0"
         },
         {
@@ -2972,7 +2954,9 @@
           "risk_level": "medium",
           "require_auth": true,
           "enabled": true,
-          "test": { "enabled": false },
+          "test": {
+            "enabled": false
+          },
           "implementation_note": "REST endpoint in mihub-backend-rest v3.35.0"
         }
       ]
@@ -3178,97 +3162,6 @@
           "implementation_note": "REST endpoint implemented in mihub-backend-rest/routes/guardian.js"
         },
         {
-          "id": "imprese.list",
-          "method": "GET",
-          "path": "/api/imprese",
-          "category": "MIO Agent",
-          "description": "Lista tutte le imprese registrate nel sistema",
-          "risk_level": "low",
-          "require_auth": true,
-          "enabled": true,
-          "test": {
-            "enabled": true,
-            "default_params": {},
-            "expected_status": 200
-          },
-          "implemented": "rest",
-          "implementation_note": "REST endpoint implemented in mihub-backend-rest/routes/imprese.js"
-        },
-        {
-          "id": "imprese.getById",
-          "method": "GET",
-          "path": "/api/imprese/:id",
-          "category": "MIO Agent",
-          "description": "Dettagli di una singola impresa per ID",
-          "risk_level": "low",
-          "require_auth": true,
-          "enabled": true,
-          "test": {
-            "enabled": true,
-            "default_body": {
-              "id": 1
-            },
-            "expected_status": 200
-          },
-          "implemented": "rest",
-          "implementation_note": "REST endpoint implemented in mihub-backend-rest/routes/imprese.js"
-        },
-        {
-          "id": "qualificazioni.list",
-          "method": "GET",
-          "path": "/api/qualificazioni",
-          "category": "MIO Agent",
-          "description": "Lista tutte le qualificazioni di tutte le imprese",
-          "risk_level": "low",
-          "require_auth": true,
-          "enabled": true,
-          "test": {
-            "enabled": true,
-            "default_params": {},
-            "expected_status": 200
-          },
-          "implemented": "rest",
-          "implementation_note": "REST endpoint implemented in mihub-backend-rest/routes/qualificazioni.js"
-        },
-        {
-          "id": "qualificazioni.byImpresa",
-          "method": "GET",
-          "path": "/api/imprese/:id/qualificazioni",
-          "category": "MIO Agent",
-          "description": "Lista qualificazioni per una specifica impresa",
-          "risk_level": "low",
-          "require_auth": true,
-          "enabled": true,
-          "test": {
-            "enabled": true,
-            "default_body": {
-              "id": 1
-            },
-            "expected_status": 200
-          },
-          "implemented": "rest",
-          "implementation_note": "REST endpoint implemented in mihub-backend-rest/routes/qualificazioni.js"
-        },
-        {
-          "id": "imprese.rating",
-          "method": "GET",
-          "path": "/api/imprese/:id/rating",
-          "category": "MIO Agent",
-          "description": "Calcola rating conformità impresa (semaforo VERDE/GIALLO/ROSSO)",
-          "risk_level": "low",
-          "require_auth": true,
-          "enabled": true,
-          "test": {
-            "enabled": true,
-            "default_body": {
-              "id": 1
-            },
-            "expected_status": 200
-          },
-          "implemented": "rest",
-          "implementation_note": "FASE 2 MASTER PLAN - Motore rating con logica semaforo (stato impresa, PEC, DURC, concessioni)"
-        },
-        {
           "id": "admin.migrate.pdnd",
           "method": "POST",
           "path": "/api/admin/migrate-pdnd",
@@ -3385,20 +3278,6 @@
           "enabled": true,
           "test": {
             "enabled": false,
-            "expected_status": 200
-          }
-        },
-        {
-          "id": "concessions.full",
-          "method": "GET",
-          "path": "/api/concessions/:id/full",
-          "category": "Concessioni",
-          "description": "Dettaglio completo con relazioni",
-          "risk_level": "low",
-          "require_auth": false,
-          "enabled": true,
-          "test": {
-            "enabled": true,
             "expected_status": 200
           }
         },
@@ -3894,7 +3773,7 @@
           "method": "GET",
           "path": "/api/system/health",
           "category": "System Status",
-          "description": "🟢 FASE 2: Health check Backend API - Status, uptime, memory usage",
+          "description": "\ud83d\udfe2 FASE 2: Health check Backend API - Status, uptime, memory usage",
           "risk_level": "low",
           "require_auth": false,
           "enabled": true,
@@ -3911,7 +3790,7 @@
           "method": "GET",
           "path": "/api/system/pm2-status",
           "category": "System Status",
-          "description": "🟢 FASE 2: PM2 process status - PID, uptime, restarts, memory, CPU",
+          "description": "\ud83d\udfe2 FASE 2: PM2 process status - PID, uptime, restarts, memory, CPU",
           "risk_level": "low",
           "require_auth": false,
           "enabled": true,
@@ -3928,7 +3807,7 @@
           "method": "POST",
           "path": "/api/workspace/save",
           "category": "Shared Workspace",
-          "description": "🎨 FASE 3: Salva snapshot tldraw nel database",
+          "description": "\ud83c\udfa8 FASE 3: Salva snapshot tldraw nel database",
           "risk_level": "medium",
           "require_auth": false,
           "enabled": true,
@@ -3951,7 +3830,7 @@
           "method": "GET",
           "path": "/api/workspace/load",
           "category": "Shared Workspace",
-          "description": "🎨 FASE 3: Carica snapshot tldraw dal database",
+          "description": "\ud83c\udfa8 FASE 3: Carica snapshot tldraw dal database",
           "risk_level": "low",
           "require_auth": false,
           "enabled": true,
@@ -3970,7 +3849,7 @@
           "method": "GET",
           "path": "/api/workspace/list",
           "category": "Shared Workspace",
-          "description": "🎨 FASE 3: Lista tutti gli snapshot salvati (debug)",
+          "description": "\ud83c\udfa8 FASE 3: Lista tutti gli snapshot salvati (debug)",
           "risk_level": "low",
           "require_auth": false,
           "enabled": true,
@@ -3987,7 +3866,7 @@
           "method": "DELETE",
           "path": "/api/workspace/delete",
           "category": "Shared Workspace",
-          "description": "🎨 FASE 3: Elimina snapshot (cleanup)",
+          "description": "\ud83c\udfa8 FASE 3: Elimina snapshot (cleanup)",
           "risk_level": "medium",
           "require_auth": false,
           "enabled": true,
@@ -4011,39 +3890,11 @@
       "description": "API per gestione pratiche SUAP, Document Vault, Audit Trail e integrazione PDND",
       "endpoints": [
         {
-          "id": "imprese.list",
-          "method": "GET",
-          "path": "/api/imprese",
-          "category": "SUAP & PDND",
-          "description": "Lista Imprese PDND",
-          "risk_level": "low",
-          "require_auth": true,
-          "enabled": true,
-          "test": {
-            "enabled": true,
-            "expected_status": 200
-          }
-        },
-        {
           "id": "imprese.detail",
           "method": "GET",
           "path": "/api/imprese/:id",
           "category": "SUAP & PDND",
           "description": "Dettaglio Impresa PDND",
-          "risk_level": "low",
-          "require_auth": true,
-          "enabled": true,
-          "test": {
-            "enabled": true,
-            "expected_status": 200
-          }
-        },
-        {
-          "id": "qualificazioni.list",
-          "method": "GET",
-          "path": "/api/qualificazioni",
-          "category": "SUAP & PDND",
-          "description": "Lista Qualificazioni",
           "risk_level": "low",
           "require_auth": true,
           "enabled": true,
@@ -4489,16 +4340,6 @@
       "description": "API per gestione sicurezza, ruoli, permessi, audit e compliance GDPR",
       "endpoints": [
         {
-          "id": "security.stats",
-          "method": "GET",
-          "path": "/api/security/stats",
-          "category": "Dashboard",
-          "description": "Statistiche generali sicurezza",
-          "risk_level": "low",
-          "require_auth": true,
-          "enabled": true
-        },
-        {
           "id": "security.users.list",
           "method": "GET",
           "path": "/api/security/users",
@@ -4599,16 +4440,6 @@
           "enabled": true
         },
         {
-          "id": "security.roles.list",
-          "method": "GET",
-          "path": "/api/security/roles",
-          "category": "Roles",
-          "description": "Lista ruoli con permessi",
-          "risk_level": "low",
-          "require_auth": true,
-          "enabled": true
-        },
-        {
           "id": "security.roles.get",
           "method": "GET",
           "path": "/api/security/roles/:id",
@@ -4674,26 +4505,6 @@
           "path": "/api/security/roles/:id/permissions",
           "category": "Roles",
           "description": "Permessi di un ruolo",
-          "risk_level": "low",
-          "require_auth": true,
-          "enabled": true
-        },
-        {
-          "id": "security.permissions.list",
-          "method": "GET",
-          "path": "/api/security/permissions",
-          "category": "Permissions",
-          "description": "Lista permessi per categoria",
-          "risk_level": "low",
-          "require_auth": true,
-          "enabled": true
-        },
-        {
-          "id": "security.matrix",
-          "method": "GET",
-          "path": "/api/security/matrix",
-          "category": "Matrix",
-          "description": "Matrice ruoli-permessi",
           "risk_level": "low",
           "require_auth": true,
           "enabled": true
@@ -4769,56 +4580,6 @@
           "enabled": true
         },
         {
-          "id": "security.events.list",
-          "method": "GET",
-          "path": "/api/security/events",
-          "category": "Events",
-          "description": "Eventi sicurezza",
-          "risk_level": "low",
-          "require_auth": true,
-          "enabled": true
-        },
-        {
-          "id": "security.events.create",
-          "method": "POST",
-          "path": "/api/security/events",
-          "category": "Events",
-          "description": "Crea evento sicurezza",
-          "risk_level": "medium",
-          "require_auth": true,
-          "enabled": true
-        },
-        {
-          "id": "security.ipBlacklist.list",
-          "method": "GET",
-          "path": "/api/security/ip-blacklist",
-          "category": "IP Blacklist",
-          "description": "Lista IP bloccati",
-          "risk_level": "low",
-          "require_auth": true,
-          "enabled": true
-        },
-        {
-          "id": "security.ipBlacklist.block",
-          "method": "POST",
-          "path": "/api/security/ip-blacklist",
-          "category": "IP Blacklist",
-          "description": "Blocca IP",
-          "risk_level": "high",
-          "require_auth": true,
-          "enabled": true
-        },
-        {
-          "id": "security.ipBlacklist.unblock",
-          "method": "DELETE",
-          "path": "/api/security/ip-blacklist/:ip",
-          "category": "IP Blacklist",
-          "description": "Sblocca IP",
-          "risk_level": "high",
-          "require_auth": true,
-          "enabled": true
-        },
-        {
           "id": "security.loginAttempts.list",
           "method": "GET",
           "path": "/api/security/login-attempts",
@@ -4863,7 +4624,7 @@
           "method": "GET",
           "path": "/api/security/audit/by-entity/:type/:id",
           "category": "Audit",
-          "description": "Audit per entità",
+          "description": "Audit per entit\u00e0",
           "risk_level": "low",
           "require_auth": true,
           "enabled": true
@@ -5077,16 +4838,6 @@
           "risk_level": "low",
           "require_auth": true,
           "enabled": true
-        },
-        {
-          "id": "security.health",
-          "method": "GET",
-          "path": "/api/security/health",
-          "category": "Health",
-          "description": "Health check modulo security",
-          "risk_level": "low",
-          "require_auth": false,
-          "enabled": true
         }
       ]
     },
@@ -5278,7 +5029,7 @@
       "display_name": "Token Carbon Credit v2 (TCC v2) API",
       "base_url": "https://orchestratore.mio-hub.me",
       "env": "production",
-      "description": "API TCC v2 - Sistema completo Carbon Credits con fondo sostenibilità, rimborsi batch, settlement operatori",
+      "description": "API TCC v2 - Sistema completo Carbon Credits con fondo sostenibilit\u00e0, rimborsi batch, settlement operatori",
       "endpoints": [
         {
           "id": "tcc.v2.config",
@@ -5459,7 +5210,7 @@
           "method": "POST",
           "path": "/api/tcc/v2/operator/assign-tcc",
           "category": "TCC v2 - Hub Operatore",
-          "description": "Assegna TCC a cittadino (formula: euro/10 × policy_multiplier)",
+          "description": "Assegna TCC a cittadino (formula: euro/10 \u00d7 policy_multiplier)",
           "risk_level": "medium",
           "require_auth": true,
           "enabled": true,
