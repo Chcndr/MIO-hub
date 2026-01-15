@@ -1,6 +1,6 @@
 {
-  "version": 19,
-  "last_updated": "2026-01-14T19:30:00Z",
+  "version": 20,
+  "last_updated": "2026-01-15T10:00:00Z",
   "services": [
     {
       "id": "dms-hub",
@@ -2973,6 +2973,36 @@
             "expected_status": 200
           },
           "implementation_note": "REST endpoint in mihub-backend-rest v3.36.0"
+        },
+        {
+          "id": "canone-unico.semaforoRate",
+          "method": "GET",
+          "path": "/api/canone-unico/semaforo-rate/:wallet_id/:anno",
+          "category": "Wallets REST",
+          "description": "Stato rate pagamento per wallet/anno con semaforo colorato",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest v3.41.0"
+        },
+        {
+          "id": "canone-unico.semaforoImpresa",
+          "method": "GET",
+          "path": "/api/canone-unico/semaforo-impresa/:impresa_id/:anno",
+          "category": "Wallets REST",
+          "description": "Stato rate pagamento per tutti i wallet di un'impresa",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest v3.41.0"
         }
       ]
     },
