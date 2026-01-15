@@ -1,6 +1,6 @@
 {
-  "version": 20,
-  "last_updated": "2026-01-15T10:00:00Z",
+  "version": 21,
+  "last_updated": "2026-01-15T17:30:00Z",
   "services": [
     {
       "id": "dms-hub",
@@ -3003,6 +3003,81 @@
             "expected_status": 200
           },
           "implementation_note": "REST endpoint in mihub-backend-rest v3.41.0"
+        },
+        {
+          "id": "canone-unico.eliminaScadenzeAnno",
+          "method": "DELETE",
+          "path": "/api/canone-unico/scadenze/:anno",
+          "category": "Wallets REST",
+          "description": "Elimina tutte le scadenze di un anno specifico",
+          "risk_level": "high",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "note": "Operazione distruttiva - usare con cautela"
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest v3.44.0"
+        },
+        {
+          "id": "canone-unico.eliminaScadenzaSingola",
+          "method": "DELETE",
+          "path": "/api/canone-unico/scadenza/:id",
+          "category": "Wallets REST",
+          "description": "Elimina una singola scadenza per ID",
+          "risk_level": "medium",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "note": "Richiede ID scadenza valido"
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest v3.44.0"
+        },
+        {
+          "id": "canone-unico.azzeraWallet",
+          "method": "POST",
+          "path": "/api/canone-unico/wallet/:id/azzera",
+          "category": "Wallets REST",
+          "description": "Azzera saldo wallet e resetta scadenze a NON_PAGATO",
+          "risk_level": "high",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "note": "Operazione distruttiva - usare per test"
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest v3.44.0"
+        },
+        {
+          "id": "canone-unico.getScadenza",
+          "method": "GET",
+          "path": "/api/canone-unico/scadenza/:id",
+          "category": "Wallets REST",
+          "description": "Ottieni dettaglio singola scadenza per ID",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest v3.44.0"
+        },
+        {
+          "id": "canone-unico.azzeraTuttiWallet",
+          "method": "POST",
+          "path": "/api/canone-unico/wallets/azzera-tutti",
+          "category": "Wallets REST",
+          "description": "Azzera saldo di TUTTI i wallet e resetta scadenze (TEST)",
+          "risk_level": "critical",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "note": "Operazione distruttiva globale - solo per test"
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest v3.44.0"
         }
       ]
     },
