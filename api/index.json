@@ -1,6 +1,6 @@
 {
-  "version": 21,
-  "last_updated": "2026-01-15T17:30:00Z",
+  "version": 22,
+  "last_updated": "2026-01-17T18:55:00Z",
   "services": [
     {
       "id": "dms-hub",
@@ -5636,6 +5636,214 @@
             "expected_status": 200
           },
           "implementation_note": "REST endpoint in mihub-backend-rest/routes/tcc-v2.js - v5.7.0 Wallet-Impresa"
+        }
+      ]
+    },
+    {
+      "id": "mihub-backend-rest",
+      "display_name": "MIHUB Backend REST",
+      "base_url": "https://mihub.157-90-29-66.nip.io",
+      "env": "production",
+      "description": "API REST per presenze, graduatoria e spuntisti",
+      "endpoints": [
+        {
+          "id": "presenze.listByMarket",
+          "method": "GET",
+          "path": "/api/presenze/mercato/:id",
+          "category": "Presenze & Graduatoria",
+          "description": "Lista presenze per mercato con storico",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "default_params": {
+              "id": "1"
+            },
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "Backend REST - Presenze mercato",
+          "router": "presenze",
+          "subrouter": "presenze",
+          "procedure": "listByMarket"
+        },
+        {
+          "id": "presenze.registra",
+          "method": "POST",
+          "path": "/api/presenze/registra",
+          "category": "Presenze & Graduatoria",
+          "description": "Registra nuova presenza operatore",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "Backend REST - Registrazione presenza",
+          "router": "presenze",
+          "subrouter": "presenze",
+          "procedure": "registra"
+        },
+        {
+          "id": "presenze.checkout",
+          "method": "POST",
+          "path": "/api/presenze/checkout",
+          "category": "Presenze & Graduatoria",
+          "description": "Checkout presenza operatore",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "Backend REST - Checkout presenza",
+          "router": "presenze",
+          "subrouter": "presenze",
+          "procedure": "checkout"
+        },
+        {
+          "id": "graduatoria.listByMarket",
+          "method": "GET",
+          "path": "/api/presenze/graduatoria/mercato/:id",
+          "category": "Presenze & Graduatoria",
+          "description": "Graduatoria completa per mercato con punteggi",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "default_params": {
+              "id": "1"
+            },
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "Backend REST - Graduatoria mercato",
+          "router": "presenze",
+          "subrouter": "graduatoria",
+          "procedure": "listByMarket"
+        },
+        {
+          "id": "graduatoria.aggiorna",
+          "method": "PUT",
+          "path": "/api/presenze/graduatoria/aggiorna",
+          "category": "Presenze & Graduatoria",
+          "description": "Aggiorna dati graduatoria operatore",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "Backend REST - Aggiornamento graduatoria",
+          "router": "presenze",
+          "subrouter": "graduatoria",
+          "procedure": "aggiorna"
+        },
+        {
+          "id": "graduatoria.assenze",
+          "method": "PUT",
+          "path": "/api/presenze/graduatoria/assenze",
+          "category": "Presenze & Graduatoria",
+          "description": "Aggiorna assenze non giustificate",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "Backend REST - Gestione assenze",
+          "router": "presenze",
+          "subrouter": "graduatoria",
+          "procedure": "assenze"
+        },
+        {
+          "id": "graduatoria.ricalcolaPosizioni",
+          "method": "POST",
+          "path": "/api/presenze/graduatoria/ricalcola-posizioni",
+          "category": "Presenze & Graduatoria",
+          "description": "Ricalcola posizioni graduatoria mercato",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "Backend REST - Ricalcolo posizioni",
+          "router": "presenze",
+          "subrouter": "graduatoria",
+          "procedure": "ricalcolaPosizioni"
+        },
+        {
+          "id": "graduatoria.crea",
+          "method": "POST",
+          "path": "/api/presenze/graduatoria/crea",
+          "category": "Presenze & Graduatoria",
+          "description": "Crea nuova entry graduatoria",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "Backend REST - Creazione graduatoria",
+          "router": "presenze",
+          "subrouter": "graduatoria",
+          "procedure": "crea"
+        },
+        {
+          "id": "graduatoria.aggiornaStorico",
+          "method": "POST",
+          "path": "/api/presenze/graduatoria/aggiorna-storico",
+          "category": "Presenze & Graduatoria",
+          "description": "Aggiorna storico presenze (popup editabile)",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "Backend REST - Storico presenze editabile",
+          "router": "presenze",
+          "subrouter": "graduatoria",
+          "procedure": "aggiornaStorico"
+        },
+        {
+          "id": "spuntisti.listByMarket",
+          "method": "GET",
+          "path": "/api/spuntisti/mercato/:id",
+          "category": "Presenze & Graduatoria",
+          "description": "Lista spuntisti con wallet SPUNTA per mercato",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "default_params": {
+              "id": "1"
+            },
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "Backend REST - Spuntisti mercato",
+          "router": "presenze",
+          "subrouter": "spuntisti",
+          "procedure": "listByMarket"
         }
       ]
     }
