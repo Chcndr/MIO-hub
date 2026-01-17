@@ -1,6 +1,6 @@
 {
-  "version": 22,
-  "last_updated": "2026-01-17T18:55:00Z",
+  "version": 23,
+  "last_updated": "2026-01-17T20:30:00Z",
   "services": [
     {
       "id": "dms-hub",
@@ -3078,6 +3078,122 @@
             "note": "Operazione distruttiva globale - solo per test"
           },
           "implementation_note": "REST endpoint in mihub-backend-rest v3.44.0"
+        },
+        {
+          "id": "test-mercato.start",
+          "method": "POST",
+          "path": "/api/test-mercato/start",
+          "category": "Test Mercato",
+          "description": "Avvia test mercato - azzera posteggi a LIBERO",
+          "risk_level": "high",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "default_params": {
+              "market_id": 1
+            },
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "Azzera tutti i posteggi del mercato a stato LIBERO"
+        },
+        {
+          "id": "test-mercato.registra-presenza-concessionario",
+          "method": "POST",
+          "path": "/api/test-mercato/registra-presenza-concessionario",
+          "category": "Test Mercato",
+          "description": "Registra presenza concessionario con addebito wallet",
+          "risk_level": "high",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "default_params": {
+              "stall_id": 1,
+              "market_id": 1
+            },
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "Cambia stato posteggio a OCCUPATO, registra presenza, addebita wallet"
+        },
+        {
+          "id": "test-mercato.avvia-spunta",
+          "method": "POST",
+          "path": "/api/test-mercato/avvia-spunta",
+          "category": "Test Mercato",
+          "description": "Avvia fase spunta - posteggi liberi diventano ASSEGN",
+          "risk_level": "high",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "default_params": {
+              "market_id": 1
+            },
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "Cambia posteggi LIBERO in ASSEGN, registra presenza a tutti gli spuntisti"
+        },
+        {
+          "id": "test-mercato.assegna-posteggio-spunta",
+          "method": "POST",
+          "path": "/api/test-mercato/assegna-posteggio-spunta",
+          "category": "Test Mercato",
+          "description": "Assegna posteggio al prossimo spuntista in graduatoria",
+          "risk_level": "high",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "default_params": {
+              "stall_id": 1,
+              "market_id": 1
+            },
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "Assegna posteggio ASSEGN al primo spuntista disponibile, addebita wallet"
+        },
+        {
+          "id": "test-mercato.stato",
+          "method": "GET",
+          "path": "/api/test-mercato/stato/:market_id",
+          "category": "Test Mercato",
+          "description": "Stato attuale del test mercato",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "default_params": {
+              "market_id": 1
+            },
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "Restituisce conteggio posteggi per stato, presenze, incassato"
+        },
+        {
+          "id": "test-mercato.reset",
+          "method": "POST",
+          "path": "/api/test-mercato/reset",
+          "category": "Test Mercato",
+          "description": "Reset test mercato - elimina presenze del giorno",
+          "risk_level": "high",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "default_params": {
+              "market_id": 1
+            },
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "Elimina tutte le presenze del giorno e azzera i posteggi"
         }
       ]
     },
