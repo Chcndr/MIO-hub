@@ -1,6 +1,6 @@
 {
-  "version": 25,
-  "last_updated": "2026-01-19T19:00:00Z",
+  "version": 26,
+  "last_updated": "2026-01-20T10:30:00Z",
   "services": [
     {
       "id": "dms-hub",
@@ -3335,6 +3335,39 @@
           },
           "implemented": "rest",
           "implementation_note": "Invalida e ricarica cache dati IPA"
+        },
+        {
+          "id": "ipa.uo",
+          "method": "GET",
+          "path": "/api/ipa/uo/:codice_ipa",
+          "category": "IndicePA",
+          "description": "Ottiene Unità Organizzative di un ente da IPA",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "default_params": { "codice_ipa": "c_e202" },
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "Restituisce settori/uffici del comune per import automatico"
+        },
+        {
+          "id": "ipa.tipologie",
+          "method": "GET",
+          "path": "/api/ipa/tipologie",
+          "category": "IndicePA",
+          "description": "Lista tipologie enti disponibili su IPA",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "Comuni, Province, Regioni, ASL, etc."
         }
       ]
     },
