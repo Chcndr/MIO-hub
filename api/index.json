@@ -1,6 +1,6 @@
 {
-  "version": 24,
-  "last_updated": "2026-01-19T13:00:00Z",
+  "version": 25,
+  "last_updated": "2026-01-19T19:00:00Z",
   "services": [
     {
       "id": "dms-hub",
@@ -3251,6 +3251,90 @@
           },
           "implemented": "rest",
           "implementation_note": "Azzera tutte le presenze del giorno per iniziare nuova giornata"
+        },
+        {
+          "id": "ipa.search",
+          "method": "GET",
+          "path": "/api/ipa/search",
+          "category": "IndicePA",
+          "description": "Ricerca comuni su IndicePA Open Data",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "default_params": {
+              "q": "Grosseto",
+              "tipo": "Comuni"
+            },
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "Cerca enti PA su IndicePA con cache 24h"
+        },
+        {
+          "id": "ipa.ente",
+          "method": "GET",
+          "path": "/api/ipa/ente/:codice_ipa",
+          "category": "IndicePA",
+          "description": "Dettaglio ente da IndicePA",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "Restituisce tutti i campi disponibili per un ente"
+        },
+        {
+          "id": "ipa.import",
+          "method": "POST",
+          "path": "/api/ipa/import",
+          "category": "IndicePA",
+          "description": "Importa comune da IndicePA nel database",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 201
+          },
+          "implemented": "rest",
+          "implementation_note": "Crea nuovo comune con dati pre-compilati da IPA"
+        },
+        {
+          "id": "ipa.status",
+          "method": "GET",
+          "path": "/api/ipa/status",
+          "category": "IndicePA",
+          "description": "Stato cache IndicePA",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "Mostra stato cache e numero enti caricati"
+        },
+        {
+          "id": "ipa.refresh",
+          "method": "POST",
+          "path": "/api/ipa/refresh",
+          "category": "IndicePA",
+          "description": "Forza refresh cache IndicePA",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "Invalida e ricarica cache dati IPA"
         }
       ]
     },
