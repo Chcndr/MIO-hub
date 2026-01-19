@@ -1,6 +1,6 @@
 {
-  "version": 23,
-  "last_updated": "2026-01-17T20:30:00Z",
+  "version": 24,
+  "last_updated": "2026-01-19T13:00:00Z",
   "services": [
     {
       "id": "dms-hub",
@@ -3194,6 +3194,63 @@
           },
           "implemented": "rest",
           "implementation_note": "Elimina tutte le presenze del giorno e azzera i posteggi"
+        },
+        {
+          "id": "test-mercato.chiudi-spunta",
+          "method": "POST",
+          "path": "/api/test-mercato/chiudi-spunta",
+          "category": "Test Mercato",
+          "description": "Chiude la fase spunta - libera posteggi spuntisti",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "default_params": {
+              "market_id": 1
+            },
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "Libera i posteggi occupati da spuntisti e registra uscita"
+        },
+        {
+          "id": "test-mercato.chiudi-mercato",
+          "method": "POST",
+          "path": "/api/test-mercato/chiudi-mercato",
+          "category": "Test Mercato",
+          "description": "Chiude il mercato - libera tutti i posteggi",
+          "risk_level": "high",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "default_params": {
+              "market_id": 1
+            },
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "Libera TUTTI i posteggi (concessionari + spuntisti) e registra uscite"
+        },
+        {
+          "id": "test-mercato.inizia-mercato",
+          "method": "POST",
+          "path": "/api/test-mercato/inizia-mercato",
+          "category": "Test Mercato",
+          "description": "Inizia nuovo mercato - azzera presenze del giorno",
+          "risk_level": "high",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "default_params": {
+              "market_id": 1
+            },
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "Azzera tutte le presenze del giorno per iniziare nuova giornata"
         }
       ]
     },
@@ -5960,6 +6017,28 @@
           "router": "presenze",
           "subrouter": "spuntisti",
           "procedure": "listByMarket"
+        },
+        {
+          "id": "presenze.registraUscita",
+          "method": "POST",
+          "path": "/api/presenze/registra-uscita",
+          "category": "Presenze & Graduatoria",
+          "description": "Registra orario uscita per una presenza",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "default_params": {
+              "presenza_id": 1
+            },
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "Backend REST - Registra checkout presenza",
+          "router": "presenze",
+          "subrouter": "presenze",
+          "procedure": "registraUscita"
         }
       ]
     }
