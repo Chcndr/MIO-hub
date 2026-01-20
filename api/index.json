@@ -1,6 +1,6 @@
 {
-  "version": 26,
-  "last_updated": "2026-01-20T10:30:00Z",
+  "version": 27,
+  "last_updated": "2026-01-20T19:50:00Z",
   "services": [
     {
       "id": "dms-hub",
@@ -246,7 +246,7 @@
           "method": "POST",
           "path": "/api/trpc/dmsHub.markets.importAuto",
           "category": "DmsHub",
-          "description": "Import automatico da Slot Editor v3 (senza richiedere nome/citt\u00e0)",
+          "description": "Import automatico da Slot Editor v3 (senza richiedere nome/città)",
           "risk_level": "medium",
           "require_auth": false,
           "enabled": true,
@@ -1376,7 +1376,7 @@
           "method": "POST",
           "path": "/api/mihub/webhook/email",
           "category": "Mail",
-          "description": "\ud83d\udce7 Riceve email da Zapier e le salva nel sistema",
+          "description": "📧 Riceve email da Zapier e le salva nel sistema",
           "risk_level": "low",
           "require_auth": false,
           "enabled": true,
@@ -1397,7 +1397,7 @@
           "method": "GET",
           "path": "/api/mihub/mail/inbox",
           "category": "Mail",
-          "description": "\ud83d\udce7 Lista email ricevute nella inbox",
+          "description": "📧 Lista email ricevute nella inbox",
           "risk_level": "low",
           "require_auth": false,
           "enabled": true,
@@ -1839,7 +1839,7 @@
           "method": "GET",
           "path": "/api/imprese/:id/rating",
           "category": "Imprese",
-          "description": "Semaforo Conformit\u00e0 impresa (rating)",
+          "description": "Semaforo Conformità impresa (rating)",
           "risk_level": "low",
           "require_auth": true,
           "enabled": true,
@@ -1851,7 +1851,7 @@
             "expected_status": 200
           },
           "implemented": "rest",
-          "implementation_note": "Calcola rating conformit\u00e0 basato su qualificazioni e documenti"
+          "implementation_note": "Calcola rating conformità basato su qualificazioni e documenti"
         },
         {
           "id": "imprese.migratePdnd",
@@ -2140,7 +2140,7 @@
           "method": "GET",
           "path": "/api/businesses/list",
           "category": "Businesses",
-          "description": "Elenco attivit\u00e0 commerciali",
+          "description": "Elenco attività commerciali",
           "risk_level": "low",
           "require_auth": true,
           "enabled": true,
@@ -2215,7 +2215,7 @@
           "method": "GET",
           "path": "/api/mobility/list",
           "category": "Mobility",
-          "description": "Elenco dati mobilit\u00e0",
+          "description": "Elenco dati mobilità",
           "risk_level": "low",
           "require_auth": true,
           "enabled": true,
@@ -2377,7 +2377,7 @@
           "method": "GET",
           "path": "/api/sustainability/metrics",
           "category": "Sustainability",
-          "description": "Metriche di sostenibilit\u00e0",
+          "description": "Metriche di sostenibilità",
           "risk_level": "low",
           "require_auth": true,
           "enabled": true,
@@ -3347,7 +3347,9 @@
           "enabled": true,
           "test": {
             "enabled": true,
-            "default_params": { "codice_ipa": "c_e202" },
+            "default_params": {
+              "codice_ipa": "c_e202"
+            },
             "expected_status": 200
           },
           "implemented": "rest",
@@ -4183,7 +4185,7 @@
           "method": "GET",
           "path": "/api/system/health",
           "category": "System Status",
-          "description": "\ud83d\udfe2 FASE 2: Health check Backend API - Status, uptime, memory usage",
+          "description": "🟢 FASE 2: Health check Backend API - Status, uptime, memory usage",
           "risk_level": "low",
           "require_auth": false,
           "enabled": true,
@@ -4200,7 +4202,7 @@
           "method": "GET",
           "path": "/api/system/pm2-status",
           "category": "System Status",
-          "description": "\ud83d\udfe2 FASE 2: PM2 process status - PID, uptime, restarts, memory, CPU",
+          "description": "🟢 FASE 2: PM2 process status - PID, uptime, restarts, memory, CPU",
           "risk_level": "low",
           "require_auth": false,
           "enabled": true,
@@ -4217,7 +4219,7 @@
           "method": "POST",
           "path": "/api/workspace/save",
           "category": "Shared Workspace",
-          "description": "\ud83c\udfa8 FASE 3: Salva snapshot tldraw nel database",
+          "description": "🎨 FASE 3: Salva snapshot tldraw nel database",
           "risk_level": "medium",
           "require_auth": false,
           "enabled": true,
@@ -4240,7 +4242,7 @@
           "method": "GET",
           "path": "/api/workspace/load",
           "category": "Shared Workspace",
-          "description": "\ud83c\udfa8 FASE 3: Carica snapshot tldraw dal database",
+          "description": "🎨 FASE 3: Carica snapshot tldraw dal database",
           "risk_level": "low",
           "require_auth": false,
           "enabled": true,
@@ -4259,7 +4261,7 @@
           "method": "GET",
           "path": "/api/workspace/list",
           "category": "Shared Workspace",
-          "description": "\ud83c\udfa8 FASE 3: Lista tutti gli snapshot salvati (debug)",
+          "description": "🎨 FASE 3: Lista tutti gli snapshot salvati (debug)",
           "risk_level": "low",
           "require_auth": false,
           "enabled": true,
@@ -4276,7 +4278,7 @@
           "method": "DELETE",
           "path": "/api/workspace/delete",
           "category": "Shared Workspace",
-          "description": "\ud83c\udfa8 FASE 3: Elimina snapshot (cleanup)",
+          "description": "🎨 FASE 3: Elimina snapshot (cleanup)",
           "risk_level": "medium",
           "require_auth": false,
           "enabled": true,
@@ -5034,7 +5036,7 @@
           "method": "GET",
           "path": "/api/security/audit/by-entity/:type/:id",
           "category": "Audit",
-          "description": "Audit per entit\u00e0",
+          "description": "Audit per entità",
           "risk_level": "low",
           "require_auth": true,
           "enabled": true
@@ -5439,7 +5441,7 @@
       "display_name": "Token Carbon Credit v2 (TCC v2) API",
       "base_url": "https://orchestratore.mio-hub.me",
       "env": "production",
-      "description": "API TCC v2 - Sistema completo Carbon Credits con fondo sostenibilit\u00e0, rimborsi batch, settlement operatori",
+      "description": "API TCC v2 - Sistema completo Carbon Credits con fondo sostenibilità, rimborsi batch, settlement operatori",
       "endpoints": [
         {
           "id": "tcc.v2.config",
@@ -5620,7 +5622,7 @@
           "method": "POST",
           "path": "/api/tcc/v2/operator/assign-tcc",
           "category": "TCC v2 - Hub Operatore",
-          "description": "Assegna TCC a cittadino (formula: euro/10 \u00d7 policy_multiplier)",
+          "description": "Assegna TCC a cittadino (formula: euro/10 × policy_multiplier)",
           "risk_level": "medium",
           "require_auth": true,
           "enabled": true,
@@ -6156,6 +6158,398 @@
           "router": "presenze",
           "subrouter": "presenze",
           "procedure": "registraUscita"
+        },
+        {
+          "id": "stats.overview",
+          "method": "GET",
+          "path": "/api/stats/overview",
+          "category": "Statistics",
+          "description": "Statistiche aggregate Dashboard PA - utenti, mercati, HUB, TCC",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          }
+        },
+        {
+          "id": "stats.realtime",
+          "method": "GET",
+          "path": "/api/stats/realtime",
+          "category": "Statistics",
+          "description": "Dati real-time - utenti online, operatori attivi, check-in oggi",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          }
+        },
+        {
+          "id": "stats.growth",
+          "method": "GET",
+          "path": "/api/stats/growth",
+          "category": "Statistics",
+          "description": "Grafico crescita utenti - dati settimanali",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          }
+        },
+        {
+          "id": "stats.inspections",
+          "method": "GET",
+          "path": "/api/stats/inspections",
+          "category": "Statistics",
+          "description": "Statistiche controlli e sanzioni",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          }
+        },
+        {
+          "id": "comuni.list",
+          "method": "GET",
+          "path": "/api/comuni",
+          "category": "Comuni PA",
+          "description": "Lista tutti i comuni registrati",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          }
+        },
+        {
+          "id": "comuni.get",
+          "method": "GET",
+          "path": "/api/comuni/:id",
+          "category": "Comuni PA",
+          "description": "Dettaglio singolo comune",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          }
+        },
+        {
+          "id": "comuni.create",
+          "method": "POST",
+          "path": "/api/comuni",
+          "category": "Comuni PA",
+          "description": "Crea nuovo comune",
+          "risk_level": "high",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 201
+          }
+        },
+        {
+          "id": "comuni.update",
+          "method": "PUT",
+          "path": "/api/comuni/:id",
+          "category": "Comuni PA",
+          "description": "Aggiorna comune esistente",
+          "risk_level": "medium",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          }
+        },
+        {
+          "id": "comuni.delete",
+          "method": "DELETE",
+          "path": "/api/comuni/:id",
+          "category": "Comuni PA",
+          "description": "Elimina comune",
+          "risk_level": "high",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          }
+        },
+        {
+          "id": "comuni.settori.tipi",
+          "method": "GET",
+          "path": "/api/comuni/settori/tipi",
+          "category": "Comuni PA",
+          "description": "Lista tipi settori disponibili",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          }
+        },
+        {
+          "id": "comuni.settori.list",
+          "method": "GET",
+          "path": "/api/comuni/:id/settori",
+          "category": "Comuni PA",
+          "description": "Lista settori di un comune",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          }
+        },
+        {
+          "id": "comuni.settori.create",
+          "method": "POST",
+          "path": "/api/comuni/:id/settori",
+          "category": "Comuni PA",
+          "description": "Crea nuovo settore per comune",
+          "risk_level": "medium",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 201
+          }
+        },
+        {
+          "id": "comuni.settori.update",
+          "method": "PUT",
+          "path": "/api/comuni/settori/:settoreId",
+          "category": "Comuni PA",
+          "description": "Aggiorna settore",
+          "risk_level": "medium",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          }
+        },
+        {
+          "id": "comuni.settori.delete",
+          "method": "DELETE",
+          "path": "/api/comuni/settori/:settoreId",
+          "category": "Comuni PA",
+          "description": "Elimina settore",
+          "risk_level": "high",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          }
+        },
+        {
+          "id": "comuni.contratti.list",
+          "method": "GET",
+          "path": "/api/comuni/:id/contratti",
+          "category": "Comuni PA",
+          "description": "Lista contratti di servizio comune",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          }
+        },
+        {
+          "id": "comuni.contratti.create",
+          "method": "POST",
+          "path": "/api/comuni/:id/contratti",
+          "category": "Comuni PA",
+          "description": "Crea nuovo contratto",
+          "risk_level": "medium",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 201
+          }
+        },
+        {
+          "id": "comuni.contratti.update",
+          "method": "PUT",
+          "path": "/api/comuni/contratti/:contrattoId",
+          "category": "Comuni PA",
+          "description": "Aggiorna contratto",
+          "risk_level": "medium",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          }
+        },
+        {
+          "id": "comuni.contratti.delete",
+          "method": "DELETE",
+          "path": "/api/comuni/contratti/:contrattoId",
+          "category": "Comuni PA",
+          "description": "Elimina contratto",
+          "risk_level": "high",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          }
+        },
+        {
+          "id": "comuni.fatture.list",
+          "method": "GET",
+          "path": "/api/comuni/:id/fatture",
+          "category": "Comuni PA",
+          "description": "Lista fatture comune",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          }
+        },
+        {
+          "id": "comuni.fatture.create",
+          "method": "POST",
+          "path": "/api/comuni/:id/fatture",
+          "category": "Comuni PA",
+          "description": "Crea nuova fattura",
+          "risk_level": "medium",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 201
+          }
+        },
+        {
+          "id": "comuni.fatture.update",
+          "method": "PUT",
+          "path": "/api/comuni/fatture/:fatturaId",
+          "category": "Comuni PA",
+          "description": "Aggiorna stato fattura (es. pagata)",
+          "risk_level": "medium",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          }
+        },
+        {
+          "id": "comuni.utenti.list",
+          "method": "GET",
+          "path": "/api/comuni/:id/utenti",
+          "category": "Comuni PA",
+          "description": "Lista utenti/permessi comune",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          }
+        },
+        {
+          "id": "comuni.utenti.create",
+          "method": "POST",
+          "path": "/api/comuni/:id/utenti",
+          "category": "Comuni PA",
+          "description": "Assegna utente a comune",
+          "risk_level": "medium",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 201
+          }
+        },
+        {
+          "id": "comuni.utenti.update",
+          "method": "PUT",
+          "path": "/api/comuni/utenti/:assegnazioneId",
+          "category": "Comuni PA",
+          "description": "Aggiorna ruolo utente",
+          "risk_level": "medium",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          }
+        },
+        {
+          "id": "comuni.utenti.delete",
+          "method": "DELETE",
+          "path": "/api/comuni/utenti/:assegnazioneId",
+          "category": "Comuni PA",
+          "description": "Rimuovi utente da comune",
+          "risk_level": "high",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          }
+        },
+        {
+          "id": "comuni.utenti.stats",
+          "method": "GET",
+          "path": "/api/comuni/:id/utenti/stats",
+          "category": "Comuni PA",
+          "description": "Statistiche utenti per ruolo",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          }
+        },
+        {
+          "id": "comuni.mercati.list",
+          "method": "GET",
+          "path": "/api/comuni/:id/mercati",
+          "category": "Comuni PA",
+          "description": "Lista mercati del comune",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          }
+        },
+        {
+          "id": "comuni.hub.list",
+          "method": "GET",
+          "path": "/api/comuni/:id/hub",
+          "category": "Comuni PA",
+          "description": "Lista HUB del comune",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          }
         }
       ]
     }
