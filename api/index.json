@@ -1,5 +1,5 @@
 {
-  "version": 27,
+  "version": 28,
   "last_updated": "2026-01-20T19:50:00Z",
   "services": [
     {
@@ -246,7 +246,7 @@
           "method": "POST",
           "path": "/api/trpc/dmsHub.markets.importAuto",
           "category": "DmsHub",
-          "description": "Import automatico da Slot Editor v3 (senza richiedere nome/città)",
+          "description": "Import automatico da Slot Editor v3 (senza richiedere nome/citt\u00e0)",
           "risk_level": "medium",
           "require_auth": false,
           "enabled": true,
@@ -1376,7 +1376,7 @@
           "method": "POST",
           "path": "/api/mihub/webhook/email",
           "category": "Mail",
-          "description": "📧 Riceve email da Zapier e le salva nel sistema",
+          "description": "\ud83d\udce7 Riceve email da Zapier e le salva nel sistema",
           "risk_level": "low",
           "require_auth": false,
           "enabled": true,
@@ -1397,7 +1397,7 @@
           "method": "GET",
           "path": "/api/mihub/mail/inbox",
           "category": "Mail",
-          "description": "📧 Lista email ricevute nella inbox",
+          "description": "\ud83d\udce7 Lista email ricevute nella inbox",
           "risk_level": "low",
           "require_auth": false,
           "enabled": true,
@@ -1839,7 +1839,7 @@
           "method": "GET",
           "path": "/api/imprese/:id/rating",
           "category": "Imprese",
-          "description": "Semaforo Conformità impresa (rating)",
+          "description": "Semaforo Conformit\u00e0 impresa (rating)",
           "risk_level": "low",
           "require_auth": true,
           "enabled": true,
@@ -1851,7 +1851,7 @@
             "expected_status": 200
           },
           "implemented": "rest",
-          "implementation_note": "Calcola rating conformità basato su qualificazioni e documenti"
+          "implementation_note": "Calcola rating conformit\u00e0 basato su qualificazioni e documenti"
         },
         {
           "id": "imprese.migratePdnd",
@@ -2140,7 +2140,7 @@
           "method": "GET",
           "path": "/api/businesses/list",
           "category": "Businesses",
-          "description": "Elenco attività commerciali",
+          "description": "Elenco attivit\u00e0 commerciali",
           "risk_level": "low",
           "require_auth": true,
           "enabled": true,
@@ -2215,7 +2215,7 @@
           "method": "GET",
           "path": "/api/mobility/list",
           "category": "Mobility",
-          "description": "Elenco dati mobilità",
+          "description": "Elenco dati mobilit\u00e0",
           "risk_level": "low",
           "require_auth": true,
           "enabled": true,
@@ -2377,7 +2377,7 @@
           "method": "GET",
           "path": "/api/sustainability/metrics",
           "category": "Sustainability",
-          "description": "Metriche di sostenibilità",
+          "description": "Metriche di sostenibilit\u00e0",
           "risk_level": "low",
           "require_auth": true,
           "enabled": true,
@@ -3341,7 +3341,7 @@
           "method": "GET",
           "path": "/api/ipa/uo/:codice_ipa",
           "category": "IndicePA",
-          "description": "Ottiene Unità Organizzative di un ente da IPA",
+          "description": "Ottiene Unit\u00e0 Organizzative di un ente da IPA",
           "risk_level": "low",
           "require_auth": false,
           "enabled": true,
@@ -4185,7 +4185,7 @@
           "method": "GET",
           "path": "/api/system/health",
           "category": "System Status",
-          "description": "🟢 FASE 2: Health check Backend API - Status, uptime, memory usage",
+          "description": "\ud83d\udfe2 FASE 2: Health check Backend API - Status, uptime, memory usage",
           "risk_level": "low",
           "require_auth": false,
           "enabled": true,
@@ -4202,7 +4202,7 @@
           "method": "GET",
           "path": "/api/system/pm2-status",
           "category": "System Status",
-          "description": "🟢 FASE 2: PM2 process status - PID, uptime, restarts, memory, CPU",
+          "description": "\ud83d\udfe2 FASE 2: PM2 process status - PID, uptime, restarts, memory, CPU",
           "risk_level": "low",
           "require_auth": false,
           "enabled": true,
@@ -4219,7 +4219,7 @@
           "method": "POST",
           "path": "/api/workspace/save",
           "category": "Shared Workspace",
-          "description": "🎨 FASE 3: Salva snapshot tldraw nel database",
+          "description": "\ud83c\udfa8 FASE 3: Salva snapshot tldraw nel database",
           "risk_level": "medium",
           "require_auth": false,
           "enabled": true,
@@ -4242,7 +4242,7 @@
           "method": "GET",
           "path": "/api/workspace/load",
           "category": "Shared Workspace",
-          "description": "🎨 FASE 3: Carica snapshot tldraw dal database",
+          "description": "\ud83c\udfa8 FASE 3: Carica snapshot tldraw dal database",
           "risk_level": "low",
           "require_auth": false,
           "enabled": true,
@@ -4261,7 +4261,7 @@
           "method": "GET",
           "path": "/api/workspace/list",
           "category": "Shared Workspace",
-          "description": "🎨 FASE 3: Lista tutti gli snapshot salvati (debug)",
+          "description": "\ud83c\udfa8 FASE 3: Lista tutti gli snapshot salvati (debug)",
           "risk_level": "low",
           "require_auth": false,
           "enabled": true,
@@ -4278,7 +4278,7 @@
           "method": "DELETE",
           "path": "/api/workspace/delete",
           "category": "Shared Workspace",
-          "description": "🎨 FASE 3: Elimina snapshot (cleanup)",
+          "description": "\ud83c\udfa8 FASE 3: Elimina snapshot (cleanup)",
           "risk_level": "medium",
           "require_auth": false,
           "enabled": true,
@@ -5036,7 +5036,7 @@
           "method": "GET",
           "path": "/api/security/audit/by-entity/:type/:id",
           "category": "Audit",
-          "description": "Audit per entità",
+          "description": "Audit per entit\u00e0",
           "risk_level": "low",
           "require_auth": true,
           "enabled": true
@@ -5441,7 +5441,7 @@
       "display_name": "Token Carbon Credit v2 (TCC v2) API",
       "base_url": "https://orchestratore.mio-hub.me",
       "env": "production",
-      "description": "API TCC v2 - Sistema completo Carbon Credits con fondo sostenibilità, rimborsi batch, settlement operatori",
+      "description": "API TCC v2 - Sistema completo Carbon Credits con fondo sostenibilit\u00e0, rimborsi batch, settlement operatori",
       "endpoints": [
         {
           "id": "tcc.v2.config",
@@ -5622,7 +5622,7 @@
           "method": "POST",
           "path": "/api/tcc/v2/operator/assign-tcc",
           "category": "TCC v2 - Hub Operatore",
-          "description": "Assegna TCC a cittadino (formula: euro/10 × policy_multiplier)",
+          "description": "Assegna TCC a cittadino (formula: euro/10 \u00d7 policy_multiplier)",
           "risk_level": "medium",
           "require_auth": true,
           "enabled": true,
@@ -6550,6 +6550,166 @@
             "enabled": true,
             "expected_status": 200
           }
+        }
+      ]
+    },
+    {
+      "name": "MIO HUB REST API",
+      "baseUrl": "https://orchestratore.mio-hub.me",
+      "endpoints": [
+        {
+          "path": "/api/formazione/enti",
+          "method": "GET",
+          "description": "Lista tutti gli enti formatori attivi",
+          "category": "Formazione",
+          "auth": "optional"
+        },
+        {
+          "path": "/api/formazione/enti",
+          "method": "POST",
+          "description": "Crea nuovo ente formatore",
+          "category": "Formazione",
+          "auth": "required"
+        },
+        {
+          "path": "/api/formazione/enti/:id",
+          "method": "GET",
+          "description": "Dettaglio singolo ente formatore con corsi",
+          "category": "Formazione",
+          "auth": "optional"
+        },
+        {
+          "path": "/api/formazione/enti/:id",
+          "method": "PUT",
+          "description": "Aggiorna ente formatore",
+          "category": "Formazione",
+          "auth": "required"
+        },
+        {
+          "path": "/api/formazione/corsi",
+          "method": "GET",
+          "description": "Lista tutti i corsi disponibili",
+          "category": "Formazione",
+          "auth": "optional"
+        },
+        {
+          "path": "/api/formazione/corsi",
+          "method": "POST",
+          "description": "Crea nuovo corso formazione",
+          "category": "Formazione",
+          "auth": "required"
+        },
+        {
+          "path": "/api/formazione/corsi/:id",
+          "method": "GET",
+          "description": "Dettaglio singolo corso",
+          "category": "Formazione",
+          "auth": "optional"
+        },
+        {
+          "path": "/api/formazione/stats",
+          "method": "GET",
+          "description": "Statistiche generali formazione",
+          "category": "Formazione",
+          "auth": "optional"
+        },
+        {
+          "path": "/api/bandi/associazioni",
+          "method": "GET",
+          "description": "Lista tutte le associazioni partner",
+          "category": "Bandi",
+          "auth": "optional"
+        },
+        {
+          "path": "/api/bandi/associazioni",
+          "method": "POST",
+          "description": "Crea nuova associazione partner",
+          "category": "Bandi",
+          "auth": "required"
+        },
+        {
+          "path": "/api/bandi/associazioni/:id",
+          "method": "GET",
+          "description": "Dettaglio singola associazione",
+          "category": "Bandi",
+          "auth": "optional"
+        },
+        {
+          "path": "/api/bandi/associazioni/:id",
+          "method": "PUT",
+          "description": "Aggiorna associazione partner",
+          "category": "Bandi",
+          "auth": "required"
+        },
+        {
+          "path": "/api/bandi/catalogo",
+          "method": "GET",
+          "description": "Lista tutti i bandi disponibili",
+          "category": "Bandi",
+          "auth": "optional"
+        },
+        {
+          "path": "/api/bandi/catalogo",
+          "method": "POST",
+          "description": "Crea nuovo bando nel catalogo",
+          "category": "Bandi",
+          "auth": "required"
+        },
+        {
+          "path": "/api/bandi/catalogo/:id",
+          "method": "GET",
+          "description": "Dettaglio singolo bando",
+          "category": "Bandi",
+          "auth": "optional"
+        },
+        {
+          "path": "/api/bandi/matching/:bando_id",
+          "method": "GET",
+          "description": "Trova imprese idonee per un bando",
+          "category": "Bandi",
+          "auth": "optional"
+        },
+        {
+          "path": "/api/bandi/stats",
+          "method": "GET",
+          "description": "Statistiche generali bandi e associazioni",
+          "category": "Bandi",
+          "auth": "optional"
+        },
+        {
+          "path": "/api/stats/qualificazione/overview",
+          "method": "GET",
+          "description": "Overview conformit\u00e0 imprese",
+          "category": "Statistics",
+          "auth": "optional"
+        },
+        {
+          "path": "/api/stats/qualificazione/scadenze",
+          "method": "GET",
+          "description": "Scadenze attestati imminenti",
+          "category": "Statistics",
+          "auth": "optional"
+        },
+        {
+          "path": "/api/stats/qualificazione/demografia",
+          "method": "GET",
+          "description": "Demografia imprese per settore",
+          "category": "Statistics",
+          "auth": "optional"
+        },
+        {
+          "path": "/api/stats/qualificazione/top-imprese",
+          "method": "GET",
+          "description": "Top 5 imprese per rating",
+          "category": "Statistics",
+          "auth": "optional"
+        },
+        {
+          "path": "/api/stats/qualificazione/indici",
+          "method": "GET",
+          "description": "Indici strategici digitalizzazione e sostenibilit\u00e0",
+          "category": "Statistics",
+          "auth": "optional"
         }
       ]
     }
