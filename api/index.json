@@ -1,6 +1,6 @@
 {
-  "version": 29,
-  "last_updated": "2026-01-20T19:50:00Z",
+  "version": 30,
+  "last_updated": "2026-01-21T12:00:00Z",
   "services": [
     {
       "id": "dms-hub",
@@ -6743,6 +6743,49 @@
           "description": "Lista attestati registrati (filtrabile)",
           "params": "impresa_id, ente_id, tipo (opzionali)",
           "response": "Lista attestati con dettagli impresa e ente",
+          "category": "Formazione",
+          "auth": "optional"
+        },
+        {
+          "path": "/api/formazione/iscrizioni",
+          "method": "GET",
+          "description": "Lista iscrizioni ai corsi di formazione",
+          "params": "corso_id, impresa_id, stato (opzionali)",
+          "response": "Lista iscrizioni con dettagli impresa, corso ed ente",
+          "category": "Formazione",
+          "auth": "optional"
+        },
+        {
+          "path": "/api/formazione/iscrizioni",
+          "method": "POST",
+          "description": "Crea nuova iscrizione a corso di formazione",
+          "body": "corso_id, impresa_id, utente_nome, utente_email, utente_telefono, note",
+          "response": "Iscrizione creata con ID",
+          "category": "Formazione",
+          "auth": "optional"
+        },
+        {
+          "path": "/api/formazione/iscrizioni/:id",
+          "method": "PUT",
+          "description": "Aggiorna stato iscrizione (ISCRITTO, CONFERMATO, COMPLETATO, ANNULLATO)",
+          "body": "stato, note",
+          "response": "Iscrizione aggiornata",
+          "category": "Formazione",
+          "auth": "required"
+        },
+        {
+          "path": "/api/formazione/iscrizioni/:id",
+          "method": "DELETE",
+          "description": "Cancella iscrizione e ripristina posto disponibile",
+          "response": "Conferma cancellazione",
+          "category": "Formazione",
+          "auth": "required"
+        },
+        {
+          "path": "/api/formazione/iscrizioni/stats",
+          "method": "GET",
+          "description": "Statistiche iscrizioni con conteggi e lista recenti",
+          "response": "Conteggi per stato e lista iscrizioni recenti",
           "category": "Formazione",
           "auth": "optional"
         }
