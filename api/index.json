@@ -1,6 +1,6 @@
 {
-  "version": 30,
-  "last_updated": "2026-01-21T12:00:00Z",
+  "version": 31,
+  "last_updated": "2026-01-21T14:00:00Z",
   "services": [
     {
       "id": "dms-hub",
@@ -6787,6 +6787,84 @@
           "description": "Statistiche iscrizioni con conteggi e lista recenti",
           "response": "Conteggi per stato e lista iscrizioni recenti",
           "category": "Formazione",
+          "auth": "optional"
+        },
+        {
+          "path": "/api/bandi/servizi",
+          "method": "GET",
+          "description": "Lista servizi offerti dalle associazioni (DURC, SCIA, Contabilità, Paghe, Consulenza)",
+          "params": "categoria, associazione_id (opzionali)",
+          "response": "Lista servizi con prezzi e dettagli",
+          "category": "Bandi",
+          "auth": "optional"
+        },
+        {
+          "path": "/api/bandi/servizi/categorie",
+          "method": "GET",
+          "description": "Lista categorie servizi disponibili",
+          "response": "Categorie con conteggio servizi",
+          "category": "Bandi",
+          "auth": "optional"
+        },
+        {
+          "path": "/api/bandi/richieste",
+          "method": "GET",
+          "description": "Lista richieste servizi dalle imprese",
+          "params": "stato, impresa_id, servizio_id (opzionali)",
+          "response": "Lista richieste con dettagli impresa e servizio",
+          "category": "Bandi",
+          "auth": "optional"
+        },
+        {
+          "path": "/api/bandi/richieste",
+          "method": "POST",
+          "description": "Crea nuova richiesta servizio",
+          "body": "servizio_id, impresa_id, priorita, note_richiesta",
+          "response": "Richiesta creata con ID",
+          "category": "Bandi",
+          "auth": "optional"
+        },
+        {
+          "path": "/api/bandi/richieste/:id",
+          "method": "PUT",
+          "description": "Aggiorna stato richiesta servizio",
+          "body": "stato, note_lavorazione, operatore_assegnato, importo",
+          "response": "Richiesta aggiornata",
+          "category": "Bandi",
+          "auth": "required"
+        },
+        {
+          "path": "/api/bandi/richieste/stats",
+          "method": "GET",
+          "description": "Statistiche richieste servizi con conteggi e lista recenti",
+          "response": "Conteggi per stato e lista richieste recenti",
+          "category": "Bandi",
+          "auth": "optional"
+        },
+        {
+          "path": "/api/bandi/regolarita",
+          "method": "GET",
+          "description": "Lista stato regolarità imprese (DURC, SCIA, Autorizzazioni)",
+          "params": "tipo, stato, impresa_id (opzionali)",
+          "response": "Lista regolarità con stato e scadenze",
+          "category": "Bandi",
+          "auth": "optional"
+        },
+        {
+          "path": "/api/bandi/regolarita/:id",
+          "method": "PUT",
+          "description": "Aggiorna stato regolarità impresa",
+          "body": "stato, numero_documento, data_rilascio, data_scadenza, ente_rilascio, note",
+          "response": "Record aggiornato",
+          "category": "Bandi",
+          "auth": "required"
+        },
+        {
+          "path": "/api/bandi/regolarita/stats",
+          "method": "GET",
+          "description": "Statistiche regolarità con imprese problematiche (DURC irregolare, SCIA scaduta)",
+          "response": "Conteggi per stato/tipo e lista imprese con problemi",
+          "category": "Bandi",
           "auth": "optional"
         }
       ]
