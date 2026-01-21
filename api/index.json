@@ -1,5 +1,5 @@
 {
-  "version": 31,
+  "version": 32,
   "last_updated": "2026-01-21T14:00:00Z",
   "services": [
     {
@@ -6866,6 +6866,87 @@
           "response": "Conteggi per stato/tipo e lista imprese con problemi",
           "category": "Bandi",
           "auth": "optional"
+        }
+      ]
+    },
+    {
+      "id": "notifiche-api",
+      "display_name": "Sistema Notifiche Bidirezionali",
+      "base_url": "https://orchestratore.mio-hub.me",
+      "env": "production",
+      "description": "API per comunicazioni bidirezionali tra PA/Associazioni e Imprese",
+      "endpoints": [
+        {
+          "path": "/api/notifiche/send",
+          "method": "POST",
+          "description": "Invia notifica singola o massiva alle imprese",
+          "response": "ID notifica e conteggio destinatari",
+          "category": "Notifiche",
+          "auth": "optional"
+        },
+        {
+          "path": "/api/notifiche/impresa/:id",
+          "method": "GET",
+          "description": "Recupera inbox notifiche per impresa",
+          "response": "Lista notifiche con stato lettura e conteggio non lette",
+          "category": "Notifiche",
+          "auth": "optional"
+        },
+        {
+          "path": "/api/notifiche/conversazione/:id",
+          "method": "GET",
+          "description": "Recupera thread conversazione completo",
+          "response": "Lista messaggi della conversazione",
+          "category": "Notifiche",
+          "auth": "optional"
+        },
+        {
+          "path": "/api/notifiche/leggi/:id",
+          "method": "PUT",
+          "description": "Segna notifica come letta",
+          "response": "Conferma aggiornamento stato",
+          "category": "Notifiche",
+          "auth": "optional"
+        },
+        {
+          "path": "/api/notifiche/reply",
+          "method": "POST",
+          "description": "Invia risposta da impresa a PA/Associazione",
+          "response": "Dettagli risposta creata",
+          "category": "Notifiche",
+          "auth": "optional"
+        },
+        {
+          "path": "/api/notifiche/stats",
+          "method": "GET",
+          "description": "Statistiche notifiche per Dashboard PA",
+          "response": "Conteggi, notifiche recenti e risposte imprese",
+          "category": "Notifiche",
+          "auth": "optional"
+        },
+        {
+          "path": "/api/notifiche/targets",
+          "method": "GET",
+          "description": "Lista target disponibili (mercati, hub, imprese)",
+          "response": "Liste mercati, hub e imprese per selezione destinatari",
+          "category": "Notifiche",
+          "auth": "optional"
+        },
+        {
+          "path": "/api/notifiche/archivia/:id",
+          "method": "PUT",
+          "description": "Archivia notifica per impresa",
+          "response": "Conferma archiviazione",
+          "category": "Notifiche",
+          "auth": "optional"
+        },
+        {
+          "path": "/api/notifiche/:id",
+          "method": "DELETE",
+          "description": "Elimina notifica (solo admin)",
+          "response": "Conferma eliminazione",
+          "category": "Notifiche",
+          "auth": "admin"
         }
       ]
     }
