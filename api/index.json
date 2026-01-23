@@ -1,6 +1,6 @@
 {
-  "version": 32,
-  "last_updated": "2026-01-21T14:00:00Z",
+  "version": 33,
+  "last_updated": "2026-01-23T22:15:00Z",
   "services": [
     {
       "id": "dms-hub",
@@ -3078,6 +3078,79 @@
             "note": "Operazione distruttiva globale - solo per test"
           },
           "implementation_note": "REST endpoint in mihub-backend-rest v3.44.0"
+        },
+        {
+          "id": "canone-unico.impostazioniMora.get",
+          "method": "GET",
+          "path": "/api/canone-unico/impostazioni-mora",
+          "category": "Wallets REST",
+          "description": "Ottieni impostazioni mora (tasso interesse, mora fissa, giorni grazia)",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest v3.46.0"
+        },
+        {
+          "id": "canone-unico.impostazioniMora.update",
+          "method": "PUT",
+          "path": "/api/canone-unico/impostazioni-mora",
+          "category": "Wallets REST",
+          "description": "Aggiorna impostazioni mora per calcolo automatico",
+          "risk_level": "medium",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest v3.46.0"
+        },
+        {
+          "id": "canone-unico.aggiornaMora",
+          "method": "POST",
+          "path": "/api/canone-unico/aggiorna-mora",
+          "category": "Wallets REST",
+          "description": "Ricalcola mora su tutte le scadenze in ritardo",
+          "risk_level": "medium",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest v3.46.0"
+        },
+        {
+          "id": "canone-unico.posteggiMercato",
+          "method": "GET",
+          "path": "/api/canone-unico/posteggi-mercato/:mercato_id",
+          "category": "Wallets REST",
+          "description": "Lista posteggi di un mercato per pagamento straordinario",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest v3.53.0"
+        },
+        {
+          "id": "canone-unico.ricaricheSpunta",
+          "method": "GET",
+          "path": "/api/canone-unico/ricariche-spunta",
+          "category": "Wallets REST",
+          "description": "Lista ricariche wallet spunta con filtri mercato e impresa",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest v3.55.0"
         },
         {
           "id": "test-mercato.start",
@@ -6947,6 +7020,54 @@
           "response": "Conferma eliminazione",
           "category": "Notifiche",
           "auth": "admin"
+        },
+        {
+          "path": "/api/notifiche/risposte",
+          "method": "GET",
+          "description": "Lista risposte ricevute dalle imprese",
+          "response": "Array di risposte con dettagli impresa e notifica originale",
+          "category": "Notifiche",
+          "auth": "optional"
+        },
+        {
+          "path": "/api/notifiche/markets",
+          "method": "GET",
+          "description": "Lista mercati per selezione target notifiche",
+          "response": "Array di mercati con id e nome",
+          "category": "Notifiche",
+          "auth": "optional"
+        },
+        {
+          "path": "/api/notifiche/imprese",
+          "method": "GET",
+          "description": "Lista imprese per selezione target notifiche",
+          "response": "Array di imprese con id e denominazione",
+          "category": "Notifiche",
+          "auth": "optional"
+        },
+        {
+          "path": "/api/notifiche/messaggi/:mittente_tipo/:mittente_id",
+          "method": "GET",
+          "description": "Lista messaggi inviati/ricevuti per mittente (PA)",
+          "response": "Array di messaggi con stato lettura e risposte",
+          "category": "Notifiche",
+          "auth": "optional"
+        },
+        {
+          "path": "/api/notifiche/segna-letto/:id",
+          "method": "PUT",
+          "description": "Segna risposta come letta da PA",
+          "response": "Conferma aggiornamento stato",
+          "category": "Notifiche",
+          "auth": "optional"
+        },
+        {
+          "path": "/api/notifiche/risposte/:id/letta",
+          "method": "PUT",
+          "description": "Segna risposta specifica come letta",
+          "response": "Conferma aggiornamento stato",
+          "category": "Notifiche",
+          "auth": "optional"
         }
       ]
     }
