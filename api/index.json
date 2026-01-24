@@ -1,5 +1,5 @@
 {
-  "version": 33,
+  "version": 34,
   "last_updated": "2026-01-23T22:15:00Z",
   "services": [
     {
@@ -7068,6 +7068,17 @@
           "response": "Conferma aggiornamento stato",
           "category": "Notifiche",
           "auth": "optional"
+        },
+        {
+          "path": "/api/public/search",
+          "method": "GET",
+          "description": "Ricerca pubblica per mercati, imprese, città, vetrine e merceologia",
+          "response": "Lista risultati con tipo, nome, città, descrizione",
+          "category": "Public Search",
+          "auth": "none",
+          "params": {
+            "query": "Termine di ricerca (min 2 caratteri)"
+          }
         }
       ]
     }
