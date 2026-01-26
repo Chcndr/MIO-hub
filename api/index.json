@@ -1,6 +1,6 @@
 {
-  "version": 34,
-  "last_updated": "2026-01-23T22:15:00Z",
+  "version": 35,
+  "last_updated": "2026-01-26T18:45:00Z",
   "services": [
     {
       "id": "dms-hub",
@@ -7079,6 +7079,81 @@
           "params": {
             "query": "Termine di ricerca (min 2 caratteri)"
           }
+        },
+        {
+          "path": "/api/presenze/mercato/:id/chiudi",
+          "method": "POST",
+          "description": "Chiude la sessione mercato corrente e salva snapshot in market_sessions",
+          "response": "Sessione chiusa con ID e statistiche",
+          "category": "Presenze Mercato",
+          "auth": "optional"
+        },
+        {
+          "path": "/api/presenze/sessioni",
+          "method": "GET",
+          "description": "Lista sessioni mercato chiuse (storico)",
+          "params": "limit, market_id (opzionali)",
+          "response": "Lista sessioni con statistiche",
+          "category": "Presenze Mercato",
+          "auth": "optional"
+        },
+        {
+          "path": "/api/presenze/sessioni/:id/dettaglio",
+          "method": "GET",
+          "description": "Dettaglio presenze di una sessione mercato chiusa",
+          "response": "Lista presenze con impresa, posteggio, orari",
+          "category": "Presenze Mercato",
+          "auth": "optional"
+        },
+        {
+          "path": "/api/verbali/:id/invia",
+          "method": "POST",
+          "description": "Invia notifica verbale all'impresa",
+          "response": "Conferma invio con timestamp",
+          "category": "Verbali",
+          "auth": "optional"
+        },
+        {
+          "path": "/api/verbali/:id/pdf",
+          "method": "GET",
+          "description": "Genera e scarica PDF del verbale di contestazione",
+          "response": "File PDF",
+          "category": "Verbali",
+          "auth": "optional"
+        },
+        {
+          "path": "/api/stalls",
+          "method": "GET",
+          "description": "Lista posteggi con filtri (market_id, impresa_id, status)",
+          "params": "market_id, impresa_id, status (opzionali)",
+          "response": "Lista posteggi con coordinate GPS",
+          "category": "Posteggi",
+          "auth": "optional"
+        },
+        {
+          "path": "/api/pm/watchlist",
+          "method": "GET",
+          "description": "Lista imprese da controllare (watchlist PM)",
+          "response": "Lista con impresa, motivo, priorità, data",
+          "category": "Polizia Municipale",
+          "auth": "optional"
+        },
+        {
+          "path": "/api/pm/watchlist/:id",
+          "method": "PUT",
+          "description": "Aggiorna stato controllo watchlist",
+          "body": "status, notes",
+          "response": "Controllo aggiornato",
+          "category": "Polizia Municipale",
+          "auth": "optional"
+        },
+        {
+          "path": "/api/pm/stats",
+          "method": "GET",
+          "description": "Statistiche controlli PM (totali, regolari, violazioni)",
+          "response": "Conteggi e importi sanzioni",
+          "category": "Polizia Municipale",
+          "auth": "optional"
         }
       ]
     }
