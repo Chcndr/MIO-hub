@@ -1,6 +1,6 @@
 {
-  "version": 37,
-  "last_updated": "2026-01-28T01:00:00Z",
+  "version": 38,
+  "last_updated": "2026-01-28T17:00:00Z",
   "services": [
     {
       "id": "dms-hub",
@@ -9119,6 +9119,51 @@
             "expected_status": 200
           },
           "implementation_note": "REST endpoint in mihub-backend-rest/routes/sanctions.js"
+        },
+        {
+          "id": "sanctions.riepilogo-pagamenti",
+          "method": "GET",
+          "path": "/api/sanctions/riepilogo-pagamenti",
+          "category": "Sanctions",
+          "description": "Riepilogo pagamenti sanzioni per PA con filtri e totali",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implementation_note": "v3.53.0 - REST endpoint per gestione pagamenti sanzioni lato PA"
+        },
+        {
+          "id": "sanctions.impresa.da-pagare",
+          "method": "GET",
+          "path": "/api/sanctions/impresa/:id/da-pagare",
+          "category": "Sanctions",
+          "description": "Lista sanzioni non pagate per impresa con calcolo sconto 30%",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implementation_note": "v3.53.0 - REST endpoint per wallet impresa"
+        },
+        {
+          "id": "sanctions.paga-pagopa",
+          "method": "POST",
+          "path": "/api/sanctions/:id/paga-pagopa",
+          "category": "Sanctions",
+          "description": "Registra pagamento sanzione via PagoPA o manuale",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "v3.53.0 - REST endpoint per pagamento sanzioni"
         },
         {
           "id": "security.permissions",
