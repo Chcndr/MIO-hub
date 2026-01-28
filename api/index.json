@@ -1,6 +1,6 @@
 {
-  "version": 36,
-  "last_updated": "2026-01-28T00:30:00Z",
+  "version": 37,
+  "last_updated": "2026-01-28T01:00:00Z",
   "services": [
     {
       "id": "dms-hub",
@@ -1870,58 +1870,6 @@
           "implementation_note": "Piattaforma Digitale Nazionale Dati - richiede credenziali PDND"
         },
         {
-          "id": "guardian.integrations",
-          "method": "GET",
-          "path": "/api/trpc/guardian.integrations",
-          "category": "Guardian",
-          "description": "Inventario API completo con statistiche",
-          "risk_level": "low",
-          "require_auth": false,
-          "enabled": true,
-          "test": {
-            "enabled": true,
-            "expected_status": 200
-          },
-          "implemented": "trpc",
-          "implementation_note": "Sistema Guardian per monitoraggio API",
-          "router": "guardian",
-          "procedure": "integrations"
-        },
-        {
-          "id": "guardian.logs",
-          "method": "GET",
-          "path": "/api/trpc/guardian.logs",
-          "category": "Guardian",
-          "description": "Log centralizzati del sistema",
-          "risk_level": "low",
-          "require_auth": false,
-          "enabled": true,
-          "test": {
-            "enabled": true,
-            "expected_status": 200
-          },
-          "implemented": "trpc",
-          "router": "guardian",
-          "procedure": "logs"
-        },
-        {
-          "id": "guardian.stats",
-          "method": "GET",
-          "path": "/api/trpc/guardian.stats",
-          "category": "Guardian",
-          "description": "Statistiche complete sistema (API + Log)",
-          "risk_level": "low",
-          "require_auth": false,
-          "enabled": true,
-          "test": {
-            "enabled": true,
-            "expected_status": 200
-          },
-          "implemented": "trpc",
-          "router": "guardian",
-          "procedure": "stats"
-        },
-        {
           "id": "guardian.testEndpoint",
           "method": "POST",
           "path": "/api/trpc/guardian.testEndpoint",
@@ -2349,24 +2297,6 @@
             "enabled": true,
             "default_params": {
               "id": 1
-            },
-            "expected_status": 200
-          },
-          "implementation_note": "REST endpoint in mihub-backend-rest"
-        },
-        {
-          "id": "qualificazioni.suap.byImpresa",
-          "method": "GET",
-          "path": "/api/qualificazioni/suap/:impresa_id",
-          "category": "Qualificazioni",
-          "description": "Qualificazioni SUAP per impresa",
-          "risk_level": "low",
-          "require_auth": true,
-          "enabled": true,
-          "test": {
-            "enabled": true,
-            "default_params": {
-              "impresa_id": 1
             },
             "expected_status": 200
           },
@@ -3647,24 +3577,6 @@
           "implementation_note": "REST endpoint implemented in mihub-backend-rest/routes/guardian.js"
         },
         {
-          "id": "admin.migrate.pdnd",
-          "method": "POST",
-          "path": "/api/admin/migrate-pdnd",
-          "category": "MIO Agent",
-          "description": "Esegue migration database PDND: espande tabella imprese e crea tabelle DURC/SUAP",
-          "risk_level": "high",
-          "require_auth": true,
-          "enabled": true,
-          "test": {
-            "enabled": true,
-            "default_body": {},
-            "expected_status": 200,
-            "note": "Eseguire solo una volta. Verifica log per conferma."
-          },
-          "implemented": "rest",
-          "implementation_note": "FASE 1 MASTER PLAN - Database upgrade per Sistema Rating Imprese PDND"
-        },
-        {
           "id": "admin.secrets.store",
           "method": "POST",
           "path": "/admin/secrets",
@@ -3823,20 +3735,6 @@
           }
         },
         {
-          "id": "imprese.qualificazioni.list",
-          "method": "GET",
-          "path": "/api/imprese/:id/qualificazioni",
-          "category": "Imprese",
-          "description": "Lista qualificazioni impresa",
-          "risk_level": "low",
-          "require_auth": false,
-          "enabled": true,
-          "test": {
-            "enabled": true,
-            "expected_status": 200
-          }
-        },
-        {
           "id": "imprese.vetrina",
           "method": "GET",
           "path": "/api/imprese/:id/vetrina",
@@ -3862,34 +3760,6 @@
           "test": {
             "enabled": false,
             "expected_status": 201
-          }
-        },
-        {
-          "id": "qualificazioni.durc",
-          "method": "GET",
-          "path": "/api/qualificazioni/durc/:cf",
-          "category": "Qualificazioni",
-          "description": "Verifica DURC per codice fiscale",
-          "risk_level": "low",
-          "require_auth": false,
-          "enabled": true,
-          "test": {
-            "enabled": true,
-            "expected_status": 200
-          }
-        },
-        {
-          "id": "qualificazioni.suap",
-          "method": "GET",
-          "path": "/api/qualificazioni/suap/:cf",
-          "category": "Qualificazioni",
-          "description": "Verifica qualificazioni SUAP",
-          "risk_level": "low",
-          "require_auth": false,
-          "enabled": true,
-          "test": {
-            "enabled": true,
-            "expected_status": 200
           }
         },
         {
@@ -4374,20 +4244,6 @@
       "env": "production",
       "description": "API per gestione pratiche SUAP, Document Vault, Audit Trail e integrazione PDND",
       "endpoints": [
-        {
-          "id": "imprese.detail",
-          "method": "GET",
-          "path": "/api/imprese/:id",
-          "category": "SUAP & PDND",
-          "description": "Dettaglio Impresa PDND",
-          "risk_level": "low",
-          "require_auth": true,
-          "enabled": true,
-          "test": {
-            "enabled": true,
-            "expected_status": 200
-          }
-        },
         {
           "id": "suap.stats",
           "method": "GET",
@@ -4925,16 +4781,6 @@
           "enabled": true
         },
         {
-          "id": "security.roles.get",
-          "method": "GET",
-          "path": "/api/security/roles/:id",
-          "category": "Roles",
-          "description": "Dettaglio ruolo",
-          "risk_level": "low",
-          "require_auth": true,
-          "enabled": true
-        },
-        {
           "id": "security.roles.create",
           "method": "POST",
           "path": "/api/security/roles",
@@ -5045,31 +4891,11 @@
           "enabled": true
         },
         {
-          "id": "security.accessLogs.list",
-          "method": "GET",
-          "path": "/api/security/access-logs",
-          "category": "Access",
-          "description": "Log accessi con filtri",
-          "risk_level": "low",
-          "require_auth": true,
-          "enabled": true
-        },
-        {
           "id": "security.accessLogs.stats",
           "method": "GET",
           "path": "/api/security/access-logs/stats",
           "category": "Access",
           "description": "Statistiche accessi",
-          "risk_level": "low",
-          "require_auth": true,
-          "enabled": true
-        },
-        {
-          "id": "security.loginAttempts.list",
-          "method": "GET",
-          "path": "/api/security/login-attempts",
-          "category": "Login",
-          "description": "Tentativi di login",
           "risk_level": "low",
           "require_auth": true,
           "enabled": true
