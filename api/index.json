@@ -1,6 +1,6 @@
 {
-  "version": 35,
-  "last_updated": "2026-01-26T18:45:00Z",
+  "version": 36,
+  "last_updated": "2026-01-28T00:30:00Z",
   "services": [
     {
       "id": "dms-hub",
@@ -246,7 +246,7 @@
           "method": "POST",
           "path": "/api/trpc/dmsHub.markets.importAuto",
           "category": "DmsHub",
-          "description": "Import automatico da Slot Editor v3 (senza richiedere nome/città)",
+          "description": "Import automatico da Slot Editor v3 (senza richiedere nome/citt\u00e0)",
           "risk_level": "medium",
           "require_auth": false,
           "enabled": true,
@@ -1376,7 +1376,7 @@
           "method": "POST",
           "path": "/api/mihub/webhook/email",
           "category": "Mail",
-          "description": "📧 Riceve email da Zapier e le salva nel sistema",
+          "description": "\ud83d\udce7 Riceve email da Zapier e le salva nel sistema",
           "risk_level": "low",
           "require_auth": false,
           "enabled": true,
@@ -1397,7 +1397,7 @@
           "method": "GET",
           "path": "/api/mihub/mail/inbox",
           "category": "Mail",
-          "description": "📧 Lista email ricevute nella inbox",
+          "description": "\ud83d\udce7 Lista email ricevute nella inbox",
           "risk_level": "low",
           "require_auth": false,
           "enabled": true,
@@ -1839,7 +1839,7 @@
           "method": "GET",
           "path": "/api/imprese/:id/rating",
           "category": "Imprese",
-          "description": "Semaforo Conformità impresa (rating)",
+          "description": "Semaforo Conformit\u00e0 impresa (rating)",
           "risk_level": "low",
           "require_auth": true,
           "enabled": true,
@@ -1851,7 +1851,7 @@
             "expected_status": 200
           },
           "implemented": "rest",
-          "implementation_note": "Calcola rating conformità basato su qualificazioni e documenti"
+          "implementation_note": "Calcola rating conformit\u00e0 basato su qualificazioni e documenti"
         },
         {
           "id": "imprese.migratePdnd",
@@ -2140,7 +2140,7 @@
           "method": "GET",
           "path": "/api/businesses/list",
           "category": "Businesses",
-          "description": "Elenco attività commerciali",
+          "description": "Elenco attivit\u00e0 commerciali",
           "risk_level": "low",
           "require_auth": true,
           "enabled": true,
@@ -2215,7 +2215,7 @@
           "method": "GET",
           "path": "/api/mobility/list",
           "category": "Mobility",
-          "description": "Elenco dati mobilità",
+          "description": "Elenco dati mobilit\u00e0",
           "risk_level": "low",
           "require_auth": true,
           "enabled": true,
@@ -2377,7 +2377,7 @@
           "method": "GET",
           "path": "/api/sustainability/metrics",
           "category": "Sustainability",
-          "description": "Metriche di sostenibilità",
+          "description": "Metriche di sostenibilit\u00e0",
           "risk_level": "low",
           "require_auth": true,
           "enabled": true,
@@ -3414,7 +3414,7 @@
           "method": "GET",
           "path": "/api/ipa/uo/:codice_ipa",
           "category": "IndicePA",
-          "description": "Ottiene Unità Organizzative di un ente da IPA",
+          "description": "Ottiene Unit\u00e0 Organizzative di un ente da IPA",
           "risk_level": "low",
           "require_auth": false,
           "enabled": true,
@@ -4258,7 +4258,7 @@
           "method": "GET",
           "path": "/api/system/health",
           "category": "System Status",
-          "description": "🟢 FASE 2: Health check Backend API - Status, uptime, memory usage",
+          "description": "\ud83d\udfe2 FASE 2: Health check Backend API - Status, uptime, memory usage",
           "risk_level": "low",
           "require_auth": false,
           "enabled": true,
@@ -4275,7 +4275,7 @@
           "method": "GET",
           "path": "/api/system/pm2-status",
           "category": "System Status",
-          "description": "🟢 FASE 2: PM2 process status - PID, uptime, restarts, memory, CPU",
+          "description": "\ud83d\udfe2 FASE 2: PM2 process status - PID, uptime, restarts, memory, CPU",
           "risk_level": "low",
           "require_auth": false,
           "enabled": true,
@@ -4292,7 +4292,7 @@
           "method": "POST",
           "path": "/api/workspace/save",
           "category": "Shared Workspace",
-          "description": "🎨 FASE 3: Salva snapshot tldraw nel database",
+          "description": "\ud83c\udfa8 FASE 3: Salva snapshot tldraw nel database",
           "risk_level": "medium",
           "require_auth": false,
           "enabled": true,
@@ -4315,7 +4315,7 @@
           "method": "GET",
           "path": "/api/workspace/load",
           "category": "Shared Workspace",
-          "description": "🎨 FASE 3: Carica snapshot tldraw dal database",
+          "description": "\ud83c\udfa8 FASE 3: Carica snapshot tldraw dal database",
           "risk_level": "low",
           "require_auth": false,
           "enabled": true,
@@ -4334,7 +4334,7 @@
           "method": "GET",
           "path": "/api/workspace/list",
           "category": "Shared Workspace",
-          "description": "🎨 FASE 3: Lista tutti gli snapshot salvati (debug)",
+          "description": "\ud83c\udfa8 FASE 3: Lista tutti gli snapshot salvati (debug)",
           "risk_level": "low",
           "require_auth": false,
           "enabled": true,
@@ -4351,7 +4351,7 @@
           "method": "DELETE",
           "path": "/api/workspace/delete",
           "category": "Shared Workspace",
-          "description": "🎨 FASE 3: Elimina snapshot (cleanup)",
+          "description": "\ud83c\udfa8 FASE 3: Elimina snapshot (cleanup)",
           "risk_level": "medium",
           "require_auth": false,
           "enabled": true,
@@ -5109,7 +5109,7 @@
           "method": "GET",
           "path": "/api/security/audit/by-entity/:type/:id",
           "category": "Audit",
-          "description": "Audit per entità",
+          "description": "Audit per entit\u00e0",
           "risk_level": "low",
           "require_auth": true,
           "enabled": true
@@ -5514,7 +5514,7 @@
       "display_name": "Token Carbon Credit v2 (TCC v2) API",
       "base_url": "https://orchestratore.mio-hub.me",
       "env": "production",
-      "description": "API TCC v2 - Sistema completo Carbon Credits con fondo sostenibilità, rimborsi batch, settlement operatori",
+      "description": "API TCC v2 - Sistema completo Carbon Credits con fondo sostenibilit\u00e0, rimborsi batch, settlement operatori",
       "endpoints": [
         {
           "id": "tcc.v2.config",
@@ -5695,7 +5695,7 @@
           "method": "POST",
           "path": "/api/tcc/v2/operator/assign-tcc",
           "category": "TCC v2 - Hub Operatore",
-          "description": "Assegna TCC a cittadino (formula: euro/10 × policy_multiplier)",
+          "description": "Assegna TCC a cittadino (formula: euro/10 \u00d7 policy_multiplier)",
           "risk_level": "medium",
           "require_auth": true,
           "enabled": true,
@@ -6623,6 +6623,3936 @@
             "enabled": true,
             "expected_status": 200
           }
+        },
+        {
+          "id": "abacusgithub.list",
+          "method": "POST",
+          "path": "/api/abacusGithub/list",
+          "category": "Abacusgithub",
+          "description": "POST /api/abacusGithub/list",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/abacusGithub.js"
+        },
+        {
+          "id": "abacusgithub.get",
+          "method": "POST",
+          "path": "/api/abacusGithub/get",
+          "category": "Abacusgithub",
+          "description": "POST /api/abacusGithub/get",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/abacusGithub.js"
+        },
+        {
+          "id": "abacusgithub.update",
+          "method": "POST",
+          "path": "/api/abacusGithub/update",
+          "category": "Abacusgithub",
+          "description": "POST /api/abacusGithub/update",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/abacusGithub.js"
+        },
+        {
+          "id": "abacussql.query",
+          "method": "POST",
+          "path": "/api/abacusSql/query",
+          "category": "Abacussql",
+          "description": "POST /api/abacusSql/query",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/abacusSql.js"
+        },
+        {
+          "id": "abacussql.count",
+          "method": "POST",
+          "path": "/api/abacusSql/count",
+          "category": "Abacussql",
+          "description": "POST /api/abacusSql/count",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/abacusSql.js"
+        },
+        {
+          "id": "abacussql.tables",
+          "method": "GET",
+          "path": "/api/abacusSql/tables",
+          "category": "Abacussql",
+          "description": "GET /api/abacusSql/tables",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/abacusSql.js"
+        },
+        {
+          "id": "abacussql.schema",
+          "method": "POST",
+          "path": "/api/abacusSql/schema",
+          "category": "Abacussql",
+          "description": "POST /api/abacusSql/schema",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/abacusSql.js"
+        },
+        {
+          "id": "admin.secrets",
+          "method": "POST",
+          "path": "/api/admin/secrets",
+          "category": "Admin",
+          "description": "POST /api/admin/secrets",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/admin.js"
+        },
+        {
+          "id": "admin.secrets",
+          "method": "GET",
+          "path": "/api/admin/secrets",
+          "category": "Admin",
+          "description": "GET /api/admin/secrets",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/admin.js"
+        },
+        {
+          "id": "admin.secrets_name",
+          "method": "DELETE",
+          "path": "/api/admin/secrets/:name",
+          "category": "Admin",
+          "description": "DELETE /api/admin/secrets/:name",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/admin.js"
+        },
+        {
+          "id": "admin.secrets_init",
+          "method": "POST",
+          "path": "/api/admin/secrets/init",
+          "category": "Admin",
+          "description": "POST /api/admin/secrets/init",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/admin.js"
+        },
+        {
+          "id": "admin.deploy-backend",
+          "method": "POST",
+          "path": "/api/admin/deploy-backend",
+          "category": "Admin",
+          "description": "POST /api/admin/deploy-backend",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/admin.js"
+        },
+        {
+          "id": "admindeploy.deploy-backend",
+          "method": "POST",
+          "path": "/api/adminDeploy/deploy-backend",
+          "category": "Admindeploy",
+          "description": "POST /api/adminDeploy/deploy-backend",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/adminDeploy.js"
+        },
+        {
+          "id": "admindeploy.deploy-status",
+          "method": "GET",
+          "path": "/api/adminDeploy/deploy-status",
+          "category": "Admindeploy",
+          "description": "GET /api/adminDeploy/deploy-status",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/adminDeploy.js"
+        },
+        {
+          "id": "adminmigrate.migrate",
+          "method": "POST",
+          "path": "/api/adminMigrate/migrate",
+          "category": "Adminmigrate",
+          "description": "POST /api/adminMigrate/migrate",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/adminMigrate.js"
+        },
+        {
+          "id": "adminmigrate.tables",
+          "method": "GET",
+          "path": "/api/adminMigrate/tables",
+          "category": "Adminmigrate",
+          "description": "GET /api/adminMigrate/tables",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/adminMigrate.js"
+        },
+        {
+          "id": "adminsecrets.meta",
+          "method": "GET",
+          "path": "/api/adminSecrets/meta",
+          "category": "Adminsecrets",
+          "description": "GET /api/adminSecrets/meta",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/adminSecrets.js"
+        },
+        {
+          "id": "adminsecrets.categories",
+          "method": "GET",
+          "path": "/api/adminSecrets/categories",
+          "category": "Adminsecrets",
+          "description": "GET /api/adminSecrets/categories",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/adminSecrets.js"
+        },
+        {
+          "id": "adminsecrets.stats",
+          "method": "GET",
+          "path": "/api/adminSecrets/stats",
+          "category": "Adminsecrets",
+          "description": "GET /api/adminSecrets/stats",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/adminSecrets.js"
+        },
+        {
+          "id": "agentlogsrouter.agent-logs",
+          "method": "GET",
+          "path": "/api/agentLogsRouter/agent-logs",
+          "category": "Agentlogsrouter",
+          "description": "GET /api/agentLogsRouter/agent-logs",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/agentLogsRouter.js"
+        },
+        {
+          "id": "agentlogsrouter.agent-logs_stats",
+          "method": "GET",
+          "path": "/api/agentLogsRouter/agent-logs/stats",
+          "category": "Agentlogsrouter",
+          "description": "GET /api/agentLogsRouter/agent-logs/stats",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/agentLogsRouter.js"
+        },
+        {
+          "id": "agentlogsrouter.agent-logs",
+          "method": "POST",
+          "path": "/api/agentLogsRouter/agent-logs",
+          "category": "Agentlogsrouter",
+          "description": "POST /api/agentLogsRouter/agent-logs",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/agentLogsRouter.js"
+        },
+        {
+          "id": "apisecrets.key",
+          "method": "POST",
+          "path": "/api/apiSecrets/:key",
+          "category": "Apisecrets",
+          "description": "POST /api/apiSecrets/:key",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/apiSecrets.js"
+        },
+        {
+          "id": "apisecrets.key",
+          "method": "GET",
+          "path": "/api/apiSecrets/:key",
+          "category": "Apisecrets",
+          "description": "GET /api/apiSecrets/:key",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/apiSecrets.js"
+        },
+        {
+          "id": "apisecrets.key",
+          "method": "DELETE",
+          "path": "/api/apiSecrets/:key",
+          "category": "Apisecrets",
+          "description": "DELETE /api/apiSecrets/:key",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/apiSecrets.js"
+        },
+        {
+          "id": "auth.config",
+          "method": "GET",
+          "path": "/api/auth/config",
+          "category": "Auth",
+          "description": "GET /api/auth/config",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/auth.js"
+        },
+        {
+          "id": "auth.login",
+          "method": "GET",
+          "path": "/api/auth/login",
+          "category": "Auth",
+          "description": "GET /api/auth/login",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/auth.js"
+        },
+        {
+          "id": "auth.callback",
+          "method": "POST",
+          "path": "/api/auth/callback",
+          "category": "Auth",
+          "description": "POST /api/auth/callback",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/auth.js"
+        },
+        {
+          "id": "auth.refresh",
+          "method": "POST",
+          "path": "/api/auth/refresh",
+          "category": "Auth",
+          "description": "POST /api/auth/refresh",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/auth.js"
+        },
+        {
+          "id": "auth.verify",
+          "method": "GET",
+          "path": "/api/auth/verify",
+          "category": "Auth",
+          "description": "GET /api/auth/verify",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/auth.js"
+        },
+        {
+          "id": "autorizzazioni.",
+          "method": "GET",
+          "path": "/api/autorizzazioni/",
+          "category": "Autorizzazioni",
+          "description": "GET /api/autorizzazioni/",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/autorizzazioni.js"
+        },
+        {
+          "id": "autorizzazioni.id",
+          "method": "GET",
+          "path": "/api/autorizzazioni/:id",
+          "category": "Autorizzazioni",
+          "description": "GET /api/autorizzazioni/:id",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/autorizzazioni.js"
+        },
+        {
+          "id": "autorizzazioni.",
+          "method": "POST",
+          "path": "/api/autorizzazioni/",
+          "category": "Autorizzazioni",
+          "description": "POST /api/autorizzazioni/",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/autorizzazioni.js"
+        },
+        {
+          "id": "autorizzazioni.id",
+          "method": "PUT",
+          "path": "/api/autorizzazioni/:id",
+          "category": "Autorizzazioni",
+          "description": "PUT /api/autorizzazioni/:id",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/autorizzazioni.js"
+        },
+        {
+          "id": "autorizzazioni.id",
+          "method": "DELETE",
+          "path": "/api/autorizzazioni/:id",
+          "category": "Autorizzazioni",
+          "description": "DELETE /api/autorizzazioni/:id",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/autorizzazioni.js"
+        },
+        {
+          "id": "autorizzazioni.next-number",
+          "method": "GET",
+          "path": "/api/autorizzazioni/next-number",
+          "category": "Autorizzazioni",
+          "description": "GET /api/autorizzazioni/next-number",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/autorizzazioni.js"
+        },
+        {
+          "id": "chats.room",
+          "method": "GET",
+          "path": "/api/chats/:room",
+          "category": "Chats",
+          "description": "GET /api/chats/:room",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/chats.js"
+        },
+        {
+          "id": "chats.room",
+          "method": "POST",
+          "path": "/api/chats/:room",
+          "category": "Chats",
+          "description": "POST /api/chats/:room",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/chats.js"
+        },
+        {
+          "id": "chats.room",
+          "method": "DELETE",
+          "path": "/api/chats/:room",
+          "category": "Chats",
+          "description": "DELETE /api/chats/:room",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/chats.js"
+        },
+        {
+          "id": "citizens.",
+          "method": "GET",
+          "path": "/api/citizens/",
+          "category": "Citizens",
+          "description": "GET /api/citizens/",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/citizens.js"
+        },
+        {
+          "id": "citizens.id",
+          "method": "GET",
+          "path": "/api/citizens/:id",
+          "category": "Citizens",
+          "description": "GET /api/citizens/:id",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/citizens.js"
+        },
+        {
+          "id": "citizens.id_transactions",
+          "method": "GET",
+          "path": "/api/citizens/:id/transactions",
+          "category": "Citizens",
+          "description": "GET /api/citizens/:id/transactions",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/citizens.js"
+        },
+        {
+          "id": "comuni.",
+          "method": "GET",
+          "path": "/api/comuni/",
+          "category": "Comuni",
+          "description": "GET /api/comuni/",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/comuni.js"
+        },
+        {
+          "id": "comuni.",
+          "method": "POST",
+          "path": "/api/comuni/",
+          "category": "Comuni",
+          "description": "POST /api/comuni/",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/comuni.js"
+        },
+        {
+          "id": "comuni.id_provision-admin",
+          "method": "POST",
+          "path": "/api/comuni/:id/provision-admin",
+          "category": "Comuni",
+          "description": "POST /api/comuni/:id/provision-admin",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/comuni.js"
+        },
+        {
+          "id": "comuni.id_admin-credentials",
+          "method": "GET",
+          "path": "/api/comuni/:id/admin-credentials",
+          "category": "Comuni",
+          "description": "GET /api/comuni/:id/admin-credentials",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/comuni.js"
+        },
+        {
+          "id": "concessions.",
+          "method": "GET",
+          "path": "/api/concessions/",
+          "category": "Concessions",
+          "description": "GET /api/concessions/",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/concessions.js"
+        },
+        {
+          "id": "concessions.",
+          "method": "POST",
+          "path": "/api/concessions/",
+          "category": "Concessions",
+          "description": "POST /api/concessions/",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/concessions.js"
+        },
+        {
+          "id": "concessions.full",
+          "method": "POST",
+          "path": "/api/concessions/full",
+          "category": "Concessions",
+          "description": "POST /api/concessions/full",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/concessions.js"
+        },
+        {
+          "id": "concessions.id",
+          "method": "PUT",
+          "path": "/api/concessions/:id",
+          "category": "Concessions",
+          "description": "PUT /api/concessions/:id",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/concessions.js"
+        },
+        {
+          "id": "dimamappe.",
+          "method": "GET",
+          "path": "/api/dimaMappe/",
+          "category": "Dimamappe",
+          "description": "GET /api/dimaMappe/",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/dimaMappe.js"
+        },
+        {
+          "id": "dimamappe.id",
+          "method": "GET",
+          "path": "/api/dimaMappe/:id",
+          "category": "Dimamappe",
+          "description": "GET /api/dimaMappe/:id",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/dimaMappe.js"
+        },
+        {
+          "id": "dimamappe.market_market_id",
+          "method": "GET",
+          "path": "/api/dimaMappe/market/:market_id",
+          "category": "Dimamappe",
+          "description": "GET /api/dimaMappe/market/:market_id",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/dimaMappe.js"
+        },
+        {
+          "id": "dimamappe.",
+          "method": "POST",
+          "path": "/api/dimaMappe/",
+          "category": "Dimamappe",
+          "description": "POST /api/dimaMappe/",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/dimaMappe.js"
+        },
+        {
+          "id": "dimamappe.id",
+          "method": "PUT",
+          "path": "/api/dimaMappe/:id",
+          "category": "Dimamappe",
+          "description": "PUT /api/dimaMappe/:id",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/dimaMappe.js"
+        },
+        {
+          "id": "dimamappe.id",
+          "method": "PATCH",
+          "path": "/api/dimaMappe/:id",
+          "category": "Dimamappe",
+          "description": "PATCH /api/dimaMappe/:id",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/dimaMappe.js"
+        },
+        {
+          "id": "dimamappe.id",
+          "method": "DELETE",
+          "path": "/api/dimaMappe/:id",
+          "category": "Dimamappe",
+          "description": "DELETE /api/dimaMappe/:id",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/dimaMappe.js"
+        },
+        {
+          "id": "dmshub.markets_list",
+          "method": "GET",
+          "path": "/api/dmsHub/markets/list",
+          "category": "Dmshub",
+          "description": "GET /api/dmsHub/markets/list",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/dmsHub.js"
+        },
+        {
+          "id": "dmshub.markets_getById",
+          "method": "GET",
+          "path": "/api/dmsHub/markets/getById",
+          "category": "Dmshub",
+          "description": "GET /api/dmsHub/markets/getById",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/dmsHub.js"
+        },
+        {
+          "id": "dmshub.stalls_listByMarket",
+          "method": "GET",
+          "path": "/api/dmsHub/stalls/listByMarket",
+          "category": "Dmshub",
+          "description": "GET /api/dmsHub/stalls/listByMarket",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/dmsHub.js"
+        },
+        {
+          "id": "dmshub.vendors_list",
+          "method": "GET",
+          "path": "/api/dmsHub/vendors/list",
+          "category": "Dmshub",
+          "description": "GET /api/dmsHub/vendors/list",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/dmsHub.js"
+        },
+        {
+          "id": "dmshub.concessions_list",
+          "method": "GET",
+          "path": "/api/dmsHub/concessions/list",
+          "category": "Dmshub",
+          "description": "GET /api/dmsHub/concessions/list",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/dmsHub.js"
+        },
+        {
+          "id": "documents.upload",
+          "method": "POST",
+          "path": "/api/documents/upload",
+          "category": "Documents",
+          "description": "POST /api/documents/upload",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/documents.js"
+        },
+        {
+          "id": "documents.",
+          "method": "GET",
+          "path": "/api/documents/",
+          "category": "Documents",
+          "description": "GET /api/documents/",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/documents.js"
+        },
+        {
+          "id": "documents.id",
+          "method": "GET",
+          "path": "/api/documents/:id",
+          "category": "Documents",
+          "description": "GET /api/documents/:id",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/documents.js"
+        },
+        {
+          "id": "documents.id_download",
+          "method": "GET",
+          "path": "/api/documents/:id/download",
+          "category": "Documents",
+          "description": "GET /api/documents/:id/download",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/documents.js"
+        },
+        {
+          "id": "documents.id",
+          "method": "DELETE",
+          "path": "/api/documents/:id",
+          "category": "Documents",
+          "description": "DELETE /api/documents/:id",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/documents.js"
+        },
+        {
+          "id": "documents.init-schema",
+          "method": "POST",
+          "path": "/api/documents/init-schema",
+          "category": "Documents",
+          "description": "POST /api/documents/init-schema",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/documents.js"
+        },
+        {
+          "id": "domande_spunta.",
+          "method": "GET",
+          "path": "/api/domande-spunta/",
+          "category": "Domande Spunta",
+          "description": "GET /api/domande-spunta/",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/domande-spunta.js"
+        },
+        {
+          "id": "domande_spunta.id",
+          "method": "GET",
+          "path": "/api/domande-spunta/:id",
+          "category": "Domande Spunta",
+          "description": "GET /api/domande-spunta/:id",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/domande-spunta.js"
+        },
+        {
+          "id": "domande_spunta.",
+          "method": "POST",
+          "path": "/api/domande-spunta/",
+          "category": "Domande Spunta",
+          "description": "POST /api/domande-spunta/",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/domande-spunta.js"
+        },
+        {
+          "id": "domande_spunta.id",
+          "method": "PUT",
+          "path": "/api/domande-spunta/:id",
+          "category": "Domande Spunta",
+          "description": "PUT /api/domande-spunta/:id",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/domande-spunta.js"
+        },
+        {
+          "id": "domande_spunta.id",
+          "method": "DELETE",
+          "path": "/api/domande-spunta/:id",
+          "category": "Domande Spunta",
+          "description": "DELETE /api/domande-spunta/:id",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/domande-spunta.js"
+        },
+        {
+          "id": "domande_spunta.id_approva",
+          "method": "POST",
+          "path": "/api/domande-spunta/:id/approva",
+          "category": "Domande Spunta",
+          "description": "POST /api/domande-spunta/:id/approva",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/domande-spunta.js"
+        },
+        {
+          "id": "domande_spunta.id_rifiuta",
+          "method": "POST",
+          "path": "/api/domande-spunta/:id/rifiuta",
+          "category": "Domande Spunta",
+          "description": "POST /api/domande-spunta/:id/rifiuta",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/domande-spunta.js"
+        },
+        {
+          "id": "domande_spunta.id_revisione",
+          "method": "POST",
+          "path": "/api/domande-spunta/:id/revisione",
+          "category": "Domande Spunta",
+          "description": "POST /api/domande-spunta/:id/revisione",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/domande-spunta.js"
+        },
+        {
+          "id": "domande_spunta.presenze_impresa_id_mercato_id",
+          "method": "GET",
+          "path": "/api/domande-spunta/presenze/:impresa_id/:mercato_id",
+          "category": "Domande Spunta",
+          "description": "GET /api/domande-spunta/presenze/:impresa_id/:mercato_id",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/domande-spunta.js"
+        },
+        {
+          "id": "gis.health",
+          "method": "GET",
+          "path": "/api/gis/health",
+          "category": "Gis",
+          "description": "GET /api/gis/health",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/gis.js"
+        },
+        {
+          "id": "gis.market-map",
+          "method": "GET",
+          "path": "/api/gis/market-map",
+          "category": "Gis",
+          "description": "GET /api/gis/market-map",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/gis.js"
+        },
+        {
+          "id": "gis.market-map_marketId",
+          "method": "GET",
+          "path": "/api/gis/market-map/:marketId",
+          "category": "Gis",
+          "description": "GET /api/gis/market-map/:marketId",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/gis.js"
+        },
+        {
+          "id": "gis.import-market",
+          "method": "POST",
+          "path": "/api/gis/import-market",
+          "category": "Gis",
+          "description": "POST /api/gis/import-market",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/gis.js"
+        },
+        {
+          "id": "gptdev.github_read",
+          "method": "POST",
+          "path": "/api/gptdev/github/read",
+          "category": "Gptdev",
+          "description": "POST /api/gptdev/github/read",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/gptdev.js"
+        },
+        {
+          "id": "gptdev.github_write",
+          "method": "POST",
+          "path": "/api/gptdev/github/write",
+          "category": "Gptdev",
+          "description": "POST /api/gptdev/github/write",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/gptdev.js"
+        },
+        {
+          "id": "gptdev.github_list",
+          "method": "POST",
+          "path": "/api/gptdev/github/list",
+          "category": "Gptdev",
+          "description": "POST /api/gptdev/github/list",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/gptdev.js"
+        },
+        {
+          "id": "gptdev.github_pr",
+          "method": "POST",
+          "path": "/api/gptdev/github/pr",
+          "category": "Gptdev",
+          "description": "POST /api/gptdev/github/pr",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/gptdev.js"
+        },
+        {
+          "id": "gptdev.vercel_deploy",
+          "method": "POST",
+          "path": "/api/gptdev/vercel/deploy",
+          "category": "Gptdev",
+          "description": "POST /api/gptdev/vercel/deploy",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/gptdev.js"
+        },
+        {
+          "id": "gptdev.vercel_status",
+          "method": "POST",
+          "path": "/api/gptdev/vercel/status",
+          "category": "Gptdev",
+          "description": "POST /api/gptdev/vercel/status",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/gptdev.js"
+        },
+        {
+          "id": "guardian.logs",
+          "method": "GET",
+          "path": "/api/guardian/logs",
+          "category": "Guardian",
+          "description": "GET /api/guardian/logs",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/guardian.js"
+        },
+        {
+          "id": "guardian.permissions",
+          "method": "GET",
+          "path": "/api/guardian/permissions",
+          "category": "Guardian",
+          "description": "GET /api/guardian/permissions",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/guardian.js"
+        },
+        {
+          "id": "guardiansync.sync-blueprint",
+          "method": "POST",
+          "path": "/api/guardianSync/sync-blueprint",
+          "category": "Guardiansync",
+          "description": "POST /api/guardianSync/sync-blueprint",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/guardianSync.js"
+        },
+        {
+          "id": "health_monitor.",
+          "method": "GET",
+          "path": "/api/health-monitor/",
+          "category": "Health Monitor",
+          "description": "GET /api/health-monitor/",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/health-monitor.js"
+        },
+        {
+          "id": "health_monitor.full",
+          "method": "GET",
+          "path": "/api/health-monitor/full",
+          "category": "Health Monitor",
+          "description": "GET /api/health-monitor/full",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/health-monitor.js"
+        },
+        {
+          "id": "health_monitor.history",
+          "method": "GET",
+          "path": "/api/health-monitor/history",
+          "category": "Health Monitor",
+          "description": "GET /api/health-monitor/history",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/health-monitor.js"
+        },
+        {
+          "id": "health_monitor.service_name",
+          "method": "GET",
+          "path": "/api/health-monitor/service/:name",
+          "category": "Health Monitor",
+          "description": "GET /api/health-monitor/service/:name",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/health-monitor.js"
+        },
+        {
+          "id": "health_monitor.alerts",
+          "method": "GET",
+          "path": "/api/health-monitor/alerts",
+          "category": "Health Monitor",
+          "description": "GET /api/health-monitor/alerts",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/health-monitor.js"
+        },
+        {
+          "id": "health_monitor.config",
+          "method": "GET",
+          "path": "/api/health-monitor/config",
+          "category": "Health Monitor",
+          "description": "GET /api/health-monitor/config",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/health-monitor.js"
+        },
+        {
+          "id": "imprese.",
+          "method": "GET",
+          "path": "/api/imprese/",
+          "category": "Imprese",
+          "description": "GET /api/imprese/",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/imprese.js"
+        },
+        {
+          "id": "imprese.",
+          "method": "POST",
+          "path": "/api/imprese/",
+          "category": "Imprese",
+          "description": "POST /api/imprese/",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/imprese.js"
+        },
+        {
+          "id": "imprese.id_vetrina",
+          "method": "PUT",
+          "path": "/api/imprese/:id/vetrina",
+          "category": "Imprese",
+          "description": "PUT /api/imprese/:id/vetrina",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/imprese.js"
+        },
+        {
+          "id": "imprese.id_qualificazioni",
+          "method": "POST",
+          "path": "/api/imprese/:id/qualificazioni",
+          "category": "Imprese",
+          "description": "POST /api/imprese/:id/qualificazioni",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/imprese.js"
+        },
+        {
+          "id": "imprese.id_qualificazioni_qualId",
+          "method": "PUT",
+          "path": "/api/imprese/:id/qualificazioni/:qualId",
+          "category": "Imprese",
+          "description": "PUT /api/imprese/:id/qualificazioni/:qualId",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/imprese.js"
+        },
+        {
+          "id": "imprese.id_qualificazioni_qualId",
+          "method": "DELETE",
+          "path": "/api/imprese/:id/qualificazioni/:qualId",
+          "category": "Imprese",
+          "description": "DELETE /api/imprese/:id/qualificazioni/:qualId",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/imprese.js"
+        },
+        {
+          "id": "inspections.",
+          "method": "GET",
+          "path": "/api/inspections/",
+          "category": "Inspections",
+          "description": "GET /api/inspections/",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/inspections.js"
+        },
+        {
+          "id": "inspections.stats",
+          "method": "GET",
+          "path": "/api/inspections/stats",
+          "category": "Inspections",
+          "description": "GET /api/inspections/stats",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/inspections.js"
+        },
+        {
+          "id": "inspections.",
+          "method": "POST",
+          "path": "/api/inspections/",
+          "category": "Inspections",
+          "description": "POST /api/inspections/",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/inspections.js"
+        },
+        {
+          "id": "inspections.id",
+          "method": "GET",
+          "path": "/api/inspections/:id",
+          "category": "Inspections",
+          "description": "GET /api/inspections/:id",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/inspections.js"
+        },
+        {
+          "id": "inspections.id",
+          "method": "PUT",
+          "path": "/api/inspections/:id",
+          "category": "Inspections",
+          "description": "PUT /api/inspections/:id",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/inspections.js"
+        },
+        {
+          "id": "inspections.id",
+          "method": "DELETE",
+          "path": "/api/inspections/:id",
+          "category": "Inspections",
+          "description": "DELETE /api/inspections/:id",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/inspections.js"
+        },
+        {
+          "id": "integrations.",
+          "method": "GET",
+          "path": "/api/guardian/",
+          "category": "Integrations",
+          "description": "GET /api/guardian/",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/integrations.js"
+        },
+        {
+          "id": "integrations.status",
+          "method": "GET",
+          "path": "/api/guardian/status",
+          "category": "Integrations",
+          "description": "GET /api/guardian/status",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/integrations.js"
+        },
+        {
+          "id": "internaltraces.conversationId",
+          "method": "GET",
+          "path": "/api/internalTraces/:conversationId",
+          "category": "Internaltraces",
+          "description": "GET /api/internalTraces/:conversationId",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/internalTraces.js"
+        },
+        {
+          "id": "internaltraces.conversationId_agentId",
+          "method": "GET",
+          "path": "/api/internalTraces/:conversationId/:agentId",
+          "category": "Internaltraces",
+          "description": "GET /api/internalTraces/:conversationId/:agentId",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/internalTraces.js"
+        },
+        {
+          "id": "logs.recreateSchema",
+          "method": "POST",
+          "path": "/api/logs/recreateSchema",
+          "category": "Logs",
+          "description": "POST /api/logs/recreateSchema",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/logs.js"
+        },
+        {
+          "id": "logs.guardian",
+          "method": "GET",
+          "path": "/api/logs/guardian",
+          "category": "Logs",
+          "description": "GET /api/logs/guardian",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/logs.js"
+        },
+        {
+          "id": "logs.clear",
+          "method": "DELETE",
+          "path": "/api/logs/clear",
+          "category": "Logs",
+          "description": "DELETE /api/logs/clear",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/logs.js"
+        },
+        {
+          "id": "market_settings.marketId",
+          "method": "GET",
+          "path": "/api/market-settings/:marketId",
+          "category": "Market Settings",
+          "description": "GET /api/market-settings/:marketId",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/market-settings.js"
+        },
+        {
+          "id": "market_settings.marketId",
+          "method": "POST",
+          "path": "/api/market-settings/:marketId",
+          "category": "Market Settings",
+          "description": "POST /api/market-settings/:marketId",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/market-settings.js"
+        },
+        {
+          "id": "market_settings.transgressions_list",
+          "method": "GET",
+          "path": "/api/market-settings/transgressions/list",
+          "category": "Market Settings",
+          "description": "GET /api/market-settings/transgressions/list",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/market-settings.js"
+        },
+        {
+          "id": "market_settings.transgressions_pending-justifications",
+          "method": "GET",
+          "path": "/api/market-settings/transgressions/pending-justifications",
+          "category": "Market Settings",
+          "description": "GET /api/market-settings/transgressions/pending-justifications",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/market-settings.js"
+        },
+        {
+          "id": "market_settings.transgressions_id_justify",
+          "method": "POST",
+          "path": "/api/market-settings/transgressions/:id/justify",
+          "category": "Market Settings",
+          "description": "POST /api/market-settings/transgressions/:id/justify",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/market-settings.js"
+        },
+        {
+          "id": "market_settings.transgressions_id_review",
+          "method": "PUT",
+          "path": "/api/market-settings/transgressions/:id/review",
+          "category": "Market Settings",
+          "description": "PUT /api/market-settings/transgressions/:id/review",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/market-settings.js"
+        },
+        {
+          "id": "market_settings.transgressions_id_sanction",
+          "method": "POST",
+          "path": "/api/market-settings/transgressions/:id/sanction",
+          "category": "Market Settings",
+          "description": "POST /api/market-settings/transgressions/:id/sanction",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/market-settings.js"
+        },
+        {
+          "id": "market_settings.transgressions_stats",
+          "method": "GET",
+          "path": "/api/market-settings/transgressions/stats",
+          "category": "Market Settings",
+          "description": "GET /api/market-settings/transgressions/stats",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/market-settings.js"
+        },
+        {
+          "id": "market_settings.cron_run",
+          "method": "POST",
+          "path": "/api/market-settings/cron/run",
+          "category": "Market Settings",
+          "description": "POST /api/market-settings/cron/run",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/market-settings.js"
+        },
+        {
+          "id": "markets.",
+          "method": "GET",
+          "path": "/api/markets/",
+          "category": "Markets",
+          "description": "GET /api/markets/",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/markets.js"
+        },
+        {
+          "id": "markets.id",
+          "method": "GET",
+          "path": "/api/markets/:id",
+          "category": "Markets",
+          "description": "GET /api/markets/:id",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/markets.js"
+        },
+        {
+          "id": "markets.id_stalls",
+          "method": "GET",
+          "path": "/api/markets/:id/stalls",
+          "category": "Markets",
+          "description": "GET /api/markets/:id/stalls",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/markets.js"
+        },
+        {
+          "id": "markets.",
+          "method": "POST",
+          "path": "/api/markets/",
+          "category": "Markets",
+          "description": "POST /api/markets/",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/markets.js"
+        },
+        {
+          "id": "markets.id",
+          "method": "PATCH",
+          "path": "/api/markets/:id",
+          "category": "Markets",
+          "description": "PATCH /api/markets/:id",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/markets.js"
+        },
+        {
+          "id": "markets.id",
+          "method": "DELETE",
+          "path": "/api/markets/:id",
+          "category": "Markets",
+          "description": "DELETE /api/markets/:id",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/markets.js"
+        },
+        {
+          "id": "markets.marketId_companies",
+          "method": "GET",
+          "path": "/api/markets/:marketId/companies",
+          "category": "Markets",
+          "description": "GET /api/markets/:marketId/companies",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/markets.js"
+        },
+        {
+          "id": "markets.marketId_companies",
+          "method": "POST",
+          "path": "/api/markets/:marketId/companies",
+          "category": "Markets",
+          "description": "POST /api/markets/:marketId/companies",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/markets.js"
+        },
+        {
+          "id": "markets.marketId_concessions",
+          "method": "GET",
+          "path": "/api/markets/:marketId/concessions",
+          "category": "Markets",
+          "description": "GET /api/markets/:marketId/concessions",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/markets.js"
+        },
+        {
+          "id": "markets.marketId_concessions",
+          "method": "POST",
+          "path": "/api/markets/:marketId/concessions",
+          "category": "Markets",
+          "description": "POST /api/markets/:marketId/concessions",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/markets.js"
+        },
+        {
+          "id": "migratepdnd.migrate-pdnd",
+          "method": "POST",
+          "path": "/api/migratePDND/migrate-pdnd",
+          "category": "Migratepdnd",
+          "description": "POST /api/migratePDND/migrate-pdnd",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/migratePDND.js"
+        },
+        {
+          "id": "mihub.secrets-meta",
+          "method": "GET",
+          "path": "/api/mihub/secrets-meta",
+          "category": "Mihub",
+          "description": "GET /api/mihub/secrets-meta",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/mihub.js"
+        },
+        {
+          "id": "mihub.secrets_envVar",
+          "method": "POST",
+          "path": "/api/mihub/secrets/:envVar",
+          "category": "Mihub",
+          "description": "POST /api/mihub/secrets/:envVar",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/mihub.js"
+        },
+        {
+          "id": "mihub.logs",
+          "method": "GET",
+          "path": "/api/mihub/logs",
+          "category": "Mihub",
+          "description": "GET /api/mihub/logs",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/mihub.js"
+        },
+        {
+          "id": "mihub.direct-messages_conversationId",
+          "method": "GET",
+          "path": "/api/mihub/direct-messages/:conversationId",
+          "category": "Mihub",
+          "description": "GET /api/mihub/direct-messages/:conversationId",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/mihub.js"
+        },
+        {
+          "id": "mioagent.agent-logs",
+          "method": "GET",
+          "path": "/api/mioAgent/agent-logs",
+          "category": "Mioagent",
+          "description": "GET /api/mioAgent/agent-logs",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/mioAgent.js"
+        },
+        {
+          "id": "mioagent.agent-logs",
+          "method": "POST",
+          "path": "/api/mioAgent/agent-logs",
+          "category": "Mioagent",
+          "description": "POST /api/mioAgent/agent-logs",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/mioAgent.js"
+        },
+        {
+          "id": "monitoring_debug.",
+          "method": "GET",
+          "path": "/api/monitoring-debug/",
+          "category": "Monitoring Debug",
+          "description": "GET /api/monitoring-debug/",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/monitoring-debug.js"
+        },
+        {
+          "id": "monitoring_debug.stats",
+          "method": "GET",
+          "path": "/api/monitoring-debug/stats",
+          "category": "Monitoring Debug",
+          "description": "GET /api/monitoring-debug/stats",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/monitoring-debug.js"
+        },
+        {
+          "id": "monitoring_debug.id",
+          "method": "GET",
+          "path": "/api/monitoring-debug/:id",
+          "category": "Monitoring Debug",
+          "description": "GET /api/monitoring-debug/:id",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/monitoring-debug.js"
+        },
+        {
+          "id": "monitoring_debug.system-status",
+          "method": "GET",
+          "path": "/api/monitoring-debug/system-status",
+          "category": "Monitoring Debug",
+          "description": "GET /api/monitoring-debug/system-status",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/monitoring-debug.js"
+        },
+        {
+          "id": "monitoring_logs.",
+          "method": "GET",
+          "path": "/api/monitoring-logs/",
+          "category": "Monitoring Logs",
+          "description": "GET /api/monitoring-logs/",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/monitoring-logs.js"
+        },
+        {
+          "id": "monitoring_logs.stats",
+          "method": "GET",
+          "path": "/api/monitoring-logs/stats",
+          "category": "Monitoring Logs",
+          "description": "GET /api/monitoring-logs/stats",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/monitoring-logs.js"
+        },
+        {
+          "id": "monitoring_logs.id",
+          "method": "GET",
+          "path": "/api/monitoring-logs/:id",
+          "category": "Monitoring Logs",
+          "description": "GET /api/monitoring-logs/:id",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/monitoring-logs.js"
+        },
+        {
+          "id": "orchestrator.orchestrator",
+          "method": "POST",
+          "path": "/api/orchestrator/orchestrator",
+          "category": "Orchestrator",
+          "description": "POST /api/orchestrator/orchestrator",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/orchestrator.js"
+        },
+        {
+          "id": "orchestrator.orchestrator_conversations",
+          "method": "GET",
+          "path": "/api/orchestrator/orchestrator/conversations",
+          "category": "Orchestrator",
+          "description": "GET /api/orchestrator/orchestrator/conversations",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/orchestrator.js"
+        },
+        {
+          "id": "orchestrator.orchestrator_conversations_id",
+          "method": "GET",
+          "path": "/api/orchestrator/orchestrator/conversations/:id",
+          "category": "Orchestrator",
+          "description": "GET /api/orchestrator/orchestrator/conversations/:id",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/orchestrator.js"
+        },
+        {
+          "id": "orchestrator.orchestrator_init",
+          "method": "POST",
+          "path": "/api/orchestrator/orchestrator/init",
+          "category": "Orchestrator",
+          "description": "POST /api/orchestrator/orchestrator/init",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/orchestrator.js"
+        },
+        {
+          "id": "orchestrator.webhook_email",
+          "method": "POST",
+          "path": "/api/orchestrator/webhook/email",
+          "category": "Orchestrator",
+          "description": "POST /api/orchestrator/webhook/email",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/orchestrator.js"
+        },
+        {
+          "id": "orchestrator.mail_inbox",
+          "method": "GET",
+          "path": "/api/orchestrator/mail/inbox",
+          "category": "Orchestrator",
+          "description": "GET /api/orchestrator/mail/inbox",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/orchestrator.js"
+        },
+        {
+          "id": "orchestrator.notifications_sent",
+          "method": "GET",
+          "path": "/api/orchestrator/notifications/sent",
+          "category": "Orchestrator",
+          "description": "GET /api/orchestrator/notifications/sent",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/orchestrator.js"
+        },
+        {
+          "id": "orchestrator.notifications_all",
+          "method": "GET",
+          "path": "/api/orchestrator/notifications/all",
+          "category": "Orchestrator",
+          "description": "GET /api/orchestrator/notifications/all",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/orchestrator.js"
+        },
+        {
+          "id": "orchestrator.notifications_send",
+          "method": "POST",
+          "path": "/api/orchestrator/notifications/send",
+          "category": "Orchestrator",
+          "description": "POST /api/orchestrator/notifications/send",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/orchestrator.js"
+        },
+        {
+          "id": "orchestratormock.orchestrator_mock",
+          "method": "POST",
+          "path": "/api/orchestratorMock/orchestrator/mock",
+          "category": "Orchestratormock",
+          "description": "POST /api/orchestratorMock/orchestrator/mock",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/orchestratorMock.js"
+        },
+        {
+          "id": "panic.reset-messages",
+          "method": "POST",
+          "path": "/api/panic/reset-messages",
+          "category": "Panic",
+          "description": "POST /api/panic/reset-messages",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/panic.js"
+        },
+        {
+          "id": "panic.status",
+          "method": "GET",
+          "path": "/api/panic/status",
+          "category": "Panic",
+          "description": "GET /api/panic/status",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/panic.js"
+        },
+        {
+          "id": "presenze.spuntisti_mercato_id",
+          "method": "GET",
+          "path": "/api/presenze/spuntisti/mercato/:id",
+          "category": "Presenze",
+          "description": "GET /api/presenze/spuntisti/mercato/:id",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/presenze.js"
+        },
+        {
+          "id": "presenze.storico_sessioni",
+          "method": "GET",
+          "path": "/api/presenze/storico/sessioni",
+          "category": "Presenze",
+          "description": "GET /api/presenze/storico/sessioni",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/presenze.js"
+        },
+        {
+          "id": "presenze.storico_dettaglio_marketId_data",
+          "method": "GET",
+          "path": "/api/presenze/storico/dettaglio/:marketId/:data",
+          "category": "Presenze",
+          "description": "GET /api/presenze/storico/dettaglio/:marketId/:data",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/presenze.js"
+        },
+        {
+          "id": "public_search.search",
+          "method": "GET",
+          "path": "/api/public-search/search",
+          "category": "Public Search",
+          "description": "GET /api/public-search/search",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/public-search.js"
+        },
+        {
+          "id": "qualificazioni.",
+          "method": "GET",
+          "path": "/api/qualificazioni/",
+          "category": "Qualificazioni",
+          "description": "GET /api/qualificazioni/",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/qualificazioni.js"
+        },
+        {
+          "id": "qualificazioni.durc",
+          "method": "POST",
+          "path": "/api/qualificazioni/durc",
+          "category": "Qualificazioni",
+          "description": "POST /api/qualificazioni/durc",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/qualificazioni.js"
+        },
+        {
+          "id": "qualificazioni.suap",
+          "method": "POST",
+          "path": "/api/qualificazioni/suap",
+          "category": "Qualificazioni",
+          "description": "POST /api/qualificazioni/suap",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/qualificazioni.js"
+        },
+        {
+          "id": "qualificazioni.suap_id",
+          "method": "PUT",
+          "path": "/api/qualificazioni/suap/:id",
+          "category": "Qualificazioni",
+          "description": "PUT /api/qualificazioni/suap/:id",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/qualificazioni.js"
+        },
+        {
+          "id": "regioni.",
+          "method": "GET",
+          "path": "/api/regioni/",
+          "category": "Regioni",
+          "description": "GET /api/regioni/",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/regioni.js"
+        },
+        {
+          "id": "regioni.migrate",
+          "method": "POST",
+          "path": "/api/regioni/migrate",
+          "category": "Regioni",
+          "description": "POST /api/regioni/migrate",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/regioni.js"
+        },
+        {
+          "id": "routing.calculate",
+          "method": "POST",
+          "path": "/api/routing/calculate",
+          "category": "Routing",
+          "description": "POST /api/routing/calculate",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/routing.js"
+        },
+        {
+          "id": "routing.tpl-stops",
+          "method": "GET",
+          "path": "/api/routing/tpl-stops",
+          "category": "Routing",
+          "description": "GET /api/routing/tpl-stops",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/routing.js"
+        },
+        {
+          "id": "sanctions.",
+          "method": "GET",
+          "path": "/api/sanctions/",
+          "category": "Sanctions",
+          "description": "GET /api/sanctions/",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/sanctions.js"
+        },
+        {
+          "id": "sanctions.types",
+          "method": "GET",
+          "path": "/api/sanctions/types",
+          "category": "Sanctions",
+          "description": "GET /api/sanctions/types",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/sanctions.js"
+        },
+        {
+          "id": "sanctions.",
+          "method": "POST",
+          "path": "/api/sanctions/",
+          "category": "Sanctions",
+          "description": "POST /api/sanctions/",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/sanctions.js"
+        },
+        {
+          "id": "sanctions.id",
+          "method": "GET",
+          "path": "/api/sanctions/:id",
+          "category": "Sanctions",
+          "description": "GET /api/sanctions/:id",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/sanctions.js"
+        },
+        {
+          "id": "sanctions.id_pay",
+          "method": "POST",
+          "path": "/api/sanctions/:id/pay",
+          "category": "Sanctions",
+          "description": "POST /api/sanctions/:id/pay",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/sanctions.js"
+        },
+        {
+          "id": "sanctions.id",
+          "method": "PUT",
+          "path": "/api/sanctions/:id",
+          "category": "Sanctions",
+          "description": "PUT /api/sanctions/:id",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/sanctions.js"
+        },
+        {
+          "id": "security.permissions",
+          "method": "POST",
+          "path": "/api/security/permissions",
+          "category": "Security",
+          "description": "POST /api/security/permissions",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/security.js"
+        },
+        {
+          "id": "security.permissions_code_assign",
+          "method": "POST",
+          "path": "/api/security/permissions/:code/assign",
+          "category": "Security",
+          "description": "POST /api/security/permissions/:code/assign",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/security.js"
+        },
+        {
+          "id": "security.roles_id_permissions",
+          "method": "PUT",
+          "path": "/api/security/roles/:id/permissions",
+          "category": "Security",
+          "description": "PUT /api/security/roles/:id/permissions",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/security.js"
+        },
+        {
+          "id": "security.permissions_tabs",
+          "method": "GET",
+          "path": "/api/security/permissions/tabs",
+          "category": "Security",
+          "description": "GET /api/security/permissions/tabs",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/security.js"
+        },
+        {
+          "id": "security.permissions_quick-access",
+          "method": "GET",
+          "path": "/api/security/permissions/quick-access",
+          "category": "Security",
+          "description": "GET /api/security/permissions/quick-access",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/security.js"
+        },
+        {
+          "id": "stalls.",
+          "method": "GET",
+          "path": "/api/stalls/",
+          "category": "Stalls",
+          "description": "GET /api/stalls/",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/stalls.js"
+        },
+        {
+          "id": "stalls.id",
+          "method": "GET",
+          "path": "/api/stalls/:id",
+          "category": "Stalls",
+          "description": "GET /api/stalls/:id",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/stalls.js"
+        },
+        {
+          "id": "stalls.id",
+          "method": "PATCH",
+          "path": "/api/stalls/:id",
+          "category": "Stalls",
+          "description": "PATCH /api/stalls/:id",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/stalls.js"
+        },
+        {
+          "id": "stalls.",
+          "method": "POST",
+          "path": "/api/stalls/",
+          "category": "Stalls",
+          "description": "POST /api/stalls/",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/stalls.js"
+        },
+        {
+          "id": "stalls.id",
+          "method": "DELETE",
+          "path": "/api/stalls/:id",
+          "category": "Stalls",
+          "description": "DELETE /api/stalls/:id",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/stalls.js"
+        },
+        {
+          "id": "stats_qualificazione.overview",
+          "method": "GET",
+          "path": "/api/stats-qualificazione/overview",
+          "category": "Stats Qualificazione",
+          "description": "GET /api/stats-qualificazione/overview",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/stats-qualificazione.js"
+        },
+        {
+          "id": "stats_qualificazione.scadenze",
+          "method": "GET",
+          "path": "/api/stats-qualificazione/scadenze",
+          "category": "Stats Qualificazione",
+          "description": "GET /api/stats-qualificazione/scadenze",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/stats-qualificazione.js"
+        },
+        {
+          "id": "stats_qualificazione.demografia",
+          "method": "GET",
+          "path": "/api/stats-qualificazione/demografia",
+          "category": "Stats Qualificazione",
+          "description": "GET /api/stats-qualificazione/demografia",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/stats-qualificazione.js"
+        },
+        {
+          "id": "stats_qualificazione.top-imprese",
+          "method": "GET",
+          "path": "/api/stats-qualificazione/top-imprese",
+          "category": "Stats Qualificazione",
+          "description": "GET /api/stats-qualificazione/top-imprese",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/stats-qualificazione.js"
+        },
+        {
+          "id": "stats_qualificazione.indici",
+          "method": "GET",
+          "path": "/api/stats-qualificazione/indici",
+          "category": "Stats Qualificazione",
+          "description": "GET /api/stats-qualificazione/indici",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/stats-qualificazione.js"
+        },
+        {
+          "id": "stats_qualificazione.all",
+          "method": "GET",
+          "path": "/api/stats-qualificazione/all",
+          "category": "Stats Qualificazione",
+          "description": "GET /api/stats-qualificazione/all",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/stats-qualificazione.js"
+        },
+        {
+          "id": "suap.pratiche_id",
+          "method": "PATCH",
+          "path": "/api/suap/pratiche/:id",
+          "category": "Suap",
+          "description": "PATCH /api/suap/pratiche/:id",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/suap.js"
+        },
+        {
+          "id": "system_logs.logs",
+          "method": "GET",
+          "path": "/api/system-logs/logs",
+          "category": "System Logs",
+          "description": "GET /api/system-logs/logs",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/system-logs.js"
+        },
+        {
+          "id": "system_logs.status",
+          "method": "GET",
+          "path": "/api/system-logs/status",
+          "category": "System Logs",
+          "description": "GET /api/system-logs/status",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/system-logs.js"
+        },
+        {
+          "id": "tariffs.",
+          "method": "POST",
+          "path": "/api/tariffs/",
+          "category": "Tariffs",
+          "description": "POST /api/tariffs/",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/tariffs.js"
+        },
+        {
+          "id": "tcc_v2.generate-spend-qr",
+          "method": "POST",
+          "path": "/api/tcc/v2/generate-spend-qr",
+          "category": "Tcc V2",
+          "description": "POST /api/tcc/v2/generate-spend-qr",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/tcc-v2.js"
+        },
+        {
+          "id": "tcc_v2.operator_issue",
+          "method": "POST",
+          "path": "/api/tcc/v2/operator/issue",
+          "category": "Tcc V2",
+          "description": "POST /api/tcc/v2/operator/issue",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/tcc-v2.js"
+        },
+        {
+          "id": "tcc_v2.operator_validate-spend-qr",
+          "method": "POST",
+          "path": "/api/tcc/v2/operator/validate-spend-qr",
+          "category": "Tcc V2",
+          "description": "POST /api/tcc/v2/operator/validate-spend-qr",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/tcc-v2.js"
+        },
+        {
+          "id": "tcc_v2.operator_redeem-spend",
+          "method": "POST",
+          "path": "/api/tcc/v2/operator/redeem-spend",
+          "category": "Tcc V2",
+          "description": "POST /api/tcc/v2/operator/redeem-spend",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/tcc-v2.js"
+        },
+        {
+          "id": "tcc_v2.operator_transactions_operatorId",
+          "method": "GET",
+          "path": "/api/tcc/v2/operator/transactions/:operatorId",
+          "category": "Tcc V2",
+          "description": "GET /api/tcc/v2/operator/transactions/:operatorId",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/tcc-v2.js"
+        },
+        {
+          "id": "tcc_v2.config_update",
+          "method": "PUT",
+          "path": "/api/tcc/v2/config/update",
+          "category": "Tcc V2",
+          "description": "PUT /api/tcc/v2/config/update",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/tcc-v2.js"
+        },
+        {
+          "id": "tcc_v2.fund_stats",
+          "method": "GET",
+          "path": "/api/tcc/v2/fund/stats",
+          "category": "Tcc V2",
+          "description": "GET /api/tcc/v2/fund/stats",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/tcc-v2.js"
+        },
+        {
+          "id": "tcc_v2.fund_transactions",
+          "method": "GET",
+          "path": "/api/tcc/v2/fund/transactions",
+          "category": "Tcc V2",
+          "description": "GET /api/tcc/v2/fund/transactions",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/tcc-v2.js"
+        },
+        {
+          "id": "tcc_v2.admin_reset-test-data",
+          "method": "POST",
+          "path": "/api/tcc/v2/admin/reset-test-data",
+          "category": "Tcc V2",
+          "description": "POST /api/tcc/v2/admin/reset-test-data",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/tcc-v2.js"
+        },
+        {
+          "id": "tcc.merchant_shopId",
+          "method": "GET",
+          "path": "/api/tcc/merchant/:shopId",
+          "category": "Tcc",
+          "description": "GET /api/tcc/merchant/:shopId",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/tcc.js"
+        },
+        {
+          "id": "tcc.merchant_shopId_reimbursements",
+          "method": "GET",
+          "path": "/api/tcc/merchant/:shopId/reimbursements",
+          "category": "Tcc",
+          "description": "GET /api/tcc/merchant/:shopId/reimbursements",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/tcc.js"
+        },
+        {
+          "id": "tcc.merchants",
+          "method": "GET",
+          "path": "/api/tcc/merchants",
+          "category": "Tcc",
+          "description": "GET /api/tcc/merchants",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/tcc.js"
+        },
+        {
+          "id": "toolsmanus.browse",
+          "method": "POST",
+          "path": "/api/toolsManus/browse",
+          "category": "Toolsmanus",
+          "description": "POST /api/toolsManus/browse",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/toolsManus.js"
+        },
+        {
+          "id": "toolsmanus.screenshot",
+          "method": "POST",
+          "path": "/api/toolsManus/screenshot",
+          "category": "Toolsmanus",
+          "description": "POST /api/toolsManus/screenshot",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/toolsManus.js"
+        },
+        {
+          "id": "toolsmanus.screenshot_id",
+          "method": "GET",
+          "path": "/api/toolsManus/screenshot/:id",
+          "category": "Toolsmanus",
+          "description": "GET /api/toolsManus/screenshot/:id",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/toolsManus.js"
+        },
+        {
+          "id": "toolsmanus.click",
+          "method": "POST",
+          "path": "/api/toolsManus/click",
+          "category": "Toolsmanus",
+          "description": "POST /api/toolsManus/click",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/toolsManus.js"
+        },
+        {
+          "id": "toolsmanus.fill",
+          "method": "POST",
+          "path": "/api/toolsManus/fill",
+          "category": "Toolsmanus",
+          "description": "POST /api/toolsManus/fill",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/toolsManus.js"
+        },
+        {
+          "id": "toolsmanus.extract",
+          "method": "POST",
+          "path": "/api/toolsManus/extract",
+          "category": "Toolsmanus",
+          "description": "POST /api/toolsManus/extract",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/toolsManus.js"
+        },
+        {
+          "id": "toolsmanus.page",
+          "method": "GET",
+          "path": "/api/toolsManus/page",
+          "category": "Toolsmanus",
+          "description": "GET /api/toolsManus/page",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/toolsManus.js"
+        },
+        {
+          "id": "toolsmanus.ssh",
+          "method": "POST",
+          "path": "/api/toolsManus/ssh",
+          "category": "Toolsmanus",
+          "description": "POST /api/toolsManus/ssh",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/toolsManus.js"
+        },
+        {
+          "id": "toolsmanus.read-file",
+          "method": "POST",
+          "path": "/api/toolsManus/read-file",
+          "category": "Toolsmanus",
+          "description": "POST /api/toolsManus/read-file",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/toolsManus.js"
+        },
+        {
+          "id": "toolsmanus.write-file",
+          "method": "POST",
+          "path": "/api/toolsManus/write-file",
+          "category": "Toolsmanus",
+          "description": "POST /api/toolsManus/write-file",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/toolsManus.js"
+        },
+        {
+          "id": "toolsmanus.list-files",
+          "method": "POST",
+          "path": "/api/toolsManus/list-files",
+          "category": "Toolsmanus",
+          "description": "POST /api/toolsManus/list-files",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/toolsManus.js"
+        },
+        {
+          "id": "toolsmanus.count-lines",
+          "method": "POST",
+          "path": "/api/toolsManus/count-lines",
+          "category": "Toolsmanus",
+          "description": "POST /api/toolsManus/count-lines",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/toolsManus.js"
+        },
+        {
+          "id": "toolsmanus.system-info",
+          "method": "GET",
+          "path": "/api/toolsManus/system-info",
+          "category": "Toolsmanus",
+          "description": "GET /api/toolsManus/system-info",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/toolsManus.js"
+        },
+        {
+          "id": "vendors.",
+          "method": "GET",
+          "path": "/api/vendors/",
+          "category": "Vendors",
+          "description": "GET /api/vendors/",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/vendors.js"
+        },
+        {
+          "id": "vendors.id",
+          "method": "GET",
+          "path": "/api/vendors/:id",
+          "category": "Vendors",
+          "description": "GET /api/vendors/:id",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/vendors.js"
+        },
+        {
+          "id": "vendors.",
+          "method": "POST",
+          "path": "/api/vendors/",
+          "category": "Vendors",
+          "description": "POST /api/vendors/",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/vendors.js"
+        },
+        {
+          "id": "vendors.id",
+          "method": "PATCH",
+          "path": "/api/vendors/:id",
+          "category": "Vendors",
+          "description": "PATCH /api/vendors/:id",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/vendors.js"
+        },
+        {
+          "id": "vendors.id",
+          "method": "DELETE",
+          "path": "/api/vendors/:id",
+          "category": "Vendors",
+          "description": "DELETE /api/vendors/:id",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/vendors.js"
+        },
+        {
+          "id": "verbali.config",
+          "method": "GET",
+          "path": "/api/verbali/config",
+          "category": "Verbali",
+          "description": "GET /api/verbali/config",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/verbali.js"
+        },
+        {
+          "id": "verbali.infrazioni",
+          "method": "GET",
+          "path": "/api/verbali/infrazioni",
+          "category": "Verbali",
+          "description": "GET /api/verbali/infrazioni",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/verbali.js"
+        },
+        {
+          "id": "verbali.impresa_id",
+          "method": "GET",
+          "path": "/api/verbali/impresa/:id",
+          "category": "Verbali",
+          "description": "GET /api/verbali/impresa/:id",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/verbali.js"
+        },
+        {
+          "id": "verbali.",
+          "method": "POST",
+          "path": "/api/verbali/",
+          "category": "Verbali",
+          "description": "POST /api/verbali/",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/verbali.js"
+        },
+        {
+          "id": "verbali.id",
+          "method": "GET",
+          "path": "/api/verbali/:id",
+          "category": "Verbali",
+          "description": "GET /api/verbali/:id",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/verbali.js"
+        },
+        {
+          "id": "wallet_history.",
+          "method": "GET",
+          "path": "/api/wallet-history/",
+          "category": "Wallet History",
+          "description": "GET /api/wallet-history/",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/wallet-history.js"
+        },
+        {
+          "id": "wallet_history.rimborsi-pendenti",
+          "method": "GET",
+          "path": "/api/wallet-history/rimborsi-pendenti",
+          "category": "Wallet History",
+          "description": "GET /api/wallet-history/rimborsi-pendenti",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/wallet-history.js"
+        },
+        {
+          "id": "wallet_history.walletId_balance-history",
+          "method": "GET",
+          "path": "/api/wallet-history/:walletId/balance-history",
+          "category": "Wallet History",
+          "description": "GET /api/wallet-history/:walletId/balance-history",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/wallet-history.js"
+        },
+        {
+          "id": "wallet_history.",
+          "method": "POST",
+          "path": "/api/wallet-history/",
+          "category": "Wallet History",
+          "description": "POST /api/wallet-history/",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/wallet-history.js"
+        },
+        {
+          "id": "wallet_scadenze.",
+          "method": "GET",
+          "path": "/api/wallet-scadenze/",
+          "category": "Wallet Scadenze",
+          "description": "GET /api/wallet-scadenze/",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/wallet-scadenze.js"
+        },
+        {
+          "id": "wallet_scadenze.scadute",
+          "method": "GET",
+          "path": "/api/wallet-scadenze/scadute",
+          "category": "Wallet Scadenze",
+          "description": "GET /api/wallet-scadenze/scadute",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/wallet-scadenze.js"
+        },
+        {
+          "id": "wallet_scadenze.walletId",
+          "method": "GET",
+          "path": "/api/wallet-scadenze/:walletId",
+          "category": "Wallet Scadenze",
+          "description": "GET /api/wallet-scadenze/:walletId",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/wallet-scadenze.js"
+        },
+        {
+          "id": "wallet_scadenze.",
+          "method": "POST",
+          "path": "/api/wallet-scadenze/",
+          "category": "Wallet Scadenze",
+          "description": "POST /api/wallet-scadenze/",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/wallet-scadenze.js"
+        },
+        {
+          "id": "wallet_scadenze.id_calcola-mora",
+          "method": "POST",
+          "path": "/api/wallet-scadenze/:id/calcola-mora",
+          "category": "Wallet Scadenze",
+          "description": "POST /api/wallet-scadenze/:id/calcola-mora",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/wallet-scadenze.js"
+        },
+        {
+          "id": "wallet_scadenze.id_paga",
+          "method": "POST",
+          "path": "/api/wallet-scadenze/:id/paga",
+          "category": "Wallet Scadenze",
+          "description": "POST /api/wallet-scadenze/:id/paga",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/wallet-scadenze.js"
+        },
+        {
+          "id": "wallet_scadenze.aggiorna-ritardi",
+          "method": "POST",
+          "path": "/api/wallet-scadenze/aggiorna-ritardi",
+          "category": "Wallet Scadenze",
+          "description": "POST /api/wallet-scadenze/aggiorna-ritardi",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/wallet-scadenze.js"
+        },
+        {
+          "id": "wallets.",
+          "method": "GET",
+          "path": "/api/wallets/",
+          "category": "Wallets",
+          "description": "GET /api/wallets/",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/wallets.js"
+        },
+        {
+          "id": "watchlist.",
+          "method": "GET",
+          "path": "/api/watchlist/",
+          "category": "Watchlist",
+          "description": "GET /api/watchlist/",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/watchlist.js"
+        },
+        {
+          "id": "watchlist.stats",
+          "method": "GET",
+          "path": "/api/watchlist/stats",
+          "category": "Watchlist",
+          "description": "GET /api/watchlist/stats",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/watchlist.js"
+        },
+        {
+          "id": "watchlist.",
+          "method": "POST",
+          "path": "/api/watchlist/",
+          "category": "Watchlist",
+          "description": "POST /api/watchlist/",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/watchlist.js"
+        },
+        {
+          "id": "watchlist.id",
+          "method": "PUT",
+          "path": "/api/watchlist/:id",
+          "category": "Watchlist",
+          "description": "PUT /api/watchlist/:id",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/watchlist.js"
+        },
+        {
+          "id": "watchlist.id",
+          "method": "DELETE",
+          "path": "/api/watchlist/:id",
+          "category": "Watchlist",
+          "description": "DELETE /api/watchlist/:id",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/watchlist.js"
+        },
+        {
+          "id": "watchlist.webhook_suap",
+          "method": "POST",
+          "path": "/api/watchlist/webhook/suap",
+          "category": "Watchlist",
+          "description": "POST /api/watchlist/webhook/suap",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/watchlist.js"
+        },
+        {
+          "id": "webhook.deploy-mihub",
+          "method": "POST",
+          "path": "/api/webhook/deploy-mihub",
+          "category": "Webhook",
+          "description": "POST /api/webhook/deploy-mihub",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/webhook.js"
+        },
+        {
+          "id": "webhook.status",
+          "method": "GET",
+          "path": "/api/webhook/status",
+          "category": "Webhook",
+          "description": "GET /api/webhook/status",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/webhook.js"
+        },
+        {
+          "id": "webhook.force-deploy-emergency",
+          "method": "POST",
+          "path": "/api/webhook/force-deploy-emergency",
+          "category": "Webhook",
+          "description": "POST /api/webhook/force-deploy-emergency",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/webhook.js"
+        },
+        {
+          "id": "webhooks.zapier_new-concession",
+          "method": "POST",
+          "path": "/api/webhooks/zapier/new-concession",
+          "category": "Webhooks",
+          "description": "POST /api/webhooks/zapier/new-concession",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/webhooks.js"
+        },
+        {
+          "id": "webhooks.zapier_stall-status-changed",
+          "method": "POST",
+          "path": "/api/webhooks/zapier/stall-status-changed",
+          "category": "Webhooks",
+          "description": "POST /api/webhooks/zapier/stall-status-changed",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/webhooks.js"
+        },
+        {
+          "id": "webhooks.zapier_test",
+          "method": "GET",
+          "path": "/api/webhooks/zapier/test",
+          "category": "Webhooks",
+          "description": "GET /api/webhooks/zapier/test",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/webhooks.js"
+        },
+        {
+          "id": "webhooks.github_deploy",
+          "method": "POST",
+          "path": "/api/webhooks/github/deploy",
+          "category": "Webhooks",
+          "description": "POST /api/webhooks/github/deploy",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/webhooks.js"
+        },
+        {
+          "id": "webhooks.github_deploy_status",
+          "method": "GET",
+          "path": "/api/webhooks/github/deploy/status",
+          "category": "Webhooks",
+          "description": "GET /api/webhooks/github/deploy/status",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/webhooks.js"
+        },
+        {
+          "id": "workspace.add-shape",
+          "method": "POST",
+          "path": "/api/workspace/add-shape",
+          "category": "Workspace",
+          "description": "POST /api/workspace/add-shape",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/workspace.js"
+        },
+        {
+          "id": "workspace.add-image",
+          "method": "POST",
+          "path": "/api/workspace/add-image",
+          "category": "Workspace",
+          "description": "POST /api/workspace/add-image",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/workspace.js"
+        },
+        {
+          "id": "verbali_invia_new.id_invia",
+          "method": "POST",
+          "path": "/api/verbali_invia_new/:id/invia",
+          "category": "Verbali_Invia_New",
+          "description": "POST /api/verbali_invia_new/:id/invia",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/verbali_invia_new.js"
         }
       ]
     },
@@ -6752,7 +10682,7 @@
         {
           "path": "/api/stats/qualificazione/overview",
           "method": "GET",
-          "description": "Overview conformità imprese",
+          "description": "Overview conformit\u00e0 imprese",
           "category": "Statistics",
           "auth": "optional"
         },
@@ -6780,7 +10710,7 @@
         {
           "path": "/api/stats/qualificazione/indici",
           "method": "GET",
-          "description": "Indici strategici digitalizzazione e sostenibilità",
+          "description": "Indici strategici digitalizzazione e sostenibilit\u00e0",
           "category": "Statistics",
           "auth": "optional"
         },
@@ -6865,7 +10795,7 @@
         {
           "path": "/api/bandi/servizi",
           "method": "GET",
-          "description": "Lista servizi offerti dalle associazioni (DURC, SCIA, Contabilità, Paghe, Consulenza)",
+          "description": "Lista servizi offerti dalle associazioni (DURC, SCIA, Contabilit\u00e0, Paghe, Consulenza)",
           "params": "categoria, associazione_id (opzionali)",
           "response": "Lista servizi con prezzi e dettagli",
           "category": "Bandi",
@@ -6917,16 +10847,16 @@
         {
           "path": "/api/bandi/regolarita",
           "method": "GET",
-          "description": "Lista stato regolarità imprese (DURC, SCIA, Autorizzazioni)",
+          "description": "Lista stato regolarit\u00e0 imprese (DURC, SCIA, Autorizzazioni)",
           "params": "tipo, stato, impresa_id (opzionali)",
-          "response": "Lista regolarità con stato e scadenze",
+          "response": "Lista regolarit\u00e0 con stato e scadenze",
           "category": "Bandi",
           "auth": "optional"
         },
         {
           "path": "/api/bandi/regolarita/:id",
           "method": "PUT",
-          "description": "Aggiorna stato regolarità impresa",
+          "description": "Aggiorna stato regolarit\u00e0 impresa",
           "body": "stato, numero_documento, data_rilascio, data_scadenza, ente_rilascio, note",
           "response": "Record aggiornato",
           "category": "Bandi",
@@ -6935,7 +10865,7 @@
         {
           "path": "/api/bandi/regolarita/stats",
           "method": "GET",
-          "description": "Statistiche regolarità con imprese problematiche (DURC irregolare, SCIA scaduta)",
+          "description": "Statistiche regolarit\u00e0 con imprese problematiche (DURC irregolare, SCIA scaduta)",
           "response": "Conteggi per stato/tipo e lista imprese con problemi",
           "category": "Bandi",
           "auth": "optional"
@@ -7072,8 +11002,8 @@
         {
           "path": "/api/public/search",
           "method": "GET",
-          "description": "Ricerca pubblica per mercati, imprese, città, vetrine e merceologia",
-          "response": "Lista risultati con tipo, nome, città, descrizione",
+          "description": "Ricerca pubblica per mercati, imprese, citt\u00e0, vetrine e merceologia",
+          "response": "Lista risultati con tipo, nome, citt\u00e0, descrizione",
           "category": "Public Search",
           "auth": "none",
           "params": {
@@ -7134,7 +11064,7 @@
           "path": "/api/pm/watchlist",
           "method": "GET",
           "description": "Lista imprese da controllare (watchlist PM)",
-          "response": "Lista con impresa, motivo, priorità, data",
+          "response": "Lista con impresa, motivo, priorit\u00e0, data",
           "category": "Polizia Municipale",
           "auth": "optional"
         },
