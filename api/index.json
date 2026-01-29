@@ -1,6 +1,6 @@
 {
-  "version": 38,
-  "last_updated": "2026-01-28T17:00:00Z",
+  "version": 39,
+  "last_updated": "2026-01-29T03:00:00Z",
   "services": [
     {
       "id": "dms-hub",
@@ -10424,6 +10424,168 @@
             "expected_status": 200
           },
           "implementation_note": "REST endpoint in mihub-backend-rest/routes/verbali_invia_new.js"
+        },
+        {
+          "id": "civic-reports.list",
+          "method": "GET",
+          "path": "/api/civic-reports",
+          "category": "Civic Reports",
+          "description": "Lista segnalazioni civiche con filtri e paginazione",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "default_params": {
+              "comune_id": "1"
+            },
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/civic-reports.js"
+        },
+        {
+          "id": "civic-reports.create",
+          "method": "POST",
+          "path": "/api/civic-reports",
+          "category": "Civic Reports",
+          "description": "Crea nuova segnalazione civica",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/civic-reports.js"
+        },
+        {
+          "id": "civic-reports.stats",
+          "method": "GET",
+          "path": "/api/civic-reports/stats",
+          "category": "Civic Reports",
+          "description": "Statistiche segnalazioni per dashboard PA",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "default_params": {
+              "comune_id": "1"
+            },
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/civic-reports.js"
+        },
+        {
+          "id": "civic-reports.config.get",
+          "method": "GET",
+          "path": "/api/civic-reports/config",
+          "category": "Civic Reports",
+          "description": "Leggi configurazione TCC per comune",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "default_params": {
+              "comune_id": "1"
+            },
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/civic-reports.js"
+        },
+        {
+          "id": "civic-reports.config.update",
+          "method": "PUT",
+          "path": "/api/civic-reports/config",
+          "category": "Civic Reports",
+          "description": "Aggiorna configurazione TCC per comune",
+          "risk_level": "medium",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/civic-reports.js"
+        },
+        {
+          "id": "civic-reports.detail",
+          "method": "GET",
+          "path": "/api/civic-reports/:id",
+          "category": "Civic Reports",
+          "description": "Dettaglio singola segnalazione",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "default_params": {
+              "id": "1"
+            },
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/civic-reports.js"
+        },
+        {
+          "id": "civic-reports.status",
+          "method": "PATCH",
+          "path": "/api/civic-reports/:id/status",
+          "category": "Civic Reports",
+          "description": "Aggiorna stato segnalazione",
+          "risk_level": "medium",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/civic-reports.js"
+        },
+        {
+          "id": "civic-reports.assign",
+          "method": "PATCH",
+          "path": "/api/civic-reports/:id/assign",
+          "category": "Civic Reports",
+          "description": "Assegna segnalazione a agente PM",
+          "risk_level": "medium",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/civic-reports.js"
+        },
+        {
+          "id": "civic-reports.resolve",
+          "method": "POST",
+          "path": "/api/civic-reports/:id/resolve",
+          "category": "Civic Reports",
+          "description": "Risolvi segnalazione e assegna TCC",
+          "risk_level": "medium",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/civic-reports.js"
+        },
+        {
+          "id": "civic-reports.link-sanction",
+          "method": "POST",
+          "path": "/api/civic-reports/:id/link-sanction",
+          "category": "Civic Reports",
+          "description": "Collega segnalazione a verbale esistente",
+          "risk_level": "medium",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/civic-reports.js"
         }
       ]
     },
