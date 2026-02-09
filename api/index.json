@@ -1,6 +1,6 @@
 {
-  "version": 40,
-  "last_updated": "2026-01-29T03:00:00Z",
+  "version": 41,
+  "last_updated": "2026-02-09T22:00:00Z",
   "services": [
     {
       "id": "dms-hub",
@@ -246,7 +246,7 @@
           "method": "POST",
           "path": "/api/trpc/dmsHub.markets.importAuto",
           "category": "DmsHub",
-          "description": "Import automatico da Slot Editor v3 (senza richiedere nome/citt\u00e0)",
+          "description": "Import automatico da Slot Editor v3 (senza richiedere nome/città)",
           "risk_level": "medium",
           "require_auth": false,
           "enabled": true,
@@ -1376,7 +1376,7 @@
           "method": "POST",
           "path": "/api/mihub/webhook/email",
           "category": "Mail",
-          "description": "\ud83d\udce7 Riceve email da Zapier e le salva nel sistema",
+          "description": "📧 Riceve email da Zapier e le salva nel sistema",
           "risk_level": "low",
           "require_auth": false,
           "enabled": true,
@@ -1397,7 +1397,7 @@
           "method": "GET",
           "path": "/api/mihub/mail/inbox",
           "category": "Mail",
-          "description": "\ud83d\udce7 Lista email ricevute nella inbox",
+          "description": "📧 Lista email ricevute nella inbox",
           "risk_level": "low",
           "require_auth": false,
           "enabled": true,
@@ -1839,7 +1839,7 @@
           "method": "GET",
           "path": "/api/imprese/:id/rating",
           "category": "Imprese",
-          "description": "Semaforo Conformit\u00e0 impresa (rating)",
+          "description": "Semaforo Conformità impresa (rating)",
           "risk_level": "low",
           "require_auth": true,
           "enabled": true,
@@ -1851,7 +1851,7 @@
             "expected_status": 200
           },
           "implemented": "rest",
-          "implementation_note": "Calcola rating conformit\u00e0 basato su qualificazioni e documenti"
+          "implementation_note": "Calcola rating conformità basato su qualificazioni e documenti"
         },
         {
           "id": "imprese.migratePdnd",
@@ -2088,7 +2088,7 @@
           "method": "GET",
           "path": "/api/businesses/list",
           "category": "Businesses",
-          "description": "Elenco attivit\u00e0 commerciali",
+          "description": "Elenco attività commerciali",
           "risk_level": "low",
           "require_auth": true,
           "enabled": true,
@@ -2163,7 +2163,7 @@
           "method": "GET",
           "path": "/api/mobility/list",
           "category": "Mobility",
-          "description": "Elenco dati mobilit\u00e0",
+          "description": "Elenco dati mobilità",
           "risk_level": "low",
           "require_auth": true,
           "enabled": true,
@@ -2307,7 +2307,7 @@
           "method": "GET",
           "path": "/api/sustainability/metrics",
           "category": "Sustainability",
-          "description": "Metriche di sostenibilit\u00e0",
+          "description": "Metriche di sostenibilità",
           "risk_level": "low",
           "require_auth": true,
           "enabled": true,
@@ -3344,7 +3344,7 @@
           "method": "GET",
           "path": "/api/ipa/uo/:codice_ipa",
           "category": "IndicePA",
-          "description": "Ottiene Unit\u00e0 Organizzative di un ente da IPA",
+          "description": "Ottiene Unità Organizzative di un ente da IPA",
           "risk_level": "low",
           "require_auth": false,
           "enabled": true,
@@ -4128,7 +4128,7 @@
           "method": "GET",
           "path": "/api/system/health",
           "category": "System Status",
-          "description": "\ud83d\udfe2 FASE 2: Health check Backend API - Status, uptime, memory usage",
+          "description": "🟢 FASE 2: Health check Backend API - Status, uptime, memory usage",
           "risk_level": "low",
           "require_auth": false,
           "enabled": true,
@@ -4145,7 +4145,7 @@
           "method": "GET",
           "path": "/api/system/pm2-status",
           "category": "System Status",
-          "description": "\ud83d\udfe2 FASE 2: PM2 process status - PID, uptime, restarts, memory, CPU",
+          "description": "🟢 FASE 2: PM2 process status - PID, uptime, restarts, memory, CPU",
           "risk_level": "low",
           "require_auth": false,
           "enabled": true,
@@ -4162,7 +4162,7 @@
           "method": "POST",
           "path": "/api/workspace/save",
           "category": "Shared Workspace",
-          "description": "\ud83c\udfa8 FASE 3: Salva snapshot tldraw nel database",
+          "description": "🎨 FASE 3: Salva snapshot tldraw nel database",
           "risk_level": "medium",
           "require_auth": false,
           "enabled": true,
@@ -4185,7 +4185,7 @@
           "method": "GET",
           "path": "/api/workspace/load",
           "category": "Shared Workspace",
-          "description": "\ud83c\udfa8 FASE 3: Carica snapshot tldraw dal database",
+          "description": "🎨 FASE 3: Carica snapshot tldraw dal database",
           "risk_level": "low",
           "require_auth": false,
           "enabled": true,
@@ -4204,7 +4204,7 @@
           "method": "GET",
           "path": "/api/workspace/list",
           "category": "Shared Workspace",
-          "description": "\ud83c\udfa8 FASE 3: Lista tutti gli snapshot salvati (debug)",
+          "description": "🎨 FASE 3: Lista tutti gli snapshot salvati (debug)",
           "risk_level": "low",
           "require_auth": false,
           "enabled": true,
@@ -4221,7 +4221,7 @@
           "method": "DELETE",
           "path": "/api/workspace/delete",
           "category": "Shared Workspace",
-          "description": "\ud83c\udfa8 FASE 3: Elimina snapshot (cleanup)",
+          "description": "🎨 FASE 3: Elimina snapshot (cleanup)",
           "risk_level": "medium",
           "require_auth": false,
           "enabled": true,
@@ -4935,7 +4935,7 @@
           "method": "GET",
           "path": "/api/security/audit/by-entity/:type/:id",
           "category": "Audit",
-          "description": "Audit per entit\u00e0",
+          "description": "Audit per entità",
           "risk_level": "low",
           "require_auth": true,
           "enabled": true
@@ -5340,7 +5340,7 @@
       "display_name": "Token Carbon Credit v2 (TCC v2) API",
       "base_url": "https://orchestratore.mio-hub.me",
       "env": "production",
-      "description": "API TCC v2 - Sistema completo Carbon Credits con fondo sostenibilit\u00e0, rimborsi batch, settlement operatori",
+      "description": "API TCC v2 - Sistema completo Carbon Credits con fondo sostenibilità, rimborsi batch, settlement operatori",
       "endpoints": [
         {
           "id": "tcc.v2.config",
@@ -5521,7 +5521,7 @@
           "method": "POST",
           "path": "/api/tcc/v2/operator/assign-tcc",
           "category": "TCC v2 - Hub Operatore",
-          "description": "Assegna TCC a cittadino (formula: euro/10 \u00d7 policy_multiplier)",
+          "description": "Assegna TCC a cittadino (formula: euro/10 × policy_multiplier)",
           "risk_level": "medium",
           "require_auth": true,
           "enabled": true,
@@ -10798,6 +10798,150 @@
             "expected_status": 200
           },
           "implementation_note": "REST endpoint in mihub-backend-rest/routes/civic-reports.js"
+        },
+        {
+          "id": "dms-legacy.markets",
+          "method": "GET",
+          "path": "/api/integrations/dms-legacy/markets",
+          "category": "DMS Legacy Integration",
+          "description": "Restituisce i mercati DMS Legacy (Bologna/Cervia) mappati nel formato MioHub",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "default_params": {},
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "Proxy verso Heroku /ui/mercati con trasformazione dati",
+          "router": "dms-legacy",
+          "subrouter": "dms-legacy",
+          "procedure": "markets"
+        },
+        {
+          "id": "dms-legacy.vendors",
+          "method": "GET",
+          "path": "/api/integrations/dms-legacy/vendors",
+          "category": "DMS Legacy Integration",
+          "description": "Restituisce gli ambulanti DMS Legacy mappati come Imprese MioHub",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "default_params": {},
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "Proxy verso Heroku /ui/amb con trasformazione dati",
+          "router": "dms-legacy",
+          "subrouter": "dms-legacy",
+          "procedure": "vendors"
+        },
+        {
+          "id": "dms-legacy.concessions",
+          "method": "GET",
+          "path": "/api/integrations/dms-legacy/concessions",
+          "category": "DMS Legacy Integration",
+          "description": "Restituisce le concessioni DMS Legacy mappate nel formato MioHub",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "default_params": {},
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "Proxy verso Heroku /ui/concessioni con trasformazione dati",
+          "router": "dms-legacy",
+          "subrouter": "dms-legacy",
+          "procedure": "concessions"
+        },
+        {
+          "id": "dms-legacy.presences",
+          "method": "GET",
+          "path": "/api/integrations/dms-legacy/presences/:marketId",
+          "category": "DMS Legacy Integration",
+          "description": "Fornisce i dati di presenza in tempo reale per un mercato DMS Legacy",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "default_params": {
+              "marketId": "1"
+            },
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "Proxy verso Heroku /presense/mercato/:id con trasformazione dati",
+          "router": "dms-legacy",
+          "subrouter": "dms-legacy",
+          "procedure": "presences"
+        },
+        {
+          "id": "dms-legacy.marketSessions",
+          "method": "GET",
+          "path": "/api/integrations/dms-legacy/market-sessions/:marketId",
+          "category": "DMS Legacy Integration",
+          "description": "Fornisce le giornate di mercato (istanze) per un mercato DMS Legacy",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "default_params": {
+              "marketId": "1"
+            },
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "Proxy verso Heroku /mercato/:id/istanze/date con trasformazione dati",
+          "router": "dms-legacy",
+          "subrouter": "dms-legacy",
+          "procedure": "marketSessions"
+        },
+        {
+          "id": "dms-legacy.sync",
+          "method": "POST",
+          "path": "/api/integrations/dms-legacy/sync",
+          "category": "DMS Legacy Integration",
+          "description": "Sincronizzazione manuale on-demand di tutte le entita DMS Legacy",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "default_params": {},
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "Esegue sync completa: mercati + ambulanti + concessioni da Heroku",
+          "router": "dms-legacy",
+          "subrouter": "dms-legacy",
+          "procedure": "sync"
+        },
+        {
+          "id": "dms-legacy.cronSync",
+          "method": "POST",
+          "path": "/api/integrations/dms-legacy/cron-sync",
+          "category": "DMS Legacy Integration",
+          "description": "Endpoint interno CRON per sincronizzazione periodica DMS Legacy (ogni ora)",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "default_params": {},
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "Chiamato dal CRON job ogni ora per mantenere i dati allineati",
+          "router": "dms-legacy",
+          "subrouter": "dms-legacy",
+          "procedure": "cronSync"
         }
       ]
     },
@@ -10927,7 +11071,7 @@
         {
           "path": "/api/stats/qualificazione/overview",
           "method": "GET",
-          "description": "Overview conformit\u00e0 imprese",
+          "description": "Overview conformità imprese",
           "category": "Statistics",
           "auth": "optional"
         },
@@ -10955,7 +11099,7 @@
         {
           "path": "/api/stats/qualificazione/indici",
           "method": "GET",
-          "description": "Indici strategici digitalizzazione e sostenibilit\u00e0",
+          "description": "Indici strategici digitalizzazione e sostenibilità",
           "category": "Statistics",
           "auth": "optional"
         },
@@ -11040,7 +11184,7 @@
         {
           "path": "/api/bandi/servizi",
           "method": "GET",
-          "description": "Lista servizi offerti dalle associazioni (DURC, SCIA, Contabilit\u00e0, Paghe, Consulenza)",
+          "description": "Lista servizi offerti dalle associazioni (DURC, SCIA, Contabilità, Paghe, Consulenza)",
           "params": "categoria, associazione_id (opzionali)",
           "response": "Lista servizi con prezzi e dettagli",
           "category": "Bandi",
@@ -11092,16 +11236,16 @@
         {
           "path": "/api/bandi/regolarita",
           "method": "GET",
-          "description": "Lista stato regolarit\u00e0 imprese (DURC, SCIA, Autorizzazioni)",
+          "description": "Lista stato regolarità imprese (DURC, SCIA, Autorizzazioni)",
           "params": "tipo, stato, impresa_id (opzionali)",
-          "response": "Lista regolarit\u00e0 con stato e scadenze",
+          "response": "Lista regolarità con stato e scadenze",
           "category": "Bandi",
           "auth": "optional"
         },
         {
           "path": "/api/bandi/regolarita/:id",
           "method": "PUT",
-          "description": "Aggiorna stato regolarit\u00e0 impresa",
+          "description": "Aggiorna stato regolarità impresa",
           "body": "stato, numero_documento, data_rilascio, data_scadenza, ente_rilascio, note",
           "response": "Record aggiornato",
           "category": "Bandi",
@@ -11110,7 +11254,7 @@
         {
           "path": "/api/bandi/regolarita/stats",
           "method": "GET",
-          "description": "Statistiche regolarit\u00e0 con imprese problematiche (DURC irregolare, SCIA scaduta)",
+          "description": "Statistiche regolarità con imprese problematiche (DURC irregolare, SCIA scaduta)",
           "response": "Conteggi per stato/tipo e lista imprese con problemi",
           "category": "Bandi",
           "auth": "optional"
@@ -11247,8 +11391,8 @@
         {
           "path": "/api/public/search",
           "method": "GET",
-          "description": "Ricerca pubblica per mercati, imprese, citt\u00e0, vetrine e merceologia",
-          "response": "Lista risultati con tipo, nome, citt\u00e0, descrizione",
+          "description": "Ricerca pubblica per mercati, imprese, città, vetrine e merceologia",
+          "response": "Lista risultati con tipo, nome, città, descrizione",
           "category": "Public Search",
           "auth": "none",
           "params": {
@@ -11309,7 +11453,7 @@
           "path": "/api/pm/watchlist",
           "method": "GET",
           "description": "Lista imprese da controllare (watchlist PM)",
-          "response": "Lista con impresa, motivo, priorit\u00e0, data",
+          "response": "Lista con impresa, motivo, priorità, data",
           "category": "Polizia Municipale",
           "auth": "optional"
         },
