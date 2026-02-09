@@ -8971,6 +8971,53 @@
           "implementation_note": "REST endpoint in mihub-backend-rest/routes/presenze.js"
         },
         {
+          "id": "presenze.impresa_id",
+          "method": "GET",
+          "path": "/api/presenze/impresa/:id",
+          "category": "Presenze",
+          "description": "Storico presenze per impresa - usato dal tab Presenze in Anagrafica App Impresa",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200,
+            "test_path": "/api/presenze/impresa/38"
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/presenze.js - v4.4.2"
+        },
+        {
+          "id": "presenze.sessioni",
+          "method": "GET",
+          "path": "/api/presenze/sessioni",
+          "category": "Presenze",
+          "description": "Lista sessioni mercato dalla tabella market_sessions",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200,
+            "test_path": "/api/presenze/sessioni"
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/presenze.js"
+        },
+        {
+          "id": "presenze.sessioni_id_dettaglio",
+          "method": "GET",
+          "path": "/api/presenze/sessioni/:id/dettaglio",
+          "category": "Presenze",
+          "description": "Dettaglio presenze per sessione specifica",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/presenze.js"
+        },
+        {
           "id": "public_search.search",
           "method": "GET",
           "path": "/api/public-search/search",
