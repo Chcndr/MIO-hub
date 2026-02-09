@@ -1,5 +1,5 @@
 {
-  "version": 39,
+  "version": 40,
   "last_updated": "2026-01-29T03:00:00Z",
   "services": [
     {
@@ -8054,6 +8054,96 @@
             "expected_status": 200
           },
           "implementation_note": "REST endpoint in mihub-backend-rest/routes/collaboratori.js"
+        },
+        {
+          "id": "giustificazioni.create",
+          "method": "POST",
+          "path": "/api/giustificazioni",
+          "category": "Giustificazioni Impresa",
+          "description": "Crea nuova giustificazione con upload file (certificato medico, uscita anticipata)",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/giustificazioni.js — multipart/form-data upload to S3"
+        },
+        {
+          "id": "giustificazioni.listByImpresa",
+          "method": "GET",
+          "path": "/api/giustificazioni/impresa/:id",
+          "category": "Giustificazioni Impresa",
+          "description": "Storico giustificazioni per impresa con JOIN markets, comuni, imprese",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/giustificazioni.js"
+        },
+        {
+          "id": "giustificazioni.pendenti",
+          "method": "GET",
+          "path": "/api/giustificazioni/pendenti",
+          "category": "Giustificazioni Impresa",
+          "description": "Lista giustificazioni pendenti (INVIATA) per revisione PM, filtro per comune_id",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/giustificazioni.js"
+        },
+        {
+          "id": "giustificazioni.list",
+          "method": "GET",
+          "path": "/api/giustificazioni",
+          "category": "Giustificazioni Impresa",
+          "description": "Lista tutte le giustificazioni con filtri comune_id, impresa_id, status",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/giustificazioni.js"
+        },
+        {
+          "id": "giustificazioni.review",
+          "method": "PUT",
+          "path": "/api/giustificazioni/:id/review",
+          "category": "Giustificazioni Impresa",
+          "description": "Approva o rifiuta giustificazione (PM review) — action: APPROVE/REJECT",
+          "risk_level": "high",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/giustificazioni.js"
+        },
+        {
+          "id": "giustificazioni.delete",
+          "method": "DELETE",
+          "path": "/api/giustificazioni/:id",
+          "category": "Giustificazioni Impresa",
+          "description": "Elimina giustificazione (solo se status INVIATA, non ancora revisionata)",
+          "risk_level": "high",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/giustificazioni.js"
         },
         {
           "id": "inspections.",
