@@ -7981,6 +7981,81 @@
           "implementation_note": "REST endpoint in mihub-backend-rest/routes/imprese.js"
         },
         {
+          "id": "collaboratori.list",
+          "method": "GET",
+          "path": "/api/collaboratori?impresa_id=:id",
+          "category": "Collaboratori Impresa",
+          "description": "Lista collaboratori di un'impresa (familiari, soci, dipendenti) per autorizzazione presenze App DMS",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/collaboratori.js"
+        },
+        {
+          "id": "collaboratori.create",
+          "method": "POST",
+          "path": "/api/collaboratori",
+          "category": "Collaboratori Impresa",
+          "description": "Crea nuovo collaboratore impresa con dati anagrafici e autorizzazione presenze",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 201
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/collaboratori.js"
+        },
+        {
+          "id": "collaboratori.update",
+          "method": "PUT",
+          "path": "/api/collaboratori/:id",
+          "category": "Collaboratori Impresa",
+          "description": "Aggiorna dati collaboratore impresa",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/collaboratori.js"
+        },
+        {
+          "id": "collaboratori.togglePresenze",
+          "method": "PATCH",
+          "path": "/api/collaboratori/:id/toggle-presenze",
+          "category": "Collaboratori Impresa",
+          "description": "Toggle autorizzazione presenze per collaboratore (abilita/disabilita accesso App DMS)",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/collaboratori.js"
+        },
+        {
+          "id": "collaboratori.delete",
+          "method": "DELETE",
+          "path": "/api/collaboratori/:id",
+          "category": "Collaboratori Impresa",
+          "description": "Disattiva collaboratore impresa (soft delete)",
+          "risk_level": "high",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implementation_note": "REST endpoint in mihub-backend-rest/routes/collaboratori.js"
+        },
+        {
           "id": "inspections.",
           "method": "GET",
           "path": "/api/inspections/",
