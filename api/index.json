@@ -1,6 +1,6 @@
 {
-  "version": 41,
-  "last_updated": "2026-02-09T22:00:00Z",
+  "version": 42,
+  "last_updated": "2026-04-28T20:02:45Z",
   "services": [
     {
       "id": "dms-hub",
@@ -11221,6 +11221,3462 @@
             "enabled": false,
             "note": "Bloccato fino a connessione"
           }
+        },
+        {
+          "id": "ai_chat.stream.post",
+          "method": "POST",
+          "path": "/api/ai-chat/stream",
+          "category": "Ai-Chat",
+          "description": "============================================================================",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From ai-chat.js"
+        },
+        {
+          "id": "ai_chat.conversations.get",
+          "method": "GET",
+          "path": "/api/ai-chat/conversations",
+          "category": "Ai-Chat",
+          "description": "============================================================================",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From ai-chat.js"
+        },
+        {
+          "id": "ai_chat.conversations.post",
+          "method": "POST",
+          "path": "/api/ai-chat/conversations",
+          "category": "Ai-Chat",
+          "description": "============================================================================",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From ai-chat.js"
+        },
+        {
+          "id": "ai_chat.conversations.id.patch",
+          "method": "PATCH",
+          "path": "/api/ai-chat/conversations/:id",
+          "category": "Ai-Chat",
+          "description": "============================================================================",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From ai-chat.js"
+        },
+        {
+          "id": "ai_chat.conversations.id.delete",
+          "method": "DELETE",
+          "path": "/api/ai-chat/conversations/:id",
+          "category": "Ai-Chat",
+          "description": "============================================================================",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From ai-chat.js"
+        },
+        {
+          "id": "ai_chat.conversations.id.messages.get",
+          "method": "GET",
+          "path": "/api/ai-chat/conversations/:id/messages",
+          "category": "Ai-Chat",
+          "description": "============================================================================",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From ai-chat.js"
+        },
+        {
+          "id": "ai_chat.quota.get",
+          "method": "GET",
+          "path": "/api/ai-chat/quota",
+          "category": "Ai-Chat",
+          "description": "============================================================================",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From ai-chat.js"
+        },
+        {
+          "id": "ai_chat.health.get",
+          "method": "GET",
+          "path": "/api/ai-chat/health",
+          "category": "Ai-Chat",
+          "description": "============================================================================",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From ai-chat.js"
+        },
+        {
+          "id": "ai_chat.feedback.post",
+          "method": "POST",
+          "path": "/api/ai-chat/feedback",
+          "category": "Ai-Chat",
+          "description": "============================================================================",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From ai-chat.js"
+        },
+        {
+          "id": "associazioni_v9.id.scheda_pubblica.get",
+          "method": "GET",
+          "path": "/api/associazioni-v9/:id/scheda-pubblica",
+          "category": "Associazioni-V9",
+          "description": "GET :id/scheda-pubblica",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From associazioni-v9.js"
+        },
+        {
+          "id": "associazioni_v9.id.scheda_pubblica.put",
+          "method": "PUT",
+          "path": "/api/associazioni-v9/:id/scheda-pubblica",
+          "category": "Associazioni-V9",
+          "description": "PUT :id/scheda-pubblica",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From associazioni-v9.js"
+        },
+        {
+          "id": "associazioni_v9.id.servizi.get",
+          "method": "GET",
+          "path": "/api/associazioni-v9/:id/servizi",
+          "category": "Associazioni-V9",
+          "description": "GET :id/servizi",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From associazioni-v9.js"
+        },
+        {
+          "id": "associazioni_v9.id.servizi.post",
+          "method": "POST",
+          "path": "/api/associazioni-v9/:id/servizi",
+          "category": "Associazioni-V9",
+          "description": "POST :id/servizi",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From associazioni-v9.js"
+        },
+        {
+          "id": "associazioni_v9.id.servizi.sid.put",
+          "method": "PUT",
+          "path": "/api/associazioni-v9/:id/servizi/:sid",
+          "category": "Associazioni-V9",
+          "description": "PUT servizi/:sid",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From associazioni-v9.js"
+        },
+        {
+          "id": "associazioni_v9.id.servizi.sid.delete",
+          "method": "DELETE",
+          "path": "/api/associazioni-v9/:id/servizi/:sid",
+          "category": "Associazioni-V9",
+          "description": "DELETE servizi/:sid",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From associazioni-v9.js"
+        },
+        {
+          "id": "associazioni_v9.id.richieste_servizi.get",
+          "method": "GET",
+          "path": "/api/associazioni-v9/:id/richieste-servizi",
+          "category": "Associazioni-V9",
+          "description": "GET :id/richieste-servizi",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From associazioni-v9.js"
+        },
+        {
+          "id": "associazioni_v9.id.richieste_servizi.rid.stato.put",
+          "method": "PUT",
+          "path": "/api/associazioni-v9/:id/richieste-servizi/:rid/stato",
+          "category": "Associazioni-V9",
+          "description": "PUT :rid/stato",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From associazioni-v9.js"
+        },
+        {
+          "id": "associazioni_v9.id.corsi.get",
+          "method": "GET",
+          "path": "/api/associazioni-v9/:id/corsi",
+          "category": "Associazioni-V9",
+          "description": "GET :id/corsi",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From associazioni-v9.js"
+        },
+        {
+          "id": "associazioni_v9.id.corsi.post",
+          "method": "POST",
+          "path": "/api/associazioni-v9/:id/corsi",
+          "category": "Associazioni-V9",
+          "description": "POST :id/corsi",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From associazioni-v9.js"
+        },
+        {
+          "id": "associazioni_v9.id.corsi.cid.put",
+          "method": "PUT",
+          "path": "/api/associazioni-v9/:id/corsi/:cid",
+          "category": "Associazioni-V9",
+          "description": "PUT corsi/:cid",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From associazioni-v9.js"
+        },
+        {
+          "id": "associazioni_v9.id.corsi.cid.delete",
+          "method": "DELETE",
+          "path": "/api/associazioni-v9/:id/corsi/:cid",
+          "category": "Associazioni-V9",
+          "description": "DELETE corsi/:cid",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From associazioni-v9.js"
+        },
+        {
+          "id": "associazioni_v9.id.iscrizioni_corsi.get",
+          "method": "GET",
+          "path": "/api/associazioni-v9/:id/iscrizioni-corsi",
+          "category": "Associazioni-V9",
+          "description": "GET :id/iscrizioni-corsi",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From associazioni-v9.js"
+        },
+        {
+          "id": "associazioni_v9.id.corsi.cid.rilascia_attestato.post",
+          "method": "POST",
+          "path": "/api/associazioni-v9/:id/corsi/:cid/rilascia-attestato",
+          "category": "Associazioni-V9",
+          "description": "POST :cid/rilascia-attestato",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From associazioni-v9.js"
+        },
+        {
+          "id": "associazioni_v9.id.wallet.get",
+          "method": "GET",
+          "path": "/api/associazioni-v9/:id/wallet",
+          "category": "Associazioni-V9",
+          "description": "GET :id/wallet",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From associazioni-v9.js"
+        },
+        {
+          "id": "associazioni_v9.id.wallet.transazioni.get",
+          "method": "GET",
+          "path": "/api/associazioni-v9/:id/wallet/transazioni",
+          "category": "Associazioni-V9",
+          "description": "GET wallet/transazioni",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From associazioni-v9.js"
+        },
+        {
+          "id": "associazioni.get",
+          "method": "GET",
+          "path": "/api/associazioni",
+          "category": "Associazioni",
+          "description": "GET api/associazioni",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From associazioni.js"
+        },
+        {
+          "id": "associazioni.pubbliche.get",
+          "method": "GET",
+          "path": "/api/associazioni/pubbliche",
+          "category": "Associazioni",
+          "description": "============================================================================",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From associazioni.js"
+        },
+        {
+          "id": "associazioni.id.get",
+          "method": "GET",
+          "path": "/api/associazioni/:id",
+          "category": "Associazioni",
+          "description": "GET associazioni/:id",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From associazioni.js"
+        },
+        {
+          "id": "associazioni.post",
+          "method": "POST",
+          "path": "/api/associazioni",
+          "category": "Associazioni",
+          "description": "POST api/associazioni",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From associazioni.js"
+        },
+        {
+          "id": "associazioni.id.put",
+          "method": "PUT",
+          "path": "/api/associazioni/:id",
+          "category": "Associazioni",
+          "description": "PUT associazioni/:id",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From associazioni.js"
+        },
+        {
+          "id": "associazioni.id.delete",
+          "method": "DELETE",
+          "path": "/api/associazioni/:id",
+          "category": "Associazioni",
+          "description": "DELETE associazioni/:id",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From associazioni.js"
+        },
+        {
+          "id": "associazioni.id.contratti.get",
+          "method": "GET",
+          "path": "/api/associazioni/:id/contratti",
+          "category": "Associazioni",
+          "description": "GET :id/contratti",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From associazioni.js"
+        },
+        {
+          "id": "associazioni.id.contratti.post",
+          "method": "POST",
+          "path": "/api/associazioni/:id/contratti",
+          "category": "Associazioni",
+          "description": "POST :id/contratti",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From associazioni.js"
+        },
+        {
+          "id": "associazioni.contratti.contrattoId.put",
+          "method": "PUT",
+          "path": "/api/associazioni/contratti/:contrattoId",
+          "category": "Associazioni",
+          "description": "PUT contratti/:contrattoId",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From associazioni.js"
+        },
+        {
+          "id": "associazioni.contratti.contrattoId.delete",
+          "method": "DELETE",
+          "path": "/api/associazioni/contratti/:contrattoId",
+          "category": "Associazioni",
+          "description": "DELETE contratti/:contrattoId",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From associazioni.js"
+        },
+        {
+          "id": "associazioni.id.fatture.get",
+          "method": "GET",
+          "path": "/api/associazioni/:id/fatture",
+          "category": "Associazioni",
+          "description": "GET :id/fatture",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From associazioni.js"
+        },
+        {
+          "id": "associazioni.id.fatture.post",
+          "method": "POST",
+          "path": "/api/associazioni/:id/fatture",
+          "category": "Associazioni",
+          "description": "POST :id/fatture",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From associazioni.js"
+        },
+        {
+          "id": "associazioni.fatture.fatturaId.put",
+          "method": "PUT",
+          "path": "/api/associazioni/fatture/:fatturaId",
+          "category": "Associazioni",
+          "description": "PUT fatture/:fatturaId",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From associazioni.js"
+        },
+        {
+          "id": "associazioni.id.utenti.get",
+          "method": "GET",
+          "path": "/api/associazioni/:id/utenti",
+          "category": "Associazioni",
+          "description": "GET :id/utenti",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From associazioni.js"
+        },
+        {
+          "id": "associazioni.id.utenti.post",
+          "method": "POST",
+          "path": "/api/associazioni/:id/utenti",
+          "category": "Associazioni",
+          "description": "POST :id/utenti",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From associazioni.js"
+        },
+        {
+          "id": "associazioni.utenti.assegnazioneId.put",
+          "method": "PUT",
+          "path": "/api/associazioni/utenti/:assegnazioneId",
+          "category": "Associazioni",
+          "description": "PUT utenti/:assegnazioneId",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From associazioni.js"
+        },
+        {
+          "id": "associazioni.utenti.assegnazioneId.delete",
+          "method": "DELETE",
+          "path": "/api/associazioni/utenti/:assegnazioneId",
+          "category": "Associazioni",
+          "description": "DELETE utenti/:assegnazioneId",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From associazioni.js"
+        },
+        {
+          "id": "associazioni.id.utenti.stats.get",
+          "method": "GET",
+          "path": "/api/associazioni/:id/utenti/stats",
+          "category": "Associazioni",
+          "description": "GET utenti/stats",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From associazioni.js"
+        },
+        {
+          "id": "associazioni.id.provision_admin.post",
+          "method": "POST",
+          "path": "/api/associazioni/:id/provision-admin",
+          "category": "Associazioni",
+          "description": "POST :id/provision-admin",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From associazioni.js"
+        },
+        {
+          "id": "associazioni.id.admin_credentials.get",
+          "method": "GET",
+          "path": "/api/associazioni/:id/admin-credentials",
+          "category": "Associazioni",
+          "description": "GET :id/admin-credentials",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From associazioni.js"
+        },
+        {
+          "id": "associazioni.id.tesseramenti.get",
+          "method": "GET",
+          "path": "/api/associazioni/:id/tesseramenti",
+          "category": "Associazioni",
+          "description": "GET :id/tesseramenti",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From associazioni.js"
+        },
+        {
+          "id": "associazioni.id.tesseramenti.tesseramentoId.get",
+          "method": "GET",
+          "path": "/api/associazioni/:id/tesseramenti/:tesseramentoId",
+          "category": "Associazioni",
+          "description": "GET tesseramenti/:tesseramentoId",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From associazioni.js"
+        },
+        {
+          "id": "associazioni.id.tesseramenti.post",
+          "method": "POST",
+          "path": "/api/associazioni/:id/tesseramenti",
+          "category": "Associazioni",
+          "description": "POST :id/tesseramenti",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From associazioni.js"
+        },
+        {
+          "id": "associazioni.id.tesseramenti.tesseramentoId.put",
+          "method": "PUT",
+          "path": "/api/associazioni/:id/tesseramenti/:tesseramentoId",
+          "category": "Associazioni",
+          "description": "PUT tesseramenti/:tesseramentoId",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From associazioni.js"
+        },
+        {
+          "id": "associazioni.id.tesseramenti.tesseramentoId.delete",
+          "method": "DELETE",
+          "path": "/api/associazioni/:id/tesseramenti/:tesseramentoId",
+          "category": "Associazioni",
+          "description": "DELETE tesseramenti/:tesseramentoId",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From associazioni.js"
+        },
+        {
+          "id": "associazioni.id.tesseramenti.tesseramentoId.scheda.get",
+          "method": "GET",
+          "path": "/api/associazioni/:id/tesseramenti/:tesseramentoId/scheda",
+          "category": "Associazioni",
+          "description": "GET :tesseramentoId/scheda",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From associazioni.js"
+        },
+        {
+          "id": "associazioni.id.notifiche.get",
+          "method": "GET",
+          "path": "/api/associazioni/:id/notifiche",
+          "category": "Associazioni",
+          "description": "GET :id/notifiche",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From associazioni.js"
+        },
+        {
+          "id": "associazioni.id.notifiche.nid.letta.put",
+          "method": "PUT",
+          "path": "/api/associazioni/:id/notifiche/:nid/letta",
+          "category": "Associazioni",
+          "description": "PUT :nid/letta",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From associazioni.js"
+        },
+        {
+          "id": "associazioni.id.notifiche.lette_tutte.put",
+          "method": "PUT",
+          "path": "/api/associazioni/:id/notifiche/lette-tutte",
+          "category": "Associazioni",
+          "description": "PUT notifiche/lette-tutte",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From associazioni.js"
+        },
+        {
+          "id": "associazioni.id.pagina.get",
+          "method": "GET",
+          "path": "/api/associazioni/:id/pagina",
+          "category": "Associazioni",
+          "description": "============================================================================",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From associazioni.js"
+        },
+        {
+          "id": "associazioni.id.pagina.put",
+          "method": "PUT",
+          "path": "/api/associazioni/:id/pagina",
+          "category": "Associazioni",
+          "description": "============================================================================",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From associazioni.js"
+        },
+        {
+          "id": "associazioni.id.tesseramenti.richiedi.post",
+          "method": "POST",
+          "path": "/api/associazioni/:id/tesseramenti/richiedi",
+          "category": "Associazioni",
+          "description": "============================================================================",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From associazioni.js"
+        },
+        {
+          "id": "auth.check_roles.get",
+          "method": "GET",
+          "path": "/api/auth/check-roles",
+          "category": "Auth",
+          "description": "============================================",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From auth.js"
+        },
+        {
+          "id": "auth.firebase_session.post",
+          "method": "POST",
+          "path": "/api/auth/firebase-session",
+          "category": "Auth",
+          "description": "============================================",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From auth.js"
+        },
+        {
+          "id": "auth.bootstrap_admin.post",
+          "method": "POST",
+          "path": "/api/auth/bootstrap-admin",
+          "category": "Auth",
+          "description": "============================================",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From auth.js"
+        },
+        {
+          "id": "billing.id.billing_tariffe.get",
+          "method": "GET",
+          "path": "/api/billing/:id/billing-tariffe",
+          "category": "Billing",
+          "description": "============================================================",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From billing.js"
+        },
+        {
+          "id": "billing.id.billing_tariffe.post",
+          "method": "POST",
+          "path": "/api/billing/:id/billing-tariffe",
+          "category": "Billing",
+          "description": "============================================================",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From billing.js"
+        },
+        {
+          "id": "billing.billing_tariffe.tariffaId.put",
+          "method": "PUT",
+          "path": "/api/billing/billing-tariffe/:tariffaId",
+          "category": "Billing",
+          "description": "============================================================",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From billing.js"
+        },
+        {
+          "id": "billing.billing_tariffe.tariffaId.delete",
+          "method": "DELETE",
+          "path": "/api/billing/billing-tariffe/:tariffaId",
+          "category": "Billing",
+          "description": "============================================================",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From billing.js"
+        },
+        {
+          "id": "billing.id.billing_tariffe.init_defaults.post",
+          "method": "POST",
+          "path": "/api/billing/:id/billing-tariffe/init-defaults",
+          "category": "Billing",
+          "description": "============================================================",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From billing.js"
+        },
+        {
+          "id": "billing.id.billing_summary.get",
+          "method": "GET",
+          "path": "/api/billing/:id/billing-summary",
+          "category": "Billing",
+          "description": "============================================================",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From billing.js"
+        },
+        {
+          "id": "billing.id.billing_genera_fattura.post",
+          "method": "POST",
+          "path": "/api/billing/:id/billing-genera-fattura",
+          "category": "Billing",
+          "description": "============================================================",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From billing.js"
+        },
+        {
+          "id": "billing.fatture.fatturaId.dettaglio.get",
+          "method": "GET",
+          "path": "/api/billing/fatture/:fatturaId/dettaglio",
+          "category": "Billing",
+          "description": "============================================================",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From billing.js"
+        },
+        {
+          "id": "billing.fatture.fatturaId.pdf.get",
+          "method": "GET",
+          "path": "/api/billing/fatture/:fatturaId/pdf",
+          "category": "Billing",
+          "description": "============================================================",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From billing.js"
+        },
+        {
+          "id": "citizens.id.eco_credit.patch",
+          "method": "PATCH",
+          "path": "/api/citizens/:id/eco-credit",
+          "category": "Citizens",
+          "description": "PATCH /api/citizens/:id/eco-credit - Attiva/Disattiva ECO CREDIT per un cittadino",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From citizens.js"
+        },
+        {
+          "id": "civic_reports.fix_comune_ids.post",
+          "method": "POST",
+          "path": "/api/civic-reports/fix-comune-ids",
+          "category": "Civic-Reports",
+          "description": "POST civic-reports/fix-comune-ids",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From civic-reports.js"
+        },
+        {
+          "id": "collaboratori.get",
+          "method": "GET",
+          "path": "/api/collaboratori",
+          "category": "Collaboratori",
+          "description": "============================================================================",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From collaboratori.js"
+        },
+        {
+          "id": "concessions.storico_titolarita.mercato.market_id.get",
+          "method": "GET",
+          "path": "/api/concessions/storico-titolarita/mercato/:market_id",
+          "category": "Concessioni",
+          "description": "============================================================================",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From concessions.js"
+        },
+        {
+          "id": "concessions.storico_titolarita.posteggio_id.get",
+          "method": "GET",
+          "path": "/api/concessions/storico-titolarita/:posteggio_id",
+          "category": "Concessioni",
+          "description": "============================================================================",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From concessions.js"
+        },
+        {
+          "id": "dms_legacy.health.get",
+          "method": "GET",
+          "path": "/api/dms-legacy/health",
+          "category": "Dms-Legacy",
+          "description": "GET dms-legacy/health",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From dms-legacy.js"
+        },
+        {
+          "id": "dms_legacy.status.get",
+          "method": "GET",
+          "path": "/api/dms-legacy/status",
+          "category": "Dms-Legacy",
+          "description": "GET dms-legacy/status",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From dms-legacy.js"
+        },
+        {
+          "id": "dms_legacy.markets.get",
+          "method": "GET",
+          "path": "/api/dms-legacy/markets",
+          "category": "Dms-Legacy",
+          "description": "==========================================",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From dms-legacy.js"
+        },
+        {
+          "id": "dms_legacy.vendors.get",
+          "method": "GET",
+          "path": "/api/dms-legacy/vendors",
+          "category": "Dms-Legacy",
+          "description": "GET dms-legacy/vendors",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From dms-legacy.js"
+        },
+        {
+          "id": "dms_legacy.concessions.get",
+          "method": "GET",
+          "path": "/api/dms-legacy/concessions",
+          "category": "Dms-Legacy",
+          "description": "GET dms-legacy/concessions",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From dms-legacy.js"
+        },
+        {
+          "id": "dms_legacy.presences.marketId.get",
+          "method": "GET",
+          "path": "/api/dms-legacy/presences/:marketId",
+          "category": "Dms-Legacy",
+          "description": "GET presences/:marketId",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From dms-legacy.js"
+        },
+        {
+          "id": "dms_legacy.market_sessions.marketId.get",
+          "method": "GET",
+          "path": "/api/dms-legacy/market-sessions/:marketId",
+          "category": "Dms-Legacy",
+          "description": "GET market-sessions/:marketId",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From dms-legacy.js"
+        },
+        {
+          "id": "dms_legacy.stalls.marketId.get",
+          "method": "GET",
+          "path": "/api/dms-legacy/stalls/:marketId",
+          "category": "Dms-Legacy",
+          "description": "GET stalls/:marketId",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From dms-legacy.js"
+        },
+        {
+          "id": "dms_legacy.spuntisti.get",
+          "method": "GET",
+          "path": "/api/dms-legacy/spuntisti",
+          "category": "Dms-Legacy",
+          "description": "GET dms-legacy/spuntisti",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From dms-legacy.js"
+        },
+        {
+          "id": "dms_legacy.documents.get",
+          "method": "GET",
+          "path": "/api/dms-legacy/documents",
+          "category": "Dms-Legacy",
+          "description": "GET dms-legacy/documents",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From dms-legacy.js"
+        },
+        {
+          "id": "dms_legacy.stats.get",
+          "method": "GET",
+          "path": "/api/dms-legacy/stats",
+          "category": "Dms-Legacy",
+          "description": "GET dms-legacy/stats",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From dms-legacy.js"
+        },
+        {
+          "id": "dms_legacy.sync_out.vendor.post",
+          "method": "POST",
+          "path": "/api/dms-legacy/sync-out/vendor",
+          "category": "Dms-Legacy",
+          "description": "POST sync-out/vendor",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From dms-legacy.js"
+        },
+        {
+          "id": "dms_legacy.sync_out.market.post",
+          "method": "POST",
+          "path": "/api/dms-legacy/sync-out/market",
+          "category": "Dms-Legacy",
+          "description": "POST sync-out/market",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From dms-legacy.js"
+        },
+        {
+          "id": "dms_legacy.sync_out.stall.post",
+          "method": "POST",
+          "path": "/api/dms-legacy/sync-out/stall",
+          "category": "Dms-Legacy",
+          "description": "POST sync-out/stall",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From dms-legacy.js"
+        },
+        {
+          "id": "dms_legacy.sync_out.concession.post",
+          "method": "POST",
+          "path": "/api/dms-legacy/sync-out/concession",
+          "category": "Dms-Legacy",
+          "description": "POST sync-out/concession",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From dms-legacy.js"
+        },
+        {
+          "id": "dms_legacy.sync_out.spuntista.post",
+          "method": "POST",
+          "path": "/api/dms-legacy/sync-out/spuntista",
+          "category": "Dms-Legacy",
+          "description": "POST sync-out/spuntista",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From dms-legacy.js"
+        },
+        {
+          "id": "dms_legacy.sync_out.user.post",
+          "method": "POST",
+          "path": "/api/dms-legacy/sync-out/user",
+          "category": "Dms-Legacy",
+          "description": "POST sync-out/user",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From dms-legacy.js"
+        },
+        {
+          "id": "dms_legacy.sync_out.wallet.post",
+          "method": "POST",
+          "path": "/api/dms-legacy/sync-out/wallet",
+          "category": "Dms-Legacy",
+          "description": "POST sync-out/wallet",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From dms-legacy.js"
+        },
+        {
+          "id": "dms_legacy.sync_out.mkt_prezzo.post",
+          "method": "POST",
+          "path": "/api/dms-legacy/sync-out/mkt-prezzo",
+          "category": "Dms-Legacy",
+          "description": "POST sync-out/mkt-prezzo",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From dms-legacy.js"
+        },
+        {
+          "id": "dms_legacy.sync_out.all.post",
+          "method": "POST",
+          "path": "/api/dms-legacy/sync-out/all",
+          "category": "Dms-Legacy",
+          "description": "POST sync-out/all",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From dms-legacy.js"
+        },
+        {
+          "id": "dms_legacy.sync_in.presences.marketId.post",
+          "method": "POST",
+          "path": "/api/dms-legacy/sync-in/presences/:marketId",
+          "category": "Dms-Legacy",
+          "description": "POST presences/:marketId",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From dms-legacy.js"
+        },
+        {
+          "id": "dms_legacy.sync_in.sessions.marketId.post",
+          "method": "POST",
+          "path": "/api/dms-legacy/sync-in/sessions/:marketId",
+          "category": "Dms-Legacy",
+          "description": "POST sessions/:marketId",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From dms-legacy.js"
+        },
+        {
+          "id": "dms_legacy.sync.post",
+          "method": "POST",
+          "path": "/api/dms-legacy/sync",
+          "category": "Dms-Legacy",
+          "description": "POST dms-legacy/sync",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From dms-legacy.js"
+        },
+        {
+          "id": "dms_legacy.cron_sync.post",
+          "method": "POST",
+          "path": "/api/dms-legacy/cron-sync",
+          "category": "Dms-Legacy",
+          "description": "POST dms-legacy/cron-sync",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From dms-legacy.js"
+        },
+        {
+          "id": "gaming_rewards.config.get",
+          "method": "GET",
+          "path": "/api/gaming-rewards/config",
+          "category": "Gaming-Rewards",
+          "description": "GET gaming-rewards/config",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From gaming-rewards.js"
+        },
+        {
+          "id": "gaming_rewards.config.all.get",
+          "method": "GET",
+          "path": "/api/gaming-rewards/config/all",
+          "category": "Gaming-Rewards",
+          "description": "GET config/all",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From gaming-rewards.js"
+        },
+        {
+          "id": "gaming_rewards.config.post",
+          "method": "POST",
+          "path": "/api/gaming-rewards/config",
+          "category": "Gaming-Rewards",
+          "description": "POST gaming-rewards/config",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From gaming-rewards.js"
+        },
+        {
+          "id": "gaming_rewards.config.put",
+          "method": "PUT",
+          "path": "/api/gaming-rewards/config",
+          "category": "Gaming-Rewards",
+          "description": "PUT gaming-rewards/config",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From gaming-rewards.js"
+        },
+        {
+          "id": "gaming_rewards.mobility.start_tracking.post",
+          "method": "POST",
+          "path": "/api/gaming-rewards/mobility/start-tracking",
+          "category": "Gaming-Rewards",
+          "description": "POST mobility/start-tracking",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From gaming-rewards.js"
+        },
+        {
+          "id": "gaming_rewards.mobility.complete.post",
+          "method": "POST",
+          "path": "/api/gaming-rewards/mobility/complete",
+          "category": "Gaming-Rewards",
+          "description": "POST mobility/complete",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From gaming-rewards.js"
+        },
+        {
+          "id": "gaming_rewards.mobility.checkin.post",
+          "method": "POST",
+          "path": "/api/gaming-rewards/mobility/checkin",
+          "category": "Gaming-Rewards",
+          "description": "POST mobility/checkin",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From gaming-rewards.js"
+        },
+        {
+          "id": "gaming_rewards.mobility.history.get",
+          "method": "GET",
+          "path": "/api/gaming-rewards/mobility/history",
+          "category": "Gaming-Rewards",
+          "description": "GET mobility/history",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From gaming-rewards.js"
+        },
+        {
+          "id": "gaming_rewards.mobility.stats.get",
+          "method": "GET",
+          "path": "/api/gaming-rewards/mobility/stats",
+          "category": "Gaming-Rewards",
+          "description": "GET mobility/stats",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From gaming-rewards.js"
+        },
+        {
+          "id": "gaming_rewards.mobility.heatmap.get",
+          "method": "GET",
+          "path": "/api/gaming-rewards/mobility/heatmap",
+          "category": "Gaming-Rewards",
+          "description": "GET mobility/heatmap",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From gaming-rewards.js"
+        },
+        {
+          "id": "gaming_rewards.culture.checkin.post",
+          "method": "POST",
+          "path": "/api/gaming-rewards/culture/checkin",
+          "category": "Gaming-Rewards",
+          "description": "POST culture/checkin",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From gaming-rewards.js"
+        },
+        {
+          "id": "gaming_rewards.culture.history.get",
+          "method": "GET",
+          "path": "/api/gaming-rewards/culture/history",
+          "category": "Gaming-Rewards",
+          "description": "GET culture/history",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From gaming-rewards.js"
+        },
+        {
+          "id": "gaming_rewards.culture.stats.get",
+          "method": "GET",
+          "path": "/api/gaming-rewards/culture/stats",
+          "category": "Gaming-Rewards",
+          "description": "GET culture/stats",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From gaming-rewards.js"
+        },
+        {
+          "id": "gaming_rewards.culture.heatmap.get",
+          "method": "GET",
+          "path": "/api/gaming-rewards/culture/heatmap",
+          "category": "Gaming-Rewards",
+          "description": "GET culture/heatmap",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From gaming-rewards.js"
+        },
+        {
+          "id": "gaming_rewards.nearby_pois.get",
+          "method": "GET",
+          "path": "/api/gaming-rewards/nearby-pois",
+          "category": "Gaming-Rewards",
+          "description": "GET gaming-rewards/nearby-pois",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From gaming-rewards.js"
+        },
+        {
+          "id": "gaming_rewards.top_shops.get",
+          "method": "GET",
+          "path": "/api/gaming-rewards/top-shops",
+          "category": "Gaming-Rewards",
+          "description": "GET gaming-rewards/top-shops",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From gaming-rewards.js"
+        },
+        {
+          "id": "gaming_rewards.trend.get",
+          "method": "GET",
+          "path": "/api/gaming-rewards/trend",
+          "category": "Gaming-Rewards",
+          "description": "GET gaming-rewards/trend",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From gaming-rewards.js"
+        },
+        {
+          "id": "gaming_rewards.stats.get",
+          "method": "GET",
+          "path": "/api/gaming-rewards/stats",
+          "category": "Gaming-Rewards",
+          "description": "GET gaming-rewards/stats",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From gaming-rewards.js"
+        },
+        {
+          "id": "gaming_rewards.heatmap.get",
+          "method": "GET",
+          "path": "/api/gaming-rewards/heatmap",
+          "category": "Gaming-Rewards",
+          "description": "GET gaming-rewards/heatmap",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From gaming-rewards.js"
+        },
+        {
+          "id": "gaming_rewards.referral.generate.post",
+          "method": "POST",
+          "path": "/api/gaming-rewards/referral/generate",
+          "category": "Gaming-Rewards",
+          "description": "POST referral/generate",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From gaming-rewards.js"
+        },
+        {
+          "id": "gaming_rewards.referral.validate.code.get",
+          "method": "GET",
+          "path": "/api/gaming-rewards/referral/validate/:code",
+          "category": "Gaming-Rewards",
+          "description": "GET validate/:code",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From gaming-rewards.js"
+        },
+        {
+          "id": "gaming_rewards.referral.register.post",
+          "method": "POST",
+          "path": "/api/gaming-rewards/referral/register",
+          "category": "Gaming-Rewards",
+          "description": "POST referral/register",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From gaming-rewards.js"
+        },
+        {
+          "id": "gaming_rewards.referral.first_purchase.post",
+          "method": "POST",
+          "path": "/api/gaming-rewards/referral/first-purchase",
+          "category": "Gaming-Rewards",
+          "description": "POST referral/first-purchase",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From gaming-rewards.js"
+        },
+        {
+          "id": "gaming_rewards.referral.stats.user_id.get",
+          "method": "GET",
+          "path": "/api/gaming-rewards/referral/stats/:user_id",
+          "category": "Gaming-Rewards",
+          "description": "GET stats/:user_id",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From gaming-rewards.js"
+        },
+        {
+          "id": "gaming_rewards.referral.heatmap.get",
+          "method": "GET",
+          "path": "/api/gaming-rewards/referral/heatmap",
+          "category": "Gaming-Rewards",
+          "description": "GET referral/heatmap",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From gaming-rewards.js"
+        },
+        {
+          "id": "gaming_rewards.referral.list.get",
+          "method": "GET",
+          "path": "/api/gaming-rewards/referral/list",
+          "category": "Gaming-Rewards",
+          "description": "GET referral/list",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From gaming-rewards.js"
+        },
+        {
+          "id": "gaming_rewards.challenges.get",
+          "method": "GET",
+          "path": "/api/gaming-rewards/challenges",
+          "category": "Gaming-Rewards",
+          "description": "GET gaming-rewards/challenges",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From gaming-rewards.js"
+        },
+        {
+          "id": "gaming_rewards.challenges.post",
+          "method": "POST",
+          "path": "/api/gaming-rewards/challenges",
+          "category": "Gaming-Rewards",
+          "description": "POST gaming-rewards/challenges",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From gaming-rewards.js"
+        },
+        {
+          "id": "gaming_rewards.challenges.id.put",
+          "method": "PUT",
+          "path": "/api/gaming-rewards/challenges/:id",
+          "category": "Gaming-Rewards",
+          "description": "PUT challenges/:id",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From gaming-rewards.js"
+        },
+        {
+          "id": "gaming_rewards.challenges.id.delete",
+          "method": "DELETE",
+          "path": "/api/gaming-rewards/challenges/:id",
+          "category": "Gaming-Rewards",
+          "description": "DELETE challenges/:id",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From gaming-rewards.js"
+        },
+        {
+          "id": "gaming_rewards.challenges.id.join.post",
+          "method": "POST",
+          "path": "/api/gaming-rewards/challenges/:id/join",
+          "category": "Gaming-Rewards",
+          "description": "POST :id/join",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From gaming-rewards.js"
+        },
+        {
+          "id": "gaming_rewards.challenges.id.progress.post",
+          "method": "POST",
+          "path": "/api/gaming-rewards/challenges/:id/progress",
+          "category": "Gaming-Rewards",
+          "description": "POST :id/progress",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From gaming-rewards.js"
+        },
+        {
+          "id": "giustificazioni.file.id.get",
+          "method": "GET",
+          "path": "/api/giustificazioni/file/:id",
+          "category": "Giustificazioni",
+          "description": "============================================================================",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From giustificazioni.js"
+        },
+        {
+          "id": "gtfs.stops.get",
+          "method": "GET",
+          "path": "/api/gtfs/stops",
+          "category": "Gtfs",
+          "description": "GET gtfs/stops",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From gtfs.js"
+        },
+        {
+          "id": "gtfs.stops.nearby.get",
+          "method": "GET",
+          "path": "/api/gtfs/stops/nearby",
+          "category": "Gtfs",
+          "description": "GET stops/nearby",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From gtfs.js"
+        },
+        {
+          "id": "gtfs.routes.get",
+          "method": "GET",
+          "path": "/api/gtfs/routes",
+          "category": "Gtfs",
+          "description": "GET gtfs/routes",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From gtfs.js"
+        },
+        {
+          "id": "gtfs.stats.get",
+          "method": "GET",
+          "path": "/api/gtfs/stats",
+          "category": "Gtfs",
+          "description": "GET gtfs/stats",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From gtfs.js"
+        },
+        {
+          "id": "gtfs.stops.bulk.post",
+          "method": "POST",
+          "path": "/api/gtfs/stops/bulk",
+          "category": "Gtfs",
+          "description": "POST stops/bulk",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From gtfs.js"
+        },
+        {
+          "id": "gtfs.routes.bulk.post",
+          "method": "POST",
+          "path": "/api/gtfs/routes/bulk",
+          "category": "Gtfs",
+          "description": "POST routes/bulk",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From gtfs.js"
+        },
+        {
+          "id": "imprese.id.adempimenti_obbligatori.get",
+          "method": "GET",
+          "path": "/api/imprese/:id/adempimenti-obbligatori",
+          "category": "Imprese",
+          "description": "============================================================================",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From imprese.js"
+        },
+        {
+          "id": "imprese.id.associazione.get",
+          "method": "GET",
+          "path": "/api/imprese/:id/associazione",
+          "category": "Imprese",
+          "description": "============================================================================",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From imprese.js"
+        },
+        {
+          "id": "imprese.id.segnala_associazione.post",
+          "method": "POST",
+          "path": "/api/imprese/:id/segnala-associazione",
+          "category": "Imprese",
+          "description": "============================================================================",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From imprese.js"
+        },
+        {
+          "id": "imprese.id.servizi_richiesti.get",
+          "method": "GET",
+          "path": "/api/imprese/:id/servizi-richiesti",
+          "category": "Imprese",
+          "description": "============================================================================",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From imprese.js"
+        },
+        {
+          "id": "imprese.id.iscrizioni_corsi.get",
+          "method": "GET",
+          "path": "/api/imprese/:id/iscrizioni-corsi",
+          "category": "Imprese",
+          "description": "============================================================================",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From imprese.js"
+        },
+        {
+          "id": "imprese.id.bolkestein_data.get",
+          "method": "GET",
+          "path": "/api/imprese/:id/bolkestein-data",
+          "category": "Imprese",
+          "description": "============================================================================",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From imprese.js"
+        },
+        {
+          "id": "integrations.get",
+          "method": "GET",
+          "path": "/api/integrations",
+          "category": "Integrazioni",
+          "description": "GET api/integrations",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From integrations.js"
+        },
+        {
+          "id": "integrations.endpoint_count.get",
+          "method": "GET",
+          "path": "/api/integrations/endpoint-count",
+          "category": "Integrazioni",
+          "description": "GET integrations/endpoint-count",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From integrations.js"
+        },
+        {
+          "id": "integrations.status.get",
+          "method": "GET",
+          "path": "/api/integrations/status",
+          "category": "Integrazioni",
+          "description": "GET integrations/status",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From integrations.js"
+        },
+        {
+          "id": "logs.client_error.post",
+          "method": "POST",
+          "path": "/api/logs/client-error",
+          "category": "Logs",
+          "description": "============================================",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From logs.js"
+        },
+        {
+          "id": "market_settings.transgressions.id.archive.put",
+          "method": "PUT",
+          "path": "/api/market-settings/transgressions/:id/archive",
+          "category": "Market Settings",
+          "description": "PUT :id/archive",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From market-settings.js"
+        },
+        {
+          "id": "markets.id.hub_status.get",
+          "method": "GET",
+          "path": "/api/markets/:id/hub-status",
+          "category": "Mercati",
+          "description": "============================================================================",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From markets.js"
+        },
+        {
+          "id": "markets.id.enable_hub.post",
+          "method": "POST",
+          "path": "/api/markets/:id/enable-hub",
+          "category": "Mercati",
+          "description": "============================================================================",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From markets.js"
+        },
+        {
+          "id": "markets.id.sync_hub.post",
+          "method": "POST",
+          "path": "/api/markets/:id/sync-hub",
+          "category": "Mercati",
+          "description": "============================================================================",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From markets.js"
+        },
+        {
+          "id": "markets.id.disable_hub.delete",
+          "method": "DELETE",
+          "path": "/api/markets/:id/disable-hub",
+          "category": "Mercati",
+          "description": "============================================================================",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From markets.js"
+        },
+        {
+          "id": "me.profile.get",
+          "method": "GET",
+          "path": "/api/me/profile",
+          "category": "Me (Profilo)",
+          "description": "============================================================================",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From me.js"
+        },
+        {
+          "id": "me.impresa.get",
+          "method": "GET",
+          "path": "/api/me/impresa",
+          "category": "Me (Profilo)",
+          "description": "============================================================================",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From me.js"
+        },
+        {
+          "id": "mercaweb.health.get",
+          "method": "GET",
+          "path": "/api/mercaweb/health",
+          "category": "MercaWeb",
+          "description": "GET mercaweb/health",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From mercaweb.js"
+        },
+        {
+          "id": "mercaweb.status.get",
+          "method": "GET",
+          "path": "/api/mercaweb/status",
+          "category": "MercaWeb",
+          "description": "GET mercaweb/status",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From mercaweb.js"
+        },
+        {
+          "id": "mercaweb.import.ambulanti.post",
+          "method": "POST",
+          "path": "/api/mercaweb/import/ambulanti",
+          "category": "MercaWeb",
+          "description": "POST import/ambulanti",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From mercaweb.js"
+        },
+        {
+          "id": "mercaweb.import.mercati.post",
+          "method": "POST",
+          "path": "/api/mercaweb/import/mercati",
+          "category": "MercaWeb",
+          "description": "POST import/mercati",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From mercaweb.js"
+        },
+        {
+          "id": "mercaweb.import.piazzole.post",
+          "method": "POST",
+          "path": "/api/mercaweb/import/piazzole",
+          "category": "MercaWeb",
+          "description": "POST import/piazzole",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From mercaweb.js"
+        },
+        {
+          "id": "mercaweb.import.concessioni.post",
+          "method": "POST",
+          "path": "/api/mercaweb/import/concessioni",
+          "category": "MercaWeb",
+          "description": "POST import/concessioni",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From mercaweb.js"
+        },
+        {
+          "id": "mercaweb.import.spuntisti.post",
+          "method": "POST",
+          "path": "/api/mercaweb/import/spuntisti",
+          "category": "MercaWeb",
+          "description": "POST import/spuntisti",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From mercaweb.js"
+        },
+        {
+          "id": "mercaweb.export.presenze.marketId.get",
+          "method": "GET",
+          "path": "/api/mercaweb/export/presenze/:marketId",
+          "category": "MercaWeb",
+          "description": "GET presenze/:marketId",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From mercaweb.js"
+        },
+        {
+          "id": "mercaweb.export.mapping.entity.get",
+          "method": "GET",
+          "path": "/api/mercaweb/export/mapping/:entity",
+          "category": "MercaWeb",
+          "description": "GET mapping/:entity",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From mercaweb.js"
+        },
+        {
+          "id": "pagamenti.servizio.post",
+          "method": "POST",
+          "path": "/api/pagamenti/servizio",
+          "category": "Pagamenti",
+          "description": "============================================================================",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From pagamenti.js"
+        },
+        {
+          "id": "pagamenti.corso.post",
+          "method": "POST",
+          "path": "/api/pagamenti/corso",
+          "category": "Pagamenti",
+          "description": "============================================================================",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From pagamenti.js"
+        },
+        {
+          "id": "pagamenti.quota.post",
+          "method": "POST",
+          "path": "/api/pagamenti/quota",
+          "category": "Pagamenti",
+          "description": "============================================================================",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From pagamenti.js"
+        },
+        {
+          "id": "qualificazioni.suap.impresa_id.get",
+          "method": "GET",
+          "path": "/api/qualificazioni/suap/:impresa_id",
+          "category": "Qualificazioni",
+          "description": "============================================================================",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From qualificazioni.js"
+        },
+        {
+          "id": "suap.notifiche_pm.get",
+          "method": "GET",
+          "path": "/api/suap/notifiche-pm",
+          "category": "SUAP",
+          "description": "GET suap/notifiche-pm",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From suap.js"
+        },
+        {
+          "id": "suap.pratiche.id.messaggi.get",
+          "method": "GET",
+          "path": "/api/suap/pratiche/:id/messaggi",
+          "category": "SUAP",
+          "description": "GET :id/messaggi",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From suap.js"
+        },
+        {
+          "id": "suap.pratiche.id.messaggi.post",
+          "method": "POST",
+          "path": "/api/suap/pratiche/:id/messaggi",
+          "category": "SUAP",
+          "description": "POST :id/messaggi",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From suap.js"
+        },
+        {
+          "id": "suap.bandi.id.graduatoria.get",
+          "method": "GET",
+          "path": "/api/suap/bandi/:id/graduatoria",
+          "category": "SUAP",
+          "description": "GET :id/graduatoria",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From suap.js"
+        },
+        {
+          "id": "suap.bandi.id.pubblica_graduatoria.post",
+          "method": "POST",
+          "path": "/api/suap/bandi/:id/pubblica-graduatoria",
+          "category": "SUAP",
+          "description": "POST :id/pubblica-graduatoria",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From suap.js"
+        },
+        {
+          "id": "suap.pratiche.id.genera_pdf.post",
+          "method": "POST",
+          "path": "/api/suap/pratiche/:id/genera-pdf",
+          "category": "SUAP",
+          "description": "POST /api/suap/pratiche/:id/genera-pdf - Genera PDF domanda inoppugnabile con hash SHA-256",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From suap.js"
+        },
+        {
+          "id": "suap.pratiche.id.download_pdf.get",
+          "method": "GET",
+          "path": "/api/suap/pratiche/:id/download-pdf",
+          "category": "SUAP",
+          "description": "============================================",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From suap.js"
+        },
+        {
+          "id": "suap.pratiche.id.download_firmato.get",
+          "method": "GET",
+          "path": "/api/suap/pratiche/:id/download-firmato",
+          "category": "SUAP",
+          "description": "============================================",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From suap.js"
+        },
+        {
+          "id": "suap.pratiche.id.invia_firma.post",
+          "method": "POST",
+          "path": "/api/suap/pratiche/:id/invia-firma",
+          "category": "SUAP",
+          "description": "============================================",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From suap.js"
+        },
+        {
+          "id": "suap.pratiche.id.upload_firmato.post",
+          "method": "POST",
+          "path": "/api/suap/pratiche/:id/upload-firmato",
+          "category": "SUAP",
+          "description": "============================================",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From suap.js"
+        },
+        {
+          "id": "suap.pratiche.id.stato_firma.get",
+          "method": "GET",
+          "path": "/api/suap/pratiche/:id/stato-firma",
+          "category": "SUAP",
+          "description": "============================================",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From suap.js"
+        },
+        {
+          "id": "tcc_v2.generate_spend_qr.post",
+          "method": "POST",
+          "path": "/api/tcc-v2/generate-spend-qr",
+          "category": "TCC v2",
+          "description": "============================================================================",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From tcc-v2.js"
+        },
+        {
+          "id": "tcc_v2.operator.wallet.operatorId.get",
+          "method": "GET",
+          "path": "/api/tcc-v2/operator/wallet/:operatorId",
+          "category": "TCC v2",
+          "description": "============================================================================",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From tcc-v2.js"
+        },
+        {
+          "id": "tcc_v2.operator.issue.post",
+          "method": "POST",
+          "path": "/api/tcc-v2/operator/issue",
+          "category": "TCC v2",
+          "description": "============================================================================",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From tcc-v2.js"
+        },
+        {
+          "id": "tcc_v2.operator.validate_spend_qr.post",
+          "method": "POST",
+          "path": "/api/tcc-v2/operator/validate-spend-qr",
+          "category": "TCC v2",
+          "description": "============================================================================",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From tcc-v2.js"
+        },
+        {
+          "id": "tcc_v2.operator.redeem_spend.post",
+          "method": "POST",
+          "path": "/api/tcc-v2/operator/redeem-spend",
+          "category": "TCC v2",
+          "description": "============================================================================",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From tcc-v2.js"
+        },
+        {
+          "id": "tcc_v2.operator.settlement.post",
+          "method": "POST",
+          "path": "/api/tcc-v2/operator/settlement",
+          "category": "TCC v2",
+          "description": "============================================================================",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From tcc-v2.js"
+        },
+        {
+          "id": "tcc_v2.operator.transactions.operatorId.get",
+          "method": "GET",
+          "path": "/api/tcc-v2/operator/transactions/:operatorId",
+          "category": "TCC v2",
+          "description": "============================================================================",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From tcc-v2.js"
+        },
+        {
+          "id": "tcc_v2.config.update.put",
+          "method": "PUT",
+          "path": "/api/tcc-v2/config/update",
+          "category": "TCC v2",
+          "description": "============================================================================",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From tcc-v2.js"
+        },
+        {
+          "id": "tcc_v2.config.get",
+          "method": "GET",
+          "path": "/api/tcc-v2/config",
+          "category": "TCC v2",
+          "description": "============================================================================",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From tcc-v2.js"
+        },
+        {
+          "id": "tcc_v2.fund.stats.get",
+          "method": "GET",
+          "path": "/api/tcc-v2/fund/stats",
+          "category": "TCC v2",
+          "description": "============================================================================",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From tcc-v2.js"
+        },
+        {
+          "id": "tcc_v2.fund.transactions.get",
+          "method": "GET",
+          "path": "/api/tcc-v2/fund/transactions",
+          "category": "TCC v2",
+          "description": "============================================================================",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From tcc-v2.js"
+        },
+        {
+          "id": "tcc_v2.comuni.get",
+          "method": "GET",
+          "path": "/api/tcc-v2/comuni",
+          "category": "TCC v2",
+          "description": "============================================================================",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From tcc-v2.js"
+        },
+        {
+          "id": "tcc_v2.rules.get",
+          "method": "GET",
+          "path": "/api/tcc-v2/rules",
+          "category": "TCC v2",
+          "description": "============================================================================",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From tcc-v2.js"
+        },
+        {
+          "id": "tcc_v2.rules.post",
+          "method": "POST",
+          "path": "/api/tcc-v2/rules",
+          "category": "TCC v2",
+          "description": "============================================================================",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From tcc-v2.js"
+        },
+        {
+          "id": "tcc_v2.rules.id.put",
+          "method": "PUT",
+          "path": "/api/tcc-v2/rules/:id",
+          "category": "TCC v2",
+          "description": "============================================================================",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From tcc-v2.js"
+        },
+        {
+          "id": "tcc_v2.rules.id.delete",
+          "method": "DELETE",
+          "path": "/api/tcc-v2/rules/:id",
+          "category": "TCC v2",
+          "description": "============================================================================",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From tcc-v2.js"
+        },
+        {
+          "id": "tcc_v2.fund.stats.hubId.get",
+          "method": "GET",
+          "path": "/api/tcc-v2/fund/stats/:hubId",
+          "category": "TCC v2",
+          "description": "============================================================================",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From tcc-v2.js"
+        },
+        {
+          "id": "tcc_v2.config.update.hubId.put",
+          "method": "PUT",
+          "path": "/api/tcc-v2/config/update/:hubId",
+          "category": "TCC v2",
+          "description": "============================================================================",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From tcc-v2.js"
+        },
+        {
+          "id": "tcc_v2.environment.hubId.get",
+          "method": "GET",
+          "path": "/api/tcc-v2/environment/:hubId",
+          "category": "TCC v2",
+          "description": "============================================================================",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From tcc-v2.js"
+        },
+        {
+          "id": "tcc_v2.ets_price.put",
+          "method": "PUT",
+          "path": "/api/tcc-v2/ets-price",
+          "category": "TCC v2",
+          "description": "============================================================================",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From tcc-v2.js"
+        },
+        {
+          "id": "tcc_v2.process_batch_reimbursements.post",
+          "method": "POST",
+          "path": "/api/tcc-v2/process-batch-reimbursements",
+          "category": "TCC v2",
+          "description": "============================================================================",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From tcc-v2.js"
+        },
+        {
+          "id": "tcc_v2.pending_reimbursements.get",
+          "method": "GET",
+          "path": "/api/tcc-v2/pending-reimbursements",
+          "category": "TCC v2",
+          "description": "============================================================================",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From tcc-v2.js"
+        },
+        {
+          "id": "tcc_v2.reimbursement_history.get",
+          "method": "GET",
+          "path": "/api/tcc-v2/reimbursement-history",
+          "category": "TCC v2",
+          "description": "============================================================================",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From tcc-v2.js"
+        },
+        {
+          "id": "tcc_v2.fund_status.get",
+          "method": "GET",
+          "path": "/api/tcc-v2/fund-status",
+          "category": "TCC v2",
+          "description": "============================================================================",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From tcc-v2.js"
+        },
+        {
+          "id": "tcc_v2.admin.reset_test_data.post",
+          "method": "POST",
+          "path": "/api/tcc-v2/admin/reset-test-data",
+          "category": "TCC v2",
+          "description": "============================================================================",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From tcc-v2.js"
+        },
+        {
+          "id": "tcc_v2.impresa.impresaId.wallet.get",
+          "method": "GET",
+          "path": "/api/tcc-v2/impresa/:impresaId/wallet",
+          "category": "TCC v2",
+          "description": "============================================================================",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From tcc-v2.js"
+        },
+        {
+          "id": "tcc_v2.impresa.impresaId.wallet.create.post",
+          "method": "POST",
+          "path": "/api/tcc-v2/impresa/:impresaId/wallet/create",
+          "category": "TCC v2",
+          "description": "============================================================================",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From tcc-v2.js"
+        },
+        {
+          "id": "tcc_v2.impresa.impresaId.qualification_status.get",
+          "method": "GET",
+          "path": "/api/tcc-v2/impresa/:impresaId/qualification-status",
+          "category": "TCC v2",
+          "description": "============================================================================",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From tcc-v2.js"
+        },
+        {
+          "id": "tcc_v2.impresa.impresaId.wallet.status.put",
+          "method": "PUT",
+          "path": "/api/tcc-v2/impresa/:impresaId/wallet/status",
+          "category": "TCC v2",
+          "description": "============================================================================",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From tcc-v2.js"
+        },
+        {
+          "id": "tcc_v2.impresa.impresaId.wallet.transactions.get",
+          "method": "GET",
+          "path": "/api/tcc-v2/impresa/:impresaId/wallet/transactions",
+          "category": "TCC v2",
+          "description": "============================================================================",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From tcc-v2.js"
+        },
+        {
+          "id": "tcc_v2.impresa.impresaId.wallet.sync_qualification.post",
+          "method": "POST",
+          "path": "/api/tcc-v2/impresa/:impresaId/wallet/sync-qualification",
+          "category": "TCC v2",
+          "description": "============================================================================",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From tcc-v2.js"
+        },
+        {
+          "id": "tcc_v2.wallets.all.get",
+          "method": "GET",
+          "path": "/api/tcc-v2/wallets/all",
+          "category": "TCC v2",
+          "description": "============================================================================",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From tcc-v2.js"
+        },
+        {
+          "id": "tcc_v2.operator.id.hub_today.get",
+          "method": "GET",
+          "path": "/api/tcc-v2/operator/:id/hub-today",
+          "category": "TCC v2",
+          "description": "============================================================================",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From tcc-v2.js"
+        },
+        {
+          "id": "tesseramenti.impresa.impresaId.get",
+          "method": "GET",
+          "path": "/api/tesseramenti/impresa/:impresaId",
+          "category": "Tesseramenti",
+          "description": "============================================================================",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From tesseramenti.js"
+        },
+        {
+          "id": "tesseramenti.richiedi.post",
+          "method": "POST",
+          "path": "/api/tesseramenti/richiedi",
+          "category": "Tesseramenti",
+          "description": "============================================================================",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From tesseramenti.js"
+        },
+        {
+          "id": "tesseramenti.richiedi_e_paga.post",
+          "method": "POST",
+          "path": "/api/tesseramenti/richiedi-e-paga",
+          "category": "Tesseramenti",
+          "description": "============================================================================",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From tesseramenti.js"
+        },
+        {
+          "id": "test_mercato.registra_rifiuti.post",
+          "method": "POST",
+          "path": "/api/test-mercato/registra-rifiuti",
+          "category": "Test Mercato",
+          "description": "POST test-mercato/registra-rifiuti",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From test-mercato.js"
+        },
+        {
+          "id": "wallet_history.walletId.get",
+          "method": "GET",
+          "path": "/api/wallet-history/:walletId",
+          "category": "Wallet History",
+          "description": "GET /api/wallet-history/:walletId",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From wallet-history.js"
         }
       ]
     },
