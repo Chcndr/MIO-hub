@@ -83,3 +83,33 @@ Per garantire la totale trasparenza e inoppugnabilità legale delle graduatorie,
 
 ---
 *Blueprint generato e certificato da Manus AI - Sistema MIO HUB v9.9.5+*
+
+---
+
+## 4. Automazione ON/OFF Fasi Mercato (v10.1.0 - 30 Aprile 2026)
+
+L'architettura è stata estesa per supportare l'avvio automatico delle fasi del mercato (Apertura, Spunta, Rifiuti, Chiusura) agli orari prestabiliti configurati dalla PA.
+
+### 4.1 Database (Neon)
+* **Tabella `market_settings`:** Aggiunte 3 nuove colonne tramite migrazione `026`:
+  * `auto_start_enabled` (BOOLEAN): Toggle principale per attivare l'automazione sul singolo mercato.
+  * `auto_last_phase_date` (DATE): Tracker anti-doppia esecuzione (giorno dell'ultima fase eseguita).
+  * `auto_last_phase` (VARCHAR): Tracker anti-doppia esecuzione (nome dell'ultima fase: APERTURA, SPUNTA, RIFIUTI, CHIUSURA).
+
+### 4.2 Backend (Hetzner)
+* **Endpoint `market-settings.js`:** Aggiornati `GET` e `POST /api/market-settings/:marketId` per includere e salvare il campo `auto_start_enabled`.
+* **Cron Job `market-auto-phases.js`:** Nuovo servizio schedulato ogni 60 secondi in `index.js`.
+  * Filtra i mercati con `is_active = true` e `auto_start_enabled = true`.
+  * Verifica i giorni di mercato (es. "Lunedì") rispetto al giorno corrente.
+  * Esegue le fasi sequenziali confrontando l'ora attuale (HH:MM in `Europe/Rome`) con gli orari configurati:
+    1. **APERTURA** (`presence_start_time`): Resetta posteggi a 'libero' e azzera presenze del giorno.
+    2. **SPUNTA** (`spunta_presence_start_time`): Mette posteggi in 'riservato', registra presenze spuntisti, incrementa assenze concessionari non presentatisi.
+    3. **RIFIUTI** (`waste_disposal_end_time`): Registra orario deposito rifiuti per tutti.
+    4. **CHIUSURA** (`exit_market_end_time`): Registra checkout, libera posteggi, salva sessione in `market_sessions` e `market_session_details`.
+  * **Protezione 3-Livelli:** Garantisce che una fase venga eseguita una sola volta al giorno e nel rigoroso ordine sequenziale.
+
+### 4.3 Frontend (Vercel)
+* **`MarketSettingsTab.tsx`:** 
+  * Aggiunto toggle "Avvio Automatico" (icona Zap) nell'header delle impostazioni.
+  * Implementata Card informativa "Automazione Fasi Mercato" visibile solo se attiva, che riepiloga visivamente i 4 orari critici in cui il sistema agirà da solo.
+  * Integrazione badge di stato nel riepilogo finale.
