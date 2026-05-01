@@ -113,3 +113,45 @@ L'architettura è stata estesa per supportare l'avvio automatico delle fasi del 
   * Aggiunto toggle "Avvio Automatico" (icona Zap) nell'header delle impostazioni.
   * Implementata Card informativa "Automazione Fasi Mercato" visibile solo se attiva, che riepiloga visivamente i 4 orari critici in cui il sistema agirà da solo.
   * Integrazione badge di stato nel riepilogo finale.
+
+---
+
+## 5. Nuova App Presenze Impresa (v10.2.0 - 01 Maggio 2026)
+
+L'app per le imprese (DMS Hub App) è stata completamente riscritta nella sezione "Presenze" per sostituire il vecchio iframe legacy con un'esperienza nativa in React, integrata bidirezionalmente con il modulo "Gestione Mercati" della PA.
+
+### 5.1 Integrazione Bidirezionale PA ↔ Impresa
+Il sistema ora permette un ciclo di vita del mercato completamente sincronizzato in tempo reale:
+1. **Avvio (PA):** Il Comune clicca "Inizia Mercato" dalla dashboard PA, creando una nuova `market_sessions` e azzerando i posteggi.
+2. **Visualizzazione (Impresa):** L'impresa apre l'app e vede la sessione attiva per il mercato odierno, con l'elenco delle proprie concessioni e i saldi wallet aggiornati.
+3. **Check-in (Impresa):** L'impresa clicca "PRESENZA" sull'app per un posteggio specifico.
+4. **Sincronizzazione (Backend):**
+   * Lo stato del posteggio (`stalls.status`) viene aggiornato a `occupato`.
+   * Il wallet viene decurtato dell'importo giornaliero (transazione `COSTO_POSTEGGIO`).
+   * La graduatoria presenze viene aggiornata (punteggio e presenze totali).
+   * I contatori della sessione mercato vengono incrementati.
+5. **Riscontro (PA):** La mappa del Comune si aggiorna in tempo reale, colorando di rosso (occupato) il posteggio confermato dall'impresa.
+
+### 5.2 Backend REST API (Hetzner)
+L'endpoint `/api/presenze-live` è stato profondamente refattorizzato per garantire la robustezza dell'integrazione:
+* **Endpoint `mercati-oggi`:** 
+  * Aggiornato per usare i wallet (`company_id`) come fonte primaria di verità per trovare le concessioni dell'impresa.
+  * Risolve il fuso orario (`Europe/Rome`) lato server per evitare discrepanze UTC.
+  * Implementa un matching "accent-safe" per i giorni della settimana (es. "venerdì" matcha "Venerdi e Sabato").
+  * Restituisce una struttura dati *nested* (`mercato` → `concessioni[]`) ottimizzata per il frontend.
+* **Endpoint `checkin`:**
+  * **Timezone:** Usa `NOW() AT TIME ZONE 'Europe/Rome'` per garantire la coerenza temporale.
+  * **Sincronizzazione Mappa PA:** Aggiunta l'istruzione `UPDATE stalls SET status = 'occupato'` post-checkin.
+  * **Transazioni Wallet:** Allineate al tipo `COSTO_POSTEGGIO` utilizzato dalla PA, includendo il `reference_id` (ID presenza).
+  * **Graduatorie:** Inserimento e aggiornamento allineati alla struttura PA (inclusione di `wallet_id`, `stall_id`, `punteggio`, `data_prima_presenza`).
+  * **Flessibilità Sessioni:** Il checkin ora può collegarsi a una sessione PA esistente o crearne una automaticamente se la PA non l'ha ancora avviata.
+  * **Supporto Multi-Posteggio:** Il controllo "già presente" ora verifica `stall_id`, permettendo a un'impresa con più posteggi nello stesso mercato di registrarli tutti.
+
+### 5.3 Frontend UI/UX (Vercel)
+La pagina `PresenzePage.tsx` è stata creata ex novo utilizzando i componenti UI moderni dell'app:
+* **Flusso a Schermate:** Navigazione fluida tra Selezione Mercato → Scelta Tipo Presenza (Fisso/Spunta) → Selezione Posteggio → Mappa Interattiva.
+* **UX Ottimizzata:**
+  * Testi responsivi e troncati (`truncate`, `min-w-0`) per evitare overflow su dispositivi mobili stretti.
+  * Pulsanti d'azione ridimensionati (es. "PRESENZA" invece di "CONFERMA PRESENZA") per far spazio alle icone funzionali (es. pulsante Mappa).
+  * Navigazione "Indietro" basata su `window.history.back()` per un comportamento nativo e affidabile su mobile.
+* **Integrazione Mappa:** Aggiunto un popup fullscreen per visualizzare la mappa del mercato, permettendo all'impresa di orientarsi prima del check-in.
