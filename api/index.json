@@ -14677,6 +14677,502 @@
           },
           "implemented": "rest",
           "implementation_note": "From wallet-history.js"
+        },
+        {
+          "id": "presenze_live.mercati_oggi.get",
+          "method": "GET",
+          "path": "/api/presenze-live/mercati-oggi",
+          "category": "Presenze Live",
+          "description": "Mercati del giorno con concessioni e stato spunta",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From presenze-live.js"
+        },
+        {
+          "id": "presenze_live.sessione.sessionId.get",
+          "method": "GET",
+          "path": "/api/presenze-live/sessione/:sessionId",
+          "category": "Presenze Live",
+          "description": "Dettaglio sessione live con lista presenze",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From presenze-live.js"
+        },
+        {
+          "id": "presenze_live.sessione.sessionId.stream.get",
+          "method": "GET",
+          "path": "/api/presenze-live/sessione/:sessionId/stream",
+          "category": "Presenze Live",
+          "description": "SSE stream eventi sessione (checkin, checkout, spunta)",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From presenze-live.js — Server-Sent Events"
+        },
+        {
+          "id": "presenze_live.checkin.post",
+          "method": "POST",
+          "path": "/api/presenze-live/checkin",
+          "category": "Presenze Live",
+          "description": "Registra presenza concessionario/spuntista con protezione anti-duplicato",
+          "risk_level": "medium",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From presenze-live.js"
+        },
+        {
+          "id": "presenze_live.checkout.post",
+          "method": "POST",
+          "path": "/api/presenze-live/checkout",
+          "category": "Presenze Live",
+          "description": "Registra uscita concessionario",
+          "risk_level": "medium",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From presenze-live.js"
+        },
+        {
+          "id": "presenze_live.rifiuti.post",
+          "method": "POST",
+          "path": "/api/presenze-live/rifiuti",
+          "category": "Presenze Live",
+          "description": "Registra deposito rifiuti (legacy)",
+          "risk_level": "medium",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From presenze-live.js"
+        },
+        {
+          "id": "presenze_live.spunta.entra_coda.post",
+          "method": "POST",
+          "path": "/api/presenze-live/spunta/entra-coda",
+          "category": "Presenze Live - Spunta",
+          "description": "Spuntista entra in coda spunta con posizione graduatoria",
+          "risk_level": "medium",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From presenze-live.js"
+        },
+        {
+          "id": "presenze_live.spunta.stato.sessionId.get",
+          "method": "GET",
+          "path": "/api/presenze-live/spunta/stato/:sessionId",
+          "category": "Presenze Live - Spunta",
+          "description": "Stato corrente spuntista nella coda (posizione, turno attivo)",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From presenze-live.js"
+        },
+        {
+          "id": "presenze_live.spunta.posteggi_liberi.sessionId.get",
+          "method": "GET",
+          "path": "/api/presenze-live/spunta/posteggi-liberi/:sessionId",
+          "category": "Presenze Live - Spunta",
+          "description": "Lista posteggi disponibili per scelta spuntista",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From presenze-live.js"
+        },
+        {
+          "id": "presenze_live.spunta.scegli_posteggio.post",
+          "method": "POST",
+          "path": "/api/presenze-live/spunta/scegli-posteggio",
+          "category": "Presenze Live - Spunta",
+          "description": "Spuntista sceglie posteggio (con blocco saldo negativo e addebito wallet)",
+          "risk_level": "high",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From presenze-live.js"
+        },
+        {
+          "id": "presenze_live.spunta.rinuncia.post",
+          "method": "POST",
+          "path": "/api/presenze-live/spunta/rinuncia",
+          "category": "Presenze Live - Spunta",
+          "description": "Spuntista rinuncia al turno (stato RINUNCIATO, attiva prossimo)",
+          "risk_level": "medium",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From presenze-live.js"
+        },
+        {
+          "id": "presenze_live.spunta.stream.sessionId.get",
+          "method": "GET",
+          "path": "/api/presenze-live/spunta/stream/:sessionId",
+          "category": "Presenze Live - Spunta",
+          "description": "SSE stream eventi spunta (turno, assegnazione, fine)",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From presenze-live.js — Server-Sent Events spunta"
+        },
+        {
+          "id": "presenze_live.spunta.stato_impresa.impresaId.get",
+          "method": "GET",
+          "path": "/api/presenze-live/spunta/stato-impresa/:impresaId",
+          "category": "Presenze Live - Spunta",
+          "description": "Verifica se impresa è in coda spunta (per SpuntaNotifier polling)",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From presenze-live.js"
+        },
+        {
+          "id": "presenze_live.spunta.scadenza_turno.post",
+          "method": "POST",
+          "path": "/api/presenze-live/spunta/scadenza-turno",
+          "category": "Presenze Live - Spunta",
+          "description": "Timer scaduto: chiude turno (SCADUTO) e attiva prossimo spuntista",
+          "risk_level": "high",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From presenze-live.js"
+        },
+        {
+          "id": "presenze_live.wallet.saldo.get",
+          "method": "GET",
+          "path": "/api/presenze-live/wallet/saldo",
+          "category": "Presenze Live",
+          "description": "Saldo wallet impresa per tipo e mercato",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From presenze-live.js"
+        },
+        {
+          "id": "presenze_live.wallet.storico.get",
+          "method": "GET",
+          "path": "/api/presenze-live/wallet/storico",
+          "category": "Presenze Live",
+          "description": "Storico transazioni wallet impresa",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From presenze-live.js"
+        },
+        {
+          "id": "presenze_live.sessione.id.cambia_fase.post",
+          "method": "POST",
+          "path": "/api/presenze-live/sessione/:id/cambia-fase",
+          "category": "Presenze Live",
+          "description": "PA cambia fase sessione (PRESENZE → SPUNTA → MERCATO_ATTIVO)",
+          "risk_level": "medium",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From presenze-live.js"
+        },
+        {
+          "id": "presenze_live.sessione.id.avvia_spunta.post",
+          "method": "POST",
+          "path": "/api/presenze-live/sessione/:id/avvia-spunta",
+          "category": "Presenze Live - Spunta",
+          "description": "PA avvia spunta nella sessione (bridge con test-mercato)",
+          "risk_level": "high",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From presenze-live.js"
+        },
+        {
+          "id": "presenze_live.deposito_rifiuti.post",
+          "method": "POST",
+          "path": "/api/presenze-live/deposito-rifiuti",
+          "category": "Presenze Live",
+          "description": "PA registra deposito rifiuti per singolo concessionario",
+          "risk_level": "medium",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From presenze-live.js"
+        },
+        {
+          "id": "presenze_live.uscita_mercato.post",
+          "method": "POST",
+          "path": "/api/presenze-live/uscita-mercato",
+          "category": "Presenze Live",
+          "description": "PA registra uscita mercato (resetta spuntista su stall)",
+          "risk_level": "medium",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From presenze-live.js"
+        },
+        {
+          "id": "presenze_live.avvia_spunta_live.marketId.post",
+          "method": "POST",
+          "path": "/api/presenze-live/avvia-spunta-live/:marketId",
+          "category": "Presenze Live - Spunta",
+          "description": "PA avvia spunta live (riusa turno attivo se presente)",
+          "risk_level": "high",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From presenze-live.js"
+        },
+        {
+          "id": "presenze_live.spunta_turno_corrente.marketId.get",
+          "method": "GET",
+          "path": "/api/presenze-live/spunta-turno-corrente/:marketId",
+          "category": "Presenze Live - Spunta",
+          "description": "PA polling turno corrente (con auto-scadenza e stato spunta terminata)",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From presenze-live.js"
+        },
+        {
+          "id": "collaboratori.me.get",
+          "method": "GET",
+          "path": "/api/collaboratori/me",
+          "category": "Collaboratori",
+          "description": "Verifica se utente loggato (email JWT) è collaboratore autorizzato presenze",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From collaboratori.js — usato da FirebaseAuthContext per citizen"
+        },
+        {
+          "id": "test_mercato.inizia_mercato.post",
+          "method": "POST",
+          "path": "/api/test-mercato/inizia-mercato",
+          "category": "Test Mercato",
+          "description": "PA inizia mercato (crea sessione IN_CORSO)",
+          "risk_level": "high",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From test-mercato.js"
+        },
+        {
+          "id": "test_mercato.registra_rifiuti_singolo.post",
+          "method": "POST",
+          "path": "/api/test-mercato/registra-rifiuti-singolo",
+          "category": "Test Mercato",
+          "description": "PA registra rifiuti per singolo operatore",
+          "risk_level": "medium",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From test-mercato.js"
+        },
+        {
+          "id": "test_mercato.chiudi_mercato_singolo.post",
+          "method": "POST",
+          "path": "/api/test-mercato/chiudi-mercato-singolo",
+          "category": "Test Mercato",
+          "description": "PA chiude mercato per singolo operatore",
+          "risk_level": "medium",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From test-mercato.js"
+        },
+        {
+          "id": "presenze.sessioni.get",
+          "method": "GET",
+          "path": "/api/presenze/sessioni",
+          "category": "Presenze",
+          "description": "Lista sessioni mercato con filtri (mercato, data, stato)",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From presenze.js"
+        },
+        {
+          "id": "presenze.sessioni.id.dettaglio.get",
+          "method": "GET",
+          "path": "/api/presenze/sessioni/:id/dettaglio",
+          "category": "Presenze",
+          "description": "Dettaglio completo sessione con presenze e importi",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From presenze.js"
+        },
+        {
+          "id": "presenze.impresa.id.get",
+          "method": "GET",
+          "path": "/api/presenze/impresa/:id",
+          "category": "Presenze",
+          "description": "Storico presenze per singola impresa",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From presenze.js"
+        },
+        {
+          "id": "presenze.mercato.id.chiudi.post",
+          "method": "POST",
+          "path": "/api/presenze/mercato/:id/chiudi",
+          "category": "Presenze",
+          "description": "Chiudi sessione mercato (genera session_details, aggiorna graduatoria)",
+          "risk_level": "high",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From presenze.js"
+        },
+        {
+          "id": "presenze.registra_presenza_concessionario.post",
+          "method": "POST",
+          "path": "/api/presenze/registra-presenza-concessionario",
+          "category": "Presenze",
+          "description": "PA registra presenza concessionario (con tipo SPUNTA/CONCESSION)",
+          "risk_level": "medium",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false,
+            "expected_status": 200
+          },
+          "implemented": "rest",
+          "implementation_note": "From presenze.js — endpoint PA"
         }
       ]
     },
