@@ -1,6 +1,6 @@
 {
-  "version": 43,
-  "last_updated": "2026-05-07T00:30:00Z",
+  "version": 44,
+  "last_updated": "2026-05-12T02:30:00Z",
   "services": [
     {
       "id": "dms-hub",
@@ -15173,6 +15173,315 @@
           },
           "implemented": "rest",
           "implementation_note": "From presenze.js — endpoint PA"
+        },
+        {
+          "id": "anpr.status",
+          "method": "GET",
+          "path": "/api/anpr/status",
+          "category": "ANPR",
+          "description": "Stato connessione ANPR e modalità (sandbox/production)",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          }
+        },
+        {
+          "id": "anpr.residenza",
+          "method": "GET",
+          "path": "/api/anpr/residenza/:cf",
+          "category": "ANPR",
+          "description": "Verifica residenza completa tramite ANPR",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "default_params": {
+              "cf": "RSSMRA85M01H501Z"
+            },
+            "expected_status": 200
+          }
+        },
+        {
+          "id": "anpr.famiglia",
+          "method": "GET",
+          "path": "/api/anpr/famiglia/:cf",
+          "category": "ANPR",
+          "description": "Stato famiglia e componenti nucleo familiare",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "default_params": {
+              "cf": "RSSMRA85M01H501Z"
+            },
+            "expected_status": 200
+          }
+        },
+        {
+          "id": "anpr.verificaBatch",
+          "method": "POST",
+          "path": "/api/anpr/verifica-batch",
+          "category": "ANPR",
+          "description": "Verifica multipla fino a 10 CF contemporaneamente",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false
+          }
+        },
+        {
+          "id": "anpr.audit",
+          "method": "GET",
+          "path": "/api/anpr/audit",
+          "category": "ANPR",
+          "description": "Storico chiamate ANPR con filtri",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          }
+        },
+        {
+          "id": "appio.status",
+          "method": "GET",
+          "path": "/api/appio/status",
+          "category": "App IO",
+          "description": "Stato connessione App IO e statistiche invio",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          }
+        },
+        {
+          "id": "appio.templates",
+          "method": "GET",
+          "path": "/api/appio/templates",
+          "category": "App IO",
+          "description": "Lista template messaggi disponibili",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          }
+        },
+        {
+          "id": "appio.templateDetail",
+          "method": "GET",
+          "path": "/api/appio/templates/:id",
+          "category": "App IO",
+          "description": "Dettaglio singolo template messaggio",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "default_params": {
+              "id": "scadenza_concessione"
+            },
+            "expected_status": 200
+          }
+        },
+        {
+          "id": "appio.sendMessage",
+          "method": "POST",
+          "path": "/api/appio/send-message",
+          "category": "App IO",
+          "description": "Invio messaggio a cittadino tramite template",
+          "risk_level": "high",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false
+          }
+        },
+        {
+          "id": "appio.messages",
+          "method": "GET",
+          "path": "/api/appio/messages",
+          "category": "App IO",
+          "description": "Storico messaggi inviati con filtri",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          }
+        },
+        {
+          "id": "appio.testConnection",
+          "method": "POST",
+          "path": "/api/appio/test-connection",
+          "category": "App IO",
+          "description": "Test connessione API App IO",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          }
+        },
+        {
+          "id": "pagopa.health",
+          "method": "GET",
+          "path": "/api/pagopa/health",
+          "category": "PagoPA",
+          "description": "Health check gateway PagoPA E-FIL",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          }
+        },
+        {
+          "id": "pagopa.status",
+          "method": "GET",
+          "path": "/api/pagopa/status",
+          "category": "PagoPA",
+          "description": "Stato configurazione PagoPA e modalità",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          }
+        },
+        {
+          "id": "pagopa.creaPosizione",
+          "method": "POST",
+          "path": "/api/pagopa/crea-posizione",
+          "category": "PagoPA",
+          "description": "Genera IUV e posizione debitoria",
+          "risk_level": "high",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false
+          }
+        },
+        {
+          "id": "pagopa.posizioni",
+          "method": "GET",
+          "path": "/api/pagopa/posizioni",
+          "category": "PagoPA",
+          "description": "Lista posizioni debitorie con filtri",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          }
+        },
+        {
+          "id": "pagopa.callback",
+          "method": "POST",
+          "path": "/api/pagopa/callback",
+          "category": "PagoPA",
+          "description": "Webhook conferma pagamento (Ricevuta Telematica)",
+          "risk_level": "high",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false
+          }
+        },
+        {
+          "id": "pagopa.riconcilia",
+          "method": "POST",
+          "path": "/api/pagopa/riconcilia",
+          "category": "PagoPA",
+          "description": "Riconciliazione flussi XML pagamenti",
+          "risk_level": "high",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false
+          }
+        },
+        {
+          "id": "firma.uploadFirmato",
+          "method": "POST",
+          "path": "/api/suap/pratiche/:id/upload-firmato",
+          "category": "Firma Digitale",
+          "description": "Upload e verifica crittografica firma digitale CAdES/PAdES",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false
+          }
+        },
+        {
+          "id": "ssu.status",
+          "method": "GET",
+          "path": "/api/ssu/status",
+          "category": "SSU",
+          "description": "Stato connettore SSU Front Office",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          }
+        },
+        {
+          "id": "ssu.requestCui",
+          "method": "POST",
+          "path": "/api/ssu/request-cui",
+          "category": "SSU",
+          "description": "Richiesta CUI al Catalogo SSU",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false
+          }
+        },
+        {
+          "id": "ssu.sendInstance",
+          "method": "POST",
+          "path": "/api/ssu/send-instance",
+          "category": "SSU",
+          "description": "Invio istanza SUAP al Back Office",
+          "risk_level": "high",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false
+          }
+        },
+        {
+          "id": "ssu.instances",
+          "method": "GET",
+          "path": "/api/ssu/instances",
+          "category": "SSU",
+          "description": "Lista istanze SSU inviate",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          }
         }
       ]
     },
