@@ -1,6 +1,6 @@
 {
-  "version": 44,
-  "last_updated": "2026-05-12T02:30:00Z",
+  "version": 45,
+  "last_updated": "2026-05-13T10:00:00Z",
   "services": [
     {
       "id": "dms-hub",
@@ -16013,6 +16013,599 @@
           "response": "Conteggi e importi sanzioni",
           "category": "Polizia Municipale",
           "auth": "optional"
+        }
+      ]
+    },
+    {
+      "id": "a99x-agenda",
+      "display_name": "A99X — Agenda Intelligente PA",
+      "base_url": "https://api.miohub.it",
+      "env": "production",
+      "description": "Sistema Agenda Intelligente per la PA: riunioni, task, inviti, schedulazione pubblica, prenotazioni cittadini",
+      "endpoints": [
+        {
+          "id": "a99x.assessori.list",
+          "method": "GET",
+          "path": "/api/a99x/assessori",
+          "category": "A99X Assessori",
+          "description": "Lista assessori del comune",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          }
+        },
+        {
+          "id": "a99x.assessori.create",
+          "method": "POST",
+          "path": "/api/a99x/assessori",
+          "category": "A99X Assessori",
+          "description": "Crea nuovo assessore",
+          "risk_level": "medium",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false
+          }
+        },
+        {
+          "id": "a99x.assessori.update",
+          "method": "PUT",
+          "path": "/api/a99x/assessori/:id",
+          "category": "A99X Assessori",
+          "description": "Aggiorna assessore",
+          "risk_level": "medium",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false
+          }
+        },
+        {
+          "id": "a99x.assessori.delete",
+          "method": "DELETE",
+          "path": "/api/a99x/assessori/:id",
+          "category": "A99X Assessori",
+          "description": "Elimina assessore",
+          "risk_level": "high",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false
+          }
+        },
+        {
+          "id": "a99x.assessori.slot.list",
+          "method": "GET",
+          "path": "/api/a99x/assessori/:id/slot",
+          "category": "A99X Assessori",
+          "description": "Lista slot disponibilità assessore",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          }
+        },
+        {
+          "id": "a99x.assessori.slot.create",
+          "method": "POST",
+          "path": "/api/a99x/assessori/:id/slot",
+          "category": "A99X Assessori",
+          "description": "Crea slot disponibilità assessore",
+          "risk_level": "medium",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false
+          }
+        },
+        {
+          "id": "a99x.slot.delete",
+          "method": "DELETE",
+          "path": "/api/a99x/slot/:id",
+          "category": "A99X Assessori",
+          "description": "Elimina slot disponibilità",
+          "risk_level": "medium",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false
+          }
+        },
+        {
+          "id": "a99x.riunioni.list",
+          "method": "GET",
+          "path": "/api/a99x/riunioni",
+          "category": "A99X Riunioni",
+          "description": "Lista riunioni del comune con filtri (stato, data, partecipante)",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          }
+        },
+        {
+          "id": "a99x.riunioni.getById",
+          "method": "GET",
+          "path": "/api/a99x/riunioni/:id",
+          "category": "A99X Riunioni",
+          "description": "Dettaglio riunione con partecipanti e task",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          }
+        },
+        {
+          "id": "a99x.riunioni.create",
+          "method": "POST",
+          "path": "/api/a99x/riunioni",
+          "category": "A99X Riunioni",
+          "description": "Crea nuova riunione con partecipanti e link Jitsi",
+          "risk_level": "medium",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false
+          }
+        },
+        {
+          "id": "a99x.riunioni.update",
+          "method": "PUT",
+          "path": "/api/a99x/riunioni/:id",
+          "category": "A99X Riunioni",
+          "description": "Aggiorna riunione (oggetto, data, note)",
+          "risk_level": "medium",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false
+          }
+        },
+        {
+          "id": "a99x.riunioni.updateStato",
+          "method": "PUT",
+          "path": "/api/a99x/riunioni/:id/stato",
+          "category": "A99X Riunioni",
+          "description": "Aggiorna stato riunione (pianificata/in_corso/completata/annullata)",
+          "risk_level": "medium",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false
+          }
+        },
+        {
+          "id": "a99x.riunioni.delete",
+          "method": "DELETE",
+          "path": "/api/a99x/riunioni/:id",
+          "category": "A99X Riunioni",
+          "description": "Elimina riunione",
+          "risk_level": "high",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false
+          }
+        },
+        {
+          "id": "a99x.partecipanti.list",
+          "method": "GET",
+          "path": "/api/a99x/riunioni/:id/partecipanti",
+          "category": "A99X Riunioni",
+          "description": "Lista partecipanti riunione",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          }
+        },
+        {
+          "id": "a99x.partecipanti.add",
+          "method": "POST",
+          "path": "/api/a99x/riunioni/:id/partecipanti",
+          "category": "A99X Riunioni",
+          "description": "Aggiungi partecipante a riunione",
+          "risk_level": "medium",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false
+          }
+        },
+        {
+          "id": "a99x.partecipanti.updateStato",
+          "method": "PUT",
+          "path": "/api/a99x/partecipanti/:id/stato",
+          "category": "A99X Riunioni",
+          "description": "Aggiorna stato partecipante (confermato/rifiutato/in_attesa)",
+          "risk_level": "medium",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false
+          }
+        },
+        {
+          "id": "a99x.partecipanti.delete",
+          "method": "DELETE",
+          "path": "/api/a99x/partecipanti/:id",
+          "category": "A99X Riunioni",
+          "description": "Rimuovi partecipante da riunione",
+          "risk_level": "medium",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false
+          }
+        },
+        {
+          "id": "a99x.task.list",
+          "method": "GET",
+          "path": "/api/a99x/task",
+          "category": "A99X Task",
+          "description": "Lista task con filtri (stato, assegnato, riunione)",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          }
+        },
+        {
+          "id": "a99x.task.create",
+          "method": "POST",
+          "path": "/api/a99x/riunioni/:id/task",
+          "category": "A99X Task",
+          "description": "Crea task associato a riunione",
+          "risk_level": "medium",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false
+          }
+        },
+        {
+          "id": "a99x.task.update",
+          "method": "PUT",
+          "path": "/api/a99x/task/:id",
+          "category": "A99X Task",
+          "description": "Aggiorna task (titolo, descrizione, scadenza, assegnato)",
+          "risk_level": "medium",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false
+          }
+        },
+        {
+          "id": "a99x.task.updateStato",
+          "method": "PUT",
+          "path": "/api/a99x/task/:id/stato",
+          "category": "A99X Task",
+          "description": "Aggiorna stato task (da_fare/in_corso/completato)",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false
+          }
+        },
+        {
+          "id": "a99x.dashboard",
+          "method": "GET",
+          "path": "/api/a99x/dashboard",
+          "category": "A99X Dashboard",
+          "description": "Statistiche dashboard A99X (riunioni, task, prossimi eventi)",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          }
+        },
+        {
+          "id": "a99x.calendario",
+          "method": "GET",
+          "path": "/api/a99x/calendario",
+          "category": "A99X Dashboard",
+          "description": "Eventi calendario (riunioni + task con scadenza)",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          }
+        },
+        {
+          "id": "a99x.jitsi.generaLink",
+          "method": "POST",
+          "path": "/api/a99x/jitsi/genera-link",
+          "category": "A99X Dashboard",
+          "description": "Genera link Jitsi Meet per videoconferenza",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false
+          }
+        },
+        {
+          "id": "a99x.ricercaContatti",
+          "method": "GET",
+          "path": "/api/a99x/ricerca-contatti",
+          "category": "A99X Inviti & Ricerca",
+          "description": "Ricerca unificata IPA + Imprese + Associazioni (query, tipo)",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200,
+            "default_params": {
+              "q": "test",
+              "tipo": "impresa"
+            }
+          }
+        },
+        {
+          "id": "a99x.invitaRiunione",
+          "method": "POST",
+          "path": "/api/a99x/invita-riunione",
+          "category": "A99X Inviti & Ricerca",
+          "description": "Crea riunione con inviti multipli (email + notifica in-app + calendario)",
+          "risk_level": "medium",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false
+          }
+        },
+        {
+          "id": "a99x.invito.get",
+          "method": "GET",
+          "path": "/api/a99x/invito/:token",
+          "category": "A99X Inviti & Ricerca",
+          "description": "Dettaglio invito riunione (pubblico via token)",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          }
+        },
+        {
+          "id": "a99x.invito.accetta",
+          "method": "GET",
+          "path": "/api/a99x/invito/:token/accetta",
+          "category": "A99X Inviti & Ricerca",
+          "description": "Accetta invito riunione (pubblico via token)",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false
+          }
+        },
+        {
+          "id": "a99x.invito.rifiuta",
+          "method": "GET",
+          "path": "/api/a99x/invito/:token/rifiuta",
+          "category": "A99X Inviti & Ricerca",
+          "description": "Rifiuta invito riunione (pubblico via token)",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false
+          }
+        },
+        {
+          "id": "a99x.invitiRicevuti",
+          "method": "GET",
+          "path": "/api/a99x/inviti-ricevuti",
+          "category": "A99X Inviti & Ricerca",
+          "description": "Lista inviti ricevuti dall'utente (per calendario e notifiche)",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          }
+        },
+        {
+          "id": "a99x.public.uffici",
+          "method": "GET",
+          "path": "/api/a99x/public/uffici/:comuneId",
+          "category": "A99X Schedulazione Pubblica",
+          "description": "Lista uffici con disponibilità pubblica (per widget cittadini)",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200,
+            "default_params": {
+              "comuneId": "1"
+            }
+          }
+        },
+        {
+          "id": "a99x.public.disponibilita",
+          "method": "GET",
+          "path": "/api/a99x/public/disponibilita/:id",
+          "category": "A99X Schedulazione Pubblica",
+          "description": "Slot disponibili per un ufficio specifico (date/orari liberi)",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          }
+        },
+        {
+          "id": "a99x.public.prenota",
+          "method": "POST",
+          "path": "/api/a99x/public/prenota",
+          "category": "A99X Schedulazione Pubblica",
+          "description": "Prenota appuntamento pubblico (nome, email, telefono, data/ora)",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false
+          }
+        },
+        {
+          "id": "a99x.public.prenotazione.get",
+          "method": "GET",
+          "path": "/api/a99x/public/prenotazione/:codice",
+          "category": "A99X Schedulazione Pubblica",
+          "description": "Verifica stato prenotazione tramite codice",
+          "risk_level": "low",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          }
+        },
+        {
+          "id": "a99x.public.prenotazione.annulla",
+          "method": "POST",
+          "path": "/api/a99x/public/prenotazione/:codice/annulla",
+          "category": "A99X Schedulazione Pubblica",
+          "description": "Annulla prenotazione tramite codice",
+          "risk_level": "medium",
+          "require_auth": false,
+          "enabled": true,
+          "test": {
+            "enabled": false
+          }
+        },
+        {
+          "id": "a99x.prenotazioni.list",
+          "method": "GET",
+          "path": "/api/a99x/prenotazioni",
+          "category": "A99X Prenotazioni Admin",
+          "description": "Lista prenotazioni del comune con filtri (stato, data, ufficio)",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          }
+        },
+        {
+          "id": "a99x.prenotazioni.getById",
+          "method": "GET",
+          "path": "/api/a99x/prenotazioni/:id",
+          "category": "A99X Prenotazioni Admin",
+          "description": "Dettaglio singola prenotazione",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          }
+        },
+        {
+          "id": "a99x.prenotazioni.updateStato",
+          "method": "PUT",
+          "path": "/api/a99x/prenotazioni/:id/stato",
+          "category": "A99X Prenotazioni Admin",
+          "description": "Aggiorna stato prenotazione (confermata/completata/no_show)",
+          "risk_level": "medium",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false
+          }
+        },
+        {
+          "id": "a99x.prenotazioni.stats",
+          "method": "GET",
+          "path": "/api/a99x/prenotazioni/stats",
+          "category": "A99X Prenotazioni Admin",
+          "description": "Statistiche prenotazioni (totali, oggi, per stato)",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          }
+        },
+        {
+          "id": "a99x.disponibilita.list",
+          "method": "GET",
+          "path": "/api/a99x/disponibilita",
+          "category": "A99X Disponibilità Admin",
+          "description": "Lista disponibilità configurate per il comune",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          }
+        },
+        {
+          "id": "a99x.disponibilita.create",
+          "method": "POST",
+          "path": "/api/a99x/disponibilita",
+          "category": "A99X Disponibilità Admin",
+          "description": "Crea nuova disponibilità (ufficio, giorni, orari, durata slot)",
+          "risk_level": "medium",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false
+          }
+        },
+        {
+          "id": "a99x.disponibilita.update",
+          "method": "PUT",
+          "path": "/api/a99x/disponibilita/:id",
+          "category": "A99X Disponibilità Admin",
+          "description": "Aggiorna disponibilità esistente",
+          "risk_level": "medium",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false
+          }
+        },
+        {
+          "id": "a99x.disponibilita.delete",
+          "method": "DELETE",
+          "path": "/api/a99x/disponibilita/:id",
+          "category": "A99X Disponibilità Admin",
+          "description": "Elimina disponibilità",
+          "risk_level": "high",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false
+          }
         }
       ]
     }
