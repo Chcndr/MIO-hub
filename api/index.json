@@ -1,6 +1,6 @@
 {
-  "version": 45,
-  "last_updated": "2026-05-13T10:00:00Z",
+  "version": 46,
+  "last_updated": "2026-05-16T20:00:00Z",
   "services": [
     {
       "id": "dms-hub",
@@ -16601,6 +16601,86 @@
           "category": "A99X Disponibilità Admin",
           "description": "Elimina disponibilità",
           "risk_level": "high",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false
+          }
+        },
+        {
+          "id": "a99x.leMieRiunioni",
+          "method": "GET",
+          "path": "/api/a99x/le-mie-riunioni",
+          "category": "A99X Riunioni",
+          "description": "Riunioni dove l'utente è partecipante (per app impresa/cittadino/associazione)",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          }
+        },
+        {
+          "id": "a99x.invitaRiunioneSingolo",
+          "method": "POST",
+          "path": "/api/a99x/invita-riunione-singolo",
+          "category": "A99X Riunioni",
+          "description": "Aggiungi singolo partecipante a riunione esistente",
+          "risk_level": "medium",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false
+          }
+        },
+        {
+          "id": "a99x.gruppiImprese",
+          "method": "GET",
+          "path": "/api/a99x/gruppi-imprese",
+          "category": "A99X Riunioni",
+          "description": "Gruppi di imprese per inviti rapidi (per mercato/settore)",
+          "risk_level": "low",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": true,
+            "expected_status": 200
+          }
+        },
+        {
+          "id": "a99x.riunioni.rimanda",
+          "method": "POST",
+          "path": "/api/a99x/riunioni/:id/rimanda",
+          "category": "A99X Riunioni",
+          "description": "Rimanda riunione a nuova data e notifica tutti i partecipanti",
+          "risk_level": "high",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false
+          }
+        },
+        {
+          "id": "a99x.migraAMiohub",
+          "method": "POST",
+          "path": "/api/a99x/migra-a-miohub",
+          "category": "A99X Riunioni",
+          "description": "Migra riunione da DMS Legacy a MioHub",
+          "risk_level": "high",
+          "require_auth": true,
+          "enabled": true,
+          "test": {
+            "enabled": false
+          }
+        },
+        {
+          "id": "a99x.riunioni.rigeneraJitsi",
+          "method": "PUT",
+          "path": "/api/a99x/riunioni/:id/rigenera-jitsi",
+          "category": "A99X Riunioni",
+          "description": "Rigenera link Jitsi per videoconferenza riunione",
+          "risk_level": "medium",
           "require_auth": true,
           "enabled": true,
           "test": {
